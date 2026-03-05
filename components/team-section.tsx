@@ -31,9 +31,15 @@ export function TeamSection() {
           <span className="mb-6 inline-block rounded-full border border-eyebrow px-4 py-2 text-base tracking-tight text-eyebrow">
             Bold Team
           </span>
-          <h2 className="text-3xl font-semibold leading-[1] tracking-[-0.04em] text-slate-dark md:text-[48px]">
+          <h2 className="mb-4 text-3xl font-semibold leading-[1] tracking-[-0.04em] text-slate-dark md:text-[48px]">
             A duo focused on a meaningful education experience.
           </h2>
+          <p className="mx-auto max-w-[700px] text-lg leading-relaxed text-body-text md:text-xl md:leading-[1.6]">
+            We&apos;ve spent a combined 25 years building video infrastructure
+            and content. We know what a 500-hour library looks like when nobody
+            can search it. We built Bold because that problem shouldn&apos;t
+            exist anymore.
+          </p>
         </div>
 
         <div className="space-y-16 md:space-y-12">
