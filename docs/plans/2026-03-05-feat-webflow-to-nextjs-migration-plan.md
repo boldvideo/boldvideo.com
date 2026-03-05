@@ -102,9 +102,9 @@ Set up the project with all tooling and conventions before writing any UI code.
 
 **Tasks:**
 
-- [ ] `bun create next-app` with TypeScript, Tailwind CSS, App Router, Turbopack, ESLint (`next.config.ts`)
-- [ ] Configure TypeScript strict mode in `tsconfig.json` (`strict: true`, `@/*` path alias, `moduleResolution: "bundler"`)
-- [ ] Set up Tailwind v4 CSS-first config in `app/globals.css`:
+- [x] `bun create next-app` with TypeScript, Tailwind CSS, App Router, Turbopack, ESLint (`next.config.ts`)
+- [x] Configure TypeScript strict mode in `tsconfig.json` (`strict: true`, `@/*` path alias, `moduleResolution: "bundler"`)
+- [x] Set up Tailwind v4 CSS-first config in `app/globals.css`:
   ```css
   @import 'tailwindcss';
 
@@ -115,15 +115,15 @@ Set up the project with all tooling and conventions before writing any UI code.
     --font-sans: 'Inter', sans-serif;
   }
   ```
-- [ ] Set up PostCSS config (`postcss.config.mjs`) with `@tailwindcss/postcss`
-- [ ] Create `lib/utils.ts` with `cn()` utility (clsx + tailwind-merge)
-- [ ] Configure ESLint flat config (`eslint.config.mjs`): `next/core-web-vitals`, `next/typescript`, `no-console: ["warn", { allow: ["warn", "error"] }]`, `@typescript-eslint/no-explicit-any: "error"`
-- [ ] Configure Prettier (`.prettierrc`)
-- [ ] Set up `next/font/google` for Inter (400, 600) in root layout with CSS variable `--font-sans`
-- [ ] Create root `app/layout.tsx`: Inter font, `min-h-screen flex flex-col`, metadata (title, description, OpenGraph, Twitter card), Plausible script
-- [ ] Create `CLAUDE.md` with project overview, dev commands (`bun dev`, `bun run build`, `bun run lint`), architecture notes, code style guidelines (named exports, kebab-case files, `"use client"` only where needed, `cn()` for class merging)
-- [ ] Initialize git repo, create `.gitignore` (Next.js defaults + `.env*.local`)
-- [ ] Verify `bun dev` runs clean with Turbopack, no errors
+- [x] Set up PostCSS config (`postcss.config.mjs`) with `@tailwindcss/postcss`
+- [x] Create `lib/utils.ts` with `cn()` utility (clsx + tailwind-merge)
+- [x] Configure ESLint flat config (`eslint.config.mjs`): `next/core-web-vitals`, `next/typescript`, `no-console: ["warn", { allow: ["warn", "error"] }]`, `@typescript-eslint/no-explicit-any: "error"`
+- [x] Configure Prettier (`.prettierrc`)
+- [x] Set up `next/font/google` for Inter (400, 600) in root layout with CSS variable `--font-sans`
+- [x] Create root `app/layout.tsx`: Inter font, `min-h-screen flex flex-col`, metadata (title, description, OpenGraph, Twitter card), Plausible script
+- [x] Create `CLAUDE.md` with project overview, dev commands (`bun dev`, `bun run build`, `bun run lint`), architecture notes, code style guidelines (named exports, kebab-case files, `"use client"` only where needed, `cn()` for class merging)
+- [x] Initialize git repo, create `.gitignore` (Next.js defaults + `.env*.local`)
+- [x] Verify `bun dev` runs clean with Turbopack, no errors
 
 **Success criteria:** `bun dev` starts, `bun run build` succeeds, `bun run lint` passes, TypeScript strict mode active, Tailwind v4 classes render correctly.
 
