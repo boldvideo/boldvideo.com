@@ -7,7 +7,9 @@ export function FeatureSection() {
         </span>
 
         <h2 className="mb-4 text-3xl font-semibold leading-[1] tracking-[-0.04em] text-slate-dark md:text-[48px]">
-          Your content isn&apos;t the problem. The silence after it is.
+          Your content isn&apos;t the problem.
+          <br />
+          The silence after it is.
         </h2>
 
         <p className="text-lg leading-relaxed text-body-text md:text-2xl md:leading-[1.5] md:tracking-[-0.04em]">
