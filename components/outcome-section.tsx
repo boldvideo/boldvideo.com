@@ -12,7 +12,7 @@ export function OutcomeSection() {
           The math
         </span>
 
-        <h2 className="mb-4 text-3xl font-semibold leading-[1.1] tracking-[-0.04em] text-[#f7f7f7] md:text-[48px]">
+        <h2 className="mb-4 text-3xl font-semibold leading-[1.1] tracking-[-0.04em] !text-[#f7f7f7] md:text-[48px]">
           A 2-3% bump in retention on a $5M program? That&apos;s $100K+ you
           stopped leaving on the table.
         </h2>
