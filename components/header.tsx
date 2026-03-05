@@ -21,9 +21,6 @@ export function Header() {
             <Link href="/" aria-label="Bold Video">
               <BoldLogoIcon className="text-teal" />
             </Link>
-            <span className="hidden text-sm tracking-tight text-[#594F50] sm:inline">
-              in Private Beta
-            </span>
           </div>
 
           <button
