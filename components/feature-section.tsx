@@ -7,16 +7,15 @@ export function FeatureSection() {
         </span>
 
         <h2 className="mb-4 text-3xl font-semibold leading-[1] tracking-[-0.04em] text-slate-dark md:text-[48px]">
-          Your students aren&apos;t implementing what they learn—not because
-          your content is bad, but because nobody&apos;s there when
-          they&apos;re stuck.
+          Your content isn&apos;t the problem. The silence after it is.
         </h2>
 
         <p className="text-lg leading-relaxed text-body-text md:text-2xl md:leading-[1.5] md:tracking-[-0.04em]">
-          Bold makes your expertise searchable, conversational, and always
-          available. Students ask questions, get answers in your voice with
-          timestamps back to the exact moment in your content—no more waiting
-          for office hours or watching entire modules to find one answer.
+          Students watch your videos, nod along, then hit a wall at midnight
+          with no one to ask. So they stop. Bold lets them ask questions and get
+          answers in your voice, with timestamps to the exact moment in your
+          content. No office hours. No rewatching a 40-minute module to find one
+          answer.
         </p>
       </div>
     </section>

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Bold Video",
   },
   description:
-    "Scale your coaching program without hiring more coaches. Bold turns your video library into 24/7 coaching infrastructure.",
+    "Scale your coaching program without hiring more coaches. Bold turns your video library into a coaching team that never sleeps.",
   metadataBase: new URL("https://boldvideo.com"),
   openGraph: {
     type: "website",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     siteName: "Bold Video",
     title: "Bold Video",
     description:
-      "Scale your coaching program without hiring more coaches. Bold turns your video library into 24/7 coaching infrastructure.",
+      "Scale your coaching program without hiring more coaches. Bold turns your video library into a coaching team that never sleeps.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bold Video",
     description:
-      "Scale your coaching program without hiring more coaches. Bold turns your video library into 24/7 coaching infrastructure.",
+      "Scale your coaching program without hiring more coaches. Bold turns your video library into a coaching team that never sleeps.",
     images: ["/og-image.png"],
   },
 };

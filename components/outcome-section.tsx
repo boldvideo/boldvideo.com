@@ -13,11 +13,13 @@ export function OutcomeSection() {
         </span>
 
         <h2 className="mb-4 text-3xl font-semibold leading-[1.1] tracking-[-0.04em] text-cream md:text-[48px]">
-          Improve retention by 2-3%, and a $5M program saves $100K+ in revenue.
+          A 2-3% bump in retention on a $5M program? That&apos;s $100K+ you
+          stopped leaving on the table.
         </h2>
 
         <p className="mb-8 text-lg leading-relaxed text-cream/70 md:text-2xl md:leading-[1.5] md:tracking-[-0.04em]">
-          All without scaling your team.
+          Same team. Same content. Students just stop falling through the
+          cracks.
         </p>
 
         <button

@@ -20,9 +20,9 @@ export function Hero() {
           </h1>
 
           <p className="mb-6 text-lg leading-relaxed text-body-text md:text-2xl md:leading-[1.5] md:tracking-[-0.04em]">
-            Bold turns your video library into 24/7 coaching infrastructure.
-            Your students get unstuck at 11pm. You serve 500 students with a
-            team of 5.
+            Your students get stuck at 11pm. Nobody answers. They churn. Bold
+            turns your video library into a coaching team that never sleeps. 500
+            students, team of 5. That&apos;s the math.
           </p>
 
           <button
