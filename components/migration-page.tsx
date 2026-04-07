@@ -1,40 +1,47 @@
-import Link from "next/link";
-import { SiteFooter, SiteShell } from "./site-shell";
+"use client";
 
-const fromPlatforms = [
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import "./landing-v10.css";
+
+const ANNOUNCEMENT_MESSAGES = [
+  "Migrating off Kajabi?",
+  "Moving on from Vimeo?",
+  "Untangling Circle + Teachable?",
+];
+
+const FROM_PLATFORMS = [
   {
     name: "Kajabi",
     type: "All-in-one",
-    description: "Strong business engine. The learning experience starts to feel boxed in.",
-    tone: "mint",
+    description:
+      "Strong business engine. The learning experience starts to feel boxed in.",
+    toneClassName: "from-card-mint",
   },
   {
     name: "Vimeo",
     type: "Video hosting",
-    description: "Clean delivery. Members still need better search, guidance, and context.",
-    tone: "blue",
+    description:
+      "Clean delivery. Members still need better search, guidance, and context.",
+    toneClassName: "from-card-blue",
   },
   {
     name: "Circle",
     type: "Community",
-    description: "Conversation works. Learning still ends up split across too many surfaces.",
-    tone: "neutral",
+    description:
+      "Conversation works. Learning still ends up split across too many surfaces.",
+    toneClassName: "",
   },
   {
     name: "Teachable",
     type: "Course delivery",
-    description: "The structure is there. The depth and discoverability start to wear thin.",
-    tone: "warm",
+    description:
+      "The structure is there. The depth and discoverability start to wear thin.",
+    toneClassName: "from-card-warm",
   },
 ];
 
-const promiseCards = [
-  "Keep the content you already spent years building.",
-  "Make the library easier to search and trust.",
-  "Handle the cutover with a calm, guided plan.",
-];
-
-const migrationSteps = [
+const MIGRATION_STEPS = [
   {
     number: "01",
     title: "Map the real stack",
@@ -55,7 +62,7 @@ const migrationSteps = [
   },
 ];
 
-const customerStories = [
+const CUSTOMER_STORIES = [
   {
     href: "https://founderwell.com",
     image: "/images/socialproof-founderwell.png",
@@ -82,7 +89,7 @@ const customerStories = [
   },
 ];
 
-const faqItems = [
+const FAQ_ITEMS = [
   {
     question: "Do we have to move everything at once?",
     answer:
@@ -115,273 +122,347 @@ const faqItems = [
   },
 ];
 
-function toneClasses(tone: (typeof fromPlatforms)[number]["tone"]) {
-  if (tone === "mint") {
-    return "bg-[linear-gradient(180deg,#ffffff_0%,#f5fbf8_100%)]";
-  }
-  if (tone === "blue") {
-    return "bg-[linear-gradient(180deg,#ffffff_0%,#f4f7fe_100%)]";
-  }
-  if (tone === "warm") {
-    return "bg-[linear-gradient(180deg,#ffffff_0%,#fbf6ef_100%)]";
-  }
-  return "bg-white";
-}
-
 export function MigrationPage() {
+  const grainRef = useRef<HTMLCanvasElement | null>(null);
+  const [announcementIndex, setAnnouncementIndex] = useState(0);
+
+  useEffect(() => {
+    const grainCanvas = grainRef.current;
+    if (!grainCanvas) return;
+
+    const context = grainCanvas.getContext("2d");
+    if (!context) return;
+
+    let animationFrame = 0;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const resizeGrain = () => {
+      grainCanvas.width = window.innerWidth;
+      grainCanvas.height = window.innerHeight;
+    };
+
+    const drawGrain = () => {
+      const { width, height } = grainCanvas;
+      const imageData = context.createImageData(width, height);
+      const buffer = imageData.data;
+
+      for (let index = 0; index < buffer.length; index += 4) {
+        const value = Math.random() * 255;
+        buffer[index] = value;
+        buffer[index + 1] = value;
+        buffer[index + 2] = value;
+        buffer[index + 3] = 255;
+      }
+
+      context.putImageData(imageData, 0, 0);
+      animationFrame = window.requestAnimationFrame(drawGrain);
+    };
+
+    if (!prefersReducedMotion) {
+      resizeGrain();
+      drawGrain();
+      window.addEventListener("resize", resizeGrain);
+    }
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("resize", resizeGrain);
+    };
+  }, []);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setAnnouncementIndex((current) => (current + 1) % ANNOUNCEMENT_MESSAGES.length);
+    }, 4000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, []);
+
   return (
-    <SiteShell>
-      <main className="flex-1" id="main-content">
-        <section className="mx-auto max-w-[1200px] px-4 pb-16 pt-[9.75rem] sm:px-6 md:pb-24 md:pt-[12rem] lg:px-8">
-          <div className="text-center">
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-signal-ink)]">
-              Migration to Bold
-            </p>
-            <h1 className="mx-auto mt-4 max-w-[10ch] text-balance text-[clamp(3rem,6.4vw,5.8rem)] font-semibold leading-[0.88] tracking-[-0.07em] text-[var(--color-ink)]">
-              Move to Bold without starting over
-            </h1>
-            <p className="mx-auto mt-6 max-w-[37rem] text-lg leading-8 text-[var(--color-copy)]">
-              If you are on Kajabi, Vimeo, Circle, Teachable, or a stack nobody
-              can explain in one sentence, the move should feel like
-              simplification, not a rebuild. We handle it with you personally.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+    <main className="landing-v10 migration-v11" id="main-content">
+      <div className="grain">
+        <canvas ref={grainRef} aria-hidden="true" />
+      </div>
+
+      <div className="announce">
+        <strong>{ANNOUNCEMENT_MESSAGES[announcementIndex]}</strong>
+        <div className="sep" />
+        <a href="#faq">Read the migration FAQs &rarr;</a>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <div className="nav-inner">
+          <Link className="nav-logo" href="/" aria-label="Bold — Home">
+            <svg width="26" height="26" viewBox="0 0 512 512" fill="none">
+              <path
+                clipRule="evenodd"
+                d="m27 512v-512h260.196c112.402 0 160.451 58.6113 160.451 129.54 0 70.927-17.805 98.746-54.914 126.354 62.421 16.777 92.881 75.175 92.881 143.768 0 68.592-8.58 80.696-36.251 112.338z"
+                fill="#41C6A6"
+                fillRule="evenodd"
+              />
+            </svg>
+          </Link>
+          <div className="nav-right">
+            <a href="#from">From where</a>
+            <a href="#how">How it works</a>
+            <a href="#faq">FAQs</a>
+            <a
+              className="nav-cta"
+              href="https://savvycal.com/marcel-from-bold/7838d613"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Book the switch call
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <section className="migration-hero container">
+        <div className="migration-hero-inner">
+          <div className="hero-eyebrow">Migration to Bold</div>
+          <h1>
+            Move to Bold <span className="u">without starting over</span>
+          </h1>
+          <p className="hero-sub">
+            If you are on Kajabi, Vimeo, Circle, Teachable, or a stack nobody
+            can explain in one sentence, the move should feel like
+            simplification, not a rebuild. We handle it with you personally.
+          </p>
+          <div className="hero-actions">
+            <a
+              className="btn-mint"
+              href="https://savvycal.com/marcel-from-bold/7838d613"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Book the switch call
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M5 2l5 5-5 5"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </a>
+            <a className="btn-ghost" href="#from">
+              See where teams come from
+            </a>
+          </div>
+        </div>
+
+        <div className="migration-flow" id="from">
+          <div className="migration-flow-head">
+            <div className="migration-flow-label">Common starting points</div>
+            <div className="migration-flow-label">What members get after the move</div>
+          </div>
+
+          <div className="migration-flow-grid">
+            <div className="migration-from-grid">
+              {FROM_PLATFORMS.map((platform) => (
+                <article
+                  className={`migration-from-card ${platform.toneClassName}`}
+                  key={platform.name}
+                >
+                  <div className="migration-from-name">{platform.name}</div>
+                  <div className="migration-from-type">{platform.type}</div>
+                  <p>{platform.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="migration-to-card">
+              <div className="migration-to-wordmark">Bold</div>
+              <div className="migration-to-list">
+                <div>Searchable library</div>
+                <div>Cited answers</div>
+                <div>Cleaner member experience</div>
+                <div>Less support repetition</div>
+              </div>
+              <div className="migration-to-note">
+                Same teaching. Better access to it.
+              </div>
+            </div>
+          </div>
+
+          <div className="migration-flow-foot">
+            We map the real stack, build the cleaner version, and stay close to
+            the cutover while it is happening.
+          </div>
+        </div>
+      </section>
+
+      <section className="migration-steps container" id="how">
+        <div className="sec-label">How it works</div>
+        <h2 className="section-title">Keep the move simple</h2>
+        <p className="sec-sub">
+          It does not need to be more dramatic than this.
+        </p>
+
+        <div className="migration-steps-grid">
+          {MIGRATION_STEPS.map((step) => (
+            <article className="migration-step-card" key={step.number}>
+              <div className="migration-step-number">{step.number}</div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="migration-handled">
+          <span className="migration-handled-label">Founder-led handoff</span>
+          <p>
+            You are not getting tossed into a generic queue and told to figure
+            it out from docs.
+          </p>
+        </div>
+      </section>
+
+      <section className="showcase container">
+        <div className="showcase-head">
+          <h2>Already live on Bold</h2>
+        </div>
+        <div className="showcase-grid">
+          {CUSTOMER_STORIES.map((story) => (
+            <a
+              className="sc-card"
+              href={story.href}
+              key={story.label}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div className="sc-screen">
+                <img alt={story.label} className="sc-img" src={story.image} />
+                <div className="sc-label">{story.category}</div>
+              </div>
+              <div className="sc-info migration-proof-copy">
+                <h4>{story.label}</h4>
+                <p>{story.detail}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="migration-faq container" id="faq">
+        <div className="sec-label">FAQs</div>
+        <h2 className="section-title">Straight answers for the switch</h2>
+        <div className="faq-list-simple">
+          {FAQ_ITEMS.map((item) => (
+            <details className="faq-row" key={item.question}>
+              <summary>
+                <span>{item.question}</span>
+                <span className="faq-plus">+</span>
+              </summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section className="cta">
+        <div className="container">
+          <h2>Bring us your stack. We will show you the clean move.</h2>
+          <p>
+            Kajabi. Vimeo. Circle. Teachable. Or a stack that needs a whiteboard
+            before it makes sense. All fair game.
+          </p>
+          <a
+            className="btn-cta"
+            href="https://savvycal.com/marcel-from-bold/7838d613"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Book the switch call
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path
+                d="M5 2l5 5-5 5"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <div className="container">
+          <div className="footer-top">
+            <div>
+              <div className="footer-brand">
+                <svg
+                  width="100"
+                  height="28"
+                  viewBox="0 0 2446 670"
+                  fill="none"
+                >
+                  <path
+                    d="M1852.5076,670 L1852.5076,669.887695 C1852.5076,527.853176 1852.5076,314.801396 1852.5076,30.7323566 C1852.5076,30.7323566 1977.5565,14.8363101 2114.2625,14.8363101 C2390.85371,14.8363101 2445.96,207.708341 2445.96,379.385643 C2445.96,483.357525 2414.91214,594.306455 2343.80949,670 L1852.5076,670 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M1811.81187,670 L1308.38511,670 C1278.09393,628.203566 1262.20497,569.947745 1262.20497,490.657969 L1262.20497,21.1947287 L1680.80086,21.1947287 L1680.80086,464.164558 L1806.90949,456.746403 L1811.81187,670 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M1139.30733,670 L679.041861,670 C614.793443,602.542428 577.585794,499.840245 577.585794,366.668806 C577.585794,143.064418 719.590476,0 911.40277,0 C1106.39427,0 1240.9808,143.064418 1240.9808,366.668806 C1240.9808,499.840245 1203.1872,602.542428 1139.30733,670 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+              <p className="footer-tl">
+                Video intelligence for coaching programs. Turn your library into
+                an AI coach that cites the moment that matters.
+              </p>
+            </div>
+            <div className="footer-col">
+              <h4>Product</h4>
+              <Link href="/#how-it-works">Why Bold</Link>
+              <Link href="/#customers">Customer examples</Link>
+              <Link href="/#fit">Program fit</Link>
+              <Link href="/migrate">Migration help</Link>
+            </div>
+            <div className="footer-col">
+              <h4>Compare</h4>
+              <Link href="/vs-youtube">Bold vs YouTube</Link>
+              <Link href="/vs-vimeo">Bold vs Vimeo</Link>
               <a
-                className="inline-flex items-center justify-center rounded-full bg-[var(--color-signal)] px-6 py-3.5 text-sm font-semibold text-[var(--color-forest)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-button-mint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2"
                 href="https://savvycal.com/marcel-from-bold/7838d613"
                 rel="noreferrer"
                 target="_blank"
               >
-                Book the switch call
-              </a>
-              <a
-                className="inline-flex items-center justify-center rounded-full border border-[var(--color-line-strong)] bg-white/76 px-6 py-3.5 text-sm font-medium text-[var(--color-ink)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-ink)] hover:shadow-[var(--shadow-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2"
-                href="#faq"
-              >
-                Read the FAQs
+                Book a demo
               </a>
             </div>
-          </div>
-
-          <div className="relative mt-12">
-            <div className="absolute left-8 top-6 hidden h-28 w-28 rounded-full bg-[var(--color-signal-soft)] blur-3xl md:block" />
-            <div className="absolute right-10 top-18 hidden h-32 w-32 rounded-full bg-[var(--color-ocean-soft)] blur-3xl md:block" />
-
-            <div className="relative mx-auto max-w-[980px] rounded-[2.7rem] border border-[var(--color-line)] bg-white/82 p-6 shadow-[var(--shadow-panel)] backdrop-blur-sm sm:p-8">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                  Most teams come from one of these
-                </p>
-                <span className="inline-flex items-center rounded-full border border-[rgba(67,198,166,0.22)] bg-[var(--color-signal-soft)] px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-signal-ink)]">
-                  Founder-led handoff
-                </span>
-              </div>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-                {fromPlatforms.map((platform) => (
-                  <article
-                    className={`rounded-[1.7rem] border border-[var(--color-line)] p-5 shadow-[var(--shadow-chip)] ${toneClasses(platform.tone)}`}
-                    key={platform.name}
-                  >
-                    <h2 className="text-[1.2rem] font-semibold tracking-[-0.04em] text-[var(--color-ink)]">
-                      {platform.name}
-                    </h2>
-                    <p className="mt-1 font-mono text-[0.66rem] uppercase tracking-[0.22em] text-[var(--color-muted)]">
-                      {platform.type}
-                    </p>
-                    <p className="mt-4 text-sm leading-7 text-[var(--color-copy)]">
-                      {platform.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-surface-muted)]/86 p-5 sm:p-6">
-                <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                  <div className="flex flex-wrap items-center gap-2">
-                    {fromPlatforms.map((platform) => (
-                      <span
-                        className="rounded-full border border-[var(--color-line)] bg-white/88 px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-[var(--color-copy)]"
-                        key={platform.name}
-                      >
-                        {platform.name}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="hidden h-px flex-1 bg-[var(--color-line)] lg:block" />
-                  <div className="inline-flex items-center justify-center rounded-full bg-[var(--color-ink)] px-4 py-2 text-sm font-semibold text-[var(--color-cream)]">
-                    Bold
-                  </div>
-                </div>
-
-                <div className="mt-5 grid gap-3 md:grid-cols-3">
-                  {promiseCards.map((item) => (
-                    <div
-                      className="rounded-[1.4rem] border border-[var(--color-line)] bg-white/82 px-4 py-4 text-sm leading-7 text-[var(--color-copy)]"
-                      key={item}
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="footer-col">
+              <h4>Company</h4>
+              <Link href="/privacy">Privacy</Link>
+              <Link href="/terms">Terms</Link>
+              <a href="mailto:support@boldvideo.com">Contact</a>
             </div>
           </div>
-        </section>
-
-        <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="text-center">
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              How it works
-            </p>
-            <h2 className="mx-auto mt-4 max-w-[12ch] text-balance text-[clamp(2.2rem,4.8vw,4.1rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-[var(--color-ink)]">
-              Keep the move simple
-            </h2>
-            <p className="mx-auto mt-5 max-w-[34rem] text-base leading-8 text-[var(--color-copy)]">
-              It does not need to be more dramatic than this.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {migrationSteps.map((step) => (
-              <article
-                className="rounded-[2rem] border border-[var(--color-line)] bg-white/82 p-6 shadow-[var(--shadow-soft)]"
-                key={step.number}
-              >
-                <span className="inline-flex rounded-full bg-[var(--color-ocean-soft)] px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-[var(--color-ocean)]">
-                  {step.number}
-                </span>
-                <h3 className="mt-4 text-[1.15rem] font-semibold leading-[1.1] tracking-[-0.03em] text-[var(--color-ink)]">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-[var(--color-copy)]">
-                  {step.description}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mx-auto mt-8 max-w-[860px] rounded-[2.2rem] border border-[var(--color-line)] bg-[var(--color-ink)] px-6 py-8 text-center text-[var(--color-cream)] shadow-[0_34px_88px_-50px_rgba(19,15,11,0.9)] sm:px-8">
-            <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/34">
-              Personal help
-            </p>
-            <p className="mx-auto mt-4 max-w-[34rem] text-base leading-8 text-white/72">
-              You are not getting tossed into a generic queue and told to figure
-              it out from docs. We stay close to the migration while it is
-              happening.
-            </p>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
-          <div className="text-center">
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              Current customers
-            </p>
-            <h2 className="mx-auto mt-4 max-w-[12ch] text-balance text-[clamp(2.2rem,4.6vw,3.9rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-[var(--color-ink)]">
-              Already live on Bold
-            </h2>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {customerStories.map((story) => (
-              <a
-                className="group overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-white/82 shadow-[var(--shadow-panel)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_34px_72px_-42px_rgba(19,15,11,0.42)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2"
-                href={story.href}
-                key={story.label}
-                rel="noreferrer"
-                target="_blank"
-              >
-                <div className="overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-surface-muted)]">
-                  <img
-                    alt={story.label}
-                    className="aspect-[1.28] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-                    src={story.image}
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                    {story.category}
-                  </p>
-                  <h3 className="mt-3 text-[1.25rem] font-semibold leading-[1.05] tracking-[-0.04em] text-[var(--color-ink)]">
-                    {story.label}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-[var(--color-copy)]">
-                    {story.detail}
-                  </p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section
-          className="mx-auto max-w-[920px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24"
-          id="faq"
-        >
-          <div className="text-center">
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              FAQs
-            </p>
-            <h2 className="mx-auto mt-4 max-w-[12ch] text-balance text-[clamp(2.1rem,4.6vw,3.7rem)] font-semibold leading-[0.92] tracking-[-0.06em] text-[var(--color-ink)]">
-              Straight answers for the switch
-            </h2>
-          </div>
-
-          <div className="mt-10 space-y-3">
-            {faqItems.map((item) => (
-              <details
-                className="group rounded-[1.8rem] border border-[var(--color-line)] bg-white/82 px-5 py-4 shadow-[var(--shadow-soft)]"
-                key={item.question}
-              >
-                <summary className="flex cursor-pointer list-none items-start justify-between gap-6 text-left text-base font-semibold leading-7 tracking-[-0.02em] text-[var(--color-ink)] marker:content-none">
-                  <span>{item.question}</span>
-                  <span className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-muted)] transition-transform duration-200 group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <p className="pr-12 pt-4 text-sm leading-7 text-[var(--color-copy)]">
-                  {item.answer}
-                </p>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        <section className="px-4 pb-10 sm:px-6 md:pb-0 lg:px-8">
-          <div className="mx-auto overflow-hidden rounded-[2.7rem] border border-[var(--color-line)] bg-[radial-gradient(circle_at_top_left,rgba(67,198,166,0.18),transparent_32%),radial-gradient(circle_at_90%_18%,rgba(20,92,255,0.14),transparent_26%),linear-gradient(180deg,#0d1511_0%,#121d18_100%)] px-6 py-14 text-[var(--color-cream)] shadow-[0_44px_110px_-56px_rgba(13,21,17,0.95)] sm:px-8 md:px-12 md:py-16">
-            <div className="mx-auto max-w-[760px] text-center">
-              <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/34">
-                Ready when you are
-              </p>
-              <h2 className="mt-4 text-balance text-[clamp(2.3rem,4.8vw,4.4rem)] font-semibold leading-[0.9] tracking-[-0.06em]">
-                Bring us your stack. We will show you the clean move.
-              </h2>
-              <p className="mx-auto mt-5 max-w-[34rem] text-base leading-8 text-white/70">
-                Kajabi. Vimeo. Circle. Teachable. Or a stack that needs a
-                whiteboard before it makes sense. All fair game.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                <a
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--color-signal)] px-6 py-3.5 text-sm font-semibold text-[var(--color-forest)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-button-mint)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
-                  href="https://savvycal.com/marcel-from-bold/7838d613"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Book the switch call
-                </a>
-                <Link
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/6 px-6 py-3.5 text-sm font-medium text-[var(--color-cream)] transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
-                  href="mailto:support@boldvideo.com?subject=Migration%20to%20Bold"
-                >
-                  Email us your stack
-                </Link>
-              </div>
+          <div className="footer-bot">
+            <span>&copy; 2026 Bold Video</span>
+            <div>
+              <Link href="/privacy">Privacy</Link>
+              <Link href="/terms">Terms</Link>
+              <a href="mailto:support@boldvideo.com">Contact</a>
             </div>
           </div>
-        </section>
-      </main>
-      <SiteFooter />
-    </SiteShell>
+        </div>
+      </footer>
+    </main>
   );
 }
