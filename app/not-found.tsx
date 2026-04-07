@@ -1,19 +1,34 @@
 import Link from "next/link";
+import { SiteFooter, SiteShell } from "@/components/site-shell";
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4">
-      <h1 className="mb-4 text-6xl font-semibold text-gray-200">404</h1>
-      <h2 className="mb-2 text-xl font-semibold">Page not found</h2>
-      <p className="mb-8 text-gray-500">
-        The page you&apos;re looking for doesn&apos;t exist.
-      </p>
-      <Link
-        href="/"
-        className="rounded-full bg-teal px-6 py-2.5 text-sm text-[#FFFEFB] transition-opacity hover:opacity-90"
-      >
-        Go home →
-      </Link>
-    </div>
+    <SiteShell>
+      <main className="flex flex-1 items-center" id="main-content">
+        <section className="mx-auto max-w-[1200px] px-4 py-24 text-center sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[34rem] rounded-[2.5rem] border border-[var(--color-line)] bg-white/76 px-6 py-14 shadow-[var(--shadow-panel)] sm:px-10">
+            <p className="font-mono text-[0.78rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+              404
+            </p>
+            <h1 className="mt-5 text-balance text-[clamp(3rem,6vw,5rem)] font-semibold leading-[0.9] tracking-[-0.06em] text-[var(--color-ink)]">
+              Page not found
+            </h1>
+            <p className="mt-5 text-base leading-8 text-[var(--color-copy)]">
+              The page you were looking for does not exist or has moved during
+              the rebuild.
+            </p>
+            <div className="mt-8">
+              <Link
+                className="inline-flex items-center justify-center rounded-full bg-[var(--color-ink)] px-6 py-3.5 text-sm font-semibold text-[var(--color-cream)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2"
+                href="/"
+              >
+                Back to the homepage
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+      <SiteFooter />
+    </SiteShell>
   );
 }

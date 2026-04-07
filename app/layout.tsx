@@ -1,39 +1,51 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Bold Video",
-    template: "%s | Bold Video",
+    default: "Bold",
+    template: "%s | Bold",
   },
   description:
-    "Scale your coaching program without hiring more coaches. Bold turns your video library into a coaching team that never sleeps.",
+    "Scale your coaching program without hiring more coaches. Bold turns your video library into an AI coach that cites the exact moment that matters.",
   metadataBase: new URL("https://boldvideo.com"),
+  keywords: [
+    "video intelligence",
+    "AI coaching",
+    "coaching program software",
+    "video library search",
+    "training academy AI",
+  ],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://boldvideo.com",
-    siteName: "Bold Video",
-    title: "Bold Video",
+    siteName: "Bold",
+    title: "Bold",
     description:
-      "Scale your coaching program without hiring more coaches. Bold turns your video library into a coaching team that never sleeps.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+      "Scale your coaching program without hiring more coaches. Bold turns your video library into an AI coach that cites the exact moment that matters.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bold Video",
+    title: "Bold",
     description:
-      "Scale your coaching program without hiring more coaches. Bold turns your video library into a coaching team that never sleeps.",
-    images: ["/og-image.png"],
+      "Scale your coaching program without hiring more coaches. Bold turns your video library into an AI coach that cites the exact moment that matters.",
   },
 };
 
@@ -44,7 +56,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body
+        className={`${plusJakartaSans.variable} ${dmMono.variable} font-sans antialiased`}
+      >
         {children}
       </body>
       <Script
