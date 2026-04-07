@@ -504,9 +504,32 @@ export function HomePage() {
     if (eggInput) eggInput.addEventListener("keydown", onEggKey);
     if (eggBtn) eggBtn.addEventListener("click", onEggClick);
 
+    // Scroll-triggered stagger animations for feature visuals
+    const staggerTargets = document.querySelectorAll("[data-animate='stagger']");
+    let observer: IntersectionObserver | null = null;
+
+    if (!prefersReducedMotion && staggerTargets.length > 0) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("fmc-in-view");
+              observer?.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      staggerTargets.forEach((target) => observer?.observe(target));
+    } else {
+      // Reduced motion or no targets — show immediately
+      staggerTargets.forEach((target) => target.classList.add("fmc-in-view"));
+    }
+
     return () => {
       if (eggInput) eggInput.removeEventListener("keydown", onEggKey);
       if (eggBtn) eggBtn.removeEventListener("click", onEggClick);
+      observer?.disconnect();
       clearScenarioTimers();
       intervalIds.forEach((intervalId) => {
         window.clearInterval(intervalId);
@@ -714,21 +737,30 @@ export function HomePage() {
           <div className="f-row">
             <div className="f-vis fv1">
               <div className="grid-bg" />
-              <div className="f-mini-chat">
-                <div className="fmc-q">How do I price my SaaS after $40k MRR?</div>
-                <div className="fmc-a">
-                  <span className="fmc-label">Bold AI</span>
-                  <span className="fmc-text">At your MRR, focus on value metric design...</span>
+              <div className="fmc-window" data-animate="stagger">
+                <div className="fmc-chrome">
+                  <span className="fmc-dot" />
+                  <span className="fmc-dot" />
+                  <span className="fmc-dot" />
                 </div>
-                <div className="fmc-cites">
-                  <span className="fmc-cite">
-                    <svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg>
-                    14:23 Value Metrics
-                  </span>
-                  <span className="fmc-cite">
-                    <svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg>
-                    08:47 Churn Diagnosis
-                  </span>
+                <div className="fmc-body">
+                  <div className="fmc-q" data-stagger="1">How do I price my SaaS after $40k MRR?</div>
+                  <div className="fmc-a" data-stagger="2">
+                    <span className="fmc-label">Bold AI</span>
+                    <span className="fmc-text"><strong>At your MRR, focus on value metric design</strong> — the pricing architecture deep-dive in Module 5 covers exactly this. Are you charging on a metric that grows with the customer?</span>
+                  </div>
+                  <div className="fmc-cites" data-stagger="3">
+                    <span className="fmc-cite">
+                      <span className="fmc-cite-play"><svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg></span>
+                      <span className="fmc-cite-ts">14:23</span>
+                      Value Metrics
+                    </span>
+                    <span className="fmc-cite">
+                      <span className="fmc-cite-play"><svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg></span>
+                      <span className="fmc-cite-ts">08:47</span>
+                      Churn Diagnosis
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -746,15 +778,31 @@ export function HomePage() {
           <div className="f-row">
             <div className="f-vis fv2">
               <div className="grid-bg" />
-              <div className="fmc-split">
-                <div className="fmc-split-col">
-                  <div className="fmc-split-tag fmc-split-beginner">Beginner</div>
-                  <div className="fmc-split-text">Start with the fundamentals in Module 2. Here&apos;s the step-by-step framework...</div>
+              <div className="fmc-window fmc-window-wide" data-animate="stagger">
+                <div className="fmc-chrome">
+                  <span className="fmc-dot" />
+                  <span className="fmc-dot" />
+                  <span className="fmc-dot" />
                 </div>
-                <div className="fmc-split-div" />
-                <div className="fmc-split-col">
-                  <div className="fmc-split-tag fmc-split-advanced">Advanced</div>
-                  <div className="fmc-split-text">At your stage, skip to the pricing architecture in Module 7. The nuance is...</div>
+                <div className="fmc-body">
+                  <div className="fmc-split-q" data-stagger="1">How should I structure my pricing?</div>
+                  <div className="fmc-split" data-stagger="2">
+                    <div className="fmc-split-col">
+                      <div className="fmc-split-tag fmc-split-beginner">
+                        <svg viewBox="0 0 10 10" fill="none" width="8" height="8"><circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/></svg>
+                        Beginner
+                      </div>
+                      <div className="fmc-split-text">Start with the fundamentals in Module 2. Here&apos;s the step-by-step framework for your first pricing model...</div>
+                    </div>
+                    <div className="fmc-split-div" />
+                    <div className="fmc-split-col">
+                      <div className="fmc-split-tag fmc-split-advanced">
+                        <svg viewBox="0 0 10 10" fill="none" width="8" height="8"><circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/></svg>
+                        Advanced
+                      </div>
+                      <div className="fmc-split-text">At your stage, skip to pricing architecture in Module 7. The nuance is in expansion revenue paths...</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -772,24 +820,37 @@ export function HomePage() {
           <div className="f-row">
             <div className="f-vis fv3">
               <div className="grid-bg" />
-              <div className="fmc-upload">
-                <div className="fmc-upload-img">
-                  <svg viewBox="0 0 48 48" fill="none" width="32" height="32">
-                    <rect x="4" y="4" width="40" height="40" rx="2" stroke="var(--warm)" strokeWidth="1.5" fill="none" />
-                    <circle cx="16" cy="18" r="4" stroke="var(--warm)" strokeWidth="1" opacity="0.5" />
-                    <path d="M4 34l12-10 8 6 8-6 12 10" stroke="var(--warm)" strokeWidth="1" opacity="0.5" />
-                  </svg>
-                  <span className="fmc-upload-label">design_v3.png</span>
+              <div className="fmc-window" data-animate="stagger">
+                <div className="fmc-chrome">
+                  <span className="fmc-dot" />
+                  <span className="fmc-dot" />
+                  <span className="fmc-dot" />
                 </div>
-                <div className="fmc-a">
-                  <span className="fmc-label">Bold AI</span>
-                  <span className="fmc-text">Your hierarchy is off — revisit the contrast principles from Lesson 4...</span>
-                </div>
-                <div className="fmc-cites">
-                  <span className="fmc-cite">
-                    <svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg>
-                    22:15 Visual Hierarchy
-                  </span>
+                <div className="fmc-body">
+                  <div className="fmc-upload-img" data-stagger="1">
+                    <div className="fmc-upload-thumb">
+                      <svg viewBox="0 0 48 36" fill="none" width="40" height="30">
+                        <rect x="0.5" y="0.5" width="47" height="35" rx="1" stroke="var(--warm)" strokeWidth="0.5" fill="rgba(139,115,64,0.04)" />
+                        <circle cx="14" cy="13" r="4" fill="rgba(139,115,64,0.12)" />
+                        <path d="M0 26l14-10 10 7 10-7 14 10v9.5a1 1 0 01-1 1H1a1 1 0 01-1-1z" fill="rgba(139,115,64,0.08)" />
+                      </svg>
+                    </div>
+                    <div className="fmc-upload-meta">
+                      <span className="fmc-upload-name">design_v3.png</span>
+                      <span className="fmc-upload-size">1.2 MB</span>
+                    </div>
+                  </div>
+                  <div className="fmc-a" data-stagger="2">
+                    <span className="fmc-label">Bold AI</span>
+                    <span className="fmc-text"><strong>Your hierarchy needs work</strong> — the contrast principles from Lesson 4 apply here. The primary CTA competes with the nav, and your type scale has no clear entry point.</span>
+                  </div>
+                  <div className="fmc-cites" data-stagger="3">
+                    <span className="fmc-cite">
+                      <span className="fmc-cite-play"><svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg></span>
+                      <span className="fmc-cite-ts">22:15</span>
+                      Visual Hierarchy
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
