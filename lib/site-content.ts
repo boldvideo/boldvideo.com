@@ -23,6 +23,7 @@ export const footerColumns = [
   {
     title: "Compare",
     links: [
+      { label: "Migrate to Bold", href: "/migrate" },
       { label: "Bold vs YouTube", href: "/vs-youtube" },
       { label: "Bold vs Vimeo", href: "/vs-vimeo" },
       {

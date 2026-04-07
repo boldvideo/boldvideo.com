@@ -35,7 +35,7 @@ export function AnnouncementTicker({ messages }: AnnouncementTickerProps) {
         <span className="hidden h-3.5 w-px bg-white/14 sm:block" />
         <Link
           className="shrink-0 font-medium text-[var(--color-signal)] transition-colors hover:text-[var(--color-signal-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
-          href="mailto:support@boldvideo.com?subject=Migrate%20to%20Bold"
+          href="/migrate"
         >
           See how to migrate
         </Link>

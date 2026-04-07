@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import "./landing-v10.css";
 
@@ -549,12 +550,12 @@ export function HomePage() {
         <div className="announce">
           <strong ref={announcementRef}>Growing out of Kajabi?</strong>
           <div className="sep" />
-          <a href="#">See how to migrate &rarr;</a>
+          <a href="/migrate">See how to migrate &rarr;</a>
         </div>
 
         <nav aria-label="Main navigation">
           <div className="nav-inner">
-            <a className="nav-logo" href="/" aria-label="Bold — Home">
+            <Link className="nav-logo" href="/" aria-label="Bold — Home">
               <svg width="26" height="26" viewBox="0 0 512 512" fill="none">
                 <path
                   clipRule="evenodd"
@@ -563,7 +564,7 @@ export function HomePage() {
                   fillRule="evenodd"
                 />
               </svg>
-            </a>
+            </Link>
             <div className="nav-right">
               <a href="#">Product</a>
               <a href="#">Docs</a>
