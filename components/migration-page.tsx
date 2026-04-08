@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./landing-v10.css";
 
 const ANNOUNCEMENT_MESSAGES = [
@@ -123,54 +123,7 @@ const FAQ_ITEMS = [
 ];
 
 export function MigrationPage() {
-  const grainRef = useRef<HTMLCanvasElement | null>(null);
   const [announcementIndex, setAnnouncementIndex] = useState(0);
-
-  useEffect(() => {
-    const grainCanvas = grainRef.current;
-    if (!grainCanvas) return;
-
-    const context = grainCanvas.getContext("2d");
-    if (!context) return;
-
-    let animationFrame = 0;
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    const resizeGrain = () => {
-      grainCanvas.width = window.innerWidth;
-      grainCanvas.height = window.innerHeight;
-    };
-
-    const drawGrain = () => {
-      const { width, height } = grainCanvas;
-      const imageData = context.createImageData(width, height);
-      const buffer = imageData.data;
-
-      for (let index = 0; index < buffer.length; index += 4) {
-        const value = Math.random() * 255;
-        buffer[index] = value;
-        buffer[index + 1] = value;
-        buffer[index + 2] = value;
-        buffer[index + 3] = 255;
-      }
-
-      context.putImageData(imageData, 0, 0);
-      animationFrame = window.requestAnimationFrame(drawGrain);
-    };
-
-    if (!prefersReducedMotion) {
-      resizeGrain();
-      drawGrain();
-      window.addEventListener("resize", resizeGrain);
-    }
-
-    return () => {
-      window.cancelAnimationFrame(animationFrame);
-      window.removeEventListener("resize", resizeGrain);
-    };
-  }, []);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -184,10 +137,6 @@ export function MigrationPage() {
 
   return (
     <main className="landing-v10 migration-v11" id="main-content">
-      <div className="grain">
-        <canvas ref={grainRef} aria-hidden="true" />
-      </div>
-
       <div className="announce">
         <strong>{ANNOUNCEMENT_MESSAGES[announcementIndex]}</strong>
         <div className="sep" />

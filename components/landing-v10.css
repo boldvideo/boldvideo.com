@@ -49,17 +49,7 @@
   display: block;
   max-width: 100%;
 }
-.landing-v10 .grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.025;
-}
-.landing-v10 .grain canvas {
-  width: 100%;
-  height: 100%;
-}
+
 .landing-v10 .container {
   max-width: 1120px;
   margin: 0 auto;
@@ -1272,9 +1262,7 @@
   .landing-v10 .announce strong {
     transition: none;
   }
-  .landing-v10 .grain {
-    display: none;
-  }
+
   .landing-v10 [data-stagger] {
     opacity: 1;
     transform: none;

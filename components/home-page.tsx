@@ -156,7 +156,6 @@ function plainLength(html: string) {
 }
 
 export function HomePage() {
-  const grainRef = useRef<HTMLCanvasElement | null>(null);
   const chatBodyRef = useRef<HTMLDivElement | null>(null);
   const announcementRef = useRef<HTMLElement | null>(null);
   const chatAvRef = useRef<HTMLDivElement | null>(null);
@@ -164,49 +163,16 @@ export function HomePage() {
   const chatCountRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const grainCanvas = grainRef.current;
     const chatBody = chatBodyRef.current;
     const announcement = announcementRef.current;
-    if (!grainCanvas || !chatBody || !announcement) return;
+    if (!chatBody || !announcement) return;
 
-    const context = grainCanvas.getContext("2d");
-    if (!context) return;
-
-    let animationFrame = 0;
     let announcementIndex = 0;
     let scenarioIndex = 0;
     const timeoutIds: number[] = [];
     const intervalIds: number[] = [];
 
-    const resizeGrain = () => {
-      grainCanvas.width = window.innerWidth;
-      grainCanvas.height = window.innerHeight;
-    };
-
-    const drawGrain = () => {
-      const { width, height } = grainCanvas;
-      const imageData = context.createImageData(width, height);
-      const buffer = imageData.data;
-
-      for (let index = 0; index < buffer.length; index += 4) {
-        const value = Math.random() * 255;
-        buffer[index] = value;
-        buffer[index + 1] = value;
-        buffer[index + 2] = value;
-        buffer[index + 3] = 255;
-      }
-
-      context.putImageData(imageData, 0, 0);
-      animationFrame = window.requestAnimationFrame(drawGrain);
-    };
-
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (!prefersReducedMotion) {
-      resizeGrain();
-      drawGrain();
-      window.addEventListener("resize", resizeGrain);
-    }
 
     const announcementInterval = window.setInterval(() => {
       announcementIndex =
@@ -535,18 +501,13 @@ export function HomePage() {
       intervalIds.forEach((intervalId) => {
         window.clearInterval(intervalId);
       });
-      window.cancelAnimationFrame(animationFrame);
-      window.removeEventListener("resize", resizeGrain);
+
     };
   }, []);
 
   return (
     <>
       <main className="landing-v10" id="main-content">
-        <div className="grain">
-          <canvas ref={grainRef} aria-hidden="true" />
-        </div>
-
         <div className="announce">
           <strong ref={announcementRef}>Growing out of Kajabi?</strong>
           <div className="sep" />
