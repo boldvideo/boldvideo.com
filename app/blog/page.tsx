@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
-import { SiteFooter, SiteShell } from "@/components/site-shell";
+import { SiteNav, SiteNavFooter } from "@/components/site-nav";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -22,70 +22,142 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <SiteShell>
-      <main className="pt-36 pb-20" id="main-content">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <header className="mb-16">
-            <p className="font-mono text-[0.65rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              Blog
-            </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-[var(--color-ink)]">
-              From the team
-            </h1>
-            <p className="mt-3 max-w-lg text-[var(--color-copy)]">
-              What we are learning about video intelligence, coaching at scale,
-              and building tools that make content actually useful.
-            </p>
-          </header>
+    <main className="landing-v10" id="main-content">
+      <div className="announce">
+        <strong>New on the blog</strong>
+        <div className="sep" />
+        <a href="/blog/video-search-broken">
+          Video Search Is Broken &rarr;
+        </a>
+      </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <article key={post.slug}>
-                <Link
-                  className="group block overflow-hidden rounded-lg border border-[var(--color-line)] bg-white transition-shadow hover:shadow-[var(--shadow-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2"
-                  href={post.draft ? "#" : `/blog/${post.slug}`}
-                  aria-disabled={post.draft}
-                  tabIndex={post.draft ? -1 : undefined}
+      <SiteNav />
+
+      <section className="container" style={{ paddingTop: "9rem", paddingBottom: "3rem" }}>
+        <p
+          style={{
+            fontFamily: "var(--mono)",
+            fontSize: "12px",
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            color: "var(--text-mid)",
+            marginBottom: "0.75rem",
+          }}
+        >
+          Blog
+        </p>
+        <h1
+          style={{
+            fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
+            fontWeight: 800,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            color: "var(--text)",
+            margin: "0 0 0.75rem",
+          }}
+        >
+          From the team
+        </h1>
+        <p
+          style={{
+            fontSize: "17px",
+            color: "var(--text-mid)",
+            maxWidth: "480px",
+            lineHeight: 1.75,
+          }}
+        >
+          What we are learning about video intelligence, coaching at scale,
+          and building tools that make content actually useful.
+        </p>
+      </section>
+
+      <section className="container" style={{ paddingBottom: "5rem" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gap: "1.5rem",
+          }}
+        >
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              className="sc-card"
+              href={post.draft ? "#" : `/blog/${post.slug}`}
+              aria-disabled={post.draft}
+              tabIndex={post.draft ? -1 : undefined}
+              style={{ cursor: post.draft ? "default" : undefined }}
+            >
+              <div className="sc-screen" style={{ position: "relative" }}>
+                <Image
+                  alt=""
+                  className="sc-img"
+                  height={630}
+                  src={post.image}
+                  width={1200}
+                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                />
+                {post.draft && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      background: "rgba(13, 21, 17, 0.8)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--mono)",
+                        fontSize: "11px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.15em",
+                        color: "rgba(255,255,255,0.45)",
+                      }}
+                    >
+                      Coming soon
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div className="sc-info">
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    fontSize: "12px",
+                    color: "var(--text-dim)",
+                    marginBottom: "6px",
+                  }}
                 >
-                  <div className="relative aspect-[16/9] overflow-hidden bg-[var(--color-forest)]">
-                    <Image
-                      alt=""
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                      height={630}
-                      src={post.image}
-                      width={1200}
-                    />
-                    {post.draft && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-forest)]/80">
-                        <span className="font-mono text-xs uppercase tracking-widest text-white/50">
-                          Coming soon
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-5">
-                    <div className="flex items-center gap-2 text-xs text-[var(--color-muted)]">
-                      <span>{post.author}</span>
-                      <span className="text-[var(--color-line-strong)]">
-                        &middot;
-                      </span>
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
-                    </div>
-                    <h2 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-[var(--color-ink)] group-hover:text-[var(--color-signal-ink)]">
-                      {post.title}
-                    </h2>
-                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-[var(--color-copy)]">
-                      {post.excerpt}
-                    </p>
-                  </div>
-                </Link>
-              </article>
-            ))}
-          </div>
+                  <span>{post.author}</span>
+                  <span style={{ color: "var(--border-strong)" }}>&middot;</span>
+                  <time dateTime={post.date}>{formatDate(post.date)}</time>
+                </div>
+                <h4 style={{ fontSize: "1rem", marginBottom: "4px" }}>{post.title}</h4>
+                <p
+                  style={{
+                    fontSize: "13px",
+                    lineHeight: 1.65,
+                    color: "var(--text-mid)",
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {post.excerpt}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
-      </main>
+      </section>
 
-      <SiteFooter />
-    </SiteShell>
+      <SiteNavFooter />
+    </main>
   );
 }

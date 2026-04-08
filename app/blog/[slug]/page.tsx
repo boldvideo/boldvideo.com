@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
-import { SiteFooter, SiteShell } from "@/components/site-shell";
+import { SiteNav, SiteNavFooter } from "@/components/site-nav";
 import { BlogBody } from "@/components/blog-body";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -38,57 +38,89 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post || post.draft) notFound();
 
   return (
-    <SiteShell>
-      <main className="pt-36 pb-20" id="main-content">
-        <article className="mx-auto max-w-[720px] px-4 sm:px-6">
-          <Link
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-ink)]"
-            href="/blog"
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-            >
-              <path
-                d="M9 2L4 7l5 5"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-              />
-            </svg>
-            All posts
-          </Link>
+    <main className="landing-v10" id="main-content">
+      <div className="announce">
+        <strong>Bold Blog</strong>
+        <div className="sep" />
+        <Link href="/blog">See all posts &rarr;</Link>
+      </div>
 
-          <header className="mt-8">
-            <div className="flex items-center gap-2 text-sm text-[var(--color-muted)]">
-              <span>{post.author}</span>
-              <span className="text-[var(--color-line-strong)]">&middot;</span>
-              <time dateTime={post.date}>{formatDate(post.date)}</time>
-            </div>
-            <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight text-[var(--color-ink)] sm:text-4xl">
-              {post.title}
-            </h1>
-          </header>
+      <SiteNav />
 
-          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-[var(--color-forest)]">
-            <Image
-              alt=""
-              className="h-full w-full object-cover"
-              height={630}
-              priority
-              src={post.image}
-              width={1200}
+      <article className="container" style={{ maxWidth: "720px", paddingTop: "9rem", paddingBottom: "4rem" }}>
+        <Link
+          href="/blog"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            fontSize: "14px",
+            color: "var(--text-mid)",
+            transition: "color 0.15s",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path
+              d="M9 2L4 7l5 5"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1.5"
             />
+          </svg>
+          All posts
+        </Link>
+
+        <header style={{ marginTop: "2rem" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "14px",
+              color: "var(--text-dim)",
+            }}
+          >
+            <span>{post.author}</span>
+            <span style={{ color: "var(--border-strong)" }}>&middot;</span>
+            <time dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
+          <h1
+            style={{
+              fontSize: "clamp(2rem, 3.5vw, 2.6rem)",
+              fontWeight: 800,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.15,
+              color: "var(--text)",
+              margin: "0.75rem 0 0",
+            }}
+          >
+            {post.title}
+          </h1>
+        </header>
 
-          <BlogBody content={post.content} />
-        </article>
-      </main>
+        <div
+          style={{
+            marginTop: "2rem",
+            aspectRatio: "16/9",
+            overflow: "hidden",
+            background: "var(--bg-dark)",
+          }}
+        >
+          <Image
+            alt=""
+            height={630}
+            priority
+            src={post.image}
+            width={1200}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </div>
 
-      <SiteFooter />
-    </SiteShell>
+        <BlogBody content={post.content} />
+      </article>
+
+      <SiteNavFooter />
+    </main>
   );
 }
