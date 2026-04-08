@@ -1154,12 +1154,12 @@
 .landing-v10 .cta {
   padding: 6rem 0;
   text-align: center;
-  color: white;
+  color: #2d1a0e;
   overflow: hidden;
-  background: #0a1a14;
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8a65 25%, #ffd54f 50%, #ffee58 75%, #fff176 100%);
 }
 .landing-v10 .cta h2 {
-  color: white;
+  color: #2d1a0e;
   margin: 0 auto 1rem;
   max-width: 550px;
   font-size: clamp(1.8rem, 3.2vw, 2.5rem);
@@ -1169,7 +1169,7 @@
 }
 .landing-v10 .cta p {
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(45, 26, 14, 0.7);
   max-width: 420px;
   margin: 0 auto 2rem;
   line-height: 1.7;
@@ -1179,8 +1179,8 @@
   align-items: center;
   gap: 8px;
   padding: 14px 28px;
-  background: white;
-  color: var(--text);
+  background: #2d1a0e;
+  color: white;
   font-weight: 600;
   font-size: 15px;
   border: none;
@@ -1189,7 +1189,7 @@
 }
 .landing-v10 .btn-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
