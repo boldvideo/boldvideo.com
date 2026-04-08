@@ -62,12 +62,14 @@ export function SiteShell({ children, className }: SiteShellProps) {
             ))}
           </nav>
 
-          <Link
+          <a
             className="inline-flex items-center justify-center rounded-full border border-[var(--color-line-strong)] bg-[var(--color-ink)] px-4 py-2 text-sm font-medium text-[var(--color-cream)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-button)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2"
-            href="mailto:support@boldvideo.com?subject=Book%20a%20Bold%20demo"
+            href="https://savvycal.com/marcel-from-bold/7838d613"
+            rel="noreferrer"
+            target="_blank"
           >
             Book a demo
-          </Link>
+          </a>
         </div>
       </header>
 

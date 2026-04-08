@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --font-sans-stack:
@@ -98,4 +99,50 @@ a {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* Blog prose */
+.prose {
+  --tw-prose-body: var(--color-copy);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-links: var(--color-signal-ink);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-quotes: var(--color-copy);
+  --tw-prose-quote-borders: var(--color-signal);
+  --tw-prose-hr: var(--color-line);
+  max-width: none;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.prose h2 {
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+}
+.prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0.6em;
+  font-size: 1.15rem;
+}
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+.prose a:hover {
+  color: var(--color-ink);
+}
+.prose p {
+  margin-bottom: 1.4em;
+}
+.prose blockquote {
+  font-style: normal;
+  border-left-width: 3px;
+}
+.prose strong {
+  font-weight: 600;
+}
+.prose em {
+  font-style: italic;
 }
