@@ -5,30 +5,29 @@ export const announcementMessages = [
 ];
 
 export const navLinks = [
-  { label: "Customers", href: "/#customers" },
-  { label: "How it works", href: "/#how-it-works" },
-  { label: "ROI", href: "/#roi" },
-  { label: "Fit", href: "/#fit" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Docs", href: "/docs" },
 ];
 
 export const footerColumns = [
   {
     title: "Product",
     links: [
-      { label: "Why Bold", href: "/#how-it-works" },
-      { label: "Customer examples", href: "/#customers" },
-      { label: "Program fit", href: "/#fit" },
+      { label: "About", href: "/about" },
+      { label: "Blog", href: "/blog" },
+      { label: "Docs", href: "/docs" },
+      { label: "Migrate", href: "/migrate" },
     ],
   },
   {
     title: "Compare",
     links: [
-      { label: "Migrate to Bold", href: "/migrate" },
       { label: "Bold vs YouTube", href: "/vs-youtube" },
       { label: "Bold vs Vimeo", href: "/vs-vimeo" },
       {
         label: "Book a demo",
-        href: "mailto:support@boldvideo.com?subject=Book%20a%20Bold%20demo",
+        href: "https://savvycal.com/marcel-from-bold/7838d613",
       },
     ],
   },

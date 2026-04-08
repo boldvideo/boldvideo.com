@@ -511,9 +511,9 @@ export function HomePage() {
             </svg>
           </Link>
           <div className="nav-right">
-            <a href="/product">Product</a>
-            <a href="/customers">Customers</a>
-            <a href="/migrate">Migrate</a>
+            <a href="/about">About</a>
+            <a href="/blog">Blog</a>
+            <a href="/docs">Docs</a>
             <a
               className="nav-cta"
               href="https://savvycal.com/marcel-from-bold/7838d613"
@@ -972,8 +972,9 @@ export function HomePage() {
             </div>
             <div className="footer-col">
               <h4>Product</h4>
-              <Link href="/product">How it works</Link>
-              <Link href="/customers">Customers</Link>
+              <Link href="/about">About</Link>
+              <Link href="/blog">Blog</Link>
+              <Link href="/docs">Docs</Link>
               <Link href="/migrate">Migrate</Link>
             </div>
             <div className="footer-col">
