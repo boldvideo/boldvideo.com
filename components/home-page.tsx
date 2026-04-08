@@ -165,25 +165,27 @@ export function HomePage() {
   useEffect(() => {
     const chatBody = chatBodyRef.current;
     const announcement = announcementRef.current;
-    if (!chatBody || !announcement) return;
+    if (!chatBody) return;
 
-    let announcementIndex = 0;
     let scenarioIndex = 0;
     const timeoutIds: number[] = [];
     const intervalIds: number[] = [];
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (announcement) {
+      let announcementIndex = 0;
+      const announcementInterval = window.setInterval(() => {
+        announcementIndex =
+          (announcementIndex + 1) % ANNOUNCEMENT_MESSAGES.length;
+        announcement.style.opacity = "0";
+        window.setTimeout(() => {
+          announcement.textContent = ANNOUNCEMENT_MESSAGES[announcementIndex];
+          announcement.style.opacity = "1";
+        }, 300);
+      }, 4000);
+      intervalIds.push(announcementInterval);
+    }
 
-    const announcementInterval = window.setInterval(() => {
-      announcementIndex =
-        (announcementIndex + 1) % ANNOUNCEMENT_MESSAGES.length;
-      announcement.style.opacity = "0";
-      window.setTimeout(() => {
-        announcement.textContent = ANNOUNCEMENT_MESSAGES[announcementIndex];
-        announcement.style.opacity = "1";
-      }, 300);
-    }, 4000);
-    intervalIds.push(announcementInterval);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const clearScenarioTimers = () => {
       timeoutIds.forEach((timeoutId) => {
@@ -341,10 +343,8 @@ export function HomePage() {
       eggBusy = true;
       eggCount++;
 
-      // Stop auto-cycling
       clearScenarioTimers();
 
-      // Switch header to Bold branding
       const av = chatAvRef.current;
       const titleEl = chatTitleRef.current;
       const countEl = chatCountRef.current;
@@ -359,14 +359,12 @@ export function HomePage() {
 
       chatBody.innerHTML = "";
 
-      // User bubble
       const bubble = document.createElement("div");
       bubble.className = "cm user";
       bubble.textContent = msg;
       bubble.style.animationDelay = "0.1s";
       chatBody.appendChild(bubble);
 
-      // Context + thinking
       timeoutIds.push(
         window.setTimeout(() => {
           const wrap = document.createElement("div");
@@ -417,7 +415,6 @@ export function HomePage() {
               wrap.appendChild(label);
               wrap.appendChild(content);
 
-              // Type the response
               const total = plainLength(html);
               let chars = 0;
               const typeEgg = () => {
@@ -429,7 +426,6 @@ export function HomePage() {
                 }
                 content.innerHTML = html;
 
-                // CTA link
                 timeoutIds.push(
                   window.setTimeout(() => {
                     const cites = document.createElement("div");
@@ -471,484 +467,85 @@ export function HomePage() {
     if (eggInput) eggInput.addEventListener("keydown", onEggKey);
     if (eggBtn) eggBtn.addEventListener("click", onEggClick);
 
-    // Scroll-triggered stagger animations for feature visuals
-    const staggerTargets = document.querySelectorAll("[data-animate='stagger']");
-    let observer: IntersectionObserver | null = null;
-
-    if (!prefersReducedMotion && staggerTargets.length > 0) {
-      observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("fmc-in-view");
-              observer?.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.3 },
-      );
-      staggerTargets.forEach((target) => observer?.observe(target));
-    } else {
-      // Reduced motion or no targets — show immediately
-      staggerTargets.forEach((target) => target.classList.add("fmc-in-view"));
-    }
-
     return () => {
       if (eggInput) eggInput.removeEventListener("keydown", onEggKey);
       if (eggBtn) eggBtn.removeEventListener("click", onEggClick);
-      observer?.disconnect();
       clearScenarioTimers();
-      intervalIds.forEach((intervalId) => {
-        window.clearInterval(intervalId);
-      });
-
+      intervalIds.forEach((id) => window.clearInterval(id));
     };
   }, []);
 
   return (
-    <>
-      <main className="landing-v10" id="main-content">
-        <div className="announce">
-          <strong ref={announcementRef}>Growing out of Kajabi?</strong>
-          <div className="sep" />
-          <a href="/migrate">See how to migrate &rarr;</a>
+    <main className="landing-v10" id="main-content">
+      <div className="announce">
+        <strong ref={announcementRef}>Growing out of Kajabi?</strong>
+        <div className="sep" />
+        <a href="/migrate">See how to migrate &rarr;</a>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <div className="nav-inner">
+          <Link className="nav-logo" href="/" aria-label="Bold — Home">
+            <svg
+              width="94"
+              height="26"
+              viewBox="0 0 2446 670"
+              fill="none"
+            >
+              <path
+                d="M1852.5076,670 L1852.5076,669.887695 C1852.5076,527.853176 1852.5076,314.801396 1852.5076,30.7323566 C1852.5076,30.7323566 1977.5565,14.8363101 2114.2625,14.8363101 C2390.85371,14.8363101 2445.96,207.708341 2445.96,379.385643 C2445.96,483.357525 2414.91214,594.306455 2343.80949,670 L1852.5076,670 Z"
+                fill="var(--mint)"
+              />
+              <path
+                d="M1811.81187,670 L1308.38511,670 C1278.09393,628.203566 1262.20497,569.947745 1262.20497,490.657969 L1262.20497,21.1947287 L1680.80086,21.1947287 L1680.80086,464.164558 L1806.90949,456.746403 L1811.81187,670 Z"
+                fill="var(--mint)"
+              />
+              <path
+                d="M1139.30733,670 L679.041861,670 C614.793443,602.542428 577.585794,499.840245 577.585794,366.668806 C577.585794,143.064418 719.590476,0 911.40277,0 C1106.39427,0 1240.9808,143.064418 1240.9808,366.668806 C1240.9808,499.840245 1203.1872,602.542428 1139.30733,670 Z"
+                fill="var(--mint)"
+              />
+              <path
+                d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z"
+                fill="var(--mint)"
+              />
+            </svg>
+          </Link>
+          <div className="nav-right">
+            <a href="/product">Product</a>
+            <a href="/customers">Customers</a>
+            <a href="/migrate">Migrate</a>
+            <a
+              className="nav-cta"
+              href="https://savvycal.com/marcel-from-bold/7838d613"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Book a demo
+            </a>
+          </div>
         </div>
+      </nav>
 
-        <nav aria-label="Main navigation">
-          <div className="nav-inner">
-            <Link className="nav-logo" href="/" aria-label="Bold — Home">
-              <svg width="26" height="26" viewBox="0 0 512 512" fill="none">
-                <path
-                  clipRule="evenodd"
-                  d="m27 512v-512h260.196c112.402 0 160.451 58.6113 160.451 129.54 0 70.927-17.805 98.746-54.914 126.354 62.421 16.777 92.881 75.175 92.881 143.768 0 68.592-8.58 80.696-36.251 112.338z"
-                  fill="#41C6A6"
-                  fillRule="evenodd"
-                />
-              </svg>
-            </Link>
-            <div className="nav-right">
-              <a href="#">Product</a>
-              <a href="#">Docs</a>
-              <a href="#">Pricing</a>
-              <a href="#">Blog</a>
-              <a className="nav-cta" href="https://savvycal.com/marcel-from-bold/7838d613">
-                Book a demo
-              </a>
-            </div>
-          </div>
-        </nav>
-
-        <section className="hero container">
-          <div className="hero-text">
-            <div className="hero-eyebrow">Video intelligence platform</div>
-            <h1>
-              Scale your coaching program{" "}
-              <span className="u">without hiring more coaches</span>
-            </h1>
-            <p className="hero-sub">
-              Your students are stuck and your coaches are burned out answering
-              the same questions. Bold turns your video library into an AI coach
-              that cites the exact moment that matters.
-            </p>
-            <div className="hero-actions">
-              <a className="btn-mint" href="https://savvycal.com/marcel-from-bold/7838d613">
-                Book a demo
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path
-                    d="M5 2l5 5-5 5"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-              </a>
-              <a className="btn-ghost" href="#">
-                Watch it work
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <div className="chat-demo">
-              <div className="chat-header">
-                <div className="chat-hl">
-                  <div className="chat-av" ref={chatAvRef}>
-                    <img
-                      src="/images/chaticon-founderwell.png"
-                      alt=""
-                    />
-                  </div>
-                  <div className="chat-ht" ref={chatTitleRef}>
-                    Ask FounderWell
-                  </div>
-                </div>
-                <div className="chat-st" ref={chatCountRef}>
-                  <span className="dot" />
-                  1,400 videos
-                </div>
-              </div>
-              <div className="chat-body" ref={chatBodyRef} />
-              <div className="chat-input">
-                <input placeholder="Ask about any topic..." aria-label="Ask a question" />
-                <button type="button" aria-label="Send message">
-                  <svg viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M2 7h10M8 3l4 4-4 4"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="showcase container">
-          <div className="showcase-head">
-            <h2>See what teams build with Bold</h2>
-          </div>
-          <div className="showcase-grid">
-            <a className="sc-card" href="https://hrtuniversity.com" target="_blank" rel="noopener noreferrer">
-              <div className="sc-screen">
-                <img src="/images/socialproof-hrtu.png" alt="HRT University" className="sc-img" />
-                <div className="sc-label">Healthcare</div>
-              </div>
-              <div className="sc-info">
-                <h4>HRT University</h4>
-                <p>97+ clinical lessons powered by Bold AI</p>
-              </div>
-            </a>
-            <a className="sc-card" href="https://founderwell.com" target="_blank" rel="noopener noreferrer">
-              <div className="sc-screen">
-                <img src="/images/socialproof-founderwell.png" alt="FounderWell" className="sc-img" />
-                <div className="sc-label">SaaS coaching</div>
-              </div>
-              <div className="sc-info">
-                <h4>FounderWell</h4>
-                <p>SaaS growth coaching program</p>
-              </div>
-            </a>
-            <a className="sc-card" href="https://vivatuition.com" target="_blank" rel="noopener noreferrer">
-              <div className="sc-screen">
-                <img src="/images/socialproof-vivatuition.png" alt="Viva Financial Tuition" className="sc-img" />
-                <div className="sc-label">Financial education</div>
-              </div>
-              <div className="sc-info">
-                <h4>Viva Tuition</h4>
-                <p>ACCA training academy</p>
-              </div>
-            </a>
-          </div>
-        </section>
-
-        <section className="problem container">
-          <div className="sec-label">The problem</div>
-          <h2 className="section-title">
-            You built the content. Nobody can use it.
-          </h2>
-          <p className="sec-sub">
-            Your video library is growing faster than discoverability. Students
-            churn not because your teaching is bad — but because they can&apos;t
-            find the right answer at the right time.
+      {/* 1. Hero - text only, centered */}
+      <section className="hero-centered container">
+        <div className="hero-glow" />
+        <div className="hero-inner">
+          <div className="hero-eyebrow">Video intelligence platform</div>
+          <h1>
+            Your students love the content. They still can&apos;t find{" "}
+            <em>what they need.</em>
+          </h1>
+          <p className="hero-sub">
+            Bold turns your video library into an AI teaching assistant that
+            knows your curriculum, cites the source, and scales without hiring.
           </p>
-          <div className="stat-grid">
-            <div className="stat-card">
-              <div className="stat-bar" />
-              <div className="stat-num">85%</div>
-              <div className="stat-tag">Content unused</div>
-              <div className="stat-p">
-                Hundreds of hours of training. Students watch a fraction. The
-                rest is a content graveyard you paid six figures to build.
-              </div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-bar" />
-              <div className="stat-num">10x</div>
-              <div className="stat-tag">Repeat questions</div>
-              <div className="stat-p">
-                Coaches answer the same questions over and over. You can&apos;t
-                hire fast enough, and every new hire dilutes quality.
-              </div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-bar" />
-              <div className="stat-num">60%</div>
-              <div className="stat-tag">Renewal ceiling</div>
-              <div className="stat-p">
-                Students love the content but churn anyway. The gap isn&apos;t
-                teaching — it&apos;s implementation support at scale.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="features container">
-          <div className="sec-label">How it works</div>
-          <h2 className="section-title">
-            Your content already has the answers
-          </h2>
-          <p className="sec-sub">
-            Bold deeply understands your video library — not keywords, but
-            concepts. Students get cited, verified answers. You get scale.
-          </p>
-
-          <div className="f-row">
-            <div className="f-vis fv1">
-              <div className="grid-bg" />
-              <div className="fmc-window" data-animate="stagger">
-                <div className="fmc-chrome">
-                  <span className="fmc-dot" />
-                  <span className="fmc-dot" />
-                  <span className="fmc-dot" />
-                </div>
-                <div className="fmc-body">
-                  <div className="fmc-q" data-stagger="1">How do I price my SaaS after $40k MRR?</div>
-                  <div className="fmc-a" data-stagger="2">
-                    <span className="fmc-label">Bold AI</span>
-                    <span className="fmc-text"><strong>At your MRR, focus on value metric design</strong> — the pricing architecture deep-dive in Module 5 covers exactly this. Are you charging on a metric that grows with the customer?</span>
-                  </div>
-                  <div className="fmc-cites" data-stagger="3">
-                    <span className="fmc-cite">
-                      <span className="fmc-cite-play"><svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg></span>
-                      <span className="fmc-cite-ts">14:23</span>
-                      Value Metrics
-                    </span>
-                    <span className="fmc-cite">
-                      <span className="fmc-cite-play"><svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg></span>
-                      <span className="fmc-cite-ts">08:47</span>
-                      Churn Diagnosis
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="f-text">
-              <div className="f-tag ft1">Cited answers</div>
-              <h3>Every answer links back to the source</h3>
-              <p>
-                Students ask a question and get an answer grounded in your
-                curriculum — with the exact video and timestamp so they can
-                verify and go deeper. No hallucinations. No guesswork.
-              </p>
-            </div>
-          </div>
-
-          <div className="f-row">
-            <div className="f-vis fv2">
-              <div className="grid-bg" />
-              <div className="fmc-window fmc-window-wide" data-animate="stagger">
-                <div className="fmc-chrome">
-                  <span className="fmc-dot" />
-                  <span className="fmc-dot" />
-                  <span className="fmc-dot" />
-                </div>
-                <div className="fmc-body">
-                  <div className="fmc-split-q" data-stagger="1">How should I structure my pricing?</div>
-                  <div className="fmc-split" data-stagger="2">
-                    <div className="fmc-split-col">
-                      <div className="fmc-split-tag fmc-split-beginner">
-                        <svg viewBox="0 0 10 10" fill="none" width="8" height="8"><circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/></svg>
-                        Beginner
-                      </div>
-                      <div className="fmc-split-text">Start with the fundamentals in Module 2. Here&apos;s the step-by-step framework for your first pricing model...</div>
-                    </div>
-                    <div className="fmc-split-div" />
-                    <div className="fmc-split-col">
-                      <div className="fmc-split-tag fmc-split-advanced">
-                        <svg viewBox="0 0 10 10" fill="none" width="8" height="8"><circle cx="5" cy="5" r="4" stroke="currentColor" strokeWidth="1"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/></svg>
-                        Advanced
-                      </div>
-                      <div className="fmc-split-text">At your stage, skip to pricing architecture in Module 7. The nuance is in expansion revenue paths...</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="f-text">
-              <div className="f-tag ft2">Adaptive depth</div>
-              <h3>Same question, different answer</h3>
-              <p>
-                Bold knows who&apos;s asking — their stage, role, and progress.
-                A beginner gets step-by-step foundations. An advanced student
-                gets nuanced tactical advice from deeper in the library.
-              </p>
-            </div>
-          </div>
-
-          <div className="f-row">
-            <div className="f-vis fv3">
-              <div className="grid-bg" />
-              <div className="fmc-window" data-animate="stagger">
-                <div className="fmc-chrome">
-                  <span className="fmc-dot" />
-                  <span className="fmc-dot" />
-                  <span className="fmc-dot" />
-                </div>
-                <div className="fmc-body">
-                  <div className="fmc-upload-img" data-stagger="1">
-                    <div className="fmc-upload-thumb">
-                      <svg viewBox="0 0 48 36" fill="none" width="40" height="30">
-                        <rect x="0.5" y="0.5" width="47" height="35" rx="1" stroke="var(--warm)" strokeWidth="0.5" fill="rgba(139,115,64,0.04)" />
-                        <circle cx="14" cy="13" r="4" fill="rgba(139,115,64,0.12)" />
-                        <path d="M0 26l14-10 10 7 10-7 14 10v9.5a1 1 0 01-1 1H1a1 1 0 01-1-1z" fill="rgba(139,115,64,0.08)" />
-                      </svg>
-                    </div>
-                    <div className="fmc-upload-meta">
-                      <span className="fmc-upload-name">design_v3.png</span>
-                      <span className="fmc-upload-size">1.2 MB</span>
-                    </div>
-                  </div>
-                  <div className="fmc-a" data-stagger="2">
-                    <span className="fmc-label">Bold AI</span>
-                    <span className="fmc-text"><strong>Your hierarchy needs work</strong> — the contrast principles from Lesson 4 apply here. The primary CTA competes with the nav, and your type scale has no clear entry point.</span>
-                  </div>
-                  <div className="fmc-cites" data-stagger="3">
-                    <span className="fmc-cite">
-                      <span className="fmc-cite-play"><svg viewBox="0 0 8 8" fill="none" width="6" height="6"><polygon points="2,1 7,4 2,7" fill="currentColor"/></svg></span>
-                      <span className="fmc-cite-ts">22:15</span>
-                      Visual Hierarchy
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="f-text">
-              <div className="f-tag ft3">Beyond text</div>
-              <h3>Upload work, get feedback from the curriculum</h3>
-              <p>
-                Students don&apos;t just ask questions — they upload their work
-                and get critiques grounded in your teaching. A design student
-                uploads a mockup. A clinician uploads a lab panel. Bold
-                responds with your expertise, not generic AI.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="case-study">
-          <div className="cs-inner">
-            <div className="sec-label" style={{ color: "var(--hrtu-gold)" }}>
-              Case study
-            </div>
-            <div className="cs-grid">
-              <div className="cs-text">
-                <h3>
-                  HRT University turned 97 clinical lessons into an always-on AI
-                  teaching assistant
-                </h3>
-                <p>
-                  HRTU trains licensed healthcare providers in hormone and
-                  metabolic medicine. Bold indexes every lesson and gives
-                  clinicians instant, cited answers grounded in the curriculum.
-                </p>
-                <div className="cs-stats">
-                  <div className="cs-s">
-                    <div className="cs-s-n">97+</div>
-                    <div className="cs-s-l">Lessons indexed</div>
-                  </div>
-                  <div className="cs-s">
-                    <div className="cs-s-n">30</div>
-                    <div className="cs-s-l">CEU hours</div>
-                  </div>
-                  <div className="cs-s">
-                    <div className="cs-s-n">24/7</div>
-                    <div className="cs-s-l">AI support</div>
-                  </div>
-                </div>
-                <p className="cs-roi">
-                  A 3% retention bump on a $5M program
-                  = <strong>$150K saved annually.</strong> Bold pays for itself
-                  many times over.
-                </p>
-                <a className="btn-gold" href="https://savvycal.com/marcel-from-bold/7838d613">
-                  Book a demo
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M5 2l5 5-5 5"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <div className="cs-photo">
-                <div className="cs-photo-grain" />
-                <div className="cs-photo-badge">
-                  <svg width="14" height="14" viewBox="0 0 512 512" fill="none">
-                    <path
-                      clipRule="evenodd"
-                      d="m27 512v-512h260.196c112.402 0 160.451 58.6113 160.451 129.54 0 70.927-17.805 98.746-54.914 126.354 62.421 16.777 92.881 75.175 92.881 143.768 0 68.592-8.58 80.696-36.251 112.338z"
-                      fill="currentColor"
-                      fillRule="evenodd"
-                    />
-                  </svg>
-                  Powered by Bold
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="not-for">
-          <div className="nf-container">
-            <div className="grid-accent" />
-            <div className="mint-glow" />
-            <div className="nf-inner">
-              <div className="nf-header">
-                <div className="sec-label">Clarity</div>
-                <h2 className="section-title">
-                  Built for programs with real libraries
-                </h2>
-                <p className="nf-desc">
-                  Bold&apos;s intelligence matters at scale. 50+ hours of video,
-                  100+ active students. Below that, we&apos;re not the right fit
-                  yet.
-                </p>
-              </div>
-              <div className="nf-grid">
-                <div className="nf nf-y">
-                  <span className="ic">&#10003;</span>Coaching programs with 50+
-                  hours of video content
-                </div>
-                <div className="nf nf-y">
-                  <span className="ic">&#10003;</span>Training academies with
-                  100+ active students
-                </div>
-                <div className="nf nf-n">
-                  <span className="ic">&#10007;</span>Individual creators with
-                  fewer than 50 videos
-                </div>
-                <div className="nf nf-n">
-                  <span className="ic">&#10007;</span>Primarily written content
-                  programs
-                </div>
-                <div className="nf nf-y">
-                  <span className="ic">&#10003;</span>Programs struggling with
-                  churn despite great content
-                </div>
-                <div className="nf nf-n">
-                  <span className="ic">&#10007;</span>Anyone looking for cheap
-                  video hosting
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="cta">
-          <div className="container">
-            <h2>Stop letting your best content collect dust</h2>
-            <p>
-              Bold is in private beta with established coaching programs. If
-              that&apos;s you, let&apos;s talk.
-            </p>
-            <a className="btn-cta" href="https://savvycal.com/marcel-from-bold/7838d613">
+          <div className="hero-actions">
+            <a
+              className="btn-mint"
+              href="https://savvycal.com/marcel-from-bold/7838d613"
+              rel="noreferrer"
+              target="_blank"
+            >
               Book a demo
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path
@@ -961,75 +558,439 @@ export function HomePage() {
               </svg>
             </a>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <footer>
-          <div className="container">
-            <div className="footer-top">
-              <div>
-                <div className="footer-brand">
-                  <svg
-                    width="100"
-                    height="28"
-                    viewBox="0 0 2446 670"
-                    fill="none"
-                  >
-                    <path
-                      d="M1852.5076,670 L1852.5076,669.887695 C1852.5076,527.853176 1852.5076,314.801396 1852.5076,30.7323566 C1852.5076,30.7323566 1977.5565,14.8363101 2114.2625,14.8363101 C2390.85371,14.8363101 2445.96,207.708341 2445.96,379.385643 C2445.96,483.357525 2414.91214,594.306455 2343.80949,670 L1852.5076,670 Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M1811.81187,670 L1308.38511,670 C1278.09393,628.203566 1262.20497,569.947745 1262.20497,490.657969 L1262.20497,21.1947287 L1680.80086,21.1947287 L1680.80086,464.164558 L1806.90949,456.746403 L1811.81187,670 Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M1139.30733,670 L679.041861,670 C614.793443,602.542428 577.585794,499.840245 577.585794,366.668806 C577.585794,143.064418 719.590476,0 911.40277,0 C1106.39427,0 1240.9808,143.064418 1240.9808,366.668806 C1240.9808,499.840245 1203.1872,602.542428 1139.30733,670 Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <p className="footer-tl">
-                  Video intelligence for coaching programs. Turn your library
-                  into an AI coach that cites the moment that matters.
-                </p>
+      {/* Showcase */}
+      <section className="showcase container">
+        <div className="showcase-head">
+          <h2>Trusted by programs across healthcare, SaaS, and finance</h2>
+        </div>
+        <div className="showcase-grid">
+          <a className="sc-card" href="https://hrtuniversity.com" target="_blank" rel="noopener noreferrer">
+            <div className="sc-screen">
+              <img src="/images/socialproof-hrtu.png" alt="HRT University" className="sc-img" />
+              <div className="sc-label">Healthcare</div>
+            </div>
+            <div className="sc-info">
+              <h4>HRT University</h4>
+              <p>97+ clinical lessons powered by Bold AI</p>
+            </div>
+          </a>
+          <a className="sc-card" href="https://founderwell.com" target="_blank" rel="noopener noreferrer">
+            <div className="sc-screen">
+              <img src="/images/socialproof-founderwell.png" alt="FounderWell" className="sc-img" />
+              <div className="sc-label">SaaS coaching</div>
+            </div>
+            <div className="sc-info">
+              <h4>FounderWell</h4>
+              <p>SaaS growth coaching program</p>
+            </div>
+          </a>
+          <a className="sc-card" href="https://vivatuition.com" target="_blank" rel="noopener noreferrer">
+            <div className="sc-screen">
+              <img src="/images/socialproof-vivatuition.png" alt="Viva Financial Tuition" className="sc-img" />
+              <div className="sc-label">Financial education</div>
+            </div>
+            <div className="sc-info">
+              <h4>Viva Tuition</h4>
+              <p>ACCA training academy</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* 2. The Gap (Before / After) */}
+      <section className="gap-section">
+        <div className="container">
+          <div className="sec-label">The problem you can feel</div>
+          <h2 className="section-title">
+            You built a great program. The content is all there. But
+            something&apos;s broken.
+          </h2>
+          <div className="gap-container">
+            <div className="gap-col gap-col-without">
+              <div className="gap-pill gap-pill-dim">Without Bold</div>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-dim" />
+                Students rewatch entire modules looking for one answer they saw
+                three months ago
               </div>
-              <div className="footer-col">
-                <h4>Product</h4>
-                <a href="#">AI Coach</a>
-                <a href="#">AI Search</a>
-                <a href="#">Video Chat</a>
-                <a href="#">Integrations</a>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-dim" />
+                Your coaches answer the same ten questions a hundred times a week
               </div>
-              <div className="footer-col">
-                <h4>Developers</h4>
-                <a href="#">Docs</a>
-                <a href="#">API</a>
-                <a href="#">SDK</a>
-                <a href="#">Changelog</a>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-dim" />
+                Great content sits unwatched because nobody knows it exists
               </div>
-              <div className="footer-col">
-                <h4>Company</h4>
-                <a href="#">About</a>
-                <a href="#">Blog</a>
-                <a href="#">Pricing</a>
-                <a href="#">Contact</a>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-dim" />
+                Students love the teaching but churn because they get stuck on
+                implementation
+              </div>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-dim" />
+                You can&apos;t scale support without scaling headcount
               </div>
             </div>
-            <div className="footer-bot">
-              <span>&copy; 2026 Bold Video</span>
-              <div>
-                <a href="/privacy">Privacy</a>
-                <a href="/terms">Terms</a>
-                <a href="#">GitHub</a>
+            <div className="gap-divider" />
+            <div className="gap-col gap-col-with">
+              <div className="gap-pill gap-pill-mint">With Bold</div>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-mint" />
+                Students ask a question and get the exact clip with a timestamp
+                in seconds
+              </div>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-mint" />
+                The AI answers from your curriculum. Coaches focus on what only
+                humans can do
+              </div>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-mint" />
+                Every lesson is discoverable through search and conversation
+              </div>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-mint" />
+                Students get implementation help grounded in your teaching, 24/7
+              </div>
+              <div className="gap-item">
+                <span className="gap-dot gap-dot-mint" />
+                Your program scales like you have 50 coaches. You have two.
               </div>
             </div>
           </div>
-        </footer>
-      </main>
-    </>
+        </div>
+      </section>
+
+      {/* 3. Cited Answers (Product UI) */}
+      <section className="cited-section container">
+        <div className="cited-header">
+          <div className="f-tag ft1">How it works</div>
+          <h2 className="section-title">Every answer comes with proof</h2>
+          <p className="sec-sub">
+            Students ask a question and get a response grounded in your
+            teaching, with the exact video and timestamp so they can verify
+            and go deeper. No hallucinations. No generic AI. Your expertise,
+            cited.
+          </p>
+        </div>
+        <div className="chat-demo cited-chat">
+          <div className="chat-header">
+            <div className="chat-hl">
+              <div className="chat-av" ref={chatAvRef}>
+                <img src="/images/chaticon-founderwell.png" alt="" />
+              </div>
+              <div className="chat-ht" ref={chatTitleRef}>
+                Ask FounderWell
+              </div>
+            </div>
+            <div className="chat-st" ref={chatCountRef}>
+              <span className="dot" />
+              1,400 videos
+            </div>
+          </div>
+          <div className="chat-body" ref={chatBodyRef} />
+          <div className="chat-input">
+            <input placeholder="Ask about any topic..." aria-label="Ask a question" />
+            <button type="button" aria-label="Send message">
+              <svg viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M2 7h10M8 3l4 4-4 4"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Case Study (HRTU) */}
+      <section className="case-study">
+        <div className="cs-inner">
+          <div className="sec-label" style={{ color: "var(--hrtu-gold)" }}>
+            Case study
+          </div>
+          <div className="cs-grid">
+            <div className="cs-text">
+              <h3>
+                HRT University turned 97 clinical lessons into an always&#8209;on
+                AI teaching assistant
+              </h3>
+              <p>
+                HRTU trains licensed healthcare providers in hormone and
+                metabolic medicine. Bold indexes every lesson and gives
+                clinicians instant, cited answers grounded in the curriculum.
+              </p>
+              <div className="cs-stats">
+                <div className="cs-s">
+                  <div className="cs-s-n">97+</div>
+                  <div className="cs-s-l">Lessons indexed</div>
+                </div>
+                <div className="cs-s">
+                  <div className="cs-s-n">30</div>
+                  <div className="cs-s-l">CEU hours</div>
+                </div>
+                <div className="cs-s">
+                  <div className="cs-s-n">24/7</div>
+                  <div className="cs-s-l">AI support</div>
+                </div>
+              </div>
+              <p className="cs-roi">
+                A 3% retention bump on a $5M program
+                = <strong>$150K saved annually.</strong> Bold pays for itself
+                many times over.
+              </p>
+              <a
+                className="btn-gold"
+                href="https://savvycal.com/marcel-from-bold/7838d613"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Book a demo
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path
+                    d="M5 2l5 5-5 5"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div className="cs-photo">
+              <div className="cs-photo-grain" />
+              <div className="cs-photo-badge">
+                <svg width="14" height="14" viewBox="0 0 512 512" fill="none">
+                  <path
+                    clipRule="evenodd"
+                    d="m27 512v-512h260.196c112.402 0 160.451 58.6113 160.451 129.54 0 70.927-17.805 98.746-54.914 126.354 62.421 16.777 92.881 75.175 92.881 143.768 0 68.592-8.58 80.696-36.251 112.338z"
+                    fill="currentColor"
+                    fillRule="evenodd"
+                  />
+                </svg>
+                Powered by Bold
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Capabilities (vertical stack) */}
+      <section className="cap-section container">
+        <div className="sec-label">What changes</div>
+        <h2 className="section-title">
+          Three problems you stop solving manually
+        </h2>
+        <div className="cap-list">
+          <div className="cap-item">
+            <div className="cap-num">01</div>
+            <div className="cap-main">
+              <h3>Coaching scales without hiring</h3>
+              <p>
+                Your students get guidance calibrated to their stage. A
+                beginner gets foundations, an advanced student gets tactical
+                depth from deeper in the library. Same question, different
+                answer. No coach required.
+              </p>
+            </div>
+            <div className="cap-details">
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Viewer profiles track stage, role, and progress
+              </div>
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Responses adapt automatically, no configuration per student
+              </div>
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Coaches focus on high-value 1:1 conversations
+              </div>
+            </div>
+          </div>
+          <div className="cap-item">
+            <div className="cap-num">02</div>
+            <div className="cap-main">
+              <h3>Students submit their work. Your teaching reviews it.</h3>
+              <p>
+                A design student uploads a mockup. A clinician uploads a lab
+                panel. Bold critiques their work using your actual frameworks
+                and principles, not generic AI advice. Implementation support
+                at 2am.
+              </p>
+            </div>
+            <div className="cap-details">
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Image and document upload in the chat interface
+              </div>
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Feedback grounded in your course content, with citations
+              </div>
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Closes the implementation gap that drives churn
+              </div>
+            </div>
+          </div>
+          <div className="cap-item">
+            <div className="cap-num">03</div>
+            <div className="cap-main">
+              <h3>Your content graveyard becomes the reason students stay</h3>
+              <p>
+                Bold understands concepts, not keywords. When a student asks
+                about pricing strategy, it finds the relevant lesson even if
+                the word &quot;pricing&quot; is never mentioned. Content they
+                never found becomes the content that keeps them enrolled.
+              </p>
+            </div>
+            <div className="cap-details">
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Semantic search across transcripts and attached files
+              </div>
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Cross-library recommendations surface related content
+              </div>
+              <div className="cap-check">
+                <span className="cap-check-icon">&#10003;</span>
+                Students discover depth they didn&apos;t know was there
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Who It's For */}
+      <section className="who-for">
+        <div className="nf-container">
+          <div className="grid-accent" />
+          <div className="mint-glow" />
+          <div className="nf-inner">
+            <div className="nf-header">
+              <div className="sec-label">Who Bold is for</div>
+              <h2 className="section-title">
+                Built for programs with deep video libraries
+              </h2>
+              <p className="nf-desc">
+                Bold is for teams that have already invested in their content
+                and want every lesson working harder.
+              </p>
+            </div>
+            <div className="nf-grid">
+              <div className="nf nf-y">
+                <span className="cap-check-icon">&#10003;</span>Coaching programs with
+                50+ hours of video content
+              </div>
+              <div className="nf nf-y">
+                <span className="cap-check-icon">&#10003;</span>Training academies
+                scaling past one&#8209;on&#8209;one support
+              </div>
+              <div className="nf nf-y">
+                <span className="cap-check-icon">&#10003;</span>Clinical and professional
+                education that demands accuracy
+              </div>
+              <div className="nf nf-y">
+                <span className="cap-check-icon">&#10003;</span>Programs where students
+                churn despite loving the content
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Final CTA */}
+      <section className="cta">
+        <div className="container">
+          <h2>You invested in the content. Make it actually teach.</h2>
+          <p>
+            See how Bold turns your video library into your hardest-working
+            team member.
+          </p>
+          <a
+            className="btn-cta"
+            href="https://savvycal.com/marcel-from-bold/7838d613"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Book a demo
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path
+                d="M5 2l5 5-5 5"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer>
+        <div className="container">
+          <div className="footer-top">
+            <div>
+              <div className="footer-brand">
+                <svg
+                  width="100"
+                  height="28"
+                  viewBox="0 0 2446 670"
+                  fill="none"
+                >
+                  <path
+                    d="M1852.5076,670 L1852.5076,669.887695 C1852.5076,527.853176 1852.5076,314.801396 1852.5076,30.7323566 C1852.5076,30.7323566 1977.5565,14.8363101 2114.2625,14.8363101 C2390.85371,14.8363101 2445.96,207.708341 2445.96,379.385643 C2445.96,483.357525 2414.91214,594.306455 2343.80949,670 L1852.5076,670 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M1811.81187,670 L1308.38511,670 C1278.09393,628.203566 1262.20497,569.947745 1262.20497,490.657969 L1262.20497,21.1947287 L1680.80086,21.1947287 L1680.80086,464.164558 L1806.90949,456.746403 L1811.81187,670 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M1139.30733,670 L679.041861,670 C614.793443,602.542428 577.585794,499.840245 577.585794,366.668806 C577.585794,143.064418 719.590476,0 911.40277,0 C1106.39427,0 1240.9808,143.064418 1240.9808,366.668806 C1240.9808,499.840245 1203.1872,602.542428 1139.30733,670 Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+              <p className="footer-tl">
+                Video intelligence for coaching programs. Turn your library
+                into an AI coach that cites the moment that matters.
+              </p>
+            </div>
+            <div className="footer-col">
+              <h4>Product</h4>
+              <Link href="/product">How it works</Link>
+              <Link href="/customers">Customers</Link>
+              <Link href="/migrate">Migrate</Link>
+            </div>
+            <div className="footer-col">
+              <h4>Company</h4>
+              <Link href="/privacy">Privacy</Link>
+              <Link href="/terms">Terms</Link>
+            </div>
+          </div>
+          <div className="footer-bot">
+            <span>&copy; 2026 Bold Video</span>
+            <div>
+              <Link href="/privacy">Privacy</Link>
+              <Link href="/terms">Terms</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
