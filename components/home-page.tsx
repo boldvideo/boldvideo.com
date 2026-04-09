@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { CtaGlow } from "./cta-glow";
 import "./landing-v10.css";
 
 const ANNOUNCEMENT_MESSAGES = [
@@ -909,6 +910,7 @@ export function HomePage() {
 
       {/* 7. Final CTA */}
       <section className="cta">
+        <CtaGlow />
         <div className="container">
           <h2>You invested in the content. Make it actually teach.</h2>
           <p>
