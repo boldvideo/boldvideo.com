@@ -1,4 +1,4 @@
-const docsHref = "https://docs.boldvideo.com/";
+const docsHref = "https://docs.boldvideo.io/";
 
 export const announcementMessages = [
   "Growing out of Kajabi?",
@@ -9,7 +9,6 @@ export const announcementMessages = [
 export const navLinks = [
   { label: "Product", href: "/product" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
   { label: "Docs", href: docsHref },
 ];
 
@@ -19,20 +18,8 @@ export const footerColumns = [
     links: [
       { label: "Product", href: "/product" },
       { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
       { label: "Docs", href: docsHref },
       { label: "Migrate", href: "/migrate" },
-    ],
-  },
-  {
-    title: "Compare",
-    links: [
-      { label: "Bold vs YouTube", href: "/vs-youtube" },
-      { label: "Bold vs Vimeo", href: "/vs-vimeo" },
-      {
-        label: "Book a demo",
-        href: "https://savvycal.com/marcel-from-bold/7838d613",
-      },
     ],
   },
   {

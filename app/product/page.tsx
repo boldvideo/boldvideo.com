@@ -141,7 +141,7 @@ export default function ProductPage() {
                   />
                 </svg>
               </a>
-              <Link href="/docs" className="prod-cta-ghost">
+              <Link href="https://docs.boldvideo.io/" className="prod-cta-ghost">
                 Read the docs
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path
@@ -203,8 +203,25 @@ export default function ProductPage() {
                 </div>
               </div>
               <div className="cap-visual">
-                <div className="cap-screenshot-placeholder">
-                  <span>Product screenshot</span>
+                <div className="mock-chat">
+                  <div className="mock-chat-header">
+                    <div className="mock-av">B</div>
+                    <div>
+                      <div className="mock-title">Ask Bold</div>
+                      <div className="mock-meta">1,400 videos</div>
+                    </div>
+                  </div>
+                  <div className="mock-chat-body">
+                    <div className="mock-bubble mock-user">How should I handle pricing for a new HRT clinic?</div>
+                    <div className="mock-bubble mock-ai">
+                      <p>Two frameworks apply here. Anchor on patient outcomes, not medication cost. If your protocol delivers measurable results, a $200/month concierge model positions you as premium, not expensive.</p>
+                      <div className="mock-citations">
+                        <span className="mock-cite">Pricing Strategy <em>14:23</em></span>
+                        <span className="mock-cite">Clinic Operations <em>08:47</em></span>
+                        <span className="mock-cite">Business Models <em>32:10</em></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -237,8 +254,34 @@ export default function ProductPage() {
                 </div>
               </div>
               <div className="cap-visual">
-                <div className="cap-screenshot-placeholder">
-                  <span>Product screenshot</span>
+                <div className="mock-search">
+                  <div className="mock-search-bar">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    <span>how to handle a difficult client conversation</span>
+                  </div>
+                  <div className="mock-results">
+                    <div className="mock-result">
+                      <div className="mock-result-head">
+                        <strong>Conflict Resolution Framework</strong>
+                        <span className="mock-ts">23:15</span>
+                      </div>
+                      <p>...the key is to reframe the conversation around shared goals. When emotions run high, acknowledge first, then redirect...</p>
+                    </div>
+                    <div className="mock-result">
+                      <div className="mock-result-head">
+                        <strong>Client Retention Strategies</strong>
+                        <span className="mock-ts">11:42</span>
+                      </div>
+                      <p>...difficult conversations are retention opportunities. The providers who lean in here are the ones who keep clients longest...</p>
+                    </div>
+                    <div className="mock-result">
+                      <div className="mock-result-head">
+                        <strong>Q&amp;A Session: Patient Communication</strong>
+                        <span className="mock-ts">47:08</span>
+                      </div>
+                      <p>...I always tell my students: lead with empathy, follow with data. That combination disarms almost any situation...</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -263,7 +306,7 @@ export default function ProductPage() {
                   MCP server for AI assistants. Embed the AI coach, search, or
                   video player anywhere.
                 </p>
-                <Link href="/docs" className="dev-docs-link">
+                <Link href="https://docs.boldvideo.io/" className="dev-docs-link">
                   Read the docs
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path
