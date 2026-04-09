@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { footerColumns, footerMetaLinks, navLinks } from "@/lib/site-content";
+import { SiteLink } from "./site-link";
 import "../components/landing-v10.css";
 
 type SiteNavProps = {
@@ -30,9 +32,11 @@ export function SiteNav({ cta = "Book a demo" }: SiteNavProps) {
           </svg>
         </Link>
         <div className="nav-right">
-          <a href="/about">About</a>
-          <a href="/blog">Blog</a>
-          <a href="/docs">Docs</a>
+          {navLinks.map((link) => (
+            <SiteLink href={link.href} key={link.href}>
+              {link.label}
+            </SiteLink>
+          ))}
           <a
             className="nav-cta"
             href="https://savvycal.com/marcel-from-bold/7838d613"
@@ -48,6 +52,8 @@ export function SiteNav({ cta = "Book a demo" }: SiteNavProps) {
 }
 
 export function SiteNavFooter() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="landing-v10">
       <div className="container">
@@ -78,24 +84,25 @@ export function SiteNavFooter() {
               an AI coach that cites the moment that matters.
             </p>
           </div>
-          <div className="footer-col">
-            <h4>Product</h4>
-            <Link href="/about">About</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/docs">Docs</Link>
-            <Link href="/migrate">Migrate</Link>
-          </div>
-          <div className="footer-col">
-            <h4>Company</h4>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
-          </div>
+          {footerColumns.map((column) => (
+            <div className="footer-col" key={column.title}>
+              <h4>{column.title}</h4>
+              {column.links.map((link) => (
+                <SiteLink href={link.href} key={link.href}>
+                  {link.label}
+                </SiteLink>
+              ))}
+            </div>
+          ))}
         </div>
         <div className="footer-bot">
-          <span>&copy; 2026 Bold Video</span>
+          <span>&copy; {currentYear} Bold Video</span>
           <div>
-            <Link href="/privacy">Privacy</Link>
-            <Link href="/terms">Terms</Link>
+            {footerMetaLinks.map((link) => (
+              <SiteLink href={link.href} key={link.href}>
+                {link.label}
+              </SiteLink>
+            ))}
           </div>
         </div>
       </div>

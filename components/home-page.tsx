@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { CtaSection } from "./cta-section";
+import { SiteNav, SiteNavFooter } from "./site-nav";
 import "./landing-v10.css";
 
 const ANNOUNCEMENT_MESSAGES = [
@@ -186,7 +186,9 @@ export function HomePage() {
       intervalIds.push(announcementInterval);
     }
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const clearScenarioTimers = () => {
       timeoutIds.forEach((timeoutId) => {
@@ -355,8 +357,7 @@ export function HomePage() {
         av.style.color = "white";
       }
       if (titleEl) titleEl.textContent = "Ask Bold";
-      if (countEl)
-        countEl.innerHTML = '<span class="dot"></span>beta';
+      if (countEl) countEl.innerHTML = '<span class="dot"></span>beta';
 
       chatBody.innerHTML = "";
 
@@ -484,48 +485,7 @@ export function HomePage() {
         <a href="/migrate">See how to migrate &rarr;</a>
       </div>
 
-      <nav aria-label="Main navigation">
-        <div className="nav-inner">
-          <Link className="nav-logo" href="/" aria-label="Bold — Home">
-            <svg
-              width="94"
-              height="26"
-              viewBox="0 0 2446 670"
-              fill="none"
-            >
-              <path
-                d="M1852.5076,670 L1852.5076,669.887695 C1852.5076,527.853176 1852.5076,314.801396 1852.5076,30.7323566 C1852.5076,30.7323566 1977.5565,14.8363101 2114.2625,14.8363101 C2390.85371,14.8363101 2445.96,207.708341 2445.96,379.385643 C2445.96,483.357525 2414.91214,594.306455 2343.80949,670 L1852.5076,670 Z"
-                fill="var(--mint)"
-              />
-              <path
-                d="M1811.81187,670 L1308.38511,670 C1278.09393,628.203566 1262.20497,569.947745 1262.20497,490.657969 L1262.20497,21.1947287 L1680.80086,21.1947287 L1680.80086,464.164558 L1806.90949,456.746403 L1811.81187,670 Z"
-                fill="var(--mint)"
-              />
-              <path
-                d="M1139.30733,670 L679.041861,670 C614.793443,602.542428 577.585794,499.840245 577.585794,366.668806 C577.585794,143.064418 719.590476,0 911.40277,0 C1106.39427,0 1240.9808,143.064418 1240.9808,366.668806 C1240.9808,499.840245 1203.1872,602.542428 1139.30733,670 Z"
-                fill="var(--mint)"
-              />
-              <path
-                d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z"
-                fill="var(--mint)"
-              />
-            </svg>
-          </Link>
-          <div className="nav-right">
-            <a href="/about">About</a>
-            <a href="/blog">Blog</a>
-            <a href="/docs">Docs</a>
-            <a
-              className="nav-cta"
-              href="https://savvycal.com/marcel-from-bold/7838d613"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Book a demo
-            </a>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* 1. Hero - text only, centered */}
       <section className="hero-centered container">
@@ -568,9 +528,18 @@ export function HomePage() {
           <h2>Trusted by programs across healthcare, SaaS, and finance</h2>
         </div>
         <div className="showcase-grid">
-          <a className="sc-card" href="https://hrtuniversity.com" target="_blank" rel="noopener noreferrer">
+          <a
+            className="sc-card"
+            href="https://hrtuniversity.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="sc-screen">
-              <img src="/images/socialproof-hrtu.png" alt="HRT University" className="sc-img" />
+              <img
+                src="/images/socialproof-hrtu.png"
+                alt="HRT University"
+                className="sc-img"
+              />
               <div className="sc-label">Healthcare</div>
             </div>
             <div className="sc-info">
@@ -578,9 +547,18 @@ export function HomePage() {
               <p>97+ clinical lessons powered by Bold AI</p>
             </div>
           </a>
-          <a className="sc-card" href="https://founderwell.com" target="_blank" rel="noopener noreferrer">
+          <a
+            className="sc-card"
+            href="https://founderwell.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="sc-screen">
-              <img src="/images/socialproof-founderwell.png" alt="FounderWell" className="sc-img" />
+              <img
+                src="/images/socialproof-founderwell.png"
+                alt="FounderWell"
+                className="sc-img"
+              />
               <div className="sc-label">SaaS coaching</div>
             </div>
             <div className="sc-info">
@@ -588,9 +566,18 @@ export function HomePage() {
               <p>SaaS growth coaching program</p>
             </div>
           </a>
-          <a className="sc-card" href="https://vivatuition.com" target="_blank" rel="noopener noreferrer">
+          <a
+            className="sc-card"
+            href="https://vivatuition.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="sc-screen">
-              <img src="/images/socialproof-vivatuition.png" alt="Viva Financial Tuition" className="sc-img" />
+              <img
+                src="/images/socialproof-vivatuition.png"
+                alt="Viva Financial Tuition"
+                className="sc-img"
+              />
               <div className="sc-label">Financial education</div>
             </div>
             <div className="sc-info">
@@ -619,7 +606,8 @@ export function HomePage() {
               </div>
               <div className="gap-item">
                 <span className="gap-dot gap-dot-dim" />
-                Your coaches answer the same ten questions a hundred times a week
+                Your coaches answer the same ten questions a hundred times a
+                week
               </div>
               <div className="gap-item">
                 <span className="gap-dot gap-dot-dim" />
@@ -672,9 +660,8 @@ export function HomePage() {
           <h2 className="section-title">Every answer comes with proof</h2>
           <p className="sec-sub">
             Students ask a question and get a response grounded in your
-            teaching, with the exact video and timestamp so they can verify
-            and go deeper. No hallucinations. No generic AI. Your expertise,
-            cited.
+            teaching, with the exact video and timestamp so they can verify and
+            go deeper. No hallucinations. No generic AI. Your expertise, cited.
           </p>
         </div>
         <div className="chat-demo cited-chat">
@@ -694,7 +681,10 @@ export function HomePage() {
           </div>
           <div className="chat-body" ref={chatBodyRef} />
           <div className="chat-input">
-            <input placeholder="Ask about any topic..." aria-label="Ask a question" />
+            <input
+              placeholder="Ask about any topic..."
+              aria-label="Ask a question"
+            />
             <button type="button" aria-label="Send message">
               <svg viewBox="0 0 14 14" fill="none">
                 <path
@@ -719,8 +709,8 @@ export function HomePage() {
           <div className="cs-grid">
             <div className="cs-text">
               <h3>
-                HRT University turned 97 clinical lessons into an always&#8209;on
-                AI teaching assistant
+                HRT University turned 97 clinical lessons into an
+                always&#8209;on AI teaching assistant
               </h3>
               <p>
                 HRTU trains licensed healthcare providers in hormone and
@@ -742,9 +732,9 @@ export function HomePage() {
                 </div>
               </div>
               <p className="cs-roi">
-                A 3% retention bump on a $5M program
-                = <strong>$150K saved annually.</strong> Bold pays for itself
-                many times over.
+                A 3% retention bump on a $5M program ={" "}
+                <strong>$150K saved annually.</strong> Bold pays for itself many
+                times over.
               </p>
               <a
                 className="btn-gold"
@@ -794,10 +784,10 @@ export function HomePage() {
             <div className="cap-main">
               <h3>Coaching scales without hiring</h3>
               <p>
-                Your students get guidance calibrated to their stage. A
-                beginner gets foundations, an advanced student gets tactical
-                depth from deeper in the library. Same question, different
-                answer. No coach required.
+                Your students get guidance calibrated to their stage. A beginner
+                gets foundations, an advanced student gets tactical depth from
+                deeper in the library. Same question, different answer. No coach
+                required.
               </p>
             </div>
             <div className="cap-details">
@@ -822,8 +812,8 @@ export function HomePage() {
               <p>
                 A design student uploads a mockup. A clinician uploads a lab
                 panel. Bold critiques their work using your actual frameworks
-                and principles, not generic AI advice. Implementation support
-                at 2am.
+                and principles, not generic AI advice. Implementation support at
+                2am.
               </p>
             </div>
             <div className="cap-details">
@@ -847,9 +837,9 @@ export function HomePage() {
               <h3>Your content graveyard becomes the reason students stay</h3>
               <p>
                 Bold understands concepts, not keywords. When a student asks
-                about pricing strategy, it finds the relevant lesson even if
-                the word &quot;pricing&quot; is never mentioned. Content they
-                never found becomes the content that keeps them enrolled.
+                about pricing strategy, it finds the relevant lesson even if the
+                word &quot;pricing&quot; is never mentioned. Content they never
+                found becomes the content that keeps them enrolled.
               </p>
             </div>
             <div className="cap-details">
@@ -888,20 +878,20 @@ export function HomePage() {
             </div>
             <div className="nf-grid">
               <div className="nf nf-y">
-                <span className="cap-check-icon">&#10003;</span>Coaching programs with
-                50+ hours of video content
+                <span className="cap-check-icon">&#10003;</span>Coaching
+                programs with 50+ hours of video content
               </div>
               <div className="nf nf-y">
-                <span className="cap-check-icon">&#10003;</span>Training academies
-                scaling past one&#8209;on&#8209;one support
+                <span className="cap-check-icon">&#10003;</span>Training
+                academies scaling past one&#8209;on&#8209;one support
               </div>
               <div className="nf nf-y">
-                <span className="cap-check-icon">&#10003;</span>Clinical and professional
-                education that demands accuracy
+                <span className="cap-check-icon">&#10003;</span>Clinical and
+                professional education that demands accuracy
               </div>
               <div className="nf nf-y">
-                <span className="cap-check-icon">&#10003;</span>Programs where students
-                churn despite loving the content
+                <span className="cap-check-icon">&#10003;</span>Programs where
+                students churn despite loving the content
               </div>
             </div>
           </div>
@@ -912,62 +902,7 @@ export function HomePage() {
       <CtaSection />
 
       {/* Footer */}
-      <footer>
-        <div className="container">
-          <div className="footer-top">
-            <div>
-              <div className="footer-brand">
-                <svg
-                  width="100"
-                  height="28"
-                  viewBox="0 0 2446 670"
-                  fill="none"
-                >
-                  <path
-                    d="M1852.5076,670 L1852.5076,669.887695 C1852.5076,527.853176 1852.5076,314.801396 1852.5076,30.7323566 C1852.5076,30.7323566 1977.5565,14.8363101 2114.2625,14.8363101 C2390.85371,14.8363101 2445.96,207.708341 2445.96,379.385643 C2445.96,483.357525 2414.91214,594.306455 2343.80949,670 L1852.5076,670 Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M1811.81187,670 L1308.38511,670 C1278.09393,628.203566 1262.20497,569.947745 1262.20497,490.657969 L1262.20497,21.1947287 L1680.80086,21.1947287 L1680.80086,464.164558 L1806.90949,456.746403 L1811.81187,670 Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M1139.30733,670 L679.041861,670 C614.793443,602.542428 577.585794,499.840245 577.585794,366.668806 C577.585794,143.064418 719.590476,0 911.40277,0 C1106.39427,0 1240.9808,143.064418 1240.9808,366.668806 C1240.9808,499.840245 1203.1872,602.542428 1139.30733,670 Z"
-                    fill="white"
-                  />
-                  <path
-                    d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z"
-                    fill="white"
-                  />
-                </svg>
-              </div>
-              <p className="footer-tl">
-                Video intelligence for coaching programs. Turn your library
-                into an AI coach that cites the moment that matters.
-              </p>
-            </div>
-            <div className="footer-col">
-              <h4>Product</h4>
-              <Link href="/about">About</Link>
-              <Link href="/blog">Blog</Link>
-              <Link href="/docs">Docs</Link>
-              <Link href="/migrate">Migrate</Link>
-            </div>
-            <div className="footer-col">
-              <h4>Company</h4>
-              <Link href="/privacy">Privacy</Link>
-              <Link href="/terms">Terms</Link>
-            </div>
-          </div>
-          <div className="footer-bot">
-            <span>&copy; 2026 Bold Video</span>
-            <div>
-              <Link href="/privacy">Privacy</Link>
-              <Link href="/terms">Terms</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteNavFooter />
     </main>
   );
 }

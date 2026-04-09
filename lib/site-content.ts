@@ -1,3 +1,5 @@
+const docsHref = "https://docs.boldvideo.com/";
+
 export const announcementMessages = [
   "Growing out of Kajabi?",
   "Scaling past Circle?",
@@ -7,7 +9,7 @@ export const announcementMessages = [
 export const navLinks = [
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Docs", href: "/docs" },
+  { label: "Docs", href: docsHref },
 ];
 
 export const footerColumns = [
@@ -16,7 +18,7 @@ export const footerColumns = [
     links: [
       { label: "About", href: "/about" },
       { label: "Blog", href: "/blog" },
-      { label: "Docs", href: "/docs" },
+      { label: "Docs", href: docsHref },
       { label: "Migrate", href: "/migrate" },
     ],
   },
@@ -32,13 +34,29 @@ export const footerColumns = [
     ],
   },
   {
-    title: "Company",
+    title: "Legal",
     links: [
-      { label: "Privacy", href: "/privacy" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms", href: "/terms" },
-      { label: "Contact", href: "mailto:support@boldvideo.com" },
     ],
   },
+  {
+    title: "Contact",
+    links: [
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/company/boldvideo/",
+      },
+      { label: "Twitter / X", href: "https://x.com/boldvid" },
+      { label: "Email", href: "mailto:support@boldvideo.com" },
+    ],
+  },
+];
+
+export const footerMetaLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Contact", href: "mailto:support@boldvideo.com" },
 ];
 
 export const heroChatScenarios = [

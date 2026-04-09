@@ -238,7 +238,9 @@
   background: white;
   border: 1px solid var(--border-strong);
   overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 12px 40px rgba(0, 0, 0, 0.07);
 }
 .landing-v10 .chat-header {
   padding: 11px 16px;
@@ -493,7 +495,9 @@
 .landing-v10 .sc-card {
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
   background: white;
   cursor: pointer;
   display: block;
@@ -653,7 +657,8 @@
 .landing-v10 .f-vis .grid-bg {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
@@ -674,7 +679,9 @@
   max-width: 360px;
   background: white;
   border: 1px solid var(--border-strong);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
   font-size: 12px;
   line-height: 1.6;
 }
@@ -701,7 +708,9 @@
 .landing-v10 [data-stagger] {
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 .landing-v10 .fmc-in-view [data-stagger="1"] {
   opacity: 1;
@@ -927,7 +936,9 @@
 .landing-v10 .cited-chat {
   max-width: 680px;
   margin: 0 auto;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 16px 48px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
 /* Case study */
@@ -1085,15 +1096,15 @@
   position: relative;
   overflow: hidden;
   padding: 3.5rem 4rem 4rem;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02), 0 20px 50px -20px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.02),
+    0 20px 50px -20px rgba(0, 0, 0, 0.08);
 }
 .landing-v10 .nf-container .grid-accent {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.025) 1px,
-      transparent 1px
-    ),
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
@@ -1163,7 +1174,6 @@
   color: var(--mint-text);
 }
 
-
 /* CTA */
 .landing-v10 .cta {
   padding: 6rem 0;
@@ -1227,7 +1237,7 @@
 }
 .landing-v10 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr));
   gap: 3rem;
   padding-top: 3rem;
   margin-bottom: 3rem;
@@ -1276,6 +1286,100 @@
 }
 .landing-v10 .footer-bot a:hover {
   color: rgba(255, 255, 255, 0.7);
+}
+
+/* Legal pages */
+.landing-v10 .legal-hero {
+  padding: 10rem 0 2.5rem;
+  position: relative;
+}
+.landing-v10 .legal-hero .hero-glow {
+  position: absolute;
+  top: 4.5rem;
+  left: 10%;
+  width: 420px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--mint);
+  filter: blur(160px);
+  opacity: 0.18;
+  pointer-events: none;
+}
+.landing-v10 .legal-hero-inner {
+  position: relative;
+  max-width: 720px;
+}
+.landing-v10 .legal-hero .hero-sub {
+  max-width: 680px;
+}
+.landing-v10 .legal-updated {
+  margin: 1rem 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+.landing-v10 .legal-body {
+  padding-bottom: 5rem;
+}
+.landing-v10 .legal-card {
+  background: white;
+  border: 1px solid var(--border-strong);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 12px 40px rgba(0, 0, 0, 0.07);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+.landing-v10 .legal-card > *:first-child {
+  margin-top: 0;
+}
+.landing-v10 .legal-card > *:last-child {
+  margin-bottom: 0;
+}
+.landing-v10 .legal-card p {
+  margin: 1rem 0 0;
+  color: var(--text-mid);
+  font-size: 15px;
+  line-height: 1.85;
+}
+.landing-v10 .legal-card h2 {
+  margin: 2.5rem 0 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  color: var(--text);
+}
+.landing-v10 .legal-card h3 {
+  margin: 1.75rem 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+}
+.landing-v10 .legal-card ul {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--text-mid);
+}
+.landing-v10 .legal-card li {
+  margin: 0.55rem 0;
+  padding-left: 0.2rem;
+  font-size: 15px;
+  line-height: 1.8;
+}
+.landing-v10 .legal-card strong {
+  color: var(--text);
+}
+.landing-v10 .legal-card .legal-link {
+  color: var(--mint-text);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.landing-v10 .legal-card .legal-link:hover {
+  color: var(--mint-dark);
 }
 
 /* Keyframes */
@@ -1395,6 +1499,16 @@
   .landing-v10 .nf-container {
     padding: 2rem 1.25rem;
   }
+  .landing-v10 .legal-hero {
+    padding-top: 8.75rem;
+  }
+  .landing-v10 .legal-hero .hero-glow {
+    left: 50%;
+    top: 3rem;
+    transform: translateX(-50%);
+    width: 320px;
+    height: 260px;
+  }
 }
 
 /* Hero centered variant */
@@ -1424,7 +1538,11 @@
 }
 .landing-v10 .hero-centered h1 em {
   font-style: italic;
-  background: linear-gradient(to top, rgba(65, 198, 166, 0.22) 40%, transparent 40%);
+  background: linear-gradient(
+    to top,
+    rgba(65, 198, 166, 0.22) 40%,
+    transparent 40%
+  );
   padding: 0 4px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -1629,7 +1747,9 @@
   margin: 3rem auto 0;
   border: 1px solid var(--border-strong);
   background: white;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 12px 40px rgba(0, 0, 0, 0.07);
   text-align: left;
 }
 .landing-v10.migration-v11 .migration-flow-head {

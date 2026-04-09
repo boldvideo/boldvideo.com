@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/legal-page";
 import { getLegalDocument } from "@/lib/legal";
 
 export function generateMetadata(): Metadata {
-  const document = getLegalDocument("terms");
+  const document = getLegalDocument("privacy-policy");
 
   return {
     title: document.title,
@@ -11,8 +11,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function TermsPage() {
-  const document = getLegalDocument("terms");
+export default function PrivacyPolicyPage() {
+  const document = getLegalDocument("privacy-policy");
 
   return (
     <LegalPage

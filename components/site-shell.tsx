@@ -3,10 +3,12 @@ import type { ReactNode } from "react";
 import {
   announcementMessages,
   footerColumns,
+  footerMetaLinks,
   navLinks,
 } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 import { AnnouncementTicker } from "./announcement-ticker";
+import { SiteLink } from "./site-link";
 import { SiteLogo } from "./site-logo";
 
 const noiseTexture =
@@ -52,13 +54,13 @@ export function SiteShell({ children, className }: SiteShellProps) {
             className="hidden items-center gap-8 md:flex"
           >
             {navLinks.map((link) => (
-              <Link
+              <SiteLink
                 className="text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-ink)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2"
                 href={link.href}
                 key={link.href}
               >
                 {link.label}
-              </Link>
+              </SiteLink>
             ))}
           </nav>
 
@@ -81,9 +83,11 @@ export function SiteShell({ children, className }: SiteShellProps) {
 }
 
 export function SiteFooter() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="mt-20 border-t border-white/8 bg-[var(--color-forest)] text-white/72">
-      <div className="mx-auto grid max-w-[1200px] gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.3fr)_repeat(3,minmax(0,0.8fr))] lg:px-8">
+      <div className="mx-auto grid max-w-[1200px] gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.3fr)_repeat(4,minmax(0,0.8fr))] lg:px-8">
         <div className="space-y-5">
           <SiteLogo
             labelClassName="text-[var(--color-cream)]"
@@ -103,12 +107,12 @@ export function SiteFooter() {
             <ul className="space-y-3">
               {column.links.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <SiteLink
                     className="text-sm transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
                     href={link.href}
                   >
                     {link.label}
-                  </Link>
+                  </SiteLink>
                 </li>
               ))}
             </ul>
@@ -118,26 +122,17 @@ export function SiteFooter() {
 
       <div className="border-t border-white/8">
         <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-4 py-6 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-white/34 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <span>Copyright 2026 Bold Video</span>
+          <span>Copyright {currentYear} Bold Video</span>
           <div className="flex flex-wrap items-center gap-4">
-            <Link
-              className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
-              href="/privacy"
-            >
-              Privacy
-            </Link>
-            <Link
-              className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
-              href="/terms"
-            >
-              Terms
-            </Link>
-            <Link
-              className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
-              href="mailto:support@boldvideo.com"
-            >
-              Contact
-            </Link>
+            {footerMetaLinks.map((link) => (
+              <SiteLink
+                className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-forest)]"
+                href={link.href}
+                key={link.href}
+              >
+                {link.label}
+              </SiteLink>
+            ))}
           </div>
         </div>
       </div>
