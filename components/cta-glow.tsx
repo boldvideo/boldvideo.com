@@ -40,23 +40,23 @@ void main() {
   float d4 = exp(-9.0 * dot(w - c4, w - c4));
   float d5 = exp(-8.0 * dot(w - c5, w - c5));
 
-  // Colors — mint hero, blue + warm pink + teal accents
+  // Colors — tropical: mint hero + warm coral/peach complement
   vec3 mint   = vec3(0.255, 0.776, 0.651);
-  vec3 blue   = vec3(0.25, 0.45, 1.0);
-  vec3 rose   = vec3(0.75, 0.25, 0.55);
+  vec3 coral  = vec3(1.0, 0.48, 0.38);
+  vec3 peach  = vec3(1.0, 0.7, 0.45);
+  vec3 lav    = vec3(0.55, 0.4, 0.85);
   vec3 teal   = vec3(0.08, 0.55, 0.65);
-  vec3 violet = vec3(0.45, 0.20, 0.80);
 
   vec3 col = vec3(0.0);
-  col += d1 * mint   * 0.55;
-  col += d2 * blue   * 0.35;
-  col += d3 * rose   * 0.22;
-  col += d4 * teal   * 0.30;
-  col += d5 * violet * 0.20;
+  col += d1 * mint  * 0.55;
+  col += d2 * coral * 0.30;
+  col += d3 * peach * 0.22;
+  col += d4 * teal  * 0.30;
+  col += d5 * lav   * 0.18;
 
-  // Subtle iridescent sheen based on warp displacement
+  // Soft warm-cool sheen
   float sheen = length(vec2(w1 + w3, w2 + w4));
-  col += sheen * mix(mint, blue, uv.x) * 0.15;
+  col += sheen * mix(mint, coral, uv.x) * 0.12;
 
   // Film grain
   float grain = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
