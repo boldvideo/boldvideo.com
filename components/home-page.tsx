@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { CtaGlow } from "./cta-glow";
+import { CtaSection } from "./cta-section";
 import "./landing-v10.css";
 
 const ANNOUNCEMENT_MESSAGES = [
@@ -909,33 +909,7 @@ export function HomePage() {
       </section>
 
       {/* 7. Final CTA */}
-      <section className="cta">
-        <CtaGlow />
-        <div className="container">
-          <h2>You invested in the content. Make it actually teach.</h2>
-          <p>
-            See how Bold turns your video library into your hardest-working
-            team member.
-          </p>
-          <a
-            className="btn-cta"
-            href="https://savvycal.com/marcel-from-bold/7838d613"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Book a demo
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path
-                d="M5 2l5 5-5 5"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-              />
-            </svg>
-          </a>
-        </div>
-      </section>
+      <CtaSection />
 
       {/* Footer */}
       <footer>
