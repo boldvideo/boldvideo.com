@@ -1026,7 +1026,7 @@
 .landing-v10 .cs-photo {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
   background: linear-gradient(160deg, #4a3425 0%, #2c1f14 40%, #1a0f08 100%);
   border: 1px solid rgba(200, 169, 110, 0.5);
 }
@@ -1040,8 +1040,8 @@
 }
 .landing-v10 .cs-img-chat {
   position: absolute;
-  bottom: 8%;
-  left: -3%;
+  bottom: -4%;
+  left: 0;
   width: 55%;
   border: 1px solid rgba(200, 169, 110, 0.5);
   box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.7);
