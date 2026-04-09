@@ -725,19 +725,18 @@ export function HomePage() {
                 timestamp&nbsp;&mdash; across the course, the podcast, and every
                 Q&amp;A recording.
               </p>
-              <div className="cs-stats">
-                <div className="cs-s">
-                  <div className="cs-s-n">97+</div>
-                  <div className="cs-s-l">Lessons indexed</div>
-                </div>
-                <div className="cs-s">
-                  <div className="cs-s-n">90+</div>
-                  <div className="cs-s-l">Podcast episodes</div>
-                </div>
-                <div className="cs-s">
-                  <div className="cs-s-n">iOS + Android</div>
-                  <div className="cs-s-l">Mobile apps</div>
-                </div>
+              <div className="cs-proof">
+                <span className="cs-proof-item">
+                  <strong>97+</strong> lessons
+                </span>
+                <span className="cs-proof-sep" aria-hidden="true" />
+                <span className="cs-proof-item">
+                  <strong>90+</strong> podcast episodes
+                </span>
+                <span className="cs-proof-sep" aria-hidden="true" />
+                <span className="cs-proof-item">
+                  <strong>iOS + Android</strong> apps
+                </span>
               </div>
               <p className="cs-roi">
                 Students stay enrolled because they keep finding new answers.
@@ -763,7 +762,18 @@ export function HomePage() {
               </a>
             </div>
             <div className="cs-photo">
-              <div className="cs-photo-grain" />
+              <img
+                className="cs-img-main"
+                src="/images/cs-hrtu-course.png"
+                alt="HRT University course view with Bold AI assistant"
+                loading="lazy"
+              />
+              <img
+                className="cs-img-chat"
+                src="/images/cs-hrtu-chat.png"
+                alt="Bold AI answering a clinical question with cited timestamps"
+                loading="lazy"
+              />
               <div className="cs-photo-badge">
                 <svg width="14" height="14" viewBox="0 0 512 512" fill="none">
                   <path

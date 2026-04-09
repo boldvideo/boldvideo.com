@@ -976,34 +976,26 @@
   margin: 0 0 1.5rem;
   color: rgba(255, 255, 255, 0.5);
 }
-.landing-v10 .cs-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.landing-v10 .cs-proof {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 0;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.45);
 }
-.landing-v10 .cs-s {
-  text-align: center;
-  padding: 1rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.07);
-}
-.landing-v10 .cs-s:last-child {
-  border-right: none;
-}
-.landing-v10 .cs-s-n {
-  font-family: var(--mono);
-  font-size: 1.6rem;
-  font-weight: 500;
+.landing-v10 .cs-proof strong {
   color: var(--hrtu-gold);
+  font-weight: 600;
 }
-.landing-v10 .cs-s-l {
-  font-family: var(--mono);
-  font-size: 9px;
-  color: rgba(255, 255, 255, 0.3);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 2px;
+.landing-v10 .cs-proof-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 12px;
+  flex-shrink: 0;
 }
 .landing-v10 .cs-roi {
   font-size: 14px;
@@ -1037,12 +1029,22 @@
   aspect-ratio: 4/3;
   background: linear-gradient(160deg, #4a3425 0%, #2c1f14 40%, #1a0f08 100%);
 }
-.landing-v10 .cs-photo-grain {
+.landing-v10 .cs-img-main {
   position: absolute;
   inset: 0;
-  opacity: 0.12;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+.landing-v10 .cs-img-chat {
+  position: absolute;
+  bottom: -4%;
+  right: -4%;
+  width: 58%;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.7);
+  z-index: 1;
 }
 .landing-v10 .cs-photo-badge {
   position: absolute;
