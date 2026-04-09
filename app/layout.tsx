@@ -19,33 +19,51 @@ const dmMono = DM_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Bold",
+    default: "Bold — Video intelligence for coaching programs",
     template: "%s | Bold",
   },
   description:
-    "Scale your coaching program without hiring more coaches. Bold turns your video library into an AI coach that cites the exact moment that matters.",
+    "Bold turns your video library into an AI teaching assistant. Students ask questions and get answers with cited timestamps from your actual content. No hallucinations. Your expertise, findable.",
   metadataBase: new URL("https://boldvideo.com"),
   keywords: [
     "video intelligence",
-    "AI coaching",
+    "AI teaching assistant",
     "coaching program software",
     "video library search",
     "training academy AI",
+    "video hosting platform",
+    "AI video search",
   ],
+  authors: [{ name: "Bold Video" }],
+  creator: "Bold Video",
+  publisher: "Bold Video",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://boldvideo.com",
     siteName: "Bold",
-    title: "Bold",
+    title: "Bold — Video intelligence for coaching programs",
     description:
-      "Scale your coaching program without hiring more coaches. Bold turns your video library into an AI coach that cites the exact moment that matters.",
+      "Your video library is an untapped goldmine. Bold makes every lesson searchable by concept and powers an AI assistant that answers student questions with cited timestamps.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bold",
+    site: "@boldvid",
+    creator: "@boldvid",
+    title: "Bold — Video intelligence for coaching programs",
     description:
-      "Scale your coaching program without hiring more coaches. Bold turns your video library into an AI coach that cites the exact moment that matters.",
+      "Your video library is an untapped goldmine. Bold makes every lesson searchable by concept and powers an AI assistant that answers student questions with cited timestamps.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

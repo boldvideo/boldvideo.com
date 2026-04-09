@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Bold Video";
+export const alt =
+  "Bold — Turn your video library into an AI teaching assistant";
 export const contentType = "image/png";
 export const runtime = "edge";
 export const size = {
@@ -37,6 +38,8 @@ export default function OpenGraphImage() {
             borderRadius: "28px",
             color: "#0d1511",
             display: "flex",
+            fontSize: 36,
+            fontWeight: 700,
             height: "72px",
             justifyContent: "center",
             width: "72px",
@@ -76,13 +79,13 @@ export default function OpenGraphImage() {
         </div>
         <div
           style={{
-            fontSize: 78,
+            fontSize: 76,
             fontWeight: 700,
-            letterSpacing: "-0.08em",
-            lineHeight: 0.92,
+            letterSpacing: "-0.06em",
+            lineHeight: 0.94,
           }}
         >
-          Scale your coaching program without hiring more coaches
+          Your video library, finally searchable
         </div>
         <div
           style={{
@@ -92,8 +95,8 @@ export default function OpenGraphImage() {
             maxWidth: "840px",
           }}
         >
-          Turn your video library into an AI coach that cites the exact moment
-          that matters.
+          An AI teaching assistant that answers student questions with cited
+          timestamps from your actual content.
         </div>
       </div>
 
@@ -104,25 +107,27 @@ export default function OpenGraphImage() {
           gap: "18px",
         }}
       >
-        {["Two-tier RAG", "Timestamped citations", "Viewer-aware answers"].map(
-          (item) => (
-            <div
-              key={item}
-              style={{
-                background: "rgba(255,255,255,0.72)",
-                border: "1px solid rgba(19,15,11,0.08)",
-                borderRadius: "999px",
-                color: "#5f564d",
-                fontSize: 18,
-                letterSpacing: "0.14em",
-                padding: "16px 24px",
-                textTransform: "uppercase",
-              }}
-            >
-              {item}
-            </div>
-          ),
-        )}
+        {[
+          "Cited answers",
+          "Concept search",
+          "Auto-generated chapters",
+        ].map((item) => (
+          <div
+            key={item}
+            style={{
+              background: "rgba(255,255,255,0.72)",
+              border: "1px solid rgba(19,15,11,0.08)",
+              borderRadius: "999px",
+              color: "#5f564d",
+              fontSize: 18,
+              letterSpacing: "0.14em",
+              padding: "16px 24px",
+              textTransform: "uppercase",
+            }}
+          >
+            {item}
+          </div>
+        ))}
       </div>
     </div>,
     size,
