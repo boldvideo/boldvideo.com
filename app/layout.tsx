@@ -57,6 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        suppressHydrationWarning
         className={`${plusJakartaSans.variable} ${dmMono.variable} font-sans antialiased`}
       >
         {children}
