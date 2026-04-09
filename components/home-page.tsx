@@ -709,13 +709,21 @@ export function HomePage() {
           <div className="cs-grid">
             <div className="cs-text">
               <h3>
-                HRT University turned 97 clinical lessons into an
-                always&#8209;on AI teaching assistant
+                HRT University replaced a broken chatbot with an AI that
+                actually knows the curriculum
               </h3>
               <p>
-                HRTU trains licensed healthcare providers in hormone and
-                metabolic medicine. Bold indexes every lesson and gives
-                clinicians instant, cited answers grounded in the curriculum.
+                HRTU trains licensed healthcare providers in hormone therapy.
+                97&nbsp;lessons, weekly live Q&amp;A sessions, a podcast with
+                90+&nbsp;episodes&nbsp;&mdash; and students kept asking the same
+                clinical questions because none of it was findable.
+              </p>
+              <p>
+                Their previous chatbot hallucinated answers and sent students on
+                a scavenger hunt through Kajabi to find the right video. Bold
+                replaced it with an assistant that points to the exact lesson and
+                timestamp&nbsp;&mdash; across the course, the podcast, and every
+                Q&amp;A recording.
               </p>
               <div className="cs-stats">
                 <div className="cs-s">
@@ -723,18 +731,18 @@ export function HomePage() {
                   <div className="cs-s-l">Lessons indexed</div>
                 </div>
                 <div className="cs-s">
-                  <div className="cs-s-n">30</div>
-                  <div className="cs-s-l">CEU hours</div>
+                  <div className="cs-s-n">90+</div>
+                  <div className="cs-s-l">Podcast episodes</div>
                 </div>
                 <div className="cs-s">
-                  <div className="cs-s-n">24/7</div>
-                  <div className="cs-s-l">AI support</div>
+                  <div className="cs-s-n">iOS + Android</div>
+                  <div className="cs-s-l">Mobile apps</div>
                 </div>
               </div>
               <p className="cs-roi">
-                A 3% retention bump on a $5M program ={" "}
-                <strong>$150K saved annually.</strong> Bold pays for itself many
-                times over.
+                Students stay enrolled because they keep finding new answers.
+                What was a one&#8209;time course became a tool practitioners
+                reach for daily. <strong>Bold made the product sticky.</strong>
               </p>
               <a
                 className="btn-gold"

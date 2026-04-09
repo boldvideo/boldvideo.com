@@ -7,6 +7,7 @@ export const announcementMessages = [
 ];
 
 export const navLinks = [
+  { label: "Product", href: "/product" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
   { label: "Docs", href: docsHref },
@@ -16,6 +17,7 @@ export const footerColumns = [
   {
     title: "Product",
     links: [
+      { label: "Product", href: "/product" },
       { label: "About", href: "/about" },
       { label: "Blog", href: "/blog" },
       { label: "Docs", href: docsHref },
@@ -47,7 +49,7 @@ export const footerColumns = [
         label: "LinkedIn",
         href: "https://www.linkedin.com/company/boldvideo/",
       },
-      { label: "Twitter / X", href: "https://x.com/boldvid" },
+      { label: "Twitter", href: "https://twitter.com/boldvid" },
       { label: "Email", href: "mailto:support@boldvideo.com" },
     ],
   },
