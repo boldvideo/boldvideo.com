@@ -65,6 +65,46 @@ void main() {
   gl_FragColor = vec4(col, 1.0);
 }`;
 
+function initGL(canvas: HTMLCanvasElement) {
+  const gl = canvas.getContext("webgl", {
+    alpha: false,
+    antialias: false,
+    powerPreference: "low-power",
+  });
+  if (!gl) return null;
+
+  const vs = gl.createShader(gl.VERTEX_SHADER)!;
+  gl.shaderSource(vs, VERT);
+  gl.compileShader(vs);
+
+  const fs = gl.createShader(gl.FRAGMENT_SHADER)!;
+  gl.shaderSource(fs, FRAG);
+  gl.compileShader(fs);
+
+  const prog = gl.createProgram()!;
+  gl.attachShader(prog, vs);
+  gl.attachShader(prog, fs);
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+    gl.STATIC_DRAW
+  );
+  const aPos = gl.getAttribLocation(prog, "a_position");
+  gl.enableVertexAttribArray(aPos);
+  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+  return {
+    gl,
+    uTime: gl.getUniformLocation(prog, "u_time"),
+    uRes: gl.getUniformLocation(prog, "u_resolution"),
+  };
+}
+
 export function CtaGlow() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -72,47 +112,16 @@ export function CtaGlow() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Respect reduced motion
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (mq.matches) return;
 
-    const gl = canvas.getContext("webgl", {
-      alpha: false,
-      antialias: false,
-      powerPreference: "low-power",
-    });
-    if (!gl) return;
-
-    function compile(type: number, src: string) {
-      const s = gl!.createShader(type)!;
-      gl!.shaderSource(s, src);
-      gl!.compileShader(s);
-      return s;
-    }
-
-    const prog = gl.createProgram()!;
-    gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
-    gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
-    gl.linkProgram(prog);
-    gl.useProgram(prog);
-
-    const buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(
-      gl.ARRAY_BUFFER,
-      new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-      gl.STATIC_DRAW
-    );
-    const aPos = gl.getAttribLocation(prog, "a_position");
-    gl.enableVertexAttribArray(aPos);
-    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-
-    const uTime = gl.getUniformLocation(prog, "u_time");
-    const uRes = gl.getUniformLocation(prog, "u_resolution");
-
-    // Mobile: lower resolution, cap DPR at 1
     const isMobile = window.innerWidth < 768;
     const maxDpr = isMobile ? 1 : Math.min(window.devicePixelRatio, 2);
+
+    let raf = 0;
+    let visible = false;
+    let ctx = initGL(canvas);
+    const start = performance.now();
 
     function resize() {
       const w = Math.round(canvas!.clientWidth * maxDpr);
@@ -123,25 +132,40 @@ export function CtaGlow() {
       }
     }
 
-    let raf = 0;
-    let visible = false;
-    const start = performance.now();
-
     function frame() {
-      if (!visible) return;
+      if (!visible || !ctx) return;
       resize();
-      gl!.viewport(0, 0, canvas!.width, canvas!.height);
-      gl!.uniform1f(uTime, (performance.now() - start) / 1000);
-      gl!.uniform2f(uRes, canvas!.width, canvas!.height);
-      gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4);
+      ctx.gl.viewport(0, 0, canvas!.width, canvas!.height);
+      ctx.gl.uniform1f(ctx.uTime, (performance.now() - start) / 1000);
+      ctx.gl.uniform2f(ctx.uRes, canvas!.width, canvas!.height);
+      ctx.gl.drawArrays(ctx.gl.TRIANGLE_STRIP, 0, 4);
       raf = requestAnimationFrame(frame);
     }
 
-    // Only animate when section is in viewport
+    function startLoop() {
+      if (visible) raf = requestAnimationFrame(frame);
+    }
+
+    // Handle context loss and recovery
+    function onLost(e: Event) {
+      e.preventDefault();
+      cancelAnimationFrame(raf);
+      raf = 0;
+      ctx = null;
+    }
+
+    function onRestored() {
+      ctx = initGL(canvas!);
+      startLoop();
+    }
+
+    canvas.addEventListener("webglcontextlost", onLost);
+    canvas.addEventListener("webglcontextrestored", onRestored);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting;
-        if (visible && !raf) raf = requestAnimationFrame(frame);
+        if (visible && !raf) startLoop();
       },
       { threshold: 0 }
     );
@@ -150,7 +174,8 @@ export function CtaGlow() {
     return () => {
       cancelAnimationFrame(raf);
       observer.disconnect();
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      canvas.removeEventListener("webglcontextlost", onLost);
+      canvas.removeEventListener("webglcontextrestored", onRestored);
     };
   }, []);
 
