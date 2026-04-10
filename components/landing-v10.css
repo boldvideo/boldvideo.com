@@ -478,7 +478,8 @@
 
 /* Showcase */
 .landing-v10 .showcase {
-  padding: 4rem 0 5rem;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
 }
 .landing-v10 .showcase-head {
   margin-bottom: 2rem;
@@ -927,7 +928,8 @@
 
 /* Cited section (standalone feature) */
 .landing-v10 .cited-section {
-  padding: 5rem 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   border-top: 1px solid var(--border);
 }
 .landing-v10 .cited-header {
@@ -1564,7 +1566,8 @@
 
 /* Hero centered variant */
 .landing-v10 .hero-centered {
-  padding: 10rem 0 4rem;
+  padding-top: 10rem;
+  padding-bottom: 4rem;
   text-align: center;
   position: relative;
 }
@@ -1679,7 +1682,8 @@
 
 /* Capabilities section */
 .landing-v10 .cap-section {
-  padding: 5rem 0;
+  padding-top: 5rem;
+  padding-bottom: 0;
   border-top: 1px solid var(--border);
 }
 .landing-v10 .cap-section .section-title {
