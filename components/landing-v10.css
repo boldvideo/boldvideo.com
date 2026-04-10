@@ -9,6 +9,7 @@
   --bg: #fdfcfa;
   --bg-dark: #0b0b0b;
   --bg-muted: #f3f2ee;
+  --announcement-height: 44px;
   --text: #111;
   --text-mid: #555;
   --text-dim: #999;
@@ -33,6 +34,7 @@
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 .landing-v10 a {
@@ -61,6 +63,7 @@
   background: var(--bg-dark);
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
+  min-height: var(--announcement-height);
   padding: 12px 2rem;
   display: flex;
   align-items: center;
@@ -97,7 +100,7 @@
 /* Nav */
 .landing-v10 nav {
   position: fixed;
-  top: 44px;
+  top: var(--announcement-height);
   left: 0;
   right: 0;
   z-index: 100;
@@ -1439,6 +1442,10 @@
 
 /* Mobile */
 @media (max-width: 900px) {
+  .landing-v10 {
+    --announcement-height: 40px;
+  }
+
   .landing-v10 .hero,
   .landing-v10 .cs-grid {
     grid-template-columns: 1fr;
@@ -1485,16 +1492,46 @@
   }
   .landing-v10 .announce {
     font-size: 12px;
-    padding: 10px 1rem;
+    padding: 0 1.25rem;
+    height: var(--announcement-height);
+    min-height: auto;
+    gap: 0.45rem;
+  }
+  .landing-v10 nav {
+    background: var(--bg);
+  }
+  .landing-v10 .announce .sep {
+    display: none;
+  }
+  .landing-v10 .announce strong,
+  .landing-v10 .announce a {
+    min-width: 0;
   }
   .landing-v10 .container,
   .landing-v10 .nav-inner,
   .landing-v10 .cs-inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .landing-v10 .who-for {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .landing-v10 .showcase,
+  .landing-v10 .gap-section,
+  .landing-v10 .cited-section,
+  .landing-v10 .case-study,
+  .landing-v10 .cap-section,
+  .landing-v10 .cta {
+    overflow-x: clip;
   }
   .landing-v10 .nav-logo {
-    margin-left: -1rem;
+    margin-left: 0;
+  }
+  .landing-v10 .nav-cta {
+    padding: 8px 12px;
+    font-size: 13px !important;
+    white-space: nowrap;
   }
   .landing-v10 .cited-chat {
     max-width: 100%;
@@ -1709,7 +1746,7 @@
 /* Mobile: new sections */
 @media (max-width: 900px) {
   .landing-v10 .hero-centered {
-    padding-top: 7rem;
+    padding-top: calc(var(--announcement-height) + 52px + 1rem);
   }
   .landing-v10 .gap-container {
     grid-template-columns: 1fr;
@@ -1725,6 +1762,10 @@
   }
   .landing-v10 .cap-num {
     font-size: 2.5rem;
+  }
+  .landing-v10 .cap-section .section-title {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

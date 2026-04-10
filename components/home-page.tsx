@@ -493,7 +493,7 @@ export function HomePage() {
         <div className="hero-inner">
           <div className="hero-eyebrow">Video intelligence platform</div>
           <h1>
-            Your students love the content. They still can&apos;t find{" "}
+            Your students love the content. They just can&apos;t find{" "}
             <em>what they need.</em>
           </h1>
           <p className="hero-sub">
