@@ -1,4 +1,4 @@
-const docsHref = "https://docs.boldvideo.io/";
+const docsHref = "https://docs.boldvideo.com/";
 
 export const announcementMessages = [
   "Growing out of Kajabi?",

@@ -141,7 +141,7 @@ export default function ProductPage() {
                   />
                 </svg>
               </a>
-              <Link href="https://docs.boldvideo.io/" className="prod-cta-ghost">
+              <Link href="https://docs.boldvideo.com/" className="prod-cta-ghost">
                 Read the docs
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path
@@ -306,7 +306,7 @@ export default function ProductPage() {
                   MCP server for AI assistants. Embed the AI coach, search, or
                   video player anywhere.
                 </p>
-                <Link href="https://docs.boldvideo.io/" className="dev-docs-link">
+                <Link href="https://docs.boldvideo.com/" className="dev-docs-link">
                   Read the docs
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path
