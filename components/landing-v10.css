@@ -1631,66 +1631,37 @@
 .landing-v10 .gap-section .section-title {
   margin-bottom: 2.5rem;
 }
-.landing-v10 .gap-container {
+.landing-v10 .gap-grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  background: white;
+  grid-template-columns: 1fr 1fr;
 }
-.landing-v10 .gap-col {
-  padding: 2rem;
-}
-.landing-v10 .gap-col-without {
-  background: #f6f5f3;
-}
-.landing-v10 .gap-col-with {
-  background: #faf8f4;
-}
-.landing-v10 .gap-divider {
-  width: 1px;
-  background: var(--border);
-}
-.landing-v10 .gap-pill {
-  display: inline-flex;
+.landing-v10 .gap-head {
   font-family: var(--mono);
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 4px 10px;
-  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+  padding: 0 0 1rem;
 }
-.landing-v10 .gap-pill-dim {
-  background: rgba(0, 0, 0, 0.05);
+.landing-v10 .gap-head-dim {
   color: var(--text-dim);
 }
-.landing-v10 .gap-pill-mint {
-  background: var(--mint-fill);
+.landing-v10 .gap-head-mint {
   color: var(--mint-text);
 }
-.landing-v10 .gap-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+.landing-v10 .gap-cell {
   font-size: 14px;
-  color: var(--text-mid);
-  line-height: 1.6;
-  padding: 8px 0;
+  line-height: 1.65;
+  padding: 1.25rem 2rem 1.25rem 0;
+  border-top: 1px solid var(--border);
 }
-.landing-v10 .gap-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 7px;
+.landing-v10 .gap-cell-dim {
+  color: var(--text-dim);
+  padding-right: 2.5rem;
 }
-.landing-v10 .gap-dot-dim {
-  background: var(--text-dim);
-  opacity: 0.4;
-}
-.landing-v10 .gap-dot-mint {
-  background: var(--mint);
+.landing-v10 .gap-cell-mint {
+  color: var(--text);
+  padding-left: 2.5rem;
+  border-color: rgba(65, 198, 166, 0.15);
 }
 
 /* Capabilities section */
@@ -1776,12 +1747,15 @@
   .landing-v10 .hero-centered {
     padding-top: calc(var(--announcement-height) + 52px + 1rem);
   }
-  .landing-v10 .gap-container {
+  .landing-v10 .gap-grid {
     grid-template-columns: 1fr;
   }
-  .landing-v10 .gap-divider {
-    width: auto;
-    height: 1px;
+  .landing-v10 .gap-cell-dim {
+    padding-right: 0;
+  }
+  .landing-v10 .gap-cell-mint {
+    padding-left: 0;
+    margin-bottom: 1rem;
   }
   .landing-v10 .cap-item {
     grid-template-columns: 1fr;

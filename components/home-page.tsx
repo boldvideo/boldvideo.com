@@ -596,58 +596,35 @@ export function HomePage() {
             You built a great program. The content is all there. But
             something&apos;s broken.
           </h2>
-          <div className="gap-container">
-            <div className="gap-col gap-col-without">
-              <div className="gap-pill gap-pill-dim">Without Bold</div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-dim" />
-                Students rewatch entire modules looking for one answer they saw
-                three months ago
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-dim" />
-                Your coaches answer the same ten questions a hundred times a
-                week
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-dim" />
-                Great content sits unwatched because nobody knows it exists
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-dim" />
-                Students love the teaching but churn because they get stuck on
-                implementation
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-dim" />
-                You can&apos;t scale support without scaling headcount
-              </div>
+          <div className="gap-grid">
+            <div className="gap-head gap-head-dim">Without Bold</div>
+            <div className="gap-head gap-head-mint">With Bold</div>
+
+            <div className="gap-cell gap-cell-dim">
+              Students rewatch entire modules looking for one answer they
+              saw three months ago.
             </div>
-            <div className="gap-divider" />
-            <div className="gap-col gap-col-with">
-              <div className="gap-pill gap-pill-mint">With Bold</div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-mint" />
-                Students ask a question and get the exact clip with a timestamp
-                in seconds
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-mint" />
-                The AI answers from your curriculum. Coaches focus on what only
-                humans can do
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-mint" />
-                Every lesson is discoverable through search and conversation
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-mint" />
-                Students get implementation help grounded in your teaching, 24/7
-              </div>
-              <div className="gap-item">
-                <span className="gap-dot gap-dot-mint" />
-                Your program scales like you have 50 coaches. You have two.
-              </div>
+            <div className="gap-cell gap-cell-mint">
+              Students ask a question and get the exact clip with a
+              timestamp in seconds.
+            </div>
+
+            <div className="gap-cell gap-cell-dim">
+              Your coaches answer the same ten questions a hundred times
+              a week.
+            </div>
+            <div className="gap-cell gap-cell-mint">
+              The AI answers from your curriculum. Coaches focus on what
+              only humans can do.
+            </div>
+
+            <div className="gap-cell gap-cell-dim">
+              Students love the teaching but churn because they get stuck
+              on implementation.
+            </div>
+            <div className="gap-cell gap-cell-mint">
+              Students get implementation help grounded in your teaching,
+              24/7.
             </div>
           </div>
         </div>
