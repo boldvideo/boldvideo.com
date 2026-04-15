@@ -1191,9 +1191,8 @@
   font-size: 15px;
   font-weight: 600;
   color: var(--text);
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
+  margin-top: 0;
+  padding-bottom: 2rem;
 }
 
 /* CTA */

@@ -802,51 +802,19 @@ export function HomePage() {
             <div className="cap-main">
               <h3>Coaching scales without hiring</h3>
               <p>
-                Your students get guidance calibrated to their stage. A beginner
-                gets foundations, an advanced student gets tactical depth from
-                deeper in the library. Same question, different answer. No coach
-                required.
+                Beginners get foundations. Advanced students get tactical depth.
+                Same question, different answer. No coach required.
               </p>
-            </div>
-            <div className="cap-details">
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Viewer profiles track stage, role, and progress
-              </div>
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Responses adapt automatically, no configuration per student
-              </div>
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Coaches focus on high-value 1:1 conversations
-              </div>
             </div>
           </div>
           <div className="cap-item">
             <div className="cap-num">02</div>
             <div className="cap-main">
-              <h3>Students submit their work. Your teaching reviews it.</h3>
+              <h3>Students submit work. Your teaching reviews it.</h3>
               <p>
-                A design student uploads a mockup. A clinician uploads a lab
-                panel. Bold critiques their work using your actual frameworks
-                and principles, not generic AI advice. Implementation support at
-                2am.
+                Upload a mockup, a lab panel, a draft. Bold critiques it using
+                your frameworks, not generic AI. Implementation support at 2am.
               </p>
-            </div>
-            <div className="cap-details">
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Image and document upload in the chat interface
-              </div>
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Feedback grounded in your course content, with citations
-              </div>
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Closes the implementation gap that drives churn
-              </div>
             </div>
           </div>
           <div className="cap-item">
@@ -854,25 +822,10 @@ export function HomePage() {
             <div className="cap-main">
               <h3>Your content graveyard becomes the reason students stay</h3>
               <p>
-                Bold understands concepts, not keywords. When a student asks
-                about pricing strategy, it finds the relevant lesson even if the
-                word &quot;pricing&quot; is never mentioned. Content they never
-                found becomes the content that keeps them enrolled.
+                Bold finds the right lesson even when the student doesn&apos;t
+                know what to search for. Content they never found becomes the
+                content that keeps them enrolled.
               </p>
-            </div>
-            <div className="cap-details">
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Semantic search across transcripts and attached files
-              </div>
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Cross-library recommendations surface related content
-              </div>
-              <div className="cap-check">
-                <span className="cap-check-icon">&#10003;</span>
-                Students discover depth they didn&apos;t know was there
-              </div>
             </div>
           </div>
         </div>
@@ -929,30 +882,21 @@ export function HomePage() {
             <div className="cap-num">01</div>
             <div className="cap-main">
               <h3>Show us your library</h3>
-              <p>
-                Walk us through your content and your stack on a 30&#8209;minute
-                call. We figure out the best path forward.
-              </p>
+              <p>30&#8209;minute call. Your content, your stack, best path forward.</p>
             </div>
           </div>
           <div className="cap-item">
             <div className="cap-num">02</div>
             <div className="cap-main">
               <h3>We build it for you</h3>
-              <p>
-                Portal, AI coach, integrations&nbsp;&mdash; configured for your
-                program. You review, we refine.
-              </p>
+              <p>Portal, AI coach, integrations. Configured for your program.</p>
             </div>
           </div>
           <div className="cap-item">
             <div className="cap-num">03</div>
             <div className="cap-main">
               <h3>Your students start getting answers</h3>
-              <p>
-                We&apos;re on the call with you for launch. Member messaging,
-                final checks, anything that comes up.
-              </p>
+              <p>We&apos;re on the call with you for launch. Weeks, not months.</p>
             </div>
           </div>
         </div>
