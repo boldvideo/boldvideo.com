@@ -851,36 +851,48 @@ export function HomePage() {
       </section>
 
       {/* 6.5. How we get you live */}
-      <section className="cap-section container">
-        <div className="sec-label">How it works</div>
-        <h2 className="section-title">Live in weeks, not months</h2>
-        <div className="cap-list">
-          <div className="cap-item">
-            <div className="cap-num">01</div>
-            <div className="cap-main">
-              <h3>Show us your library</h3>
-              <p>30&#8209;minute call. Your content, your stack, best path forward.</p>
+      <section className="timeline-section">
+        <div className="container">
+          <div className="timeline-box">
+            <h2 className="timeline-heading">Live in weeks, not months</h2>
+            <div className="timeline-steps">
+              <div className="timeline-step">
+                <div className="timeline-num-row">
+                  <div className="timeline-num">01</div>
+                  <div className="timeline-line" aria-hidden="true" />
+                </div>
+                <h3>Show us your library</h3>
+                <p>
+                  30&#8209;minute call. Your content, your stack, best path
+                  forward.
+                </p>
+              </div>
+              <div className="timeline-step">
+                <div className="timeline-num-row">
+                  <div className="timeline-num">02</div>
+                  <div className="timeline-line" aria-hidden="true" />
+                </div>
+                <h3>We build it for you</h3>
+                <p>
+                  Portal, AI coach, integrations. Configured for your program.
+                </p>
+              </div>
+              <div className="timeline-step">
+                <div className="timeline-num-row">
+                  <div className="timeline-num">03</div>
+                </div>
+                <h3>Students start getting answers</h3>
+                <p>
+                  We&apos;re on the call with you. Go live, iterate, grow.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="cap-item">
-            <div className="cap-num">02</div>
-            <div className="cap-main">
-              <h3>We build it for you</h3>
-              <p>Portal, AI coach, integrations. Configured for your program.</p>
-            </div>
-          </div>
-          <div className="cap-item">
-            <div className="cap-num">03</div>
-            <div className="cap-main">
-              <h3>Your students start getting answers</h3>
-              <p>We&apos;re on the call with you for launch. Weeks, not months.</p>
+            <div className="timeline-kicker">
+              You work directly with the founders. No ticket queue, no
+              onboarding specialist.
             </div>
           </div>
         </div>
-        <p className="founder-kicker">
-          You work directly with the founders. No ticket queue, no onboarding
-          specialist.
-        </p>
       </section>
 
       {/* 7. Final CTA */}
