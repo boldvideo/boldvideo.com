@@ -1181,6 +1181,20 @@
 .landing-v10 .nf-y .ic {
   color: var(--mint-text);
 }
+.landing-v10 .nf-floor {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+.landing-v10 .founder-kicker {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
 
 /* CTA */
 .landing-v10 .cta {

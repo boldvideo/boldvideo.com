@@ -912,8 +912,54 @@ export function HomePage() {
                 students churn despite loving the content
               </div>
             </div>
+            <p className="nf-floor">
+              Still building your first course? We&apos;re not the right fit
+              yet&nbsp;&mdash; but we&apos;d love to talk when you get there.
+            </p>
           </div>
         </div>
+      </section>
+
+      {/* 6.5. How we get you live */}
+      <section className="cap-section container">
+        <div className="sec-label">How it works</div>
+        <h2 className="section-title">Live in weeks, not months</h2>
+        <div className="cap-list">
+          <div className="cap-item">
+            <div className="cap-num">01</div>
+            <div className="cap-main">
+              <h3>Show us your library</h3>
+              <p>
+                Walk us through your content and your stack on a 30&#8209;minute
+                call. We figure out the best path forward.
+              </p>
+            </div>
+          </div>
+          <div className="cap-item">
+            <div className="cap-num">02</div>
+            <div className="cap-main">
+              <h3>We build it for you</h3>
+              <p>
+                Portal, AI coach, integrations&nbsp;&mdash; configured for your
+                program. You review, we refine.
+              </p>
+            </div>
+          </div>
+          <div className="cap-item">
+            <div className="cap-num">03</div>
+            <div className="cap-main">
+              <h3>Your students start getting answers</h3>
+              <p>
+                We&apos;re on the call with you for launch. Member messaging,
+                final checks, anything that comes up.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p className="founder-kicker">
+          You work directly with the founders. No ticket queue, no onboarding
+          specialist.
+        </p>
       </section>
 
       {/* 7. Final CTA */}
