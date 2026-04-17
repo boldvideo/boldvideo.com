@@ -7,7 +7,6 @@ export const announcementMessages = [
 ];
 
 export const navLinks = [
-  { label: "Product", href: "/product" },
   { label: "About", href: "/about" },
   { label: "Docs", href: docsHref },
 ];
@@ -16,7 +15,6 @@ export const footerColumns = [
   {
     title: "Product",
     links: [
-      { label: "Product", href: "/product" },
       { label: "About", href: "/about" },
       { label: "Docs", href: docsHref },
       { label: "Migrate", href: "/migrate" },
