@@ -64,11 +64,41 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="prod-hero-visual">
-              <img
-                src="/images/product-hero.png"
-                alt="Bold portal with AI teaching assistant open"
-                className="prod-hero-img"
-              />
+              <div className="mock-chat prod-hero-mock">
+                <div className="mock-chat-header">
+                  <div className="mock-av">B</div>
+                  <div>
+                    <div className="mock-title">Ask Bold</div>
+                    <div className="mock-meta">
+                      HRT University &middot; 97 lessons
+                    </div>
+                  </div>
+                </div>
+                <div className="mock-chat-body">
+                  <div className="mock-bubble mock-user">
+                    How do I handle a patient skeptical about TRT?
+                  </div>
+                  <div className="mock-bubble mock-ai">
+                    <p>
+                      Start with their concerns, not your data. If
+                      they&apos;re worried about side effects, walk through
+                      the risk profile in plain language first. The pitch
+                      only lands after they feel heard.
+                    </p>
+                    <div className="mock-citations">
+                      <span className="mock-cite">
+                        Patient Communication <em>18:42</em>
+                      </span>
+                      <span className="mock-cite">
+                        TRT Protocols <em>07:15</em>
+                      </span>
+                      <span className="mock-cite">
+                        Objection Handling <em>33:21</em>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -233,11 +263,11 @@ export default function ProductPage() {
                 <span className="prod-scene-rule" aria-hidden="true" />
                 <span className="prod-scene-tag">Find the moment</span>
               </div>
-              <h3>They can&apos;t remember what to search for.</h3>
+              <h3>They&apos;ve forgotten what you called it.</h3>
               <p>
-                They know you covered it&nbsp;&mdash; just not what it was
-                called. Bold searches by concept, not keyword, and drops them
-                at the exact moment the answer shows up.
+                Bold searches by meaning, not keyword. They type the symptom,
+                you taught the framework&nbsp;&mdash; the right moment shows
+                up anyway.
               </p>
             </div>
             <div className="prod-scene-visual">
@@ -247,37 +277,38 @@ export default function ProductPage() {
                     <circle cx="11" cy="11" r="8" />
                     <path d="m21 21-4.35-4.35" />
                   </svg>
-                  <span>how to handle a difficult client conversation</span>
+                  <span>when a patient won&apos;t follow the plan</span>
                 </div>
                 <div className="mock-results">
                   <div className="mock-result">
                     <div className="mock-result-head">
-                      <strong>Conflict Resolution Framework</strong>
+                      <strong>Adherence, Not Compliance</strong>
                       <span className="mock-ts">23:15</span>
                     </div>
                     <p>
-                      ...reframe the conversation around shared goals. When
-                      emotions run high, acknowledge first, then redirect...
+                      ...stop trying to convince. Start asking what&apos;s
+                      actually blocking implementation for them...
                     </p>
                   </div>
                   <div className="mock-result">
                     <div className="mock-result-head">
-                      <strong>Client Retention Strategies</strong>
+                      <strong>Motivational Interviewing Basics</strong>
                       <span className="mock-ts">11:42</span>
                     </div>
                     <p>
-                      ...difficult conversations are retention opportunities.
-                      Providers who lean in keep clients longest...
+                      ...the goal isn&apos;t buy&#8209;in, it&apos;s
+                      understanding the resistance. Then you can work with
+                      it...
                     </p>
                   </div>
                   <div className="mock-result">
                     <div className="mock-result-head">
-                      <strong>Q&amp;A: Patient Communication</strong>
+                      <strong>Behavior Change Protocols</strong>
                       <span className="mock-ts">47:08</span>
                     </div>
                     <p>
-                      ...lead with empathy, follow with data. That combination
-                      disarms almost any situation...
+                      ...tiny commitments beat big ones. Ask for one thing
+                      they&apos;ll actually do this week...
                     </p>
                   </div>
                 </div>
@@ -354,9 +385,10 @@ export default function ProductPage() {
         {/* Meet students anywhere — RESTRUCTURED: emotional lead first */}
         <section className="prod-ambient">
           <div className="container">
-            <div className="sec-label">Headless by design</div>
+            <div className="sec-label">Meet students anywhere</div>
             <h2 className="prod-ambient-quote">
-              Your coaching library becomes ambient knowledge.
+              Your coaching library becomes{" "}
+              <em>ambient knowledge.</em>
             </h2>
             <p className="prod-ambient-sub">
               Not a destination students have to visit. A resource that shows
@@ -406,6 +438,7 @@ export default function ProductPage() {
 
             <div className="prod-ambient-foot">
               <div className="prod-ambient-code">
+                <div className="prod-dev-label">For your developers</div>
                 <div className="dev-code">
                   <div className="dev-code-bar">
                     <span className="dev-code-dot" />
