@@ -150,7 +150,7 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 .landing-v10 .prod-scene-num {
   font-family: var(--mono);
@@ -158,7 +158,7 @@
   color: var(--mint);
   font-weight: 500;
   letter-spacing: -0.05em;
-  line-height: 1;
+  line-height: 0.9;
   display: inline-block;
   font-feature-settings: "zero" 0, "ss01" 0;
   transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -528,7 +528,7 @@
   color: var(--mint);
   font-weight: 500;
   letter-spacing: -0.05em;
-  line-height: 1;
+  line-height: 0.9;
   display: inline-block;
   font-feature-settings: "zero" 0, "ss01" 0;
   transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
