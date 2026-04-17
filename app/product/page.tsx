@@ -55,7 +55,7 @@ export default function ProductPage() {
                 </a>
                 <a
                   className="btn-ghost"
-                  href="https://docs.boldvideo.io/"
+                  href="https://docs.boldvideo.com/"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -486,7 +486,7 @@ export default function ProductPage() {
                   run.
                 </p>
                 <Link
-                  href="https://docs.boldvideo.io/"
+                  href="https://docs.boldvideo.com/"
                   className="btn-ghost btn-ghost-dark"
                 >
                   Read the docs
@@ -603,7 +603,7 @@ export default function ProductPage() {
 
             <p className="prod-int-foot">
               Need something else?{" "}
-              <Link href="https://docs.boldvideo.io/">
+              <Link href="https://docs.boldvideo.com/">
                 Webhooks, REST API, and an MCP server
               </Link>{" "}
               cover the rest.
