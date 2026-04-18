@@ -78,17 +78,17 @@ const VARIANTS: Variant[] = [
   },
   {
     id: "e",
-    label: "E · A coach that never sleeps",
+    label: "E · Coaching while you sleep",
     hypothesis:
-      "Two beats. Existing library reframed as inventory, plus outcome and cadence in one phrase.",
+      "Same angle as the long original, compressed to six words. Keeps the buyer-rests-while-the-coach-works hook intact.",
     h1: (
       <>
-        Every video. <em>A coach that never sleeps.</em>
+        Every video. <em>Coaching while you sleep.</em>
       </>
     ),
     sub: "Bold reads your whole library and answers your members in your teaching style, no matter how they phrase the question.",
     comment:
-      "Compressed cut of the earlier long version. Beat one reframes the library as inventory: every video is a piece of content already paid for. Beat two collapses outcome and cadence into a single phrase, a coach that never sleeps. 'Never sleeps' hits harder than 'works while you sleep' because the negation lodges in memory. Short enough for a homepage now.",
+      "Compressed cut of the original long version, from fifteen words to six. Beat one reframes the library as inventory: every video is a piece of content already paid for. Beat two keeps the magic phrase ('while you sleep') that makes this variant distinctive. The buyer rests, the coach works. That image is what carries the line, and cutting 'turn' and 'you've ever recorded' doesn't weaken it.",
   },
   {
     id: "e2",
