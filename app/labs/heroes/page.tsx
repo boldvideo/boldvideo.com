@@ -24,15 +24,15 @@ const VARIANTS: Variant[] = [
     id: "a",
     label: "A · Deliverable + differentiation",
     hypothesis:
-      "Names what the buyer gets in four words. Beat one is the deliverable (answers). Beat two is where those answers come from.",
+      "Names what the buyer gets in five words. 'Actionable' signals output format — a next step, not a search result.",
     h1: (
       <>
-        Every answer. <em>From your videos.</em>
+        Actionable answers. <em>From your library.</em>
       </>
     ),
-    sub: "Members describe a problem in their own words. Bold finds the answer in your teaching and hands back the exact clip.",
+    sub: "Members describe a problem in their own words. Bold answers with a clear next step, drawn from your own teaching and delivered in your style.",
     comment:
-      "Clearest beat in the set. Beat one names the thing the buyer gets (answers). Beat two names where those answers come from (your videos, not the open internet, not a generic chatbot that watched someone else's content). The live 'love the content' opener is gone, which is the price of clarity. Open question: does this land for a sharp solo operator on the first read? Sub now carries the 'plain English' insight.",
+      "Two beats. Beat one names the deliverable with a format signal ('actionable' = not generic, not a clip dump, not a search result). Beat two names the source (the buyer's own library, not the open internet). Sub fills in how: member describes the problem in their own words, Bold synthesizes the next step from the coach's teaching. Clearest opener in the set for a cold reader, but 'actionable' is a risk word — it can read slightly corporate.",
   },
   {
     id: "b",
@@ -44,7 +44,7 @@ const VARIANTS: Variant[] = [
         Your video library is a goldmine. <em>Here&apos;s the key.</em>
       </>
     ),
-    sub: "Your members come with a problem, not a search query. Bold reads every video you've recorded and returns the lesson that solves it, even ones they've never watched.",
+    sub: "Your members come with a problem. Bold returns a clear next step drawn from your own teaching, in your style. The exact clip is linked as proof if they want to dig deeper.",
     comment:
       "Flipped version of the earlier goldmine swing. Beat one upgrades the library's status from archive to asset. Beat two hands over access instead of naming a wall. 'Video library' makes the asset concrete (you have one, you know what it is). Whole line rides on whether the goldmine image lands for the buyer. If it reads corny on Rob's pass, we trade it for a pure-promise H1 like 'Every answer. One question away.'",
   },
@@ -87,7 +87,7 @@ const VARIANTS: Variant[] = [
         <em>that works while you sleep.</em>
       </>
     ),
-    sub: "Bold watches every video in your library, understands what you taught, and answers in your voice, no matter how your members phrase the question.",
+    sub: "Bold reads your whole library and answers your members in your teaching style, no matter how they phrase the question.",
     comment:
       "Long for a homepage H1, but the specificity earns the length. 'Every video you've ever recorded' reframes the library as inventory you've already paid for, which is a quiet status upgrade for the buyer. 'Coach that works while you sleep' packs the outcome and the cadence into a single phrase, so you don't need a sub to explain the 24/7 piece. Might read as landing-page-specific rather than homepage broad.",
   },
@@ -103,7 +103,7 @@ const VARIANTS: Variant[] = [
         <em>Always answering.</em>
       </>
     ),
-    sub: "Your members come with a question. Bold reads every video you've recorded and returns the clip that answers it, in your voice.",
+    sub: "Members ask the moment they hit a wall. Bold returns a clear next step drawn from your own teaching, delivered in your style.",
     comment:
       "Tight cut of E. Beat one is the asset. Beat two is the product in motion. Loses the 'coach' framing, which might actually be a feature. 'Coach' implies a coaching program; 'always answering' works for every shape in the social proof set, from clinical to training to coaching to membership. Use this if E feels landing-page-heavy on the homepage.",
   },
@@ -119,7 +119,7 @@ const VARIANTS: Variant[] = [
         <em>without hiring a single coach.</em>
       </>
     ),
-    sub: "Bold reads who's asking and pulls from your whole library. Beginners get the foundations; advanced members get the tactical depth.",
+    sub: "Bold knows who's asking. Beginners get the foundations; advanced members get the tactical depth.",
     comment:
       "The number carries the H1. '10×' implies serious scale. 'Without hiring a single coach' names the alternative the buyer was probably about to price out in their head. Sub now leans on context-awareness, which is a real product truth: same question, different answer depending on who's asking. Narrows the ICP though, because 'coaching' filters clinical and training buyers out of the frame. Earns its keep on a coaching-specific page more than on a homepage that has to greet everyone.",
   },
