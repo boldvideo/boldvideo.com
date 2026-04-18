@@ -83,12 +83,12 @@ const VARIANTS: Variant[] = [
       "Same angle as the long original, compressed to six words. Keeps the buyer-rests-while-the-coach-works hook intact.",
     h1: (
       <>
-        Every video. <em>Coaching while you sleep.</em>
+        Your videos. <em>Coaching while you sleep.</em>
       </>
     ),
     sub: "Bold reads your whole library and answers your members in your teaching style, no matter how they phrase the question.",
     comment:
-      "Compressed cut of the original long version, from fifteen words to six. Beat one reframes the library as inventory: every video is a piece of content already paid for. Beat two keeps the magic phrase ('while you sleep') that makes this variant distinctive. The buyer rests, the coach works. That image is what carries the line, and cutting 'turn' and 'you've ever recorded' doesn't weaken it.",
+      "Compressed cut of the original long version, from fifteen words to six. Beat one is the possessive asset: your videos, not just anyone's. Beat two keeps the magic phrase that makes this variant distinctive. 'While you sleep' paints a scene where the buyer rests and the coach works, and that image is what carries the line. Slight overlap with E2 since both open with 'Your video(s)'; if that bugs, E could shift back to 'Every video' for contrast.",
   },
   {
     id: "e2",
