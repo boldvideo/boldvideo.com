@@ -78,18 +78,17 @@ const VARIANTS: Variant[] = [
   },
   {
     id: "e",
-    label: "E · Coach while you sleep",
+    label: "E · A coach that never sleeps",
     hypothesis:
-      "Long outcome-promise. Existing assets, removed labor, 24/7 cadence, all in one line.",
+      "Two beats. Existing library reframed as inventory, plus outcome and cadence in one phrase.",
     h1: (
       <>
-        Turn every video you&apos;ve ever recorded into a coach{" "}
-        <em>that works while you sleep.</em>
+        Every video. <em>A coach that never sleeps.</em>
       </>
     ),
     sub: "Bold reads your whole library and answers your members in your teaching style, no matter how they phrase the question.",
     comment:
-      "Long for a homepage H1, but the specificity earns the length. 'Every video you've ever recorded' reframes the library as inventory you've already paid for, which is a quiet status upgrade for the buyer. 'Coach that works while you sleep' packs the outcome and the cadence into a single phrase, so you don't need a sub to explain the 24/7 piece. Might read as landing-page-specific rather than homepage broad.",
+      "Compressed cut of the earlier long version. Beat one reframes the library as inventory: every video is a piece of content already paid for. Beat two collapses outcome and cadence into a single phrase, a coach that never sleeps. 'Never sleeps' hits harder than 'works while you sleep' because the negation lodges in memory. Short enough for a homepage now.",
   },
   {
     id: "e2",
@@ -153,11 +152,10 @@ export default function HeroVariantsLab() {
             Homepage hero: 8 variants
           </h2>
           <p className="mt-2 max-w-[620px] text-[15px] leading-relaxed text-[var(--text-mid)]">
-            A names the deliverable. B, C, D are short two-beat promises with
-            positive payoffs. E is a long outcome H1; E2 is the same angle
-            compressed. F is a quantified offer. G flatters the buyer's
-            expertise and points to the moment of need. Notes under each.
-            Favorites or vetos, either works.
+            A names the deliverable in a two-beat promise. B, C, D, E, E2 are
+            variations on that pattern. F is a quantified offer. G flatters the
+            buyer's expertise and points to the moment of need. Notes under
+            each. Favorites or vetos, either works.
           </p>
         </div>
       </header>
