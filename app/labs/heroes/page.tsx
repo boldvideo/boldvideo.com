@@ -30,9 +30,9 @@ const VARIANTS: Variant[] = [
         Every answer. <em>From your videos.</em>
       </>
     ),
-    sub: "Bold reads every video you've recorded and surfaces the exact clip the moment a member asks. Grounded in your teaching, not generic AI.",
+    sub: "Members describe a problem in their own words. Bold finds the answer in your teaching and hands back the exact clip.",
     comment:
-      "Clearest beat in the set. Beat one names the thing the buyer gets (answers). Beat two names where those answers come from (your videos, not the open internet and not some generic chatbot that watched someone else's content). The live 'love the content' opener is gone here, which is the price of clarity. Probably worth it. Sub carries the speed and the clip-level proof.",
+      "Clearest beat in the set. Beat one names the thing the buyer gets (answers). Beat two names where those answers come from (your videos, not the open internet, not a generic chatbot that watched someone else's content). The live 'love the content' opener is gone, which is the price of clarity. Open question: does this land for a sharp solo operator on the first read? Sub now carries the 'plain English' insight.",
   },
   {
     id: "b",
@@ -44,7 +44,7 @@ const VARIANTS: Variant[] = [
         Your video library is a goldmine. <em>Here&apos;s the key.</em>
       </>
     ),
-    sub: "Bold reads every video you've recorded and hands your members the exact clip the moment they ask for it.",
+    sub: "Your members come with a problem, not a search query. Bold reads every video you've recorded and returns the lesson that solves it, even ones they've never watched.",
     comment:
       "Flipped version of the earlier goldmine swing. Beat one upgrades the library's status from archive to asset. Beat two hands over access instead of naming a wall. 'Video library' makes the asset concrete (you have one, you know what it is). Whole line rides on whether the goldmine image lands for the buyer. If it reads corny on Rob's pass, we trade it for a pure-promise H1 like 'Every answer. One question away.'",
   },
@@ -57,7 +57,7 @@ const VARIANTS: Variant[] = [
         A video library <em>that talks back.</em>
       </>
     ),
-    sub: "Bold reads every lesson, podcast, and Q&A you've recorded, actually understands what you taught, then answers your audience in your voice.",
+    sub: "Your audience asks in plain English. Bold answers in your voice and shows the exact clip where you taught it.",
     comment:
       "Six words, one image. 'Talks back' is playful, but the mechanism is real. The whole job of the sub is to earn the metaphor, which is why 'reads and actually understands' matters more than 'indexes' here. Most memorable H1 in the set by a wide margin.",
   },
@@ -72,7 +72,7 @@ const VARIANTS: Variant[] = [
         <em>On repeat.</em>
       </>
     ),
-    sub: "Bold turns every lesson you've taught into an always-on answer, ready the moment someone asks.",
+    sub: "Bold turns every lesson you've taught into an always-on answer that shows up before a member knows where to look for it.",
     comment:
       "Starts with a quiet compliment. 'Your best teaching' reads the buyer their own review before they even ask for it. 'On repeat' lands the cadence promise. Works across coaching programs, clinical education, training academies, and membership communities because 'teaching' is the universal noun.",
   },
@@ -87,7 +87,7 @@ const VARIANTS: Variant[] = [
         <em>that works while you sleep.</em>
       </>
     ),
-    sub: "Bold watches every video in your library, understands what you taught, and answers your audience in your voice.",
+    sub: "Bold watches every video in your library, understands what you taught, and answers in your voice, no matter how your members phrase the question.",
     comment:
       "Long for a homepage H1, but the specificity earns the length. 'Every video you've ever recorded' reframes the library as inventory you've already paid for, which is a quiet status upgrade for the buyer. 'Coach that works while you sleep' packs the outcome and the cadence into a single phrase, so you don't need a sub to explain the 24/7 piece. Might read as landing-page-specific rather than homepage broad.",
   },
@@ -98,12 +98,12 @@ const VARIANTS: Variant[] = [
       "Same angle as E at a quarter of the length. Asset plus the outcome it delivers.",
     h1: (
       <>
-        Your library.
+        Your video library.
         <br />
         <em>Always answering.</em>
       </>
     ),
-    sub: "Bold reads every video you've recorded and answers your members the moment they ask, in your voice.",
+    sub: "Your members come with a question. Bold reads every video you've recorded and returns the clip that answers it, in your voice.",
     comment:
       "Tight cut of E. Beat one is the asset. Beat two is the product in motion. Loses the 'coach' framing, which might actually be a feature. 'Coach' implies a coaching program; 'always answering' works for every shape in the social proof set, from clinical to training to coaching to membership. Use this if E feels landing-page-heavy on the homepage.",
   },
@@ -119,9 +119,9 @@ const VARIANTS: Variant[] = [
         <em>without hiring a single coach.</em>
       </>
     ),
-    sub: "Your teaching, always on. Members ask a question and get the exact moment you answered it.",
+    sub: "Bold reads who's asking and pulls from your whole library. Beginners get the foundations; advanced members get the tactical depth.",
     comment:
-      "The number carries the H1. '10×' implies serious scale. 'Without hiring a single coach' names the alternative the buyer was probably about to price out in their head. Narrows the ICP though, because 'coaching' filters clinical and training buyers out of the frame. Earns its keep on a coaching-specific page more than on a homepage that has to greet everyone.",
+      "The number carries the H1. '10×' implies serious scale. 'Without hiring a single coach' names the alternative the buyer was probably about to price out in their head. Sub now leans on context-awareness, which is a real product truth: same question, different answer depending on who's asking. Narrows the ICP though, because 'coaching' filters clinical and training buyers out of the frame. Earns its keep on a coaching-specific page more than on a homepage that has to greet everyone.",
   },
 ];
 
