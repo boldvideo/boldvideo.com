@@ -123,6 +123,22 @@ const VARIANTS: Variant[] = [
     comment:
       "The number carries the H1. '10×' implies serious scale. 'Without hiring a single coach' names the alternative the buyer was probably about to price out in their head. Sub now leans on context-awareness, which is a real product truth: same question, different answer depending on who's asking. Narrows the ICP though, because 'coaching' filters clinical and training buyers out of the frame. Earns its keep on a coaching-specific page more than on a homepage that has to greet everyone.",
   },
+  {
+    id: "g",
+    label: "G · Amplify expertise at the moment of need",
+    hypothesis:
+      "Makes the buyer's status the subject of the H1. Names the critical moment instead of a product feature.",
+    h1: (
+      <>
+        Amplify your expertise
+        <br />
+        <em>when it matters most</em>
+      </>
+    ),
+    sub: "Bold turns your library into an answer the moment a member hits a wall. Shaped for their level, drawn from your own teaching.",
+    comment:
+      "Most buyer-centered H1 in the set. 'Your expertise' flatters the buyer directly. Not about videos or libraries as assets, but about who they are as an expert. 'When it matters most' names the critical moment (a stuck member, a question that needs answering now) without spelling it out. Sub closes the gap: Bold is what connects the buyer's expertise to the member at the exact moment they need it. 'Amplify' and 'expertise' both carry a mild corporate tone, but they earn their keep here by making the buyer's status the subject.",
+  },
 ];
 
 export default function HeroVariantsLab() {
@@ -134,13 +150,14 @@ export default function HeroVariantsLab() {
             Internal · hero copy test
           </div>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--text)]">
-            Homepage hero: 7 variants
+            Homepage hero: 8 variants
           </h2>
           <p className="mt-2 max-w-[620px] text-[15px] leading-relaxed text-[var(--text-mid)]">
-            A names the deliverable in four words. B, C, D are short two-beat
-            promises with positive payoffs. E is a long outcome H1; E2 is the
-            same angle at a quarter of the length. F is a quantified offer.
-            Notes under each. Favorites or vetos, either works.
+            A names the deliverable. B, C, D are short two-beat promises with
+            positive payoffs. E is a long outcome H1; E2 is the same angle
+            compressed. F is a quantified offer. G flatters the buyer's
+            expertise and points to the moment of need. Notes under each.
+            Favorites or vetos, either works.
           </p>
         </div>
       </header>
