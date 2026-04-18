@@ -493,12 +493,11 @@ export function HomePage() {
         <div className="hero-inner">
           <div className="hero-eyebrow">Video intelligence platform</div>
           <h1>
-            Your students love the content. They just can&apos;t find{" "}
-            <em>what they need.</em>
+            Your content. <em>Coaching while you sleep.</em>
           </h1>
           <p className="hero-sub">
-            Bold turns your video library into an AI teaching assistant that
-            knows your curriculum, cites the source, and scales without hiring.
+            Bold reads your whole library and answers your members in your
+            teaching style, no matter how they phrase the question.
           </p>
           <div className="hero-actions">
             <a
