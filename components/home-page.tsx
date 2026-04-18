@@ -493,12 +493,13 @@ export function HomePage() {
         <div className="hero-inner">
           <div className="hero-eyebrow">Video intelligence platform</div>
           <h1>
-            Your video library. <em>Coaching while you sleep.</em>
+            Turn every video you&apos;ve ever recorded into a coach{" "}
+            <em>that works while you sleep.</em>
           </h1>
           <p className="hero-sub">
-            Bold reads every video you&apos;ve recorded and answers your
-            members in your teaching style, no matter how they phrase the
-            question.
+            Bold reads every video in your library, understands what you
+            taught, and answers your members in your teaching style, no matter
+            how they phrase the question.
           </p>
           <div className="hero-actions">
             <a

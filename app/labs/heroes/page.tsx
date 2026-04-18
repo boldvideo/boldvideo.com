@@ -78,17 +78,18 @@ const VARIANTS: Variant[] = [
   },
   {
     id: "e",
-    label: "E · Coaching while you sleep",
+    label: "E · Coach that works while you sleep",
     hypothesis:
-      "Same angle as the long original, compressed to six words. Keeps the buyer-rests-while-the-coach-works hook intact.",
+      "Long outcome-promise. Existing library reframed as inventory, plus outcome and cadence in one phrase.",
     h1: (
       <>
-        Your video library. <em>Coaching while you sleep.</em>
+        Turn every video you&apos;ve ever recorded into a coach{" "}
+        <em>that works while you sleep.</em>
       </>
     ),
-    sub: "Bold reads every video you've recorded and answers your members in your teaching style, no matter how they phrase the question.",
+    sub: "Bold reads every video in your library, understands what you taught, and answers your members in your teaching style, no matter how they phrase the question.",
     comment:
-      "Compressed cut of the original long version, from fifteen words to six. Beat one is the buyer's asset in language they already use (Kajabi, Teachable, Circle all use 'video library'). Video-specific, so no confusion with PDFs or blog posts. Beat two keeps the scene that made the original distinctive: 'while you sleep' paints the buyer resting while the coach works. E and E2 intentionally share the same subject now, so the test is on the second beat: sleep-while-it-works versus always-answering.",
+      "The long H1, restored after the six-word cut lost too much. 'Every video you've ever recorded' reframes the library as inventory the buyer already paid for, which is a quiet status upgrade. 'Coach that works while you sleep' packs outcome and cadence into one phrase and puts the buyer in the scene, resting while it works. Sub leads with 'reads and understands' so the buyer gets the real insight: Bold isn't keyword search, it actually comprehends what you taught.",
   },
   {
     id: "e2",
