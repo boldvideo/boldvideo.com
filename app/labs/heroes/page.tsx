@@ -83,12 +83,12 @@ const VARIANTS: Variant[] = [
       "Same angle as the long original, compressed to six words. Keeps the buyer-rests-while-the-coach-works hook intact.",
     h1: (
       <>
-        Your content. <em>Coaching while you sleep.</em>
+        Your video library. <em>Coaching while you sleep.</em>
       </>
     ),
-    sub: "Bold reads your whole library and answers your members in your teaching style, no matter how they phrase the question.",
+    sub: "Bold reads every video you've recorded and answers your members in your teaching style, no matter how they phrase the question.",
     comment:
-      "Compressed cut of the original long version, from fifteen words to six. Beat one opens with 'Your content', which reads natural across course creators, coaching programs, clinical education, and training academies. Beat two keeps the magic phrase that made the original distinctive: 'while you sleep' paints a scene where the buyer rests and the coach works. Clean contrast with E2 now, which stays on 'Your video library' for the asset-specific framing.",
+      "Compressed cut of the original long version, from fifteen words to six. Beat one is the buyer's asset in language they already use (Kajabi, Teachable, Circle all use 'video library'). Video-specific, so no confusion with PDFs or blog posts. Beat two keeps the scene that made the original distinctive: 'while you sleep' paints the buyer resting while the coach works. E and E2 intentionally share the same subject now, so the test is on the second beat: sleep-while-it-works versus always-answering.",
   },
   {
     id: "e2",
