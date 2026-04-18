@@ -22,72 +22,106 @@ const DEMO_URL = "https://savvycal.com/marcel-from-bold/7838d613";
 const VARIANTS: Variant[] = [
   {
     id: "a",
-    label: "A · Current baseline",
-    hypothesis: "Live right now. Love → broken pivot, student-centered.",
+    label: "A · Deliverable + differentiation",
+    hypothesis:
+      "Names what the buyer gets in four words. Beat one is the deliverable (answers). Beat two is where those answers come from.",
     h1: (
       <>
-        Your students love the content. They just can&apos;t find{" "}
-        <em>what they need.</em>
+        Every answer. <em>From your videos.</em>
       </>
     ),
-    sub: "Bold turns your video library into an AI teaching assistant that knows your curriculum, cites the source, and scales without hiring.",
+    sub: "Bold reads every video you've recorded and surfaces the exact clip the moment a member asks. Grounded in your teaching, not generic AI.",
     comment:
-      "Live version. The love-then-broken turn does real work: it drops defenses before landing the punch. Here's the catch. Every subject in every sentence is the student, so the person with the credit card is basically watching a stranger's problem unfold and being asked to pay for the cure. Fine for warm traffic that already felt the pain. Shaky for everyone else.",
+      "Clearest beat in the set. Beat one names the thing the buyer gets (answers). Beat two names where those answers come from (your videos, not the open internet and not some generic chatbot that watched someone else's content). The live 'love the content' opener is gone here, which is the price of clarity. Probably worth it. Sub carries the speed and the clip-level proof.",
   },
   {
     id: "b",
-    label: "B · Direct loss on the buyer",
-    hypothesis: "Two short punches. Buyer is the subject of both.",
+    label: "B · Video library as asset, unlocked",
+    hypothesis:
+      "Keeps the goldmine image from earlier. Flips the second beat from barrier to access so both beats read positive.",
     h1: (
       <>
-        You recorded the answer. <em>They can&apos;t find it.</em>
+        Your video library is a goldmine. <em>Here&apos;s the key.</em>
       </>
     ),
-    sub: "Bold turns every video in your library into an instant answer, cited, timestamped, grounded in your curriculum.",
+    sub: "Bold reads every video you've recorded and hands your members the exact clip the moment they ask for it.",
     comment:
-      "Shortest of the batch. Buyer is the subject of both sentences, which is the whole point. Punchy. Might feel blunt on cold traffic, though. Probably hits hardest on paid, where you've got three seconds before someone bounces off to check Slack.",
+      "Flipped version of the earlier goldmine swing. Beat one upgrades the library's status from archive to asset. Beat two hands over access instead of naming a wall. 'Video library' makes the asset concrete (you have one, you know what it is). Whole line rides on whether the goldmine image lands for the buyer. If it reads corny on Rob's pass, we trade it for a pure-promise H1 like 'Every answer. One question away.'",
   },
   {
     id: "c",
-    label: "C · Asset / goldmine frame",
-    hypothesis: "Reframes the library as valuable before naming the problem.",
+    label: "C · A video library that talks back",
+    hypothesis: "Pure noun promise. Memorable image. Zero verbs.",
     h1: (
       <>
-        Your video library is a goldmine your audience{" "}
-        <em>can&apos;t mine.</em>
+        A video library <em>that talks back.</em>
       </>
     ),
-    sub: "Bold indexes every lesson, podcast, and Q&A so your members get cited answers in seconds, not scavenger hunts.",
+    sub: "Bold reads every lesson, podcast, and Q&A you've recorded, actually understands what you taught, then answers your audience in your voice.",
     comment:
-      "Goldmine works because it's physical. You picture it. You smell the dust on the worker's boots. 'Can't mine' closes the picture instead of just naming a problem. Bonus: it flips the library from burden to asset before the reader gets defensive about their own product. This is the one I'd test against baseline.",
+      "Six words, one image. 'Talks back' is playful, but the mechanism is real. The whole job of the sub is to earn the metaphor, which is why 'reads and actually understands' matters more than 'indexes' here. Most memorable H1 in the set by a wide margin.",
   },
   {
     id: "d",
-    label: "D · JTBD / positive frame",
-    hypothesis: "No negative. Outcome-first. Confident tone.",
+    label: "D · Your best teaching, on repeat",
+    hypothesis: "Flatters the buyer. Sells the compounding effect.",
     h1: (
       <>
-        Turn every video you&apos;ve recorded into an answer{" "}
-        <em>they can ask for.</em>
+        Your best teaching.
+        <br />
+        <em>On repeat.</em>
       </>
     ),
-    sub: "Bold knows your curriculum, cites the source, and scales coaching without adding headcount.",
+    sub: "Bold turns every lesson you've taught into an always-on answer, ready the moment someone asks.",
     comment:
-      "Confident. No pain in sight. This one assumes the reader already feels the library is broken and is shopping for a fix, which is fair on a pricing page but a stretch on a cold homepage visit. Reads like a feature brag more than an answer to something that hurts. I'd pin this on pricing or the product page, honestly.",
+      "Starts with a quiet compliment. 'Your best teaching' reads the buyer their own review before they even ask for it. 'On repeat' lands the cadence promise. Works across coaching programs, clinical education, training academies, and membership communities because 'teaching' is the universal noun.",
   },
   {
     id: "e",
-    label: "E · Business pain (coach labor)",
-    hypothesis: "Names a P&L line item. Narrower ICP but sharper.",
+    label: "E · Coach while you sleep",
+    hypothesis:
+      "Long outcome-promise. Existing assets, removed labor, 24/7 cadence, all in one line.",
     h1: (
       <>
-        Your coaches answer the same question a hundred times a week.{" "}
-        <em>Your videos already have the answer.</em>
+        Turn every video you&apos;ve ever recorded into a coach{" "}
+        <em>that works while you sleep.</em>
       </>
     ),
-    sub: "Bold turns your library into a 24/7 teaching assistant, so coaches coach and students stop waiting.",
+    sub: "Bold watches every video in your library, understands what you taught, and answers your audience in your voice.",
     comment:
-      "Narrow but sharp. Only lands if the reader runs a coached program, so Viva ACCA is out the window. When it hits, it hits where the money is: coach labor. 'Hundred times a week' is specific enough to sting, which is the only reason it earns the real estate.",
+      "Long for a homepage H1, but the specificity earns the length. 'Every video you've ever recorded' reframes the library as inventory you've already paid for, which is a quiet status upgrade for the buyer. 'Coach that works while you sleep' packs the outcome and the cadence into a single phrase, so you don't need a sub to explain the 24/7 piece. Might read as landing-page-specific rather than homepage broad.",
+  },
+  {
+    id: "e2",
+    label: "E2 · Library, always answering",
+    hypothesis:
+      "Same angle as E at a quarter of the length. Asset plus the outcome it delivers.",
+    h1: (
+      <>
+        Your library.
+        <br />
+        <em>Always answering.</em>
+      </>
+    ),
+    sub: "Bold reads every video you've recorded and answers your members the moment they ask, in your voice.",
+    comment:
+      "Tight cut of E. Beat one is the asset. Beat two is the product in motion. Loses the 'coach' framing, which might actually be a feature. 'Coach' implies a coaching program; 'always answering' works for every shape in the social proof set, from clinical to training to coaching to membership. Use this if E feels landing-page-heavy on the homepage.",
+  },
+  {
+    id: "f",
+    label: "F · Scale 10×, no new hires",
+    hypothesis:
+      "Quantified transformation plus the friction it removes. The number does the work.",
+    h1: (
+      <>
+        Scale coaching 10×
+        <br />
+        <em>without hiring a single coach.</em>
+      </>
+    ),
+    sub: "Your teaching, always on. Members ask a question and get the exact moment you answered it.",
+    comment:
+      "The number carries the H1. '10×' implies serious scale. 'Without hiring a single coach' names the alternative the buyer was probably about to price out in their head. Narrows the ICP though, because 'coaching' filters clinical and training buyers out of the frame. Earns its keep on a coaching-specific page more than on a homepage that has to greet everyone.",
   },
 ];
 
@@ -100,11 +134,13 @@ export default function HeroVariantsLab() {
             Internal · hero copy test
           </div>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--text)]">
-            Homepage hero: 5 variants
+            Homepage hero: 7 variants
           </h2>
           <p className="mt-2 max-w-[620px] text-[15px] leading-relaxed text-[var(--text-mid)]">
-            Baseline first, then four swings. Notes sit under each one. Reply
-            with favorites or a flat no.
+            A names the deliverable in four words. B, C, D are short two-beat
+            promises with positive payoffs. E is a long outcome H1; E2 is the
+            same angle at a quarter of the length. F is a quantified offer.
+            Notes under each. Favorites or vetos, either works.
           </p>
         </div>
       </header>
