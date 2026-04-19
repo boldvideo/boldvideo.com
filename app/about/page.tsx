@@ -50,13 +50,11 @@ const TEAM: Person[] = [
     image: "/images/vanessa.jpg",
     bio: (
       <>
-        4x founder, 3 exits. 20 years building B2B SaaS. Last decade spent
-        coaching founders through the parts of the job that break them. Runs{" "}
+        20 years building companies that matter. Runs{" "}
         <a href="https://founderwell.com" target="_blank" rel="noreferrer">
           FounderWell
         </a>
-        , where coaches use Bold every day. Tells us when we&apos;re selling to
-        the wrong person, or building the wrong thing.
+        , where coaches use Bold every day.
       </>
     ),
     links: {
@@ -65,9 +63,9 @@ const TEAM: Person[] = [
   },
   {
     name: "Monika Fahle",
-    role: "Head of Brand",
+    role: "Head of Customer Success",
     image: "/images/monika.jpg",
-    bio: "Runs brand and marketing at Bold. Spent 10 years fixing product messaging at European tech companies. Also a lawyer by training. Explains the allergy to copy that doesn't mean what it says.",
+    bio: "Runs customer success at Bold. Spent 10 years turning new users into power users at European tech companies. Also a lawyer by training. The kind of brain that hunts friction and doesn't miss details.",
     links: {
       linkedin: "https://linkedin.com/in/monikafahle",
     },
