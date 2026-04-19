@@ -121,10 +121,6 @@ export default function ProductPage() {
                     <div className="hero-chat-chrome-title">
                       Ask FounderWell
                     </div>
-                    <div className="hero-chat-chrome-live">
-                      <span className="hero-chat-chrome-live-dot" aria-hidden="true" />
-                      LIVE
-                    </div>
                   </div>
                   <div className="hero-chat-body">
                     <div className="hero-user-msg">

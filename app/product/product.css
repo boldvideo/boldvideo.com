@@ -72,7 +72,7 @@
 /* Video pane */
 .landing-v10 .hero-video {
   position: relative;
-  flex: 7 1 0;
+  flex: 6 1 0;
   min-width: 0;
   background: #0a0b0c;
   overflow: hidden;
@@ -203,6 +203,7 @@
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+  white-space: nowrap;
   align-self: flex-start;
   cursor: pointer;
   box-shadow: 0 0 20px -2px rgba(65, 198, 166, 0.55);
@@ -251,6 +252,7 @@
   font-family: var(--mono);
   font-weight: 700;
   font-size: 12px;
+  flex-shrink: 0;
 }
 .landing-v10 .hero-chat-chrome-title {
   font-weight: 600;
@@ -258,7 +260,10 @@
   letter-spacing: -0.01em;
   color: #14171a;
   white-space: nowrap;
-  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 .landing-v10 .hero-chat-chrome-live {
   margin-left: auto;
@@ -451,8 +456,8 @@
   }
 }
 
-/* ---------- Hero — mobile: stack video on top, chat below ---------- */
-@media (max-width: 900px) {
+/* ---------- Hero — tablet/mobile: stack video on top, chat below ---------- */
+@media (max-width: 1024px) {
   .landing-v10 .hero-surface {
     flex-direction: column;
   }
