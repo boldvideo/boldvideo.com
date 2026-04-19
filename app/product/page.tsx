@@ -5,10 +5,40 @@ import { CtaSection } from "@/components/cta-section";
 import "./product.css";
 import "@/components/landing-v10.css";
 
+function Cite({
+  time,
+  topic,
+  title,
+  src,
+}: {
+  time: string;
+  topic: string;
+  title: string;
+  src: string;
+}) {
+  return (
+    <div className="illo-cite">
+      <div className="illo-cite-thumb">
+        <img src={src} alt="" />
+        <div className="illo-cite-play">
+          <svg viewBox="0 0 10 10">
+            <polygon points="1,1 9,5 1,9" fill="currentColor" />
+          </svg>
+        </div>
+        <div className="illo-cite-time">{time}</div>
+      </div>
+      <div className="illo-cite-meta">
+        <div className="illo-cite-sub">{topic}</div>
+        <div className="illo-cite-ttl">{title}</div>
+      </div>
+    </div>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Product",
   description:
-    "Bold is a video intelligence layer. Upload your library and it turns into an AI teaching assistant students can talk to, with cited timestamps from your actual content.",
+    "Bold is a video intelligence layer. Upload your library and it turns into an AI teaching assistant members can talk to, with cited timestamps from your actual content.",
 };
 
 export default function ProductPage() {
@@ -34,7 +64,7 @@ export default function ProductPage() {
               </h1>
               <p className="hero-sub">
                 Upload your library. Bold turns it into an AI teaching
-                assistant your students can actually talk to&nbsp;&mdash; one
+                assistant your members can actually talk to&nbsp;&mdash; one
                 that cites the exact clip every time.
               </p>
               <p className="prod-diff">
@@ -64,37 +94,49 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="prod-hero-visual">
-              <div className="mock-chat prod-hero-mock">
-                <div className="mock-chat-header">
-                  <div className="mock-av">B</div>
-                  <div>
-                    <div className="mock-title">Ask Bold</div>
-                    <div className="mock-meta">
-                      HRT University &middot; 97 lessons
+              <div className="hero-frame">
+                <div className="hero-stage">
+                  <img
+                    className="hero-still"
+                    src="/images/product-mocks/hero.jpg"
+                    alt=""
+                  />
+                  <div className="hero-meta">
+                    <span className="hero-meta-dot" aria-hidden="true" />
+                    FounderWell &middot; 197 videos
+                  </div>
+                  <div className="hero-chip">
+                    How should I price for enterprise deals?
+                  </div>
+                  <div className="hero-answer">
+                    <div className="hero-answer-label">
+                      <span className="hero-answer-dot" aria-hidden="true" />
+                      Bold AI
+                    </div>
+                    <div className="hero-answer-text">
+                      <strong>Anchor on outcomes, not seats.</strong>{" "}
+                      Enterprise buyers price against the problem, not the
+                      product.
                     </div>
                   </div>
-                </div>
-                <div className="mock-chat-body">
-                  <div className="mock-bubble mock-user">
-                    How do I handle a patient skeptical about TRT?
+                  <div className="hero-jump">
+                    <span className="hero-jump-tag">&#9654; JUMP TO 23:14</span>
+                    <svg
+                      className="hero-jump-arrow"
+                      width="12"
+                      height="24"
+                      viewBox="0 0 12 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M0 4 L10 12 L0 20 Z" fill="currentColor" />
+                    </svg>
                   </div>
-                  <div className="mock-bubble mock-ai">
-                    <p>
-                      Start with their concerns, not your data. If
-                      they&apos;re worried about side effects, walk through
-                      the risk profile in plain language first. The pitch
-                      only lands after they feel heard.
-                    </p>
-                    <div className="mock-citations">
-                      <span className="mock-cite">
-                        Patient Communication <em>18:42</em>
-                      </span>
-                      <span className="mock-cite">
-                        TRT Protocols <em>07:15</em>
-                      </span>
-                      <span className="mock-cite">
-                        Objection Handling <em>33:21</em>
-                      </span>
+                  <div className="hero-timeline">
+                    <div className="hero-tline">23:14 / 59:22</div>
+                    <div className="hero-track">
+                      <div className="hero-track-band" />
+                      <div className="hero-track-fill" />
+                      <div className="hero-track-dot" />
                     </div>
                   </div>
                 </div>
@@ -106,13 +148,13 @@ export default function ProductPage() {
         {/* Scenarios — alternating splits with mock visuals */}
         <section className="prod-scenarios-wrap">
           <div className="container prod-scenarios-head">
-            <div className="sec-label">What students experience</div>
+            <div className="sec-label">What members experience</div>
             <h2 className="section-title">
               Four moments where your library stops failing them
             </h2>
             <p className="prod-sub">
               Not a chatbot. Not a search bar. A teaching assistant that shows
-              up exactly when a student needs it.
+              up exactly when a member needs it.
             </p>
           </div>
 
@@ -124,7 +166,7 @@ export default function ProductPage() {
                 <span className="prod-scene-rule" aria-hidden="true" />
                 <span className="prod-scene-tag">Ask the library</span>
               </div>
-              <h3>A student is stuck. They can&apos;t even describe it.</h3>
+              <h3>A member is stuck. They can&apos;t even describe it.</h3>
               <p>
                 They fire off a half&#8209;formed question. Bold pulls the
                 answer together from across your library and hands back the
@@ -133,35 +175,67 @@ export default function ProductPage() {
               </p>
             </div>
             <div className="prod-scene-visual">
-              <div className="mock-chat">
-                <div className="mock-chat-header">
-                  <div className="mock-av">B</div>
-                  <div>
-                    <div className="mock-title">Ask Bold</div>
-                    <div className="mock-meta">1,400 videos</div>
+              <div className="illo illo-founderwell">
+                <div className="illo-chrome">
+                  <div className="illo-chrome-dot">&#9670;</div>
+                  <div className="illo-chrome-title">FounderWell</div>
+                  <div className="illo-chrome-meta">1,400 videos</div>
+                </div>
+                <div className="illo-body">
+                  <div className="illo-user">
+                    My co&#8209;founder and I keep clashing on fundraising
+                    timing. How do I reset the conversation without blowing up
+                    the relationship?
+                  </div>
+                  <div className="illo-ai">
+                    <div className="illo-ai-sender">Bold AI</div>
+                    <div className="illo-ai-text">
+                      <strong>
+                        It&apos;s almost never about the timing.
+                      </strong>{" "}
+                      Underneath co&#8209;founder fundraising fights is usually
+                      a mismatch on <em>risk tolerance</em> or{" "}
+                      <em>ownership of the outcome</em>. Before you debate the
+                      round, run a 30&#8209;minute alignment on those two
+                      &mdash; Jerry&apos;s framework makes this concrete.
+                    </div>
+                  </div>
+                  <div className="illo-cites">
+                    <Cite
+                      time="11:42"
+                      topic="Co&#8209;founder Dynamics"
+                      title="The risk&#8209;tolerance conversation"
+                      src="/images/product-mocks/founderwell-poster1.jpg"
+                    />
+                    <Cite
+                      time="18:07"
+                      topic="Hard Conversations"
+                      title="Reset without blowing it up"
+                      src="/images/product-mocks/founderwell-poster2.jpg"
+                    />
+                    <Cite
+                      time="23:55"
+                      topic="Fundraising Strategy"
+                      title="Why timing is a symptom"
+                      src="/images/product-mocks/founderwell-poster3.jpg"
+                    />
                   </div>
                 </div>
-                <div className="mock-chat-body">
-                  <div className="mock-bubble mock-user">
-                    How should I price a new HRT clinic?
+                <div className="illo-input">
+                  <div className="illo-input-field">
+                    Ask anything&hellip;
+                    <span className="illo-input-cur" />
                   </div>
-                  <div className="mock-bubble mock-ai">
-                    <p>
-                      Anchor on outcomes, not cost. If your protocol delivers
-                      measurable results, a $200/month concierge model reads
-                      as premium.
-                    </p>
-                    <div className="mock-citations">
-                      <span className="mock-cite">
-                        Pricing Strategy <em>14:23</em>
-                      </span>
-                      <span className="mock-cite">
-                        Clinic Ops <em>08:47</em>
-                      </span>
-                      <span className="mock-cite">
-                        Business Models <em>32:10</em>
-                      </span>
-                    </div>
+                  <div className="illo-input-send">
+                    <svg width="14" height="14" viewBox="0 0 14 14">
+                      <path
+                        d="M2 7 L12 7 M8 3 L12 7 L8 11"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        fill="none"
+                        strokeLinecap="square"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -184,27 +258,78 @@ export default function ProductPage() {
               </p>
             </div>
             <div className="prod-scene-visual">
-              <div className="mock-player">
-                <div className="mock-player-frame">
-                  <div className="mock-player-bar" />
-                  <div className="mock-player-play">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                      <path d="M3 2v10l8-5z" />
-                    </svg>
+              <div className="illo illo-hrtu">
+                <div className="illo-chrome">
+                  <div className="illo-chrome-dot">&#9670;</div>
+                  <div className="illo-chrome-title">HRT University</div>
+                  <div className="illo-chrome-meta">
+                    Module 4 &middot; Lesson 12
                   </div>
                 </div>
-                <div className="mock-player-chat">
-                  <div className="mock-bubble mock-user mock-bubble-sm">
+                <div className="illo-player">
+                  <img
+                    className="illo-player-still"
+                    src="/images/product-mocks/c2.jpg"
+                    alt=""
+                  />
+                  <div className="illo-player-cc">
+                    &ldquo;&mdash; which is why T3 monotherapy fails in roughly
+                    a third of the patients we see.&rdquo;
+                  </div>
+                  <div className="illo-player-controls">
+                    <div className="illo-player-btn">
+                      <svg viewBox="0 0 10 10">
+                        <rect
+                          x="2"
+                          y="1.5"
+                          width="2"
+                          height="7"
+                          fill="currentColor"
+                        />
+                        <rect
+                          x="6"
+                          y="1.5"
+                          width="2"
+                          height="7"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
+                    <div className="illo-player-time">3:42 / 24:08</div>
+                    <div className="illo-player-btn">
+                      <svg viewBox="0 0 10 10">
+                        <path
+                          d="M5 1 L8 5 L5 9 M2 1 L5 5 L2 9"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          fill="none"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="illo-player-scrub">
+                    <div className="illo-player-scrub-fill" />
+                  </div>
+                </div>
+                <div className="illo-body illo-body-tight">
+                  <div className="illo-user">
                     Wait, why does he recommend T3 combination therapy here?
                   </div>
-                  <div className="mock-bubble mock-ai mock-bubble-sm">
-                    <p>
-                      At 3:42 Nico explains the reverse T3 issue &mdash; T4
-                      alone can convert inefficiently in some patients.
-                    </p>
-                    <span className="mock-cite mock-cite-inline">
-                      Jump to <em>3:42</em>
+                  <div className="illo-ai">
+                    <div className="illo-ai-sender">Bold AI</div>
+                    <div className="illo-ai-text">
+                      At <em>3:42</em> Nico explains the reverse T3 issue
+                      &mdash; T4 alone can convert inefficiently in some
+                      patients, so he layers T3 to bypass the block.{" "}
+                      <strong>Scoped to this lesson only.</strong>
+                    </div>
+                  </div>
+                  <div className="illo-chips">
+                    <span className="illo-chip illo-chip-solid">
+                      &#9654; Jump to 3:42
                     </span>
+                    <span className="illo-chip">Why not T4 first?</span>
+                    <span className="illo-chip">Dosing protocol</span>
                   </div>
                 </div>
               </div>
@@ -228,27 +353,80 @@ export default function ProductPage() {
               </p>
             </div>
             <div className="prod-scene-visual">
-              <div className="mock-upload">
-                <div className="mock-upload-file">
-                  <div className="mock-upload-thumb">IMG</div>
-                  <div className="mock-upload-meta">
-                    <div className="mock-upload-name">lab-panel-april.pdf</div>
-                    <div className="mock-upload-size">2.3 MB</div>
+              <div className="illo illo-showthem">
+                <div className="illo-chrome">
+                  <div className="illo-chrome-dot">&#9670;</div>
+                  <div className="illo-chrome-title">Show Them</div>
+                  <div className="illo-chrome-meta">Landing page audit</div>
+                </div>
+                <div className="illo-body">
+                  <div className="illo-upload-wrap">
+                    <div className="illo-attach">
+                      <div className="illo-attach-pdf">PNG</div>
+                      <div className="illo-attach-info">
+                        <div className="illo-attach-name">
+                          relayd-landing-v2.png
+                        </div>
+                        <div className="illo-attach-size">
+                          1.8 MB &middot; 2560 &times; 5840
+                        </div>
+                        <div className="illo-attach-findings">
+                          <span className="illo-chip">No social proof above fold</span>
+                          <span className="illo-chip">Hero tells, doesn&apos;t show</span>
+                          <span className="illo-chip">CTA buried</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="illo-user illo-user-stack">
+                      Can you audit my new hero against the Show Them framework?
+                    </div>
+                  </div>
+                  <div className="illo-ai">
+                    <div className="illo-ai-sender">Bold AI</div>
+                    <div className="illo-ai-text">
+                      <strong>
+                        Your hero is telling, not showing.
+                      </strong>{" "}
+                      &ldquo;The fastest way to ship&rdquo; is a claim &mdash;
+                      Rob&apos;s rule from Chapter 2 is to replace it with a
+                      visual that <em>proves</em> it. Swap the stock shot for
+                      a 6-second product demo loop, and move the testimonial
+                      row above the fold before the primary CTA.
+                    </div>
+                  </div>
+                  <div className="illo-cites">
+                    <Cite
+                      time="04:12"
+                      topic="Ch. 2 · Why LPs Work"
+                      title="Show, don&rsquo;t tell"
+                      src="/images/product-mocks/showthem-poster1.jpg"
+                    />
+                    <Cite
+                      time="08:47"
+                      topic="Ch. 11 · Social Proof"
+                      title="Testimonials above the fold"
+                      src="/images/product-mocks/showthem-poster2.jpg"
+                    />
+                    <Cite
+                      time="14:23"
+                      topic="Ch. 16 · Product Demos"
+                      title="The 6-second loop rule"
+                      src="/images/product-mocks/showthem-poster3.jpg"
+                    />
                   </div>
                 </div>
-                <div className="mock-bubble mock-ai">
-                  <p>
-                    TSH is 0.4&nbsp;&mdash; below your protocol&apos;s floor.
-                    Per Module 4 guidance, drop T3 by 5mcg before the next
-                    draw.
-                  </p>
-                  <div className="mock-citations">
-                    <span className="mock-cite">
-                      Thyroid Dosing <em>22:08</em>
-                    </span>
-                    <span className="mock-cite">
-                      Labs &amp; Monitoring <em>11:17</em>
-                    </span>
+                <div className="illo-input">
+                  <div className="illo-input-field">Reply or attach more&hellip;</div>
+                  <div className="illo-input-send">
+                    <svg width="14" height="14" viewBox="0 0 14 14">
+                      <path
+                        d="M2 7 L12 7 M8 3 L12 7 L8 11"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        fill="none"
+                        strokeLinecap="square"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -271,45 +449,91 @@ export default function ProductPage() {
               </p>
             </div>
             <div className="prod-scene-visual">
-              <div className="mock-search">
-                <div className="mock-search-bar">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
+              <div className="illo illo-founderwell">
+                <div className="illo-searchbar">
+                  <svg width="14" height="14" viewBox="0 0 14 14">
+                    <circle
+                      cx="6"
+                      cy="6"
+                      r="4.5"
+                      stroke="currentColor"
+                      strokeWidth="1.3"
+                      fill="none"
+                    />
+                    <line
+                      x1="9.2"
+                      y1="9.2"
+                      x2="12"
+                      y2="12"
+                      stroke="currentColor"
+                      strokeWidth="1.3"
+                    />
                   </svg>
-                  <span>when a patient won&apos;t follow the plan</span>
+                  <div className="illo-search-q">
+                    when you know the team needs to{" "}
+                    <span className="illo-search-match">
+                      hear hard news
+                    </span>
+                    &hellip;
+                  </div>
+                  <span className="illo-search-kbd">&#8984;K</span>
                 </div>
-                <div className="mock-results">
-                  <div className="mock-result">
-                    <div className="mock-result-head">
-                      <strong>Adherence, Not Compliance</strong>
-                      <span className="mock-ts">23:15</span>
+                <div className="illo-results">
+                  <div className="illo-result">
+                    <div className="illo-result-thumb">
+                      <img
+                        src="/images/product-mocks/founderwell-poster5.png"
+                        alt=""
+                      />
+                      <div className="illo-result-time">12:08</div>
                     </div>
-                    <p>
-                      ...stop trying to convince. Start asking what&apos;s
-                      actually blocking implementation for them...
-                    </p>
+                    <div>
+                      <h5>Delivering Bad News to Your Team</h5>
+                      <div className="illo-result-snip">
+                        &ldquo;&hellip;you don&apos;t soften the message, you
+                        soften the <em>delivery</em>. Lead with the
+                        &lsquo;what,&rsquo; then the &lsquo;why,&rsquo; then
+                        what you need from them &mdash; in that order.&rdquo;
+                      </div>
+                    </div>
+                    <div className="illo-result-score">0.94</div>
                   </div>
-                  <div className="mock-result">
-                    <div className="mock-result-head">
-                      <strong>Motivational Interviewing Basics</strong>
-                      <span className="mock-ts">11:42</span>
+                  <div className="illo-result">
+                    <div className="illo-result-thumb">
+                      <img
+                        src="/images/product-mocks/founderwell-poster6.png"
+                        alt=""
+                      />
+                      <div className="illo-result-time">07:32</div>
                     </div>
-                    <p>
-                      ...the goal isn&apos;t buy&#8209;in, it&apos;s
-                      understanding the resistance. Then you can work with
-                      it...
-                    </p>
+                    <div>
+                      <h5>Transparency vs. Oversharing</h5>
+                      <div className="illo-result-snip">
+                        &ldquo;The question isn&apos;t whether to tell them.
+                        It&apos;s what they need to{" "}
+                        <em>act on the information</em> &mdash; versus what
+                        just offloads your anxiety onto the team.&rdquo;
+                      </div>
+                    </div>
+                    <div className="illo-result-score">0.91</div>
                   </div>
-                  <div className="mock-result">
-                    <div className="mock-result-head">
-                      <strong>Behavior Change Protocols</strong>
-                      <span className="mock-ts">47:08</span>
+                  <div className="illo-result">
+                    <div className="illo-result-thumb">
+                      <img
+                        src="/images/product-mocks/founderwell-poster7.png"
+                        alt=""
+                      />
+                      <div className="illo-result-time">19:47</div>
                     </div>
-                    <p>
-                      ...tiny commitments beat big ones. Ask for one thing
-                      they&apos;ll actually do this week...
-                    </p>
+                    <div>
+                      <h5>All&#8209;Hands: When Runway Gets Short</h5>
+                      <div className="illo-result-snip">
+                        &ldquo;Name the constraint out loud. Teams can handle a{" "}
+                        <em>hard truth</em> they can plan around &mdash; they
+                        can&apos;t handle a vibe that something is off.&rdquo;
+                      </div>
+                    </div>
+                    <div className="illo-result-score">0.88</div>
                   </div>
                 </div>
               </div>
@@ -350,15 +574,15 @@ export default function ProductPage() {
                   <span className="prod-why-num">02</span>
                   <span className="prod-why-rule" aria-hidden="true" />
                   <span className="prod-why-tag">
-                    Calibrated to the student
+                    Calibrated to the member
                   </span>
                 </div>
                 <div className="prod-why-body">
                   <h3>It knows who&apos;s asking.</h3>
                   <p>
-                    Beginners get foundations. Advanced students get
+                    Beginners get foundations. Advanced members get
                     nuance. Same question in, different answer
-                    out&nbsp;&mdash; calibrated to where the student
+                    out&nbsp;&mdash; calibrated to where the member
                     actually is.
                   </p>
                 </div>
@@ -373,7 +597,7 @@ export default function ProductPage() {
                   <h3>Every answer comes with a receipt.</h3>
                   <p>
                     Answers stay inside your library. Citations are
-                    clickable. Students verify the source instead of
+                    clickable. Members verify the source instead of
                     taking the AI&apos;s word for it.
                   </p>
                 </div>
@@ -382,16 +606,16 @@ export default function ProductPage() {
           </div>
         </section>
 
-        {/* Meet students anywhere — RESTRUCTURED: emotional lead first */}
+        {/* Meet members anywhere — RESTRUCTURED: emotional lead first */}
         <section className="prod-ambient">
           <div className="container">
-            <div className="sec-label">Meet students anywhere</div>
+            <div className="sec-label">Meet members anywhere</div>
             <h2 className="prod-ambient-quote">
               Your coaching library becomes{" "}
               <em>ambient knowledge.</em>
             </h2>
             <p className="prod-ambient-sub">
-              Not a destination students have to visit. A resource that shows
+              Not a destination members have to visit. A resource that shows
               up wherever they already work.
             </p>
 
@@ -430,7 +654,7 @@ export default function ProductPage() {
                 </div>
                 <h3>Inside their AI tools</h3>
                 <p>
-                  MCP server ships day one. Students pull your library into
+                  MCP server ships day one. Members pull your library into
                   Claude, Cursor, and whatever they use next.
                 </p>
               </div>
@@ -643,7 +867,7 @@ export default function ProductPage() {
                   <div className="timeline-num-row">
                     <div className="timeline-num">03</div>
                   </div>
-                  <h3>Students start getting answers</h3>
+                  <h3>Members start getting answers</h3>
                   <p>
                     We&apos;re on the call with you. Go live, iterate, grow.
                   </p>
