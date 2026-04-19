@@ -370,11 +370,6 @@ export default function ProductPage() {
                         <div className="illo-attach-size">
                           1.8 MB &middot; 2560 &times; 5840
                         </div>
-                        <div className="illo-attach-findings">
-                          <span className="illo-chip">No social proof above fold</span>
-                          <span className="illo-chip">Hero tells, doesn&apos;t show</span>
-                          <span className="illo-chip">CTA buried</span>
-                        </div>
                       </div>
                     </div>
                     <div className="illo-user illo-user-stack">
