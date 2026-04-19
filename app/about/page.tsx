@@ -50,11 +50,14 @@ const TEAM: Person[] = [
     image: "/images/vanessa.jpg",
     bio: (
       <>
-        20 years building companies that matter. Runs{" "}
+        4x founder, 3 exits. 20 years building companies that matter. Last
+        decade spent coaching founders through the parts of the job that break
+        them. Runs{" "}
         <a href="https://founderwell.com" target="_blank" rel="noreferrer">
           FounderWell
         </a>
-        , where coaches use Bold every day.
+        , where coaches use Bold every day. Tells us when we&apos;re selling to
+        the wrong person, or building the wrong thing.
       </>
     ),
     links: {
