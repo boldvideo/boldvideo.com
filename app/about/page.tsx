@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Image from "next/image";
 import { SiteNav, SiteNavFooter } from "@/components/site-nav";
 import { CtaSection } from "@/components/cta-section";
@@ -34,7 +35,15 @@ const FOUNDERS = [
   },
 ];
 
-const TEAM = [
+type Person = {
+  name: string;
+  role: string;
+  image: string;
+  bio: ReactNode;
+  links: { twitter?: string; linkedin?: string };
+};
+
+const TEAM: Person[] = [
   {
     name: "Monika Fahle",
     role: "Head of Brand",
@@ -48,20 +57,22 @@ const TEAM = [
     name: "Vanessa Roberts",
     role: "Advisor",
     image: "/images/vanessa.jpg",
-    bio: "4x founder, 3 exits. 20 years building B2B SaaS. Last decade spent coaching founders through the parts of the job that break them. Runs FounderWell, where coaches use Bold every day. Tells us when we're selling to the wrong person, or building the wrong thing.",
+    bio: (
+      <>
+        4x founder, 3 exits. 20 years building B2B SaaS. Last decade spent
+        coaching founders through the parts of the job that break them. Runs{" "}
+        <a href="https://founderwell.com" target="_blank" rel="noreferrer">
+          FounderWell
+        </a>
+        , where coaches use Bold every day. Tells us when we&apos;re selling to
+        the wrong person, or building the wrong thing.
+      </>
+    ),
     links: {
       linkedin: "https://linkedin.com/in/vanessaroberts",
     },
   },
 ];
-
-type Person = {
-  name: string;
-  role: string;
-  image: string;
-  bio: string;
-  links: { twitter?: string; linkedin?: string };
-};
 
 function PersonCard({ person }: { person: Person }) {
   return (
