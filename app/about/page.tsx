@@ -45,15 +45,6 @@ type Person = {
 
 const TEAM: Person[] = [
   {
-    name: "Monika Fahle",
-    role: "Head of Brand",
-    image: "/images/monika.jpg",
-    bio: "Runs brand and marketing at Bold. Spent 10 years fixing product messaging at European tech companies. Also a lawyer by training. Explains the allergy to copy that doesn't mean what it says.",
-    links: {
-      linkedin: "https://linkedin.com/in/monikafahle",
-    },
-  },
-  {
     name: "Vanessa Roberts",
     role: "Advisor",
     image: "/images/vanessa.jpg",
@@ -70,6 +61,15 @@ const TEAM: Person[] = [
     ),
     links: {
       linkedin: "https://linkedin.com/in/vanessaroberts",
+    },
+  },
+  {
+    name: "Monika Fahle",
+    role: "Head of Brand",
+    image: "/images/monika.jpg",
+    bio: "Runs brand and marketing at Bold. Spent 10 years fixing product messaging at European tech companies. Also a lawyer by training. Explains the allergy to copy that doesn't mean what it says.",
+    links: {
+      linkedin: "https://linkedin.com/in/monikafahle",
     },
   },
 ];
