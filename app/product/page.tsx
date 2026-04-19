@@ -94,49 +94,86 @@ export default function ProductPage() {
               </div>
             </div>
             <div className="prod-hero-visual">
-              <div className="hero-frame">
-                <div className="hero-stage">
+              <div className="hero-surface">
+                <div className="hero-video">
                   <img
-                    className="hero-still"
+                    className="hero-video-still"
                     src="/images/product-mocks/hero.jpg"
                     alt=""
                   />
-                  <div className="hero-meta">
-                    <span className="hero-meta-dot" aria-hidden="true" />
+                  <div className="hero-scan" aria-hidden="true" />
+                  <div className="hero-video-label">
+                    <span className="hero-video-label-dot" aria-hidden="true" />
                     FounderWell &middot; 197 videos
                   </div>
-                  <div className="hero-chip">
-                    How should I price for enterprise deals?
-                  </div>
-                  <div className="hero-answer">
-                    <div className="hero-answer-label">
-                      <span className="hero-answer-dot" aria-hidden="true" />
-                      Bold AI
-                    </div>
-                    <div className="hero-answer-text">
-                      <strong>Anchor on outcomes, not seats.</strong>{" "}
-                      Enterprise buyers price against the problem, not the
-                      product.
-                    </div>
-                  </div>
-                  <div className="hero-jump">
-                    <span className="hero-jump-tag">&#9654; JUMP TO 23:14</span>
-                    <svg
-                      className="hero-jump-arrow"
-                      width="12"
-                      height="24"
-                      viewBox="0 0 12 24"
-                      aria-hidden="true"
-                    >
-                      <path d="M0 4 L10 12 L0 20 Z" fill="currentColor" />
-                    </svg>
-                  </div>
-                  <div className="hero-timeline">
+                  <div className="hero-video-bottom">
                     <div className="hero-tline">23:14 / 59:22</div>
                     <div className="hero-track">
                       <div className="hero-track-band" />
                       <div className="hero-track-fill" />
                       <div className="hero-track-dot" />
+                    </div>
+                  </div>
+                </div>
+                <div className="hero-chat">
+                  <div className="hero-chat-chrome">
+                    <div className="hero-chat-chrome-dot">&#9670;</div>
+                    <div className="hero-chat-chrome-title">
+                      Ask FounderWell
+                    </div>
+                    <div className="hero-chat-chrome-live">
+                      <span className="hero-chat-chrome-live-dot" aria-hidden="true" />
+                      LIVE
+                    </div>
+                  </div>
+                  <div className="hero-chat-body">
+                    <div className="hero-user-msg">
+                      How should I price for enterprise deals?
+                    </div>
+                    <div className="hero-ai-msg">
+                      <div className="hero-ai-label">
+                        <span
+                          className="hero-ai-label-dot"
+                          aria-hidden="true"
+                        />
+                        Bold AI
+                      </div>
+                      <div className="hero-ai-text">
+                        <strong>Anchor on outcomes, not seats.</strong>{" "}
+                        Enterprise buyers price against the problem, not the
+                        product.
+                      </div>
+                      <button type="button" className="hero-ai-cite">
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 10 10"
+                          aria-hidden="true"
+                        >
+                          <polygon
+                            points="1,1 9,5 1,9"
+                            fill="currentColor"
+                          />
+                        </svg>
+                        Jump to <strong>23:14</strong>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="hero-chat-input">
+                    <div className="hero-chat-input-field">
+                      Ask anything&hellip;
+                      <span className="hero-chat-input-cur" />
+                    </div>
+                    <div className="hero-chat-input-send">
+                      <svg width="14" height="14" viewBox="0 0 14 14">
+                        <path
+                          d="M2 7 L12 7 M8 3 L12 7 L8 11"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          fill="none"
+                          strokeLinecap="square"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </div>
