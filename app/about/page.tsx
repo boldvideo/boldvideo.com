@@ -39,7 +39,7 @@ const TEAM = [
     name: "Monika Fahle",
     role: "Head of Brand",
     image: "/images/monika.jpg",
-    bio: "Runs brand and marketing at Bold. Spent 15 years fixing product messaging at European tech companies. You know the kind: good product, pitch sounds like five consultants had a fight over it. Makes sure we don't become one.",
+    bio: "Runs brand and marketing at Bold. Spent 10 years fixing product messaging at European tech companies. Also a lawyer by training. Explains the allergy to copy that doesn't mean what it says.",
     links: {
       linkedin: "https://linkedin.com/in/monikafahle",
     },
