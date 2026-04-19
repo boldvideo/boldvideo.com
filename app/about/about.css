@@ -59,12 +59,14 @@
   margin-bottom: 0;
 }
 
-/* Founders */
-.about-founders {
+/* Founders + team */
+.about-founders,
+.about-team {
   padding: 4rem 2rem 5rem;
   border-top: 1px solid var(--border, rgba(0, 0, 0, 0.07));
 }
-.about-founders h2 {
+.about-founders h2,
+.about-team h2 {
   font-size: clamp(1.4rem, 2.5vw, 1.8rem);
   font-weight: 800;
   letter-spacing: -0.025em;
