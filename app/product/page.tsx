@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { SiteNav, SiteNavFooter } from "@/components/site-nav";
 import { CtaSection } from "@/components/cta-section";
 import "./product.css";
@@ -63,13 +64,9 @@ export default function ProductPage() {
                 Your video library, <em>finally answering questions.</em>
               </h1>
               <p className="hero-sub">
-                Upload your library. Bold turns it into an AI teaching
-                assistant your members can actually talk to&nbsp;&mdash; one
-                that cites the exact clip every time.
-              </p>
-              <p className="prod-diff">
-                Not a course platform. Not a chatbot. The piece that was
-                missing between them.
+                <strong>You don&apos;t build anything.</strong> We turn your
+                library into an AI teaching assistant that cites the exact clip
+                every time&nbsp;&mdash; live in weeks.
               </p>
               <div className="hero-actions">
                 <a
@@ -78,20 +75,34 @@ export default function ProductPage() {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  Book a demo
+                  See Bold on your content
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="btn-arrow">
                     <path d="M5 2l5 5-5 5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
                   </svg>
                 </a>
-                <a
-                  className="btn-ghost"
-                  href="https://docs.boldvideo.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Read the docs
+                <a className="hero-soft-cta" href="#scenarios">
+                  See it answer real questions
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6 2v8m0 0L2.5 6.5M6 10l3.5-3.5"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </a>
               </div>
+              <p className="prod-fit">
+                For coaching programs and training academies with{" "}
+                <strong>50+ hours of video</strong>.
+              </p>
             </div>
             <div className="prod-hero-visual">
               <div className="hero-surface">
@@ -159,8 +170,123 @@ export default function ProductPage() {
           </div>
         </section>
 
+        {/* Customer logo strip */}
+        <section className="prod-clients">
+          <div className="container">
+            <div className="prod-clients-label">
+              Content that talks back, in production at
+            </div>
+            <div className="prod-clients-row">
+              <a
+                className="prod-client"
+                href="https://founderwell.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-founderwell.png"
+                  alt="FounderWell"
+                  width={1564}
+                  height={304}
+                />
+              </a>
+              <a
+                className="prod-client"
+                href="https://commercetools.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-commercetools.png"
+                  alt="commercetools"
+                  width={1262}
+                  height={396}
+                />
+              </a>
+              <a
+                className="prod-client"
+                href="https://hrtuniversity.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-hrt.png"
+                  alt="HRT University"
+                  width={1424}
+                  height={346}
+                />
+              </a>
+              <a
+                className="prod-client"
+                href="https://vivatuition.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-viva.png"
+                  alt="Viva Tuition"
+                  width={896}
+                  height={338}
+                />
+              </a>
+              <a
+                className="prod-client"
+                href="https://ranger.de"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-ranger.png"
+                  alt="Ranger"
+                  width={1288}
+                  height={342}
+                />
+              </a>
+              <a
+                className="prod-client"
+                href="https://suora.de"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-suora.png"
+                  alt="Suora"
+                  width={1048}
+                  height={342}
+                />
+              </a>
+              <a
+                className="prod-client"
+                href="https://showthem.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-showthem.png"
+                  alt="Show Them"
+                  width={896}
+                  height={342}
+                />
+              </a>
+              <a
+                className="prod-client"
+                href="https://yo.fm"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  src="/images/logostrip-yo.png"
+                  alt="Yo Podcast"
+                  width={336}
+                  height={336}
+                />
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Scenarios — alternating splits with mock visuals */}
-        <section className="prod-scenarios-wrap">
+        <section id="scenarios" className="prod-scenarios-wrap">
           <div className="container prod-scenarios-head">
             <div className="sec-label">What members experience</div>
             <h2 className="section-title">
@@ -519,6 +645,36 @@ export default function ProductPage() {
           </div>
         </section>
 
+        {/* Inline CTA after scenarios */}
+        <section className="prod-inline-cta">
+          <div className="container">
+            <p>See Bold do this on your own library.</p>
+            <a
+              className="btn-primary"
+              href="https://savvycal.com/marcel-from-bold/7838d613"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Book a 30-min demo
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                className="btn-arrow"
+              >
+                <path
+                  d="M5 2l5 5-5 5"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </a>
+          </div>
+        </section>
+
         {/* Why the answers are good */}
         <section className="prod-why">
           <div className="container">
@@ -607,8 +763,10 @@ export default function ProductPage() {
                 </div>
                 <h3>Your branded portal</h3>
                 <p>
-                  Your domain, your brand. Deploy our Next.js starter or
-                  build your own UI on the API.
+                  Your domain, your brand. We ship it on{" "}
+                  <strong>Next.js&nbsp;+&nbsp;Sanity</strong>{" "}
+                  by default&nbsp;&mdash; or fit into whatever stack you
+                  already run.
                 </p>
               </div>
               <div className="prod-surface">
@@ -709,23 +867,25 @@ export default function ProductPage() {
               Plug into the stack you already run.
             </h2>
             <p className="prod-sub">
-              Official partners where it matters. Webhooks and a REST API
-              for the rest.
+              Built&#8209;in for the common tools. Webhooks and a REST API for
+              everything else.
             </p>
 
             <div className="prod-int-grid">
               <article
                 className="prod-int-card prod-int-zoom"
-                style={{ ["--int" as string]: "#2D8CFF" }}
+                style={{ ["--int" as string]: "#0B5CFF" }}
               >
-                <div className="prod-int-logo" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" width="44" height="44">
-                    <rect width="48" height="48" rx="11" fill="#2D8CFF" />
-                    <path
-                      d="M11 19a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V19zm27 .4 6-4.2v17.6l-6-4.2V19.4z"
-                      fill="#fff"
-                    />
-                  </svg>
+                <div
+                  className="prod-int-logo prod-int-logo-wordmark"
+                  aria-hidden="true"
+                >
+                  <Image
+                    src="/images/integrations/zoom.png"
+                    alt=""
+                    width={1466}
+                    height={334}
+                  />
                 </div>
                 <div className="prod-int-name">Zoom</div>
                 <p>
@@ -756,17 +916,16 @@ export default function ProductPage() {
                 className="prod-int-card prod-int-onedrive"
                 style={{ ["--int" as string]: "#0078D4" }}
               >
-                <div className="prod-int-logo" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" width="44" height="44">
-                    <path
-                      d="M14 24a8 8 0 0 1 15.2-3.5A7 7 0 0 1 40 25.5 6 6 0 0 1 38 37H11a6 6 0 0 1-2-11.8c.2-.3 1.8-1.2 5-1.2z"
-                      fill="#0078D4"
-                    />
-                    <path
-                      d="M14 24c3-4 8-6 13-5a7 7 0 0 1 5 3.5A7 7 0 0 0 29.2 20.5 8 8 0 0 0 14 24z"
-                      fill="#50E6FF"
-                    />
-                  </svg>
+                <div
+                  className="prod-int-logo prod-int-logo-wordmark"
+                  aria-hidden="true"
+                >
+                  <Image
+                    src="/images/integrations/onedrive.svg"
+                    alt=""
+                    width={1000}
+                    height={615}
+                  />
                 </div>
                 <div className="prod-int-name">OneDrive</div>
                 <p>
@@ -797,8 +956,9 @@ export default function ProductPage() {
                 </div>
                 <div className="prod-int-name">Outseta</div>
                 <p>
-                  Drop&#8209;in auth and billing. Our go&#8209;to pairing for
-                  Kajabi graduates.
+                  Charge members without a course platform. Drop&#8209;in auth
+                  and billing&nbsp;&mdash; our go&#8209;to pairing when we pull
+                  programs off Kajabi.
                 </p>
               </article>
             </div>
@@ -810,6 +970,39 @@ export default function ProductPage() {
               </Link>{" "}
               cover the rest.
             </p>
+          </div>
+        </section>
+
+        {/* Inline CTA after integrations */}
+        <section className="prod-inline-cta">
+          <div className="container">
+            <p>
+              Your stack&apos;s compatible. The next step is seeing it on your
+              content.
+            </p>
+            <a
+              className="btn-primary"
+              href="https://savvycal.com/marcel-from-bold/7838d613"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Book a 30-min demo
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                className="btn-arrow"
+              >
+                <path
+                  d="M5 2l5 5-5 5"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </a>
           </div>
         </section>
 
