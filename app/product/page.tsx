@@ -254,23 +254,6 @@ export default function ProductPage() {
                     />
                   </div>
                 </div>
-                <div className="illo-input">
-                  <div className="illo-input-field">
-                    Ask anything&hellip;
-                    <span className="illo-input-cur" />
-                  </div>
-                  <div className="illo-input-send">
-                    <svg width="14" height="14" viewBox="0 0 14 14">
-                      <path
-                        d="M2 7 L12 7 M8 3 L12 7 L8 11"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        fill="none"
-                        strokeLinecap="square"
-                      />
-                    </svg>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -441,20 +424,6 @@ export default function ProductPage() {
                       title="The 6-second loop rule"
                       src="/images/product-mocks/showthem-poster3.jpg"
                     />
-                  </div>
-                </div>
-                <div className="illo-input">
-                  <div className="illo-input-field">Reply or attach more&hellip;</div>
-                  <div className="illo-input-send">
-                    <svg width="14" height="14" viewBox="0 0 14 14">
-                      <path
-                        d="M2 7 L12 7 M8 3 L12 7 L8 11"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        fill="none"
-                        strokeLinecap="square"
-                      />
-                    </svg>
                   </div>
                 </div>
               </div>
