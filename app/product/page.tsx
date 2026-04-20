@@ -109,9 +109,7 @@ export default function ProductPage() {
                   <div className="hero-video-bottom">
                     <div className="hero-tline">23:14 / 59:22</div>
                     <div className="hero-track">
-                      <div className="hero-track-band" />
                       <div className="hero-track-fill" />
-                      <div className="hero-track-dot" />
                     </div>
                   </div>
                 </div>
@@ -153,23 +151,6 @@ export default function ProductPage() {
                         </svg>
                         Jump to <strong>23:14</strong>
                       </button>
-                    </div>
-                  </div>
-                  <div className="hero-chat-input">
-                    <div className="hero-chat-input-field">
-                      Ask anything&hellip;
-                      <span className="hero-chat-input-cur" />
-                    </div>
-                    <div className="hero-chat-input-send">
-                      <svg width="14" height="14" viewBox="0 0 14 14">
-                        <path
-                          d="M2 7 L12 7 M8 3 L12 7 L8 11"
-                          stroke="currentColor"
-                          strokeWidth="1.6"
-                          fill="none"
-                          strokeLinecap="square"
-                        />
-                      </svg>
                     </div>
                   </div>
                 </div>
