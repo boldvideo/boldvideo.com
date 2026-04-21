@@ -132,12 +132,24 @@ img {
   font-size: 1.15rem;
 }
 .prose a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: color 0.15s;
+  color: var(--color-ocean);
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in srgb, var(--color-ocean) 55%, transparent);
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
 }
 .prose a:hover {
   color: var(--color-ink);
+  text-decoration-color: currentColor;
+}
+.prose a:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 .prose p {
   margin-bottom: 1.4em;
