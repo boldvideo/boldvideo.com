@@ -19,7 +19,7 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogPage() {
-  const posts = getAllPosts();
+  const posts = getAllPosts().filter((p) => !p.draft);
 
   return (
     <main className="landing-v10" id="main-content">

@@ -2,9 +2,9 @@
 title: "Video Search Is Broken. Here's What Nobody Talks About."
 slug: video-search-broken
 author: Marcel Fahle
-date: "2026-04-01"
+date: "2026-04-21"
 excerpt: "We got really good at hosting video. Encoding it. Streaming it. But the moment you ask 'what's actually in this video?' the whole thing falls apart."
-image: /images/blog/video-search-broken.svg
+image: /images/blog/video-search-broken.png
 ---
 
 Try this. Open any course platform you've used. Search for "how to handle a difficult sales call." Go ahead, I'll wait.

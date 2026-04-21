@@ -2,9 +2,9 @@
 title: "The Yo! Podcast Just Got a Brain"
 slug: yo-podcast-relaunch
 author: Rob Hope
-date: "2026-03-18"
+date: "2026-04-03"
 excerpt: "Twenty-seven episodes. Hundreds of hours of raw conversation. All living on YouTube, slowly sinking into the algorithmic void. So I rebuilt the whole thing."
-image: /images/blog/yo-podcast-relaunch.svg
+image: /images/blog/yo-podcast-relaunch.png
 ---
 
 I've been sitting on three seasons of conversations with designers, developers, and makers I genuinely admire. Pablo Stanley talking about the weird tension between art and product. Rasmus Andersson (the guy who designed Inter, the typeface you're probably reading right now) unpacking why he left Figma to build his own computing environment. Derek Sivers rethinking everything about what a career should look like.

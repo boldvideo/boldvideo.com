@@ -18,9 +18,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const url = `/blog/${post.slug}`;
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
+      title: post.title,
+      description: post.excerpt,
+      images: [{ url: post.image, width: 1200, height: 630, alt: post.title }],
+      authors: [post.author],
+      publishedTime: post.date,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
   };
 }
 
@@ -102,18 +119,17 @@ export default async function BlogPostPage({ params }: Props) {
         <div
           style={{
             marginTop: "2rem",
-            aspectRatio: "16/9",
             overflow: "hidden",
             background: "var(--bg-dark)",
           }}
         >
           <Image
             alt=""
-            height={630}
+            height={1258}
             priority
             src={post.image}
-            width={1200}
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            width={2394}
+            style={{ width: "100%", height: "auto", display: "block" }}
           />
         </div>
 
