@@ -1938,7 +1938,8 @@
 
 /* Migration page */
 .landing-v10.migration-v11 .migration-hero {
-  padding: 10rem 0 3.5rem;
+  padding-top: 10rem;
+  padding-bottom: 3.5rem;
   text-align: center;
 }
 .landing-v10.migration-v11 .migration-hero-inner {
@@ -2072,7 +2073,8 @@
   background: var(--bg-muted);
 }
 .landing-v10.migration-v11 .migration-steps {
-  padding: 5rem 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   border-top: 1px solid var(--border);
 }
 .landing-v10.migration-v11 .migration-steps .sec-sub {
@@ -2137,7 +2139,8 @@
   line-height: 1.65;
 }
 .landing-v10.migration-v11 .migration-faq {
-  padding: 5rem 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   border-top: 1px solid var(--border);
 }
 .landing-v10.migration-v11 .faq-list-simple {
