@@ -1916,3 +1916,31 @@
   color: var(--text);
   margin: 0;
 }
+
+/* Radius unification — product page */
+
+/* Primary + secondary CTAs → pills */
+.landing-v10 .btn-primary,
+.landing-v10 .btn-ghost,
+.landing-v10 .btn-ghost-dark,
+.landing-v10 .hero-soft-cta {
+  border-radius: 9999px;
+}
+
+/* Big surfaces → 16px cards */
+.landing-v10 .hero-surface,
+.landing-v10 .hero-chat,
+.landing-v10 .illo,
+.landing-v10 .prod-int-card,
+.landing-v10 .prod-surface,
+.landing-v10 .prod-why-item,
+.landing-v10 .dev-code {
+  border-radius: 16px;
+}
+
+/* Chat bubbles / message rows → 14px */
+.landing-v10 .hero-user-msg,
+.landing-v10 .illo-user,
+.landing-v10 .illo-ai {
+  border-radius: 14px;
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
+import { MobileDock } from "@/components/mobile-dock";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -79,6 +80,7 @@ export default function RootLayout({
         className={`${plusJakartaSans.variable} ${dmMono.variable} font-sans antialiased`}
       >
         {children}
+        <MobileDock />
       </body>
       <Script
         defer

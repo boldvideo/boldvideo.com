@@ -1529,6 +1529,83 @@
   }
 }
 
+/* Radius unification — brings landing-v10 in line with site-shell/product/comparison */
+
+/* Pills — primary + secondary CTAs, nav button */
+.landing-v10 .nav-cta,
+.landing-v10 .btn-mint,
+.landing-v10 .btn-ghost,
+.landing-v10 .btn-gold,
+.landing-v10 .btn-cta {
+  border-radius: 9999px;
+}
+
+/* Pills — chips, tags, small labels */
+.landing-v10 .hero-eyebrow,
+.landing-v10 .ctag,
+.landing-v10 .cite,
+.landing-v10 .sc-label,
+.landing-v10 .f-tag,
+.landing-v10 .cs-photo-badge,
+.landing-v10 .fmc-split-tag,
+.landing-v10 .fmc-cite {
+  border-radius: 9999px;
+}
+
+/* Square-ish action buttons */
+.landing-v10 .chat-input button {
+  border-radius: 8px;
+}
+.landing-v10 .cite .pl,
+.landing-v10 .fmc-cite-play {
+  border-radius: 3px;
+}
+
+/* Chat bubbles + inline rows */
+.landing-v10 .cm.user,
+.landing-v10 .fmc-q,
+.landing-v10 .fmc-split-q {
+  border-radius: 14px;
+}
+.landing-v10 .fmc-upload-img,
+.landing-v10 .nf {
+  border-radius: 10px;
+}
+
+/* Cards — windows, panels, wrappers */
+.landing-v10 .chat-demo,
+.landing-v10 .fmc-window,
+.landing-v10 .f-row,
+.landing-v10 .timeline-box,
+.landing-v10 .legal-card {
+  border-radius: 16px;
+}
+.landing-v10 .sc-card {
+  border-radius: 16px;
+}
+.landing-v10 .stat-grid,
+.landing-v10 .f-card,
+.landing-v10 .cs-photo {
+  border-radius: 12px;
+}
+.landing-v10 .cs-img-chat {
+  border-radius: 10px;
+}
+.landing-v10 .nf-container {
+  border-radius: 24px;
+}
+
+/* Announcement messages use a tighter radius */
+.landing-v10 .ctag::after {
+  border-radius: 8px;
+}
+
+/* Migrate page FAQ */
+.landing-v10.migration-v11 .faq-list-simple {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
 /* Mobile */
 @media (max-width: 900px) {
   .landing-v10 {
