@@ -31,14 +31,14 @@ export function MobileDock() {
     <>
       <div
         aria-hidden="true"
-        className={`mobile-dock-backdrop md:hidden ${open ? "is-open" : ""}`}
+        className={`mobile-dock-backdrop ${open ? "is-open" : ""}`}
         onClick={() => setOpen(false)}
       />
 
       <aside
         aria-hidden={!open}
         aria-label="Mobile navigation"
-        className={`mobile-dock-sheet md:hidden ${open ? "is-open" : ""}`}
+        className={`mobile-dock-sheet ${open ? "is-open" : ""}`}
         role="dialog"
       >
         <span className="mobile-dock-handle" aria-hidden="true" />
@@ -91,7 +91,7 @@ export function MobileDock() {
         </nav>
       </aside>
 
-      <div aria-label="Quick actions" className="mobile-dock md:hidden" role="group">
+      <div aria-label="Quick actions" className="mobile-dock" role="group">
         <button
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
