@@ -475,15 +475,19 @@
   align-items: center;
   gap: 8px;
   padding: 14px 28px;
-  background: var(--text);
+  background: var(--mint);
   color: white;
   font-weight: 600;
   font-size: 15px;
-  transition: transform 0.18s ease, background 0.18s ease;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
 }
 .landing-v10 .btn-primary:hover {
   transform: translateY(-1px);
-  background: #000;
+  background: var(--mint-dark);
+  box-shadow: 0 4px 20px rgba(65, 198, 166, 0.3);
+}
+.landing-v10 .btn-primary:active {
+  transform: scale(0.97);
 }
 .landing-v10 .btn-primary .btn-arrow {
   transition: transform 0.18s ease;

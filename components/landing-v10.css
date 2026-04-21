@@ -219,6 +219,12 @@
   transform: translateY(-1px);
   box-shadow: 0 4px 20px rgba(65, 198, 166, 0.3);
 }
+.landing-v10 .btn-mint:active,
+.landing-v10 .btn-cta:active,
+.landing-v10 .btn-gold:active,
+.landing-v10 .nav-cta:active {
+  transform: scale(0.97);
+}
 .landing-v10 .btn-ghost {
   display: inline-flex;
   align-items: center;
