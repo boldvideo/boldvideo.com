@@ -46,5 +46,8 @@ coverage/
 *.png
 !public/**/*.png
 
+# claude code
+.claude/
+
 # misc
 *.pem
