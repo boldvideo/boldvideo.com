@@ -1,0 +1,4 @@
+.customer-nav > nav.landing-v10 {
+  top: 0;
+  border-bottom: 1px solid var(--border);
+}
