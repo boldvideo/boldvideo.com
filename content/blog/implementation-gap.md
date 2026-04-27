@@ -17,7 +17,7 @@ The instinct is to blame the content. It's almost never the content.
 
 ## The gap
 
-There's a gap between "I learned this" and "I did this." That's the whole story.
+<mark>There's a gap between "I learned this" and "I did this."</mark> That's the whole story.
 
 Watching the video isn't the bottleneck. Understanding the framework isn't. The bottleneck is the moment a student tries to apply what you taught, at her desk, in her context, with her specific situation, at 11pm on a Tuesday with a half-written cold email and a Wednesday morning deadline. She has no idea what to do next.
 
@@ -33,7 +33,7 @@ All of it is real value. None of it is the coach at 11pm.
 
 We don't have to argue from anecdote.
 
-In Katy Jordan's MOOC study (221 courses), completion rates ranged from 0.7% to 52.1%, with a median of 12.6%. MOOCs aren't premium coaching. Different buyer, different stakes, different promise. But the pattern shows up across the category: access to content does not equal progress.
+In Katy Jordan's MOOC [study](https://www.irrodl.org/index.php/irrodl/article/view/2112/3340) (221 courses), completion rates ranged from 0.7% to 52.1%, with a median of 12.6%. MOOCs aren't premium coaching. Different buyer, different stakes, different promise. But the pattern shows up across the category: access to content does not equal progress.
 
 Premium programs do better. Cohort structure helps. Active discussion helps. Live touchpoints help. Platform data from [Ruzuku](https://www.ruzuku.com/learn/articles/completion-gap), across 32,000+ courses, shows 65.5% completion in courses with active discussion versus 42.6% without. Cohort-based courses hit 64% versus 48% for self-paced. Meaningful lifts. They still don't close the gap. A student can disappear between calls. She can hit the same wall at midnight. The answer can sit in your 300-hour library with no practical way to retrieve it.
 
@@ -49,13 +49,13 @@ A few platforms have started gesturing at learner-facing AI. Teaching assistants
 
 The student isn't asking, "Can you summarize lesson four?"
 
-She's asking, "I tried to use your cold email framework on this prospect, and here's the draft. Why does it feel wrong?"
+She's asking, <mark>"I tried to use your cold email framework on this prospect, and here's the draft. Why does it feel wrong?"</mark>
 
 That's a different problem.
 
 The center of gravity still sits at the top of the funnel. The implicit bet is that retention is a marketing problem you can outrun with growth. Pour faster than the bucket leaks. The math eventually catches up.
 
-## Renewal doesn't happen at renewal
+## <mark>Renewal doesn't happen at renewal</mark>
 
 The renewal decision usually happens before the renewal conversation.
 

@@ -167,3 +167,14 @@ img {
 .prose em {
   font-style: italic;
 }
+.prose mark {
+  background: linear-gradient(
+    to top,
+    rgba(65, 198, 166, 0.22) 40%,
+    transparent 40%
+  );
+  color: inherit;
+  padding: 0 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
