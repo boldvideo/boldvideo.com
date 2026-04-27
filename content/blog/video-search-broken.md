@@ -66,7 +66,7 @@ It sounds obvious when you say it out loud. But almost nobody does it this way b
 
 There are coaching programs sitting on 200, 300, 500 hours of recorded expertise. The founder spent years creating this content. Production budget was six figures. And their students can't find what they need. So they ask the same questions in Slack. The coaches burn out answering the same ten things every week. Students get frustrated, feel stuck, and churn.
 
-A program with $5M in annual revenue and 70% retention has a $1.5M churn problem. If half of that churn comes from students who couldn't find the help they needed at the moment they needed it — and our customers tell us it's more than half — that's a search problem hiding inside a retention problem.
+A program with $5 million in annual revenue and 70% retention has a $1.5 million churn problem. Students churn for a lot of reasons, but one of them — the one nobody's measuring — is that they couldn't find the answer they needed at the moment they needed it. The content existed. They paid for it. They just couldn't get to it. That's a search problem sitting quietly inside a retention problem, and it's the one nobody's fixing.
 
 You can't fix it with a better search bar. You fix it by actually understanding what's in the videos.
 
