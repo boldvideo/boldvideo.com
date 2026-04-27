@@ -99,6 +99,6 @@ If your renewals are softer than they should be, the content probably isn't what
 
 ---
 
-If you're running a coaching program or training academy and your renewals are softer than the content deserves, we'll show you what closing the gap looks like on *your* library in 30 minutes. [See Bold on your library →](https://savvycal.com/marcel-from-bold/7838d613)
+If you're running a coaching program or training academy and your renewals are softer than the content deserves, we'll show you what closing the gap looks like on <mark>your</mark> library in 30 minutes. [See Bold on your library →](https://savvycal.com/marcel-from-bold/7838d613)
 
 — Marcel
