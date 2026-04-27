@@ -96,3 +96,9 @@ It's grounded in your library. Your videos, your methodology, your voice. When s
 The category keeps treating the renewal problem as either a content problem or a funnel problem. It's neither. It's an answering problem, in the moment a student is stuck.
 
 If your renewals are softer than they should be, the content probably isn't what's broken. The gap between learning and doing is.
+
+---
+
+If you're running a coaching program or training academy and your renewals are softer than the content deserves, we'll show you what closing the gap looks like on *your* library in 30 minutes. [See Bold on your library →](https://savvycal.com/marcel-from-bold/7838d613)
+
+— Marcel
