@@ -4,7 +4,7 @@ slug: implementation-gap
 author: Marcel Fahle
 date: "2026-04-27"
 excerpt: "Most coaching programs don't have a content problem. They have an implementation problem. And almost nothing in the category is built to solve it."
-image: /images/blog/implementation-gap.png
+image: /images/blog/implementation-gap-dark.png
 ---
 
 *Most coaching programs don't have a content problem. They have an implementation problem. And almost nothing in the category is built to solve it.*
@@ -35,7 +35,7 @@ We don't have to argue from anecdote.
 
 In Katy Jordan's MOOC study (221 courses), completion rates ranged from 0.7% to 52.1%, with a median of 12.6%. MOOCs aren't premium coaching. Different buyer, different stakes, different promise. But the pattern shows up across the category: access to content does not equal progress.
 
-Premium programs do better. Cohort structure helps. Active discussion helps. Live touchpoints help. Platform data from Ruzuku, across 32,000+ courses, shows 65% completion in courses with active discussion versus 43% without. Cohort-based courses hit 64% versus 48% for self-paced. Meaningful lifts. They still don't close the gap. A student can disappear between calls. She can hit the same wall at midnight. The answer can sit in your 300-hour library with no practical way to retrieve it.
+Premium programs do better. Cohort structure helps. Active discussion helps. Live touchpoints help. Platform data from [Ruzuku](https://www.ruzuku.com/learn/articles/completion-gap), across 32,000+ courses, shows 65.5% completion in courses with active discussion versus 42.6% without. Cohort-based courses hit 64% versus 48% for self-paced. Meaningful lifts. They still don't close the gap. A student can disappear between calls. She can hit the same wall at midnight. The answer can sit in your 300-hour library with no practical way to retrieve it.
 
 That's a different problem. The substitutes weren't designed for it.
 
@@ -77,7 +77,7 @@ That 30% usually disappears long before renewal. It disappears when the student 
 
 ## The library is supposed to be the answer
 
-I wrote about this a few weeks back. Most course platforms can't actually search their own video.
+I wrote about this last week. Most course platforms can't actually search their own video.
 
 Your stuck student at 11pm is wrestling with a question. The answer is probably somewhere in the 300 hours of content she already has access to. You probably already taught it. You may have taught it three times.
 
