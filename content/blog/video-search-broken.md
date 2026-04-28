@@ -39,7 +39,7 @@ Keyword search catches none of this.
 
 So the AI crowd jumps in. "Just embed everything into vectors and do semantic search." I've built this. Here's what happens.
 
-You chop transcripts into chunks, generate embeddings, drop them into a vector database. A student asks *"how should I handle it when a client says I'm too expensive?"* The system returns chunks from eight different videos. Some are about objection handling. Some about mindset. One is from a video on firing bad clients. Another is a tangent from a guest in an unrelated industry. Similarity scores all within a few points.
+You chop transcripts into chunks, generate embeddings, drop them into a vector database. A student asks <mark>"how should I handle it when a client says I'm too expensive?"</mark> The system returns chunks from eight different videos. Some are about objection handling. Some about mindset. One is from a video on firing bad clients. Another is a tangent from a guest in an unrelated industry. Similarity scores all within a few points.
 
 The system can't tell a definitive teaching moment from a throwaway comment.
 
@@ -72,6 +72,6 @@ You can't fix it with a better search bar. You fix it by actually understanding 
 
 ---
 
-If you're running a coaching program or training academy and your library is quietly failing your students, we'll show you what Bold does on *your* content in 30 minutes. [See Bold on your library →](https://savvycal.com/marcel-from-bold/7838d613)
+If you're running a coaching program or training academy and your library is quietly failing your students, we'll show you what Bold does on <mark>your</mark> content in 30 minutes. [See Bold on your library →](https://savvycal.com/marcel-from-bold/7838d613)
 
 — Marcel

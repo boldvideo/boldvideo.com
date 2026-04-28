@@ -7,7 +7,7 @@ excerpt: "Most coaching programs don't have a content problem. They have an impl
 image: /images/blog/implementation-gap-dark.png
 ---
 
-*Most coaching programs don't have a content problem. They have an implementation problem. And almost nothing in the category is built to solve it.*
+Most coaching programs don't have a content problem. They have an implementation problem. And almost nothing in the category is built to solve it.
 
 I've been having a version of the same conversation with coaching founders for months.
 
