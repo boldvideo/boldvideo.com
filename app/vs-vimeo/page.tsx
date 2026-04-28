@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function VsVimeoPage() {
   return (
     <ComparisonPage
+      competitorSlug="vimeo"
       description="Vimeo is respected infrastructure for hosting and playback. Bold is what teams choose when hosting is solved but discoverability, churn, and support repetition are still hurting the business."
       eyebrow="Comparison · Vimeo"
       perspective={

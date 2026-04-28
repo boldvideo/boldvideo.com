@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function VsYouTubePage() {
   return (
     <ComparisonPage
+      competitorSlug="youtube"
       description="YouTube is excellent for reach, distribution, and top-of-funnel discovery. Bold is what you use when a paying member needs answers, context, and implementation support from your own curriculum."
       eyebrow="Comparison · YouTube"
       perspective={
