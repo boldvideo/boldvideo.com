@@ -1,10 +1,18 @@
 import Link from "next/link";
-import { SiteFooter, SiteShell } from "@/components/site-shell";
+import { SiteNav, SiteNavFooter } from "@/components/site-nav";
+import "@/components/landing-v10.css";
 
 export default function NotFound() {
   return (
-    <SiteShell>
-      <main className="flex flex-1 items-center" id="main-content">
+    <main className="landing-v10" id="main-content">
+      <div className="announce">
+        <strong>Page not found</strong>
+        <div className="sep" />
+        <a href="/">Back to home &rarr;</a>
+      </div>
+
+      <SiteNav />
+      <div className="flex flex-1 items-center">
         <section className="mx-auto max-w-[1200px] px-4 py-24 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[34rem] rounded-[2.5rem] border border-[var(--color-line)] bg-white/76 px-6 py-14 shadow-[var(--shadow-panel)] sm:px-10">
             <p className="font-mono text-[0.78rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
@@ -27,8 +35,8 @@ export default function NotFound() {
             </div>
           </div>
         </section>
-      </main>
-      <SiteFooter />
-    </SiteShell>
+      </div>
+      <SiteNavFooter />
+    </main>
   );
 }

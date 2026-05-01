@@ -10,6 +10,26 @@ export const metadata: Metadata = {
 export default function VsKajabiPage() {
   return (
     <ComparisonPage
+      aiOrbits={{
+        competitor: {
+          label: "Creator",
+          chips: [
+            "Auto-clipping",
+            "AI sales pages",
+            "Subject-line tools",
+            "Funnel helpers",
+          ],
+        },
+        bold: {
+          label: "Learner",
+          chips: [
+            "Cited answers",
+            "Concept search",
+            "Stuck-moment detection",
+            "Curriculum gaps",
+          ],
+        },
+      }}
       competitorSlug="kajabi"
       description="Kajabi has been the default home for course creators for over a decade. Bold is what teams choose when the business stops being about launching a course and starts being about whether students get results."
       eyebrow="Comparison · Kajabi"
@@ -64,6 +84,16 @@ export default function VsKajabiPage() {
           bold: true,
         },
         {
+          feature: "Built-in member authentication",
+          competitor: true,
+          bold: false,
+        },
+        {
+          feature: "Built-in checkout and subscription billing",
+          competitor: true,
+          bold: false,
+        },
+        {
           feature: "Funnels, email, and landing-page builder",
           competitor: true,
           bold: false,
@@ -77,39 +107,102 @@ export default function VsKajabiPage() {
       rows={[
         {
           category: "Primary job",
-          competitor:
-            "All-in-one course business: hosting, marketing, funnels, and checkout in one place.",
-          bold: "Implementation layer for a coaching or training program already serving paying members.",
+          competitor: {
+            title: "All-in-one creator stack",
+            detail:
+              "Hosting, marketing, funnels, and checkout in one place.",
+          },
+          bold: {
+            title: "Implementation layer",
+            detail:
+              "Built for coaching and training programs already serving paying members.",
+          },
         },
         {
           category: "Where the AI roadmap points",
-          competitor:
-            "Creator productivity: auto-clipping, AI sales pages, subject-line tools, funnel helpers.",
-          bold: "Learner support: cited answers from your library at the moment a member is stuck.",
+          competitor: {
+            title: "Creator productivity",
+            detail:
+              "Auto-clipping, AI sales pages, subject-line tools, funnel helpers.",
+          },
+          bold: {
+            title: "Learner support",
+            detail:
+              "Cited answers from your library at the moment a member is stuck.",
+          },
         },
         {
           category: "Library discoverability",
-          competitor:
-            "Search by lesson title and tag. Members navigate manually through modules.",
-          bold: "Concept-aware search across the whole library, with timestamps and source citations.",
+          competitor: {
+            title: "Search by title and tag",
+            detail: "Members navigate manually through modules.",
+          },
+          bold: {
+            title: "Concept-aware search",
+            detail:
+              "Across the whole library, with timestamps and source citations.",
+          },
         },
         {
           category: "Coach and founder time",
-          competitor:
-            "Repeat questions still land in Slack, DMs, and group calls every cohort.",
-          bold: "Members ask the library first. Coaches step in only on the questions that need them.",
+          competitor: {
+            title: "Repeat questions in Slack and DMs",
+            detail: "The same five questions every cohort.",
+          },
+          bold: {
+            title: "Members ask the library first",
+            detail:
+              "Coaches step in only on the questions that need them.",
+          },
         },
         {
           category: "Outcome accountability",
-          competitor:
-            "Reports on revenue, opens, and lesson views. Outcomes are the operator's problem.",
-          bold: "Surfaces where members get stuck, what they ask, and where the curriculum has gaps.",
+          competitor: {
+            title: "Revenue and view reporting",
+            detail: "Outcomes are the operator's problem.",
+          },
+          bold: {
+            title: "Surfaces what members ask",
+            detail:
+              "Where they get stuck, what they search, and where the curriculum has gaps.",
+          },
+        },
+        {
+          category: "Member authentication",
+          competitor: {
+            title: "Built-in member accounts",
+            detail: "Login, password reset, and gated access included.",
+          },
+          bold: {
+            title: "Plug into your auth",
+            detail:
+              "We recommend Clerk or Auth0. Bold integrates with whatever you already use.",
+          },
+        },
+        {
+          category: "Student payments",
+          competitor: {
+            title: "Built-in checkout & subscriptions",
+            detail:
+              "Recurring billing, one-off products, and drip schedules.",
+          },
+          bold: {
+            title: "Pairs with Stripe",
+            detail:
+              "We recommend Stripe for coaching businesses. Bold doesn't replace your billing.",
+          },
         },
         {
           category: "Migration",
-          competitor:
-            "DIY exports, third-party tools, or partner integrations.",
-          bold: "We move your videos, members, and structure for you, personally, start to finish.",
+          competitor: {
+            title: "DIY",
+            detail: "Exports, third-party tools, or partner integrations.",
+          },
+          bold: {
+            title: "We do it for you",
+            detail:
+              "Videos, members, and structure. Personally, start to finish.",
+          },
         },
       ]}
       title="Kajabi vs Bold"

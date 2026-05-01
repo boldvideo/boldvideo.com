@@ -105,7 +105,7 @@ function initGL(canvas: HTMLCanvasElement) {
   };
 }
 
-export function CtaGlow() {
+export function CtaGlow({ className }: { className?: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -179,5 +179,5 @@ export function CtaGlow() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} aria-hidden="true" />;
+  return <canvas ref={canvasRef} aria-hidden="true" className={className} />;
 }

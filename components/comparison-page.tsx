@@ -1,16 +1,21 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { SiteFooter, SiteShell } from "./site-shell";
+import { CtaGlow } from "./cta-glow";
+import { SiteNav, SiteNavFooter } from "./site-nav";
 import {
   boldLogo,
   getPlatform,
   migrationPlatforms,
+  tileToLength,
 } from "@/lib/platforms";
+import "./landing-v10.css";
+
+type ComparisonCell = { title: string; detail?: string };
 
 type ComparisonRow = {
   category: string;
-  competitor: string;
-  bold: string;
+  competitor: ComparisonCell;
+  bold: ComparisonCell;
 };
 
 type QuickCompareCell = boolean | "partial";
@@ -19,6 +24,13 @@ type QuickCompareRow = {
   feature: string;
   competitor: QuickCompareCell;
   bold: QuickCompareCell;
+};
+
+type AiOrbit = { label: string; chips: string[] };
+
+type AiOrbits = {
+  competitor: AiOrbit;
+  bold: AiOrbit;
 };
 
 type ComparisonPageProps = {
@@ -30,6 +42,7 @@ type ComparisonPageProps = {
   rows: ComparisonRow[];
   competitorSlug?: string;
   quickCompare?: QuickCompareRow[];
+  aiOrbits?: AiOrbits;
 };
 
 export function ComparisonPage({
@@ -41,25 +54,36 @@ export function ComparisonPage({
   rows,
   competitorSlug,
   quickCompare,
+  aiOrbits,
 }: ComparisonPageProps) {
   const competitor = competitorSlug ? getPlatform(competitorSlug) : undefined;
   const competitorName = competitor?.name;
-  const otherPlatforms = migrationPlatforms.filter(
-    (p) => p.slug !== competitorSlug,
+  const stripPlatforms = tileToLength(
+    migrationPlatforms.filter((p) => p.logoReady),
+    6,
   );
 
   return (
-    <SiteShell>
-      <main className="flex-1" id="main-content">
+    <main className="landing-v10" id="main-content">
+      <div className="announce">
+        <strong>
+          {competitorName ? `Switching from ${competitorName}?` : "Switching platforms?"}
+        </strong>
+        <div className="sep" />
+        <a href="/migrate">See how to migrate &rarr;</a>
+      </div>
+
+      <SiteNav />
+      <div className="flex-1">
         <section className="mx-auto max-w-[1200px] px-4 pb-16 pt-[9.75rem] sm:px-6 md:pb-24 md:pt-[12rem] lg:px-8">
           {competitor ? (
             <div className="mb-10 flex items-center gap-5 text-[var(--color-ink)]">
               <img
                 alt={`${competitor.name} logo`}
-                className="h-8 w-auto opacity-80"
+                className="h-10 w-auto"
                 height={40}
-                src={competitor.logoSrc}
-                width={140}
+                src={competitor.markSrc ?? competitor.logoSrc}
+                width={40}
               />
               <span
                 aria-hidden
@@ -69,10 +93,10 @@ export function ComparisonPage({
               </span>
               <img
                 alt="Bold logo"
-                className="h-8 w-auto"
+                className="h-10 w-auto"
                 height={40}
-                src={boldLogo.logoSrc}
-                width={120}
+                src={boldLogo.markSrc ?? boldLogo.logoSrc}
+                width={36}
               />
             </div>
           ) : null}
@@ -100,6 +124,37 @@ export function ComparisonPage({
             </div>
           </div>
         </section>
+
+        {aiOrbits ? (
+          <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+            <div className="mb-12 max-w-[40rem]">
+              <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                Where the AI is pointed
+              </p>
+              <h2 className="mt-4 text-balance text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-ink)]">
+                Same tech. Different center of gravity.
+              </h2>
+              <p className="mt-5 max-w-[34rem] text-base leading-8 text-[var(--color-copy)]">
+                Both platforms ship AI features. The question is who they were
+                built to help.
+              </p>
+            </div>
+            <div className="grid gap-12 md:grid-cols-2">
+              <OrbitDiagram
+                chips={aiOrbits.competitor.chips}
+                label={aiOrbits.competitor.label}
+                sublabel={competitorName ?? "Competitor"}
+                tone="muted"
+              />
+              <OrbitDiagram
+                chips={aiOrbits.bold.chips}
+                label={aiOrbits.bold.label}
+                sublabel="Bold"
+                tone="signal"
+              />
+            </div>
+          </section>
+        ) : null}
 
         {quickCompare && quickCompare.length > 0 ? (
           <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
@@ -185,7 +240,32 @@ export function ComparisonPage({
         </section>
 
         <section className="px-4 pb-16 sm:px-6 md:pb-24 lg:px-8">
-          <div className="mx-auto max-w-[1200px] rounded-[2.5rem] border border-[var(--color-line)] bg-[var(--color-ink)] px-6 py-14 text-center text-[var(--color-cream)] shadow-[0_32px_100px_-60px_rgba(19,15,11,0.8)] sm:px-8 md:px-12">
+          <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[2.5rem] border border-[var(--color-line)] bg-[var(--color-ink)] px-6 py-14 text-center text-[var(--color-cream)] shadow-[0_32px_100px_-60px_rgba(19,15,11,0.8)] sm:px-8 md:px-12">
+            <CtaGlow className="pointer-events-none absolute inset-0 h-full w-full" />
+            <div className="relative z-10">
+            <div className="mb-6 flex justify-center">
+              <ul className="flex">
+                {[
+                  { src: "/images/marcel.jpg", alt: "Marcel" },
+                  { src: "/images/monika.jpg", alt: "Monika" },
+                  { src: "/images/rob.jpg", alt: "Rob" },
+                ].map((person, i) => (
+                  <li
+                    className="relative -ml-3 first:ml-0"
+                    key={person.src}
+                    style={{ zIndex: 3 - i }}
+                  >
+                    <img
+                      alt={person.alt}
+                      className="h-11 w-11 rounded-full border-[2.5px] border-[var(--color-ink)] object-cover"
+                      height={44}
+                      src={person.src}
+                      width={44}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
             <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/60">
               We handle the move
             </p>
@@ -218,43 +298,33 @@ export function ComparisonPage({
 
             <div className="mt-12 border-t border-white/10 pt-8">
               <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/50">
-                Bold also migrates from
+                Bold migrates from
               </p>
-              <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-                {otherPlatforms.map((platform) => (
-                  <li key={platform.slug} className="text-white/70">
-                    {platform.vsHref ? (
-                      <Link
-                        className="block transition-opacity duration-200 hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-ink)]"
-                        href={platform.vsHref}
-                        title={`Compare ${platform.name} vs Bold`}
-                      >
-                        <img
-                          alt={`${platform.name} logo`}
-                          className="h-6 w-auto opacity-70 transition-opacity hover:opacity-100"
-                          height={28}
-                          src={platform.logoSrc}
-                          width={120}
-                        />
-                      </Link>
-                    ) : (
-                      <img
-                        alt={`${platform.name} logo`}
-                        className="h-6 w-auto opacity-60"
-                        height={28}
-                        src={platform.logoSrc}
-                        width={120}
-                      />
-                    )}
+              <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
+                {stripPlatforms.map((platform, i) => (
+                  <li key={`${platform.slug}-${i}`}>
+                    <img
+                      alt={`${platform.name} logo`}
+                      className="h-6 w-auto opacity-70"
+                      height={28}
+                      src={platform.flatLogoSrc ?? platform.logoSrc}
+                      style={
+                        platform.flatMaxWidth
+                          ? { maxWidth: platform.flatMaxWidth }
+                          : undefined
+                      }
+                      width={120}
+                    />
                   </li>
                 ))}
               </ul>
             </div>
+            </div>
           </div>
         </section>
-      </main>
-      <SiteFooter />
-    </SiteShell>
+      </div>
+      <SiteNavFooter />
+    </main>
   );
 }
 
@@ -264,13 +334,128 @@ function FragmentRow({ row }: { row: ComparisonRow }) {
       <div className="bg-[var(--color-surface)] px-5 py-5 text-sm font-semibold text-[var(--color-ink)]">
         {row.category}
       </div>
-      <div className="bg-[var(--color-surface)] px-5 py-5 text-sm leading-7 text-[var(--color-copy)]">
-        {row.competitor}
-      </div>
-      <div className="bg-[var(--color-surface)] px-5 py-5 text-sm leading-7 text-[var(--color-copy)]">
-        {row.bold}
-      </div>
+      <Cell cell={row.competitor} />
+      <Cell cell={row.bold} />
     </>
+  );
+}
+
+function OrbitDiagram({
+  label,
+  sublabel,
+  chips,
+  tone,
+}: AiOrbit & { sublabel: string; tone: "muted" | "signal" }) {
+  const isSignal = tone === "signal";
+
+  // Position chips evenly around a circle, starting at 12 o'clock and going clockwise.
+  const chipPositions = chips.map((_, i) => {
+    const angle = -Math.PI / 2 + (i * 2 * Math.PI) / chips.length;
+    const radiusPct = 38; // % of container, the orbit ring radius
+    return {
+      x: 50 + Math.cos(angle) * radiusPct,
+      y: 50 + Math.sin(angle) * radiusPct,
+    };
+  });
+
+  const ringColor = isSignal
+    ? "var(--color-signal-strong)"
+    : "rgba(19,15,11,0.18)";
+  const centerBg = isSignal ? "var(--color-signal)" : "var(--color-ink)";
+  const centerColor = isSignal
+    ? "var(--color-forest)"
+    : "var(--color-cream)";
+  const chipBorder = isSignal
+    ? "var(--color-signal-strong)"
+    : "var(--color-line-strong)";
+  const chipBg = isSignal
+    ? "color-mix(in srgb, var(--color-signal) 14%, var(--color-surface))"
+    : "var(--color-surface)";
+  const chipColor = isSignal
+    ? "var(--color-signal-ink)"
+    : "var(--color-copy)";
+
+  return (
+    <div className="relative mx-auto aspect-square w-full max-w-[420px]">
+      {/* Orbit ring */}
+      <div
+        aria-hidden
+        className="absolute"
+        style={{
+          left: "50%",
+          top: "50%",
+          width: "76%",
+          height: "76%",
+          transform: "translate(-50%, -50%)",
+          borderRadius: "50%",
+          border: `1px dashed ${ringColor}`,
+          opacity: 0.5,
+        }}
+      />
+      {/* Center node */}
+      <div
+        className="absolute flex flex-col items-center justify-center rounded-full text-center"
+        style={{
+          left: "50%",
+          top: "50%",
+          width: "27%",
+          height: "27%",
+          transform: "translate(-50%, -50%)",
+          background: centerBg,
+          color: centerColor,
+          boxShadow: isSignal
+            ? "0 18px 36px -22px rgba(67,198,166,0.6)"
+            : "0 18px 36px -22px rgba(19,15,11,0.5)",
+        }}
+      >
+        <span
+          className="font-mono text-[0.6rem] uppercase opacity-70"
+          style={{ letterSpacing: "0.24em" }}
+        >
+          {sublabel}
+        </span>
+        <span className="mt-1 text-base font-semibold leading-none tracking-tight">
+          {label}
+        </span>
+      </div>
+      {/* Chips */}
+      {chips.map((chip, i) => (
+        <div
+          aria-hidden
+          className="absolute font-mono text-[0.66rem] font-medium uppercase"
+          key={chip}
+          style={{
+            left: `${chipPositions[i].x}%`,
+            top: `${chipPositions[i].y}%`,
+            transform: "translate(-50%, -50%)",
+            padding: "0.45rem 0.75rem",
+            borderRadius: 9999,
+            border: `1px solid ${chipBorder}`,
+            background: chipBg,
+            color: chipColor,
+            letterSpacing: "0.12em",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {chip}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Cell({ cell }: { cell: ComparisonCell }) {
+  return (
+    <div className="bg-[var(--color-surface)] px-5 py-5">
+      <div className="text-sm font-semibold text-[var(--color-ink)]">
+        {cell.title}
+      </div>
+      {cell.detail ? (
+        <div className="mt-1.5 text-[13px] font-normal leading-6 text-[var(--color-copy)]">
+          {cell.detail}
+        </div>
+      ) : null}
+    </div>
   );
 }
 

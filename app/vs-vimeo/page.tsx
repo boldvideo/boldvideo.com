@@ -34,31 +34,64 @@ export default function VsVimeoPage() {
       rows={[
         {
           category: "Primary job",
-          competitor: "Video hosting, playback, and polished media delivery.",
-          bold: "Video intelligence, discoverability, and cited guidance inside a curriculum.",
+          competitor: {
+            title: "Video hosting & playback",
+            detail: "Polished media delivery on a clean player.",
+          },
+          bold: {
+            title: "Video intelligence",
+            detail:
+              "Discoverability and cited guidance inside a curriculum.",
+          },
         },
         {
           category: "Member experience",
-          competitor:
-            "Clean watching experience, but guidance still depends on navigation and support.",
-          bold: "Students ask questions directly and get source-grounded answers with timestamps.",
+          competitor: {
+            title: "Clean watching experience",
+            detail:
+              "But guidance still depends on navigation and support.",
+          },
+          bold: {
+            title: "Ask the library directly",
+            detail:
+              "Source-grounded answers with timestamps from your own content.",
+          },
         },
         {
           category: "Library depth",
-          competitor:
-            "Large libraries become increasingly manual to organize and surface.",
-          bold: "Deep libraries become more valuable because they are indexed conceptually.",
+          competitor: {
+            title: "Manual at scale",
+            detail:
+              "Large libraries become increasingly hard to organize and surface.",
+          },
+          bold: {
+            title: "More valuable at scale",
+            detail:
+              "Deep libraries become more useful because they're indexed conceptually.",
+          },
         },
         {
           category: "Revenue impact",
-          competitor:
-            "Improves delivery quality but does not directly solve churn from confusion.",
-          bold: "Targets the retention problem by helping members implement what they bought.",
+          competitor: {
+            title: "Better delivery quality",
+            detail: "Doesn't directly solve churn from confusion.",
+          },
+          bold: {
+            title: "Targets retention",
+            detail: "Helps members implement what they bought.",
+          },
         },
         {
           category: "Operator insight",
-          competitor: "Analytics are mostly watch-based.",
-          bold: "You learn what members are asking, what topics are unclear, and where content gaps remain.",
+          competitor: {
+            title: "Watch-based analytics",
+            detail: "Plays, retention curves, completion rates.",
+          },
+          bold: {
+            title: "Question-based insight",
+            detail:
+              "What members ask, where topics are unclear, and where content gaps remain.",
+          },
         },
       ]}
       title="Vimeo vs Bold"

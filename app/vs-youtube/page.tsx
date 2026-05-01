@@ -34,29 +34,63 @@ export default function VsYouTubePage() {
       rows={[
         {
           category: "Primary job",
-          competitor: "Reach, distribution, discovery, and audience growth.",
-          bold: "Member support, discoverability, and cited answers inside a paid program.",
+          competitor: {
+            title: "Reach & distribution",
+            detail: "Discovery and audience growth at the top of the funnel.",
+          },
+          bold: {
+            title: "Member support",
+            detail:
+              "Discoverability and cited answers inside a paid program.",
+          },
         },
         {
           category: "Attention",
-          competitor:
-            "Ads, recommendations, and competitor distractions surround the experience.",
-          bold: "Distraction-free environment designed to keep attention on your curriculum.",
+          competitor: {
+            title: "Surrounded by distractions",
+            detail:
+              "Ads, recommendations, and competitor videos compete for attention.",
+          },
+          bold: {
+            title: "Distraction-free",
+            detail: "Designed to keep attention on your curriculum.",
+          },
         },
         {
           category: "Search",
-          competitor: "Basic video search and manual playlist organization.",
-          bold: "Concept-aware search across the whole library with timestamps and answer retrieval.",
+          competitor: {
+            title: "Basic video search",
+            detail: "Title matches and manual playlist organization.",
+          },
+          bold: {
+            title: "Concept-aware search",
+            detail:
+              "Across the whole library with timestamps and answer retrieval.",
+          },
         },
         {
           category: "Support load",
-          competitor: "Questions still land on your team or in comments.",
-          bold: "Students ask the library directly and get routed to the right moment.",
+          competitor: {
+            title: "Questions land on your team",
+            detail: "Or in comments where context is lost.",
+          },
+          bold: {
+            title: "Library answers first",
+            detail:
+              "Students ask the library directly and get routed to the right moment.",
+          },
         },
         {
           category: "Learning context",
-          competitor: "Same video experience for everyone.",
-          bold: "Answers adapt to stage, role, and progress while remaining source-grounded.",
+          competitor: {
+            title: "Same experience for everyone",
+            detail: "No awareness of where the viewer is in their journey.",
+          },
+          bold: {
+            title: "Adapts to the learner",
+            detail:
+              "Answers adapt to stage, role, and progress while remaining source-grounded.",
+          },
         },
       ]}
       title="YouTube vs Bold"
