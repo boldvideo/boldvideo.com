@@ -2,8 +2,8 @@ const docsHref = "https://docs.boldvideo.com/";
 
 export const announcementMessages = [
   "Growing out of Kajabi?",
-  "Scaling past Circle?",
-  "Outgrowing Teachable?",
+  "Outgrowing Circle?",
+  "Scaling past Teachable?",
 ];
 
 export const navLinks = [

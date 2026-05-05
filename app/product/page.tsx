@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowIcon } from "@/components/arrow-icon";
 import { SiteNav, SiteNavFooter } from "@/components/site-nav";
 import { CtaSection } from "@/components/cta-section";
 import "./product.css";
@@ -70,15 +71,13 @@ export default function ProductPage() {
               </p>
               <div className="hero-actions">
                 <a
-                  className="btn-primary"
+                  className="btn-mint"
                   href="https://savvycal.com/marcel-from-bold/7838d613"
                   rel="noreferrer"
                   target="_blank"
                 >
                   See Bold on your content
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="btn-arrow">
-                    <path d="M5 2l5 5-5 5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-                  </svg>
+                  <ArrowIcon className="btn-arrow" />
                 </a>
                 <a className="hero-soft-cta" href="#scenarios">
                   See it answer real questions
@@ -650,27 +649,13 @@ export default function ProductPage() {
           <div className="container">
             <p>See Bold do this on your own library.</p>
             <a
-              className="btn-primary"
+              className="btn-mint"
               href="https://savvycal.com/marcel-from-bold/7838d613"
               rel="noreferrer"
               target="_blank"
             >
               Book a 30-min demo
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                className="btn-arrow"
-              >
-                <path
-                  d="M5 2l5 5-5 5"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                />
-              </svg>
+              <ArrowIcon className="btn-arrow" />
             </a>
           </div>
         </section>
@@ -850,9 +835,7 @@ export default function ProductPage() {
                   className="btn-ghost btn-ghost-dark"
                 >
                   Read the docs
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="btn-arrow">
-                    <path d="M5 2l5 5-5 5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" />
-                  </svg>
+                  <ArrowIcon className="btn-arrow" />
                 </Link>
               </div>
             </div>
@@ -981,27 +964,13 @@ export default function ProductPage() {
               content.
             </p>
             <a
-              className="btn-primary"
+              className="btn-mint"
               href="https://savvycal.com/marcel-from-bold/7838d613"
               rel="noreferrer"
               target="_blank"
             >
               Book a 30-min demo
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                className="btn-arrow"
-              >
-                <path
-                  d="M5 2l5 5-5 5"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                />
-              </svg>
+              <ArrowIcon className="btn-arrow" />
             </a>
           </div>
         </section>

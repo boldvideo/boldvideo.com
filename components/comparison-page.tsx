@@ -75,7 +75,7 @@ export function ComparisonPage({
 
       <SiteNav />
       <div className="flex-1">
-        <section className="mx-auto max-w-[1200px] px-4 pb-16 pt-[9.75rem] sm:px-6 md:pb-24 md:pt-[12rem] lg:px-8">
+        <section className="mx-auto max-w-[1120px] px-4 pb-16 pt-[9.75rem] sm:px-6 md:pb-24 md:pt-[12rem] lg:px-8">
           {competitor ? (
             <div className="mb-10 flex items-center gap-5 text-[var(--color-ink)]">
               <img
@@ -124,7 +124,7 @@ export function ComparisonPage({
         </section>
 
         {aiOrbits ? (
-          <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+          <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
             <div className="mb-12 max-w-[40rem]">
               <span className="sec-label">Where the AI is pointed</span>
               <h2 className="mt-3 text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
@@ -153,7 +153,7 @@ export function ComparisonPage({
         ) : null}
 
         {quickCompare && quickCompare.length > 0 ? (
-          <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+          <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
             <div className="mb-8">
               <span className="sec-label">At a glance</span>
               <h2 className="mt-3 max-w-[18ch] text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
@@ -181,7 +181,7 @@ export function ComparisonPage({
           </section>
         ) : null}
 
-        <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+        <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
             <div>
               <span className="sec-label">Why teams switch</span>
@@ -202,7 +202,7 @@ export function ComparisonPage({
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+        <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="mb-8">
             <span className="sec-label">Side-by-side</span>
             <h2 className="mt-3 max-w-[20ch] text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
@@ -230,7 +230,7 @@ export function ComparisonPage({
         </section>
 
         <section className="px-4 pb-16 sm:px-6 md:pb-24 lg:px-8">
-          <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-3xl bg-[var(--color-forest)] px-6 py-14 text-center text-white sm:px-8 md:px-12">
+          <div className="relative mx-auto max-w-[1120px] overflow-hidden rounded-3xl bg-[var(--color-forest)] px-6 py-14 text-center text-white sm:px-8 md:px-12">
             <CtaGlow className="pointer-events-none absolute inset-0 h-full w-full" />
             <div className="relative z-10">
             <div className="mb-6 flex justify-center">

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { ArrowIcon } from "@/components/arrow-icon";
 import { SiteNav, SiteNavFooter } from "@/components/site-nav";
 import { BlogBody } from "@/components/blog-body";
 
@@ -76,15 +77,7 @@ export default async function BlogPostPage({ params }: Props) {
             transition: "color 0.15s",
           }}
         >
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path
-              d="M9 2L4 7l5 5"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-            />
-          </svg>
+          <ArrowIcon dir="left" />
           All posts
         </Link>
 

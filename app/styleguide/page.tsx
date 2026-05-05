@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ArrowIcon } from "@/components/arrow-icon";
 import { CtaGlow } from "@/components/cta-glow";
 import "@/components/landing-v10.css";
 import "./styleguide.css";
@@ -54,17 +55,7 @@ const tokensBorder: Token[] = [
   { name: "(focus ring)", value: "rgba(65,198,166,0.5)", src: "globals.css:--color-ring", alias: "--color-ring" },
 ];
 
-const arrowSvg = (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
-    <path
-      d="M3 7H11M11 7L7 3M11 7L7 11"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+const arrowSvg = <ArrowIcon variant="long" />;
 
 function SwatchGrid({ tokens }: { tokens: Token[] }) {
   return (
@@ -155,39 +146,51 @@ export default function StyleguidePage() {
               <code>.prose mark</code> / hero <code>em</code> / blog{" "}
               <code>&lt;mark&gt;</code> alpha drift — canonical 0.18.
             </li>
-            <li>
-              <code>.btn-ghost</code> defined twice (
-              <code>landing-v10.css:227</code> +{" "}
-              <code>product.css:498</code>) — pick one.
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              <code>.btn-ghost</code> defined twice — product.css copy
+              removed; landing-v10.css owns it.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              <code>.btn-mint</code> vs <code>.btn-primary</code> — folded
+              into <code>.btn-mint</code>; <code>.btn-ghost-dark</code> moved
+              into landing-v10.css.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              5 dark hex values — replaced with <code>var(--bg-dark)</code>;
+              OG image rebuilt around v10 palette.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              vs-* + 404 container widths — normalized to 1120 (v10 canonical).
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              14×14 arrow SVG copy-paste — extracted to{" "}
+              <code>&lt;ArrowIcon dir variant /&gt;</code>; 13 inline SVGs
+              replaced.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              <code>ANNOUNCEMENT_MESSAGES</code> dupe — both pages now import
+              from <code>lib/site-content.ts</code>.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              <code>.ctag</code> tooltip — moved from CSS{" "}
+              <code>::after</code> content to <code>data-tooltip</code> attr.
             </li>
             <li>
-              <code>.btn-mint</code> vs <code>.btn-primary</code> — same role,
-              different padding/hover. Consolidate.
+              Container widths still vary across CSS files (820 / 980 / 1000
+              / 760 / 720 / 680 / 38rem) — narrow scale (~720) and standard
+              (1120) would cover most uses.
             </li>
-            <li>
-              5 dark hex values still in code (#0a0a0a / #0b0b0b / #0d1511 /
-              #131313 / #151515). Should all be <code>--bg-dark</code>.
-            </li>
-            <li>9 container widths in use — pick 1120 or 1200, plus a narrow.</li>
             <li>
               <code>--mint-fill</code> 0.12 (chips/pills) vs canonical{" "}
-              <code>mark</code> 0.18 — keep both, document the split.
-            </li>
-            <li>The 14×14 arrow SVG is copy-pasted in 6+ files — extract.</li>
-            <li>
-              <code>ANNOUNCEMENT_MESSAGES</code> defined twice (home +
-              migration) — move to <code>lib/site-content.ts</code>.
+              <code>mark</code> 0.18 — both intentional, documented above.
             </li>
             <li>
-              17 distinct card styles, 8+ button styles, 9 hero treatments —
-              no shared primitives yet.
+              17 distinct card styles, 9 hero treatments — no shared
+              primitives yet. Worth a separate pass at <code>&lt;Card&gt;</code>{" "}
+              and a small hero family.
             </li>
             <li>
               6 different h3 size/weight combos on the same neutral background.
-            </li>
-            <li>
-              <code>.ctag</code> tooltip text baked into CSS{" "}
-              <code>::after</code> (uneditable from JSX).
             </li>
           </ul>
         </section>
@@ -388,9 +391,13 @@ export default function StyleguidePage() {
             <span className="sg-num">03</span>
             <h2>Buttons</h2>
             <p>
-              Six implementations for what should be 2-3 variants.{" "}
-              <code>.btn-mint</code> is canonical; <code>.btn-primary</code>{" "}
-              (product.css) is a near-duplicate.
+              Five canonical buttons:{" "}
+              <code>.btn-mint</code> (primary on light),{" "}
+              <code>.btn-cta</code> (primary on dark),{" "}
+              <code>.btn-gold</code> (case-study only),{" "}
+              <code>.btn-ghost</code> (secondary on light),{" "}
+              <code>.btn-ghost-dark</code> (secondary on dark). Plus{" "}
+              <code>.nav-cta</code> for the nav.
             </p>
           </div>
 
@@ -432,12 +439,22 @@ export default function StyleguidePage() {
           </div>
 
           <div className="sg-row">
-            <span className="sg-row-label">Ghost (defined twice — last import wins)</span>
+            <span className="sg-row-label">Ghost</span>
             <a className="btn-ghost" href="#">
               Watch the demo
             </a>
             <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, color: "#999", marginLeft: "auto" }}>
-              .btn-ghost · landing-v10.css:227 + product.css:498
+              .btn-ghost
+            </span>
+          </div>
+
+          <div className="sg-row dark">
+            <span className="sg-row-label">Ghost on dark</span>
+            <a className="btn-ghost-dark" href="#">
+              Talk to the team
+            </a>
+            <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, color: "rgba(255,255,255,0.5)", marginLeft: "auto" }}>
+              .btn-ghost-dark
             </span>
           </div>
         </section>
@@ -556,7 +573,12 @@ export default function StyleguidePage() {
           <div className="sg-mark-row">
             <span className="a">α 0.12 — pill fill</span>
             <span style={{ fontSize: 14 }}>
-              <span className="ctag">--mint-fill on .ctag</span>
+              <span
+                className="ctag"
+                data-tooltip="Tooltip text now lives in data-tooltip — hover to see"
+              >
+                --mint-fill on .ctag
+              </span>
             </span>
           </div>
         </section>
@@ -589,7 +611,7 @@ export default function StyleguidePage() {
               height: 220,
               borderRadius: 16,
               overflow: "hidden",
-              background: "#0a0a0a",
+              background: "var(--bg-dark)",
               marginBottom: 12,
             }}
           >

@@ -470,61 +470,7 @@
 }
 
 /* ---------- Buttons (hero + ghost) ---------- */
-.landing-v10 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: var(--mint);
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
-  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-}
-.landing-v10 .btn-primary:hover {
-  transform: translateY(-1px);
-  background: var(--mint-dark);
-  box-shadow: 0 4px 20px rgba(65, 198, 166, 0.3);
-}
-.landing-v10 .btn-primary:active {
-  transform: scale(0.97);
-}
-.landing-v10 .btn-primary .btn-arrow {
-  transition: transform 0.18s ease;
-}
-.landing-v10 .btn-primary:hover .btn-arrow {
-  transform: translateX(3px);
-}
-.landing-v10 .btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border: 1px solid var(--border-strong);
-  color: var(--text-mid);
-  font-weight: 600;
-  font-size: 15px;
-  transition: border-color 0.18s ease, color 0.18s ease;
-}
-.landing-v10 .btn-ghost:hover {
-  border-color: var(--text);
-  color: var(--text);
-}
-.landing-v10 .btn-ghost .btn-arrow {
-  transition: transform 0.18s ease;
-}
-.landing-v10 .btn-ghost:hover .btn-arrow {
-  transform: translateX(3px);
-}
-.landing-v10 .btn-ghost-dark {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.85);
-  padding: 12px 22px;
-}
-.landing-v10 .btn-ghost-dark:hover {
-  border-color: var(--mint);
-  color: var(--mint);
-}
+/* .btn-primary, .btn-ghost, .btn-ghost-dark all defined in landing-v10.css */
 
 /* ---------- Scenarios: alternating splits ---------- */
 .landing-v10 .prod-scenarios-wrap {
@@ -1464,7 +1410,7 @@
   gap: 3rem;
   align-items: center;
   padding: 3rem;
-  background: #0b0b0b;
+  background: var(--bg-dark);
   color: white;
 }
 .landing-v10 .prod-dev-label {
@@ -1477,7 +1423,7 @@
   margin-bottom: 0.75rem;
 }
 .landing-v10 .prod-ambient-code .dev-code {
-  background: #151515;
+  background: var(--bg-dark);
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   font-family: var(--mono);
@@ -1728,7 +1674,7 @@
     flex-direction: column;
     align-items: stretch;
   }
-  .landing-v10 .btn-primary,
+  .landing-v10 .btn-mint,
   .landing-v10 .btn-ghost {
     justify-content: center;
   }
@@ -1742,8 +1688,8 @@
   .landing-v10 .prod-surface:hover,
   .landing-v10 .prod-int-card:hover,
   .landing-v10 .prod-int-card:hover .prod-int-logo,
-  .landing-v10 .btn-primary:hover,
-  .landing-v10 .btn-primary:hover .btn-arrow,
+  .landing-v10 .btn-mint:hover,
+  .landing-v10 .btn-mint:hover .btn-arrow,
   .landing-v10 .btn-ghost:hover .btn-arrow {
     transform: none;
   }
@@ -1923,10 +1869,7 @@
 
 /* Radius unification — product page */
 
-/* Primary + secondary CTAs → pills */
-.landing-v10 .btn-primary,
-.landing-v10 .btn-ghost,
-.landing-v10 .btn-ghost-dark,
+/* Pills handled in landing-v10.css; .hero-soft-cta is product-only */
 .landing-v10 .hero-soft-cta {
   border-radius: 9999px;
 }

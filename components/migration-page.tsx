@@ -1,14 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { announcementMessages } from "@/lib/site-content";
+import { ArrowIcon } from "./arrow-icon";
 import { SiteNav, SiteNavFooter } from "./site-nav";
 import "./landing-v10.css";
-
-const ANNOUNCEMENT_MESSAGES = [
-  "Growing out of Kajabi?",
-  "Outgrowing Circle?",
-  "Scaling past Teachable?",
-];
 
 const MIGRATION_STEPS = [
   {
@@ -90,10 +86,10 @@ export function MigrationPage() {
 
     let index = 0;
     const intervalId = window.setInterval(() => {
-      index = (index + 1) % ANNOUNCEMENT_MESSAGES.length;
+      index = (index + 1) % announcementMessages.length;
       announcement.style.opacity = "0";
       window.setTimeout(() => {
-        announcement.textContent = ANNOUNCEMENT_MESSAGES[index];
+        announcement.textContent = announcementMessages[index];
         announcement.style.opacity = "1";
       }, 300);
     }, 4000);
@@ -132,15 +128,7 @@ export function MigrationPage() {
               target="_blank"
             >
               Book the switch call
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path
-                  d="M5 2l5 5-5 5"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                />
-              </svg>
+              <ArrowIcon />
             </a>
             <a className="btn-ghost" href="#how">
               See how it works
@@ -231,15 +219,7 @@ export function MigrationPage() {
             target="_blank"
           >
             Book the switch call
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path
-                d="M5 2l5 5-5 5"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-              />
-            </svg>
+            <ArrowIcon />
           </a>
         </div>
       </section>
