@@ -70,6 +70,19 @@
   --lh-body: 1.6;        /* default body, mid-size copy */
   --lh-card: 1.7;        /* card meta description */
   --lh-prose: 1.65;      /* blog prose */
+
+  /*
+   * Letter-spacing (tracking) — collapsed from ~20 ad-hoc values to 5
+   * semantic tokens. Body text is 0 (no tracking) — the old -0.003 to
+   * -0.01 micro-tightenings on body were below perception threshold.
+   * The two "eyebrow" tokens are positive tracking for uppercase mono
+   * labels (the canonical 0.1em + a wider 0.16em accent variant).
+   */
+  --tr-display: -0.03em;   /* h1 + display headlines */
+  --tr-heading: -0.025em;  /* h2 / section-title / main headings */
+  --tr-tight:   -0.015em;  /* h3 / h4 / card titles, prose h3 */
+  --tr-eyebrow:  0.1em;    /* canonical mono uppercase eyebrow */
+  --tr-wide:     0.16em;   /* accent eyebrow inside product mocks */
 }
 
 @theme inline {
@@ -108,6 +121,12 @@
   --lh-body: var(--lh-body);
   --lh-card: var(--lh-card);
   --lh-prose: var(--lh-prose);
+
+  --tr-display: var(--tr-display);
+  --tr-heading: var(--tr-heading);
+  --tr-tight: var(--tr-tight);
+  --tr-eyebrow: var(--tr-eyebrow);
+  --tr-wide: var(--tr-wide);
 }
 
 html,
@@ -172,7 +191,6 @@ img {
   max-width: 38rem;
   font-size: 1.1875rem;
   line-height: 1.65;
-  letter-spacing: -0.003em;
   color: var(--color-copy);
 }
 .prose > p:first-of-type {
@@ -189,7 +207,7 @@ img {
   margin-bottom: 0.6em;
   font-size: 1.625rem;
   font-weight: 700;
-  letter-spacing: -0.022em;
+  letter-spacing: var(--tr-heading);
   line-height: 1.2;
   color: var(--color-ink);
 }
@@ -206,7 +224,7 @@ img {
   margin-bottom: 0.5em;
   font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tr-tight);
   color: var(--color-ink);
 }
 .prose a,

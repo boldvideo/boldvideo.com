@@ -29,7 +29,7 @@
 }
 .sg-toc strong {
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
   margin-right: auto;
 }
 .sg-toc a {
@@ -68,14 +68,14 @@
 .sg-section-head h2 {
   font-size: var(--fs-h2);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tr-heading);
   margin: 0;
 }
 .sg-section-head .sg-num {
   font-family: var(--font-mono-stack);
   font-size: var(--fs-micro);
   color: #999;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tr-wide);
   text-transform: uppercase;
 }
 .sg-section-head p {
@@ -91,7 +91,7 @@
 .sg-h3 {
   font-size: var(--fs-micro);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   color: #444;
   margin: 2.5rem 0 1rem;
@@ -181,7 +181,6 @@
 .sg-swatch-meta .src {
   font-size: var(--fs-mono-ui);
   color: #999;
-  letter-spacing: 0.04em;
 }
 
 .sg-pair {
@@ -199,7 +198,7 @@
   font-family: var(--font-mono-stack);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: #999;
 }
 .sg-pair .sw {
@@ -240,7 +239,6 @@
   color: #111;
   font-weight: 600;
   font-size: var(--fs-micro);
-  letter-spacing: 0.04em;
   margin-bottom: 4px;
 }
 .sg-type-sample { min-width: 0; }
@@ -265,7 +263,7 @@
   font-family: var(--font-mono-stack);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: #999;
   flex-basis: 100%;
   margin-bottom: 4px;
@@ -288,7 +286,7 @@
   font-family: var(--font-mono-stack);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-wide);
   color: #999;
 }
 
@@ -402,7 +400,7 @@
   font-weight: 600;
   color: #555;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tr-eyebrow);
 }
 .sg-rhythm-table td:first-child {
   font-family: var(--font-mono-stack);

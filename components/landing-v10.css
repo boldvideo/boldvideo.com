@@ -169,7 +169,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   color: var(--text-mid);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   margin-bottom: 1rem;
   background: rgba(0, 0, 0, 0.04);
@@ -179,7 +179,7 @@
 .landing-v10 h1 {
   font-size: clamp(2.4rem, 4.2vw, 3.4rem);
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tr-display);
   font-weight: 800;
   margin: 0 0 1.25rem;
   color: var(--text);
@@ -362,7 +362,7 @@
   font-size: var(--fs-mono-ui);
   color: var(--mint-text);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tr-eyebrow);
   margin-bottom: 4px;
 }
 .landing-v10 .cm .ct {
@@ -522,7 +522,7 @@
 .landing-v10 .showcase-head h2 {
   font-size: 1.4rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tr-tight);
   margin: 0;
   color: var(--text);
 }
@@ -565,7 +565,7 @@
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tr-eyebrow);
   padding: 3px 8px;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(6px);
@@ -594,13 +594,13 @@
   font-size: var(--fs-micro);
   color: var(--text-dim);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tr-eyebrow);
   margin-bottom: 0.5rem;
 }
 .landing-v10 .section-title {
   font-size: clamp(1.8rem, 3.2vw, 2.5rem);
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   font-weight: 800;
   color: var(--text);
   margin: 0;
@@ -660,7 +660,7 @@
   font-size: var(--fs-mono-ui);
   color: var(--text-dim);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   margin-bottom: 0.75rem;
 }
 .landing-v10 .stat-p {
@@ -784,7 +784,7 @@
   font-size: var(--fs-mono-ui);
   color: var(--mint-text);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tr-eyebrow);
   display: block;
   margin-bottom: 4px;
 }
@@ -864,7 +864,7 @@
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   padding: 3px 7px;
   display: inline-flex;
   align-items: center;
@@ -927,7 +927,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   margin-bottom: 0.6rem;
   padding: 3px 8px;
   display: inline-flex;
@@ -948,7 +948,7 @@
 .landing-v10 .f-text h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
   margin: 0 0 0.6rem;
   color: var(--text);
 }
@@ -1009,7 +1009,7 @@
   color: white;
   margin: 0 0 1rem;
   line-height: 1.25;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tr-tight);
 }
 .landing-v10 .cs-text p {
   font-size: var(--fs-body);
@@ -1184,7 +1184,7 @@
 .landing-v10 .nf-header h2 {
   margin: 0 0 0.5rem;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   line-height: 1.15;
 }
 .landing-v10 .nf-desc {
@@ -1235,7 +1235,7 @@
 .landing-v10 .timeline-heading {
   font-size: clamp(1.6rem, 2.8vw, 2.2rem);
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   line-height: 1.15;
   margin: 0 0 3rem;
 }
@@ -1272,7 +1272,7 @@
   font-size: 1rem;
   font-weight: 700;
   margin: 0 0 0.35rem;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
 }
 .landing-v10 .timeline-step p {
   font-size: var(--fs-body);
@@ -1331,7 +1331,7 @@
   max-width: 550px;
   font-size: clamp(1.8rem, 3.2vw, 2.5rem);
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   font-weight: 800;
 }
 .landing-v10 .cta p {
@@ -1390,7 +1390,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-eyebrow);
   color: rgba(255, 255, 255, 0.4);
   margin: 0 0 1rem;
 }
@@ -1448,7 +1448,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-eyebrow);
   color: var(--text-dim);
 }
 .landing-v10 .legal-body {
@@ -1478,7 +1478,7 @@
   margin: 2.5rem 0 0;
   font-size: clamp(1.35rem, 2.6vw, 1.9rem);
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--tr-heading);
   font-weight: 800;
   color: var(--text);
 }
@@ -1487,7 +1487,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--tr-eyebrow);
   color: var(--text-dim);
 }
 .landing-v10 .legal-card ul {
@@ -1826,7 +1826,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   padding-bottom: 1.25rem;
   font-weight: 500;
 }
@@ -1889,7 +1889,7 @@
 .landing-v10 .cap-main h3 {
   font-size: 1.3rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tr-tight);
   margin: 0 0 0.6rem;
   color: var(--text);
 }
@@ -2006,7 +2006,7 @@
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   color: var(--text-dim);
 }
 .landing-v10.migration-v11 .migration-flow-grid {
@@ -2043,7 +2043,7 @@
 .landing-v10.migration-v11 .migration-from-name {
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tr-tight);
   color: var(--text);
   margin-bottom: 0.2rem;
 }
@@ -2051,7 +2051,7 @@
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   color: var(--text-dim);
   margin-bottom: 0.75rem;
 }
@@ -2072,7 +2072,7 @@
 .landing-v10.migration-v11 .migration-to-wordmark {
   font-size: 1.3rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tr-display);
   color: white;
   margin-bottom: 1rem;
 }
@@ -2092,7 +2092,7 @@
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   color: var(--mint);
 }
 .landing-v10.migration-v11 .migration-flow-foot {
@@ -2129,7 +2129,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   color: var(--mint-text);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   margin-bottom: 0.8rem;
 }
@@ -2137,7 +2137,7 @@
   margin: 0 0 0.65rem;
   font-size: 1rem;
   line-height: 1.25;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
   color: var(--text);
 }
 .landing-v10.migration-v11 .migration-step-card p {
@@ -2158,7 +2158,7 @@
   font-size: var(--fs-mono-ui);
   color: var(--mint);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
   margin-bottom: 0.5rem;
 }
 .landing-v10.migration-v11 .migration-handled p {

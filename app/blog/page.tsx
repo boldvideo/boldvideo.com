@@ -39,7 +39,7 @@ export default function BlogPage() {
             fontFamily: "var(--mono)",
             fontSize: "var(--fs-micro)",
             textTransform: "uppercase",
-            letterSpacing: "0.1em",
+            letterSpacing: "var(--tr-eyebrow)",
             color: "var(--text-mid)",
             marginBottom: "0.75rem",
           }}
@@ -50,7 +50,7 @@ export default function BlogPage() {
           style={{
             fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
             fontWeight: 800,
-            letterSpacing: "-0.03em",
+            letterSpacing: "var(--tr-display)",
             lineHeight: 1.1,
             color: "var(--text)",
             margin: "0 0 0.75rem",
@@ -113,7 +113,7 @@ export default function BlogPage() {
                         fontFamily: "var(--mono)",
                         fontSize: "var(--fs-micro)",
                         textTransform: "uppercase",
-                        letterSpacing: "0.15em",
+                        letterSpacing: "var(--tr-wide)",
                         color: "rgba(255,255,255,0.45)",
                       }}
                     >
@@ -142,7 +142,7 @@ export default function BlogPage() {
                     fontFamily: "var(--font-mono-stack)",
                     fontSize: "var(--fs-micro)",
                     justifyContent: "space-between",
-                    letterSpacing: "0.1em",
+                    letterSpacing: "var(--tr-eyebrow)",
                     marginTop: "1rem",
                     textTransform: "uppercase",
                   }}

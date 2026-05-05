@@ -398,7 +398,7 @@ function OrbitDiagram({
       >
         <span
           className="font-mono text-[0.6rem] uppercase opacity-70"
-          style={{ letterSpacing: "0.24em" }}
+          style={{ letterSpacing: "var(--tr-wide)" }}
         >
           {sublabel}
         </span>
@@ -421,7 +421,7 @@ function OrbitDiagram({
             border: `1px solid ${chipBorder}`,
             background: chipBg,
             color: chipColor,
-            letterSpacing: "0.12em",
+            letterSpacing: "var(--tr-eyebrow)",
             whiteSpace: "nowrap",
           }}
         >

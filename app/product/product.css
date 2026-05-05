@@ -52,7 +52,6 @@
   color: var(--text-mid);
   margin: 1.25rem 0 0;
   max-width: 460px;
-  letter-spacing: 0.01em;
 }
 .landing-v10 .prod-fit strong {
   color: var(--text);
@@ -154,7 +153,7 @@
   color: rgba(255, 255, 255, 0.95);
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   z-index: 2;
@@ -213,7 +212,7 @@
   font-family: var(--mono);
   font-size: var(--fs-micro);
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   white-space: nowrap;
   align-self: flex-start;
@@ -269,7 +268,7 @@
 .landing-v10 .hero-chat-chrome-title {
   font-weight: 600;
   font-size: var(--fs-body);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
   color: #14171a;
   white-space: nowrap;
   overflow: hidden;
@@ -281,7 +280,7 @@
   margin-left: auto;
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
-  letter-spacing: 0.14em;
+  letter-spacing: var(--tr-wide);
   color: var(--mint-dark);
   display: flex;
   align-items: center;
@@ -316,7 +315,6 @@
   border-top-right-radius: 2px;
   font-size: var(--fs-body);
   line-height: 1.5;
-  letter-spacing: -0.005em;
   animation: heroOverlayIn 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.55s both;
 }
 .landing-v10 .hero-ai-msg {
@@ -328,7 +326,7 @@
 .landing-v10 .hero-ai-label {
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   text-transform: uppercase;
   color: var(--mint-dark);
   display: flex;
@@ -348,7 +346,6 @@
   font-size: var(--fs-body);
   line-height: 1.6;
   color: #14171a;
-  letter-spacing: -0.005em;
 }
 .landing-v10 .hero-ai-text strong {
   font-weight: 700;
@@ -520,7 +517,7 @@
   font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: var(--mint-text);
 }
 .landing-v10 .prod-scene-row:hover .prod-scene-num {
@@ -533,7 +530,7 @@
 .landing-v10 .prod-scene-copy h3 {
   font-size: clamp(1.5rem, 2.4vw, 1.85rem);
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   line-height: 1.15;
   margin: 0 0 1.25rem;
   max-width: 460px;
@@ -604,7 +601,7 @@
 .landing-v10 .illo-chrome-title {
   font-weight: 600;
   font-size: var(--fs-body);
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
   color: var(--illo-ink);
 }
 .landing-v10 .illo-chrome-meta {
@@ -647,7 +644,6 @@
   border-top-right-radius: 2px;
   font-size: var(--fs-body);
   line-height: 1.5;
-  letter-spacing: -0.005em;
 }
 .landing-v10 .illo-user-stack {
   margin-top: 8px;
@@ -660,7 +656,7 @@
 .landing-v10 .illo-ai-sender {
   font-family: var(--mono);
   font-size: var(--fs-mono-ui);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   text-transform: uppercase;
   color: var(--mint-dark);
   display: flex;
@@ -680,7 +676,6 @@
   font-size: var(--fs-body);
   line-height: 1.6;
   color: var(--illo-ink);
-  letter-spacing: -0.005em;
 }
 .landing-v10 .illo-ai-text strong {
   color: var(--illo-ink);
@@ -782,7 +777,6 @@
 .landing-v10 .illo-cite-ttl {
   color: var(--illo-ink);
   font-weight: 500;
-  letter-spacing: -0.005em;
   font-size: var(--fs-micro);
 }
 .landing-v10 .illo-cite-sub {
@@ -1043,7 +1037,6 @@
   font-size: var(--fs-body);
   font-weight: 600;
   color: var(--illo-ink);
-  letter-spacing: -0.005em;
 }
 .landing-v10 .illo-result-snip {
   font-size: var(--fs-micro);
@@ -1278,7 +1271,7 @@
   font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: var(--mint-text);
 }
 .landing-v10 .prod-why-item:hover .prod-why-num {
@@ -1294,7 +1287,7 @@
 .landing-v10 .prod-why-body h3 {
   font-size: clamp(1.5rem, 2.4vw, 1.85rem);
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   line-height: 1.15;
   margin: 0 0 1rem;
   max-width: 540px;
@@ -1332,7 +1325,7 @@
 .landing-v10 .prod-ambient-quote {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tr-display);
   line-height: 1.1;
   margin: 1rem 0 1rem;
   max-width: 760px;
@@ -1390,7 +1383,7 @@
   font-size: var(--fs-body);
   font-weight: 700;
   margin: 0 0 0.4rem;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
 }
 .landing-v10 .prod-surface p {
   font-size: var(--fs-body);
@@ -1414,7 +1407,7 @@
   font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: rgba(255, 255, 255, 0.45);
   margin-bottom: 0.75rem;
 }
@@ -1470,7 +1463,7 @@
   line-height: 1.7;
   margin: 0 0 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
 }
 .landing-v10 .prod-tech-integrations {
   font-size: var(--fs-body);
@@ -1571,7 +1564,7 @@
 .landing-v10 .prod-int-name {
   font-size: var(--fs-body);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
   color: var(--text);
   margin-bottom: 0.4rem;
 }
@@ -1732,7 +1725,7 @@
   font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tr-wide);
   color: var(--text-mid);
   text-align: center;
   margin-bottom: 2rem;
@@ -1857,7 +1850,7 @@
 .landing-v10 .prod-inline-cta p {
   font-size: clamp(1.1rem, 1.5vw, 1.35rem);
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tr-tight);
   color: var(--text);
   margin: 0;
 }

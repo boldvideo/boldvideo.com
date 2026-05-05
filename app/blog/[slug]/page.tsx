@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
               fontFamily: "var(--font-mono-stack)",
               fontSize: "var(--fs-micro)",
               gap: "8px",
-              letterSpacing: "0.1em",
+              letterSpacing: "var(--tr-eyebrow)",
               textTransform: "uppercase",
             }}
           >
@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: Props) {
             style={{
               fontSize: "clamp(2rem, 3.5vw, 2.6rem)",
               fontWeight: 800,
-              letterSpacing: "-0.03em",
+              letterSpacing: "var(--tr-display)",
               lineHeight: 1.15,
               color: "var(--text)",
               margin: "0.75rem 0 0",
