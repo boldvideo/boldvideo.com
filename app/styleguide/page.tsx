@@ -306,25 +306,31 @@ export default function StyleguidePage() {
             <p>
               One px-based scale for body, one fluid clamp scale for headings.
               Source of truth is the <code>--fs-*</code> /{" "}
-              <code>--lh-*</code> custom properties at the top of{" "}
-              <code>landing-v10.css</code>. Use the var, not the literal.
+              <code>--lh-*</code> custom properties at <code>:root</code> in{" "}
+              <code>app/globals.css</code> (so they reach every surface, not
+              just <code>.landing-v10</code>). Use the var, not the literal.
             </p>
           </div>
 
           <h3 className="sg-h3">Type scale (the ladder)</h3>
           <div className="sg-note">
-            <strong>4 body tiers.</strong> Floor is 12px — there is no 10/11px
-            micro text any more. If something feels "in between" two tiers,
-            pick the larger one. Headings live on a separate fluid clamp
-            scale below.
+            <strong>4 body tiers + 1 demo-only mono tier.</strong> Floor for
+            page-level UI is 12px (<code>--fs-micro</code>) — there is no
+            10/11px page chrome. The one exception is{" "}
+            <code>--fs-mono-ui</code> (10px), reserved for compact mono labels
+            INSIDE product UI demos (chat timestamps, citation pills, file
+            rows in feature mocks, the dev code block). Don't reach for it on
+            page chrome. If something feels "in between" two tiers, pick the
+            larger one. Headings live on a separate fluid clamp scale below.
           </div>
 
           <ScaleLadder
             rows={[
               { token: "--fs-prose", value: "19px", weight: 400, lh: "--lh-prose 1.65", role: "Blog prose body (.prose p)", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-prose)", lineHeight: 1.65, color: "var(--text-mid)" } },
-              { token: "--fs-lead", value: "17px", weight: 400, lh: "1.75", role: "Hero sub (.hero-sub), lede paragraphs", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-lead)", lineHeight: 1.75, color: "var(--text-mid)" } },
+              { token: "--fs-lead", value: "17px", weight: 400, lh: "1.75", role: "Hero sub (.hero-sub), lede paragraphs, every 16px site bumps to here", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-lead)", lineHeight: 1.75, color: "var(--text-mid)" } },
               { token: "--fs-body", value: "15px", weight: 400, lh: "--lh-body 1.6", role: "Default body, buttons, card meta description", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-body)", lineHeight: 1.6, color: "var(--text-mid)" } },
               { token: "--fs-micro", value: "12px", weight: 500, lh: "1", role: "Mono labels, eyebrows, chips, tags (.sec-label, .hero-eyebrow, .f-tag, .migration-step-number)", sample: "SECTION", sampleStyle: { fontSize: "var(--fs-micro)", fontFamily: "var(--font-mono-stack)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-dim)" } },
+              { token: "--fs-mono-ui", value: "10px", weight: 500, lh: "1.4", role: "Demo-only — compact mono labels INSIDE product UI mocks (chat timestamps, citation pills, dev code). Not for page chrome.", sample: "00:14 / 4.2 MB", sampleStyle: { fontSize: "var(--fs-mono-ui)", fontFamily: "var(--font-mono-stack)", letterSpacing: "0.1em", color: "var(--text-dim)" } },
             ]}
           />
 
