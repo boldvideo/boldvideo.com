@@ -28,6 +28,36 @@
   --border-strong: rgba(0, 0, 0, 0.13);
   --font: "Plus Jakarta Sans", system-ui, sans-serif;
   --mono: "DM Mono", monospace;
+
+  /*
+   * Type scale — px-based to match Plus Jakarta Sans optical sizing.
+   * No half-step values (10.5/11.5/13.5 etc.) — pick the nearest tier
+   * instead. Source of truth; documented in /styleguide.
+   */
+  --fs-micro: 11px;       /* mono labels, .sec-label, .f-tag */
+  --fs-xs: 12px;          /* .hero-eyebrow, small chips */
+  --fs-sm: 13px;          /* dense UI body, footer links */
+  --fs-md: 14px;          /* card meta description (canonical) */
+  --fs-base: 15px;        /* button text */
+  --fs-body: 16px;        /* default body */
+  --fs-lead: 17px;        /* hero sub */
+  --fs-prose: 19px;       /* blog prose body */
+
+  /* Heading scale — fluid clamps for h1/h2/h3, fixed for h4 */
+  --fs-h4: 18px;
+  --fs-h3: clamp(1.1rem, 1.5vw, 1.35rem);
+  --fs-h2: clamp(1.4rem, 2.5vw, 1.8rem);
+  --fs-h1: clamp(1.8rem, 3.2vw, 2.5rem);
+  --fs-display: clamp(2.4rem, 4.2vw, 3.4rem);
+
+  /* Line heights — paired with the sizes above. */
+  --lh-display: 1.1;     /* hero h1 */
+  --lh-heading: 1.15;    /* section h1/h2 */
+  --lh-h3: 1.25;         /* card titles */
+  --lh-body: 1.6;        /* default body, mid-size copy */
+  --lh-card: 1.7;        /* card meta description */
+  --lh-prose: 1.65;      /* blog prose */
+
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
@@ -579,8 +609,8 @@
   color: var(--text);
 }
 .landing-v10 .sc-info p {
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: var(--fs-md);
+  line-height: var(--lh-card);
   color: var(--text-mid);
   margin: 0;
 }
@@ -2140,8 +2170,8 @@
 }
 .landing-v10.migration-v11 .migration-step-card p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: var(--fs-md);
+  line-height: var(--lh-card);
   color: var(--text-mid);
 }
 .landing-v10.migration-v11 .migration-handled {

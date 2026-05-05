@@ -57,6 +57,72 @@ const tokensBorder: Token[] = [
 
 const arrowSvg = <ArrowIcon variant="long" />;
 
+type ScaleRow = {
+  token: string;
+  value: string;
+  weight: number;
+  lh: string;
+  role: string;
+  sample: string;
+  sampleStyle: React.CSSProperties;
+};
+
+function ScaleLadder({ rows }: { rows: ScaleRow[] }) {
+  return (
+    <div className="sg-scale">
+      {rows.map((r) => (
+        <div className="sg-scale-row" key={r.token}>
+          <div className="sg-scale-meta">
+            <span className="name">{r.token}</span>
+            <span className="val">{r.value}</span>
+            <span className="src">w{r.weight} · lh {r.lh}</span>
+            <span className="src">{r.role}</span>
+          </div>
+          <div className="sg-scale-sample" style={r.sampleStyle}>
+            {r.sample}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function RhythmRow({
+  token,
+  value,
+  use,
+  sampleSize,
+  sampleLh,
+}: {
+  token: string;
+  value: string;
+  use: string;
+  sampleSize: string;
+  sampleLh: number;
+}) {
+  return (
+    <div className="sg-rhythm-row">
+      <div className="sg-rhythm-meta">
+        <span className="name">{token}</span>
+        <span className="val">{value}</span>
+        <span className="use">{use}</span>
+      </div>
+      <p
+        className="sg-rhythm-sample"
+        style={{
+          margin: 0,
+          fontSize: sampleSize,
+          lineHeight: sampleLh,
+          color: "var(--text-mid)",
+        }}
+      >
+        Plus Jakarta Sans set at this leading. Two lines of body text show how
+        the rhythm reads — short rag, neutral grey, no flourish.
+      </p>
+    </div>
+  );
+}
+
 function SwatchGrid({ tokens }: { tokens: Token[] }) {
   return (
     <div className="sg-swatch-grid">
@@ -92,6 +158,7 @@ export default function StyleguidePage() {
           <a href="#punch">Punch list</a>
           <a href="#tokens">Tokens</a>
           <a href="#typography">Type</a>
+          <a href="#rhythm">Rhythm</a>
           <a href="#buttons">Buttons</a>
           <a href="#chips">Eyebrows</a>
           <a href="#cards">Cards</a>
@@ -236,10 +303,41 @@ export default function StyleguidePage() {
           <div className="sg-section-head">
             <span className="sg-num">02</span>
             <h2>Typography</h2>
-            <p>Each style rendered with its source spec.</p>
+            <p>
+              One px-based scale for body, one fluid clamp scale for headings.
+              Source of truth is the <code>--fs-*</code> /{" "}
+              <code>--lh-*</code> custom properties at the top of{" "}
+              <code>landing-v10.css</code>. Use the var, not the literal.
+            </p>
           </div>
 
-          <h3 className="sg-h3">Display / hero</h3>
+          <h3 className="sg-h3">Type scale (the ladder)</h3>
+          <div className="sg-note">
+            New copy must pick a tier from this ladder. If something feels
+            "in between" two tiers, pick the larger one — half-step sizes
+            (10.5/11.5/13.5px) are the source of most drift.
+          </div>
+
+          <ScaleLadder
+            rows={[
+              { token: "--fs-display", value: "clamp(2.4–3.4rem)", weight: 800, lh: "--lh-display 1.1", role: "Hero h1", sample: "Turn every video into a coach", sampleStyle: { fontSize: "var(--fs-display)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.03em" } },
+              { token: "--fs-h1", value: "clamp(1.8–2.5rem)", weight: 800, lh: "--lh-heading 1.15", role: "Section title (.section-title)", sample: "Built for the way coaches teach.", sampleStyle: { fontSize: "var(--fs-h1)", fontWeight: 800, lineHeight: 1.15, letterSpacing: "-0.025em" } },
+              { token: "--fs-h2", value: "clamp(1.4–1.8rem)", weight: 700, lh: "--lh-heading 1.15", role: "Sub-section title", sample: "Built for the way coaches teach.", sampleStyle: { fontSize: "var(--fs-h2)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.02em" } },
+              { token: "--fs-h3", value: "clamp(1.1–1.35rem)", weight: 600, lh: "--lh-h3 1.25", role: "Card section title", sample: "Built for the way coaches teach.", sampleStyle: { fontSize: "var(--fs-h3)", fontWeight: 600, lineHeight: 1.25, letterSpacing: "-0.015em" } },
+              { token: "--fs-h4", value: "18px", weight: 600, lh: "--lh-h3 1.25", role: "Small card title", sample: "Built for the way coaches teach.", sampleStyle: { fontSize: "var(--fs-h4)", fontWeight: 600, lineHeight: 1.25 } },
+              { token: "--fs-prose", value: "19px", weight: 400, lh: "--lh-prose 1.65", role: "Blog prose body (.prose p)", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-prose)", lineHeight: 1.65, color: "var(--text-mid)" } },
+              { token: "--fs-lead", value: "17px", weight: 400, lh: "1.75", role: "Hero sub (.hero-sub)", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-lead)", lineHeight: 1.75, color: "var(--text-mid)" } },
+              { token: "--fs-body", value: "16px", weight: 400, lh: "--lh-body 1.6", role: "Default body", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-body)", lineHeight: 1.6, color: "var(--text-mid)" } },
+              { token: "--fs-base", value: "15px", weight: 600, lh: "1", role: "Button text (.btn-mint, .btn-cta)", sample: "Book a demo", sampleStyle: { fontSize: "var(--fs-base)", fontWeight: 600 } },
+              { token: "--fs-md", value: "14px", weight: 400, lh: "--lh-card 1.7", role: "Card meta description (.sc-info p, .f-card p, .migration-step-card p)", sample: "2,500 videos. Students find the exact explanation.", sampleStyle: { fontSize: "var(--fs-md)", lineHeight: 1.7, color: "var(--text-mid)" } },
+              { token: "--fs-sm", value: "13px", weight: 400, lh: "1.7", role: "Dense UI body, footer links", sample: "2,500 videos. Students find the exact explanation.", sampleStyle: { fontSize: "var(--fs-sm)", lineHeight: 1.7, color: "var(--text-mid)" } },
+              { token: "--fs-xs", value: "12px", weight: 500, lh: "1", role: ".hero-eyebrow, small chips", sample: "VIDEO INTELLIGENCE PLATFORM", sampleStyle: { fontSize: "var(--fs-xs)", fontFamily: "var(--font-mono-stack)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-mid)" } },
+              { token: "--fs-micro", value: "11px", weight: 500, lh: "1", role: "Mono labels (.sec-label, .f-tag, .migration-step-number)", sample: "SECTION", sampleStyle: { fontSize: "var(--fs-micro)", fontFamily: "var(--font-mono-stack)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-dim)" } },
+            ]}
+          />
+
+          <h3 className="sg-h3">In-context examples</h3>
+          <h3 className="sg-h3" style={{ fontSize: 11, marginTop: "1rem", borderBottom: 0, color: "#888" }}>Display / hero</h3>
 
           <div className="sg-type">
             <div className="sg-type-spec">
@@ -343,70 +441,76 @@ export default function StyleguidePage() {
             </div>
           </div>
 
-          <h3 className="sg-h3">Body</h3>
+          {/* Body samples are in the scale ladder above. */}
+        </section>
 
-          <div className="sg-type">
-            <div className="sg-type-spec">
-              <strong>Body</strong>
-              16px · color --text-mid
-              <br />
-              line 1.6
-            </div>
-            <div className="sg-type-sample">
-              <p style={{ margin: 0, color: "var(--text-mid)" }}>
-                Every lesson, searchable by concept. Students ask, Bold answers
-                with cited timestamps from your actual videos.
-              </p>
-            </div>
+        {/* VERTICAL RHYTHM */}
+        <section className="sg-section" id="rhythm">
+          <div className="sg-section-head">
+            <span className="sg-num">02b</span>
+            <h2>Vertical rhythm</h2>
+            <p>
+              Line-heights and block spacing pair with the type tiers. Hand-set
+              margins (top: 1.6rem etc.) are out — pick a rhythm row and stick
+              to it.
+            </p>
           </div>
 
-          <div className="sg-type">
-            <div className="sg-type-spec">
-              <strong>Card meta description</strong>
-              14px · color --text-mid
-              <br />
-              line 1.7
-              <br />
-              .f-card p · .f-text p · .sc-info p
-            </div>
-            <div className="sg-type-sample">
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: 14,
-                  lineHeight: 1.7,
-                  color: "var(--text-mid)",
-                }}
-              >
-                2,500 videos. Students find the exact explanation instead of
-                rewatching entire modules.
-              </p>
-            </div>
+          <h3 className="sg-h3">Line-height tiers</h3>
+          <div className="sg-rhythm">
+            <RhythmRow token="--lh-display" value="1.1" use="Hero h1 — tightest crop, drives drama on a 3-line stack." sampleSize="var(--fs-h1)" sampleLh={1.1} />
+            <RhythmRow token="--lh-heading" value="1.15" use="Section h1/h2 — slightly looser to keep two-line headlines breathable." sampleSize="var(--fs-h2)" sampleLh={1.15} />
+            <RhythmRow token="--lh-h3" value="1.25" use="Card titles (h3/h4) — short labels, modest leading." sampleSize="var(--fs-h3)" sampleLh={1.25} />
+            <RhythmRow token="--lh-body" value="1.6" use="Default body and 16px copy — comfortable rag for a single column." sampleSize="var(--fs-body)" sampleLh={1.6} />
+            <RhythmRow token="--lh-prose" value="1.65" use="Blog prose body (19px) — extra leading for long-form reading." sampleSize="var(--fs-prose)" sampleLh={1.65} />
+            <RhythmRow token="--lh-card" value="1.7" use="Card meta descriptions (14px) — small text needs more leading to stay readable." sampleSize="var(--fs-md)" sampleLh={1.7} />
           </div>
 
-          <div className="sg-type">
-            <div className="sg-type-spec">
-              <strong>Blog prose body</strong>
-              19px · color --color-copy (= --text-mid)
-              <br />
-              line 1.65
-              <br />
-              app/globals.css:111
-            </div>
-            <div className="sg-type-sample">
-              <p
-                style={{
-                  margin: 0,
-                  fontSize: "1.1875rem",
-                  lineHeight: 1.65,
-                  color: "var(--color-copy)",
-                }}
-              >
-                Every lesson, searchable by concept. Students ask, Bold answers
-                with cited timestamps from your actual videos.
-              </p>
-            </div>
+          <h3 className="sg-h3">Block spacing — pick from this set</h3>
+          <div className="sg-note">
+            All margins/paddings round to a 4px baseline. The values below
+            cover ~95% of cases. Reach for an off-grid number only when
+            absolutely necessary.
           </div>
+          <table className="sg-rhythm-table">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Value</th>
+                <th>Where it fits</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>4</td><td>0.25rem · 4px</td><td>Tight inline (icon ↔ label gap)</td></tr>
+              <tr><td>8</td><td>0.5rem · 8px</td><td>Stack inside a chip / pill</td></tr>
+              <tr><td>12</td><td>0.75rem · 12px</td><td>Heading → sub paragraph (.section-title → p)</td></tr>
+              <tr><td>16</td><td>1rem · 16px</td><td>Card padding (small)</td></tr>
+              <tr><td>20</td><td>1.25rem · 20px</td><td>Card padding (default), paragraph + paragraph</td></tr>
+              <tr><td>32</td><td>2rem · 32px</td><td>Subhead → first card row, hero sub → CTA</td></tr>
+              <tr><td>48</td><td>3rem · 48px</td><td>Section divider</td></tr>
+              <tr><td>80</td><td>5rem · 80px</td><td>Section vertical padding (.problem, .features, .cta)</td></tr>
+              <tr><td>96</td><td>6rem · 96px</td><td>Big CTA section vertical padding</td></tr>
+              <tr><td>160</td><td>10rem · 160px</td><td>Hero top padding (clears fixed nav + announce)</td></tr>
+            </tbody>
+          </table>
+
+          <h3 className="sg-h3">Stack rules — heading ↔ body</h3>
+          <table className="sg-rhythm-table">
+            <thead>
+              <tr>
+                <th>Pair</th>
+                <th>Margin</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Hero h1 → sub paragraph</td><td>0 0 1.25rem then 0 0 2rem</td><td>landing-v10.css:181, 195</td></tr>
+              <tr><td>Section h2 → sub paragraph</td><td>margin-top 0.75rem</td><td>landing-v10.css:580</td></tr>
+              <tr><td>Card h3 → body</td><td>0 0 0.65rem</td><td>migration-step-card h3</td></tr>
+              <tr><td>Prose h2 → p</td><td>2.5em / 0.6em</td><td>globals.css:133</td></tr>
+              <tr><td>Prose p + p</td><td>1.25em</td><td>globals.css:179</td></tr>
+            </tbody>
+          </table>
         </section>
 
         {/* BUTTONS */}
