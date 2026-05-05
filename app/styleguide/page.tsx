@@ -8,114 +8,50 @@ export const metadata = {
   robots: { index: false, follow: false },
 };
 
-type Token = { name: string; value: string; src: string; preview?: string };
+type Token = {
+  name: string;
+  value: string;
+  src: string;
+  alias?: string;
+};
 
-const tokensSurfaceA: Token[] = [
-  { name: "--bg", value: "#fdfcfa", src: "landing-v10.css:9" },
-  { name: "--bg-dark", value: "#0b0b0b", src: "landing-v10.css:10" },
+/*
+ * Single source of truth: components/landing-v10.css.
+ * The --color-* names in app/globals.css alias these v10 values 1:1
+ * so older Tailwind-utility usages (comparison-page, mobile-dock, .prose)
+ * still resolve to v10 values.
+ */
+const tokensSurface: Token[] = [
+  { name: "--bg", value: "#fdfcfa", src: "landing-v10.css:9", alias: "--color-cream" },
+  { name: "--bg-dark", value: "#0b0b0b", src: "landing-v10.css:10", alias: "--color-forest" },
   { name: "--bg-muted", value: "#f3f2ee", src: "landing-v10.css:11" },
+  { name: "(white)", value: "#ffffff", src: "—", alias: "--color-surface" },
 ];
-const tokensSurfaceB: Token[] = [
-  { name: "--color-cream", value: "#fdfaf3", src: "globals.css:11" },
-  { name: "--color-surface", value: "#ffffff", src: "globals.css:12" },
-  { name: "--color-surface-muted", value: "#f4eee3", src: "globals.css:13" },
-  { name: "--color-forest", value: "#0d1511", src: "globals.css:28" },
-  { name: "--color-earth-deep", value: "#2c1f14", src: "globals.css:27" },
+
+const tokensInk: Token[] = [
+  { name: "--text", value: "#111111", src: "landing-v10.css:13", alias: "--color-ink" },
+  { name: "--text-mid", value: "#555555", src: "landing-v10.css:14", alias: "--color-copy" },
+  { name: "--text-dim", value: "#999999", src: "landing-v10.css:15", alias: "--color-muted" },
 ];
-const tokensInkA: Token[] = [
-  { name: "--text", value: "#111111", src: "landing-v10.css:13" },
-  { name: "--text-mid", value: "#555555", src: "landing-v10.css:14" },
-  { name: "--text-dim", value: "#999999", src: "landing-v10.css:15" },
+
+const tokensMint: Token[] = [
+  { name: "--mint", value: "#41c6a6", src: "landing-v10.css:16", alias: "--color-signal" },
+  { name: "--mint-text", value: "#1a7f63", src: "landing-v10.css:17", alias: "--color-signal-ink" },
+  { name: "--mint-dark", value: "#14705a", src: "landing-v10.css:18", alias: "--color-signal-strong" },
+  { name: "--mint-fill", value: "rgba(65,198,166,0.12)", src: "landing-v10.css:20", alias: "--color-signal-soft" },
 ];
-const tokensInkB: Token[] = [
-  { name: "--color-ink", value: "#151515", src: "globals.css:14" },
-  { name: "--color-copy", value: "#5f564d", src: "globals.css:15" },
-  { name: "--color-muted", value: "#93887c", src: "globals.css:16" },
-];
-const tokensMintA: Token[] = [
-  { name: "--mint", value: "#41c6a6", src: "landing-v10.css:16" },
-  { name: "--mint-text", value: "#1a7f63", src: "landing-v10.css:17" },
-  { name: "--mint-dark", value: "#14705a", src: "landing-v10.css:18" },
-];
-const tokensMintB: Token[] = [
-  { name: "--color-signal", value: "#43c6a6", src: "globals.css:19" },
-  { name: "--color-signal-strong", value: "#2db694", src: "globals.css:20" },
-  { name: "--color-signal-ink", value: "#187963", src: "globals.css:21" },
-];
-const tokensSupportA: Token[] = [
+
+const tokensSupport: Token[] = [
   { name: "--blue", value: "#0052e0", src: "landing-v10.css:21" },
   { name: "--warm", value: "#8b7340", src: "landing-v10.css:23" },
   { name: "--hrtu-brown", value: "#2c1f14", src: "landing-v10.css:25" },
   { name: "--hrtu-gold", value: "#c8a96e", src: "landing-v10.css:26" },
 ];
-const tokensSupportB: Token[] = [
-  { name: "--color-ocean", value: "#145cff", src: "globals.css:23" },
-  { name: "--color-earth", value: "#d1b27a", src: "globals.css:25" },
-];
-const tokensBorderA: Token[] = [
-  { name: "--border", value: "rgba(0,0,0,0.07)", src: "landing-v10.css:27" },
-  { name: "--border-strong", value: "rgba(0,0,0,0.13)", src: "landing-v10.css:28" },
-];
-const tokensBorderB: Token[] = [
-  { name: "--color-line", value: "rgba(19,15,11,0.08)", src: "globals.css:17" },
-  { name: "--color-line-strong", value: "rgba(19,15,11,0.14)", src: "globals.css:18" },
-  { name: "--color-ring", value: "rgba(20,92,255,0.34)", src: "globals.css:29" },
-];
 
-const driftPairs: Array<{
-  label: string;
-  a: { name: string; val: string };
-  b: { name: string; val: string };
-  diff: string;
-}> = [
-  {
-    label: "Mint (primary brand accent)",
-    a: { name: "--mint", val: "#41c6a6" },
-    b: { name: "--color-signal", val: "#43c6a6" },
-    diff: "RGB different by ~2; visually identical, token-different.",
-  },
-  {
-    label: "Mint dark / strong",
-    a: { name: "--mint-dark", val: "#14705a" },
-    b: { name: "--color-signal-strong", val: "#2db694" },
-    diff: "Substantially different — A is far darker.",
-  },
-  {
-    label: "Page background (light)",
-    a: { name: "--bg", val: "#fdfcfa" },
-    b: { name: "--color-cream", val: "#fdfaf3" },
-    diff: "B is warmer/more saturated.",
-  },
-  {
-    label: "Dark background",
-    a: { name: "--bg-dark", val: "#0b0b0b" },
-    b: { name: "--color-forest", val: "#0d1511" },
-    diff: "B has green tint; A is neutral black.",
-  },
-  {
-    label: "Primary text",
-    a: { name: "--text", val: "#111111" },
-    b: { name: "--color-ink", val: "#151515" },
-    diff: "Close, not equal.",
-  },
-  {
-    label: "Mid text",
-    a: { name: "--text-mid", val: "#555555" },
-    b: { name: "--color-copy", val: "#5f564d" },
-    diff: "B is warm-brown, A is neutral grey.",
-  },
-  {
-    label: "Border (subtle)",
-    a: { name: "--border", val: "rgba(0,0,0,0.07)" },
-    b: { name: "--color-line", val: "rgba(19,15,11,0.08)" },
-    diff: "B is tinted toward warm-black; A is pure black.",
-  },
-  {
-    label: "Earth / gold accent",
-    a: { name: "--hrtu-gold", val: "#c8a96e" },
-    b: { name: "--color-earth", val: "#d1b27a" },
-    diff: "Two different golds for the same conceptual role.",
-  },
+const tokensBorder: Token[] = [
+  { name: "--border", value: "rgba(0,0,0,0.07)", src: "landing-v10.css:27", alias: "--color-line" },
+  { name: "--border-strong", value: "rgba(0,0,0,0.13)", src: "landing-v10.css:28", alias: "--color-line-strong" },
+  { name: "(focus ring)", value: "rgba(65,198,166,0.5)", src: "globals.css:--color-ring", alias: "--color-ring" },
 ];
 
 const arrowSvg = (
@@ -134,17 +70,19 @@ function SwatchGrid({ tokens }: { tokens: Token[] }) {
   return (
     <div className="sg-swatch-grid">
       {tokens.map((t) => (
-        <div className="sg-swatch" key={t.name}>
-          <div
-            className="sg-swatch-color"
-            style={{ background: t.value }}
-          >
+        <div className="sg-swatch" key={t.name + t.value}>
+          <div className="sg-swatch-color" style={{ background: t.value }}>
             {t.value}
           </div>
           <div className="sg-swatch-meta">
             <span className="name">{t.name}</span>
             <span className="val">{t.value}</span>
             <span className="src">{t.src}</span>
+            {t.alias ? (
+              <span className="src" style={{ color: "#16855f" }}>
+                aliased: {t.alias}
+              </span>
+            ) : null}
           </div>
         </div>
       ))}
@@ -174,74 +112,78 @@ export default function StyleguidePage() {
 
       <div className="sg-container">
         <div className="sg-note">
-          <strong>Internal-only.</strong> This page 404s in production. It renders real
-          components — what you see is what ships. Two design-token systems coexist
-          right now (System A "v10" and System B "cream/ink"); both are shown so drift
-          is visible. See{" "}
+          <strong>Internal-only.</strong> 404s in production. Renders real components — what
+          you see ships. As of 2026-05-05 the site runs on a <strong>single token system</strong>:{" "}
           <code style={{ fontFamily: "var(--font-mono-stack)", fontSize: 12 }}>
-            .claude/design-audit.md
+            components/landing-v10.css
           </code>{" "}
-          for the full written audit.
+          is the source of truth. The <code>--color-*</code> names in{" "}
+          <code>app/globals.css</code> alias the v10 values 1:1 so the existing
+          comparison-page / mobile-dock / .prose call sites still work. The
+          old cream/ink palette and heavy shadow tokens are gone.
         </div>
 
         {/* PUNCH LIST */}
         <section className="sg-section" id="punch">
           <div className="sg-section-head">
             <span className="sg-num">00</span>
-            <h2>Punch list — known inconsistencies</h2>
-            <p>
-              Things to reconcile before/while extending the system. Top of the
-              page so you can decide priorities at a glance.
-            </p>
+            <h2>Punch list — what's left</h2>
+            <p>Resolved items from the 2026-05-01 audit are struck through.</p>
           </div>
           <ul className="sg-punch">
-            <li>
-              Two parallel token systems — see <a href="#tokens">Tokens §</a>{" "}
-              for the side-by-side drift.
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              Two parallel token systems — unified 2026-05-05.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              Focus ring color drift — unified to mint.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              Comparison-page <code>rounded-[1.6/2/2.25/2.5rem]</code> — now 16/24.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              Comparison-page bespoke 5.6rem hero — now matches v10 hero scale.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              <code>shadow-soft / shadow-panel / shadow-chip / shadow-button*</code>{" "}
+              — deleted (Marcel: too heavy).
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              <code>site-shell.tsx</code>, <code>site-logo.tsx</code>,{" "}
+              <code>announcement-ticker.tsx</code> — deleted as dead code.
+            </li>
+            <li style={{ opacity: 0.5, textDecoration: "line-through" }}>
+              <code>.prose mark</code> / hero <code>em</code> / blog{" "}
+              <code>&lt;mark&gt;</code> alpha drift — canonical 0.18.
             </li>
             <li>
               <code>.btn-ghost</code> defined twice (
-              <code>landing-v10.css:227</code> + <code>product.css:498</code>).
+              <code>landing-v10.css:227</code> +{" "}
+              <code>product.css:498</code>) — pick one.
             </li>
             <li>
-              <code>.btn-mint</code> and <code>.btn-primary</code> are the same
-              role with different padding/hover.
+              <code>.btn-mint</code> vs <code>.btn-primary</code> — same role,
+              different padding/hover. Consolidate.
             </li>
             <li>
-              5 different "dark" hex values for backgrounds (#0a0a0a / #0b0b0b /
-              #0d1511 / #131313 / #151515).
+              5 dark hex values still in code (#0a0a0a / #0b0b0b / #0d1511 /
+              #131313 / #151515). Should all be <code>--bg-dark</code>.
+            </li>
+            <li>9 container widths in use — pick 1120 or 1200, plus a narrow.</li>
+            <li>
+              <code>--mint-fill</code> 0.12 (chips/pills) vs canonical{" "}
+              <code>mark</code> 0.18 — keep both, document the split.
+            </li>
+            <li>The 14×14 arrow SVG is copy-pasted in 6+ files — extract.</li>
+            <li>
+              <code>ANNOUNCEMENT_MESSAGES</code> defined twice (home +
+              migration) — move to <code>lib/site-content.ts</code>.
             </li>
             <li>
-              9 container widths in use (1120 / 1200 / 980 / 1000 / 820 / 720 /
-              680 / 38rem).
-            </li>
-            <li>
-              <code>&lt;mark&gt;</code> highlight alpha drifts: 0.12 / 0.18 / 0.22.
-            </li>
-            <li>
-              The 14×14 arrow SVG is copy-pasted in 6+ files.
-            </li>
-            <li>
-              <code>ANNOUNCEMENT_MESSAGES</code> defined twice (home + migration).
-            </li>
-            <li>
-              <code>components/site-shell.tsx</code> +{" "}
-              <code>announcement-ticker.tsx</code> are orphaned (dead code).
-            </li>
-            <li>
-              17 distinct card styles, 8+ button styles, 9 hero treatments — no
-              shared primitives yet.
+              17 distinct card styles, 8+ button styles, 9 hero treatments —
+              no shared primitives yet.
             </li>
             <li>
               6 different h3 size/weight combos on the same neutral background.
-            </li>
-            <li>
-              Comparison page uses <code>rounded-[1.6/2/2.25/2.5rem]</code>{" "}
-              inline; v10 cards use 16/24px.
-            </li>
-            <li>
-              Focus ring color differs: v10 uses <code>--mint</code>, cream/ink
-              uses <code>--color-ring</code> (blue).
             </li>
             <li>
               <code>.ctag</code> tooltip text baked into CSS{" "}
@@ -254,56 +196,35 @@ export default function StyleguidePage() {
         <section className="sg-section" id="tokens">
           <div className="sg-section-head">
             <span className="sg-num">01</span>
-            <h2>Tokens</h2>
+            <h2>Tokens — single canonical set</h2>
             <p>
-              Side-by-side: System A ("v10", scoped to <code>.landing-v10</code>)
-              vs System B (cream/ink, on <code>:root</code>).
+              Each row shows the v10 source-of-truth name and the{" "}
+              <code>--color-*</code> alias (in green) that resolves to the same
+              value via <code>app/globals.css</code>.
             </p>
           </div>
 
-          <h3 className="sg-h3">Drift — same role, different value</h3>
-          {driftPairs.map((p) => (
-            <div className="sg-pair" key={p.label}>
-              <div>
-                <span className="sg-pair-label">A · v10</span>
-                <div className="sw" style={{ background: p.a.val }} />
-                <span className="v">
-                  {p.a.name} → {p.a.val}
-                </span>
-              </div>
-              <div>
-                <span className="sg-pair-label">B · cream/ink</span>
-                <div className="sw" style={{ background: p.b.val }} />
-                <span className="v">
-                  {p.b.name} → {p.b.val}
-                </span>
-              </div>
-              <div className="sg-pair-diff">
-                <strong>{p.label}</strong> — {p.diff}
-              </div>
-            </div>
-          ))}
-
           <h3 className="sg-h3">Surfaces & backgrounds</h3>
-          <SwatchGrid tokens={[...tokensSurfaceA, ...tokensSurfaceB]} />
+          <SwatchGrid tokens={tokensSurface} />
 
           <h3 className="sg-h3">Ink / text</h3>
-          <SwatchGrid tokens={[...tokensInkA, ...tokensInkB]} />
+          <SwatchGrid tokens={tokensInk} />
 
           <h3 className="sg-h3">Mint / signal</h3>
-          <SwatchGrid tokens={[...tokensMintA, ...tokensMintB]} />
+          <SwatchGrid tokens={tokensMint} />
 
           <h3 className="sg-h3">Supporting accents (blue, gold, warm)</h3>
-          <SwatchGrid tokens={[...tokensSupportA, ...tokensSupportB]} />
+          <SwatchGrid tokens={tokensSupport} />
 
-          <h3 className="sg-h3">Borders, lines, focus rings</h3>
-          <SwatchGrid tokens={[...tokensBorderA, ...tokensBorderB]} />
+          <h3 className="sg-h3">Borders & focus ring</h3>
+          <SwatchGrid tokens={tokensBorder} />
 
           <div className="sg-note">
             <strong>Not tokenized yet:</strong> spacing, radius, grid gap, stack
-            rhythm. Radius is enforced via two giant unification blocks (
+            rhythm. Radius is enforced via two unification blocks (
             <code>landing-v10.css:1537-1611</code> +{" "}
-            <code>product.css:1924-1980</code>) with literal pixel values.
+            <code>product.css:1924-1980</code>) with literal pixel values
+            (8/12/14/16/24/9999).
           </div>
         </section>
 
@@ -312,17 +233,14 @@ export default function StyleguidePage() {
           <div className="sg-section-head">
             <span className="sg-num">02</span>
             <h2>Typography</h2>
-            <p>
-              Each style rendered with its source spec. Both H1 conventions
-              shown so the v10/cream-ink heading drift is visible.
-            </p>
+            <p>Each style rendered with its source spec.</p>
           </div>
 
           <h3 className="sg-h3">Display / hero</h3>
 
           <div className="sg-type">
             <div className="sg-type-spec">
-              <strong>Hero h1 — System A (v10)</strong>
+              <strong>Hero h1</strong>
               clamp(2.4rem, 4.2vw, 3.4rem)
               <br />
               weight 800 · line 1.1
@@ -341,34 +259,7 @@ export default function StyleguidePage() {
 
           <div className="sg-type">
             <div className="sg-type-spec">
-              <strong>Hero h1 — System B (comparison)</strong>
-              clamp(3rem, 6vw, 5.6rem)
-              <br />
-              weight 600 · line 0.9
-              <br />
-              tracking -0.06em · color --color-ink
-              <br />
-              comparison-page.tsx:95
-            </div>
-            <div className="sg-type-sample">
-              <h1
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(3rem, 6vw, 5.6rem)",
-                  fontWeight: 600,
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.06em",
-                  color: "var(--color-ink)",
-                }}
-              >
-                The video brain for coaching programs.
-              </h1>
-            </div>
-          </div>
-
-          <div className="sg-type">
-            <div className="sg-type-spec">
-              <strong>Hero eyebrow — System A</strong>
+              <strong>Hero eyebrow</strong>
               mono 12px · color --text-mid
               <br />
               tracking 0.1em · uppercase
@@ -384,34 +275,7 @@ export default function StyleguidePage() {
 
           <div className="sg-type">
             <div className="sg-type-spec">
-              <strong>Hero eyebrow — System B</strong>
-              mono 0.75rem · tracking 0.24em
-              <br />
-              uppercase · color --color-signal-ink
-              <br />
-              no chip background
-              <br />
-              comparison-page.tsx:92
-            </div>
-            <div className="sg-type-sample">
-              <span
-                style={{
-                  fontFamily: "var(--font-mono-stack)",
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.24em",
-                  textTransform: "uppercase",
-                  color: "var(--color-signal-ink)",
-                  fontWeight: 500,
-                }}
-              >
-                Bold vs Kajabi
-              </span>
-            </div>
-          </div>
-
-          <div className="sg-type">
-            <div className="sg-type-spec">
-              <strong>Hero sub — System A</strong>
+              <strong>Hero sub</strong>
               17px · color --text-mid
               <br />
               line 1.75 · max-w 440
@@ -430,7 +294,7 @@ export default function StyleguidePage() {
 
           <div className="sg-type">
             <div className="sg-type-spec">
-              <strong>Section title — A</strong>
+              <strong>Section title</strong>
               clamp(1.8rem, 3.2vw, 2.5rem)
               <br />
               weight 800 · line 1.15
@@ -441,33 +305,6 @@ export default function StyleguidePage() {
             </div>
             <div className="sg-type-sample">
               <h2 className="section-title" style={{ margin: 0 }}>
-                Built for the way coaches teach.
-              </h2>
-            </div>
-          </div>
-
-          <div className="sg-type">
-            <div className="sg-type-spec">
-              <strong>Section title — B</strong>
-              clamp(2rem, 4vw, 3.6rem)
-              <br />
-              weight 600 · line 0.95
-              <br />
-              tracking -0.05em
-              <br />
-              comparison-page.tsx:120
-            </div>
-            <div className="sg-type-sample">
-              <h2
-                style={{
-                  margin: 0,
-                  fontSize: "clamp(2rem, 4vw, 3.6rem)",
-                  fontWeight: 600,
-                  lineHeight: 0.95,
-                  letterSpacing: "-0.05em",
-                  color: "var(--color-ink)",
-                }}
-              >
                 Built for the way coaches teach.
               </h2>
             </div>
@@ -507,7 +344,7 @@ export default function StyleguidePage() {
 
           <div className="sg-type">
             <div className="sg-type-spec">
-              <strong>Body — A</strong>
+              <strong>Body</strong>
               16px · color --text-mid
               <br />
               line 1.6
@@ -522,8 +359,8 @@ export default function StyleguidePage() {
 
           <div className="sg-type">
             <div className="sg-type-spec">
-              <strong>Body — B (prose)</strong>
-              19px · color --color-copy
+              <strong>Blog prose body</strong>
+              19px · color --color-copy (= --text-mid)
               <br />
               line 1.65
               <br />
@@ -551,13 +388,14 @@ export default function StyleguidePage() {
             <span className="sg-num">03</span>
             <h2>Buttons</h2>
             <p>
-              Eight implementations for what should be 2-3 variants. Hover each
-              to see motion drift.
+              Six implementations for what should be 2-3 variants.{" "}
+              <code>.btn-mint</code> is canonical; <code>.btn-primary</code>{" "}
+              (product.css) is a near-duplicate.
             </p>
           </div>
 
           <div className="sg-row">
-            <span className="sg-row-label">v10 primary family</span>
+            <span className="sg-row-label">Primary on light</span>
             <a className="btn-mint" href="#">
               Book a demo {arrowSvg}
             </a>
@@ -570,7 +408,7 @@ export default function StyleguidePage() {
           </div>
 
           <div className="sg-row dark">
-            <span className="sg-row-label">v10 on dark</span>
+            <span className="sg-row-label">On dark</span>
             <a className="btn-cta" href="#">
               See pricing {arrowSvg}
             </a>
@@ -594,77 +432,12 @@ export default function StyleguidePage() {
           </div>
 
           <div className="sg-row">
-            <span className="sg-row-label">v10 ghost (defined twice — last import wins)</span>
+            <span className="sg-row-label">Ghost (defined twice — last import wins)</span>
             <a className="btn-ghost" href="#">
               Watch the demo
             </a>
             <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, color: "#999", marginLeft: "auto" }}>
               .btn-ghost · landing-v10.css:227 + product.css:498
-            </span>
-          </div>
-
-          <div className="sg-row" style={{ background: "var(--color-cream)" }}>
-            <span className="sg-row-label">Cream/ink — comparison page CTAs</span>
-            <a
-              href="#"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "var(--color-signal)",
-                color: "var(--color-forest)",
-                padding: "0.875rem 1.5rem",
-                borderRadius: 9999,
-                fontWeight: 600,
-                fontSize: 14,
-                textDecoration: "none",
-              }}
-            >
-              Migrate from Kajabi {arrowSvg}
-            </a>
-            <a
-              href="#"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                border: "1px solid var(--color-line-strong)",
-                background: "transparent",
-                color: "var(--color-ink)",
-                padding: "0.875rem 1.5rem",
-                borderRadius: 9999,
-                fontWeight: 500,
-                fontSize: 14,
-                textDecoration: "none",
-              }}
-            >
-              See pricing
-            </a>
-            <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, color: "#777", marginLeft: "auto" }}>
-              comparison-page.tsx:213
-            </span>
-          </div>
-
-          <div className="sg-row">
-            <span className="sg-row-label">Site-shell book demo (orphan, kept for reference)</span>
-            <a
-              href="#"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                background: "var(--color-ink)",
-                color: "var(--color-cream)",
-                borderRadius: 9999,
-                padding: "0.5rem 1rem",
-                fontSize: 14,
-                fontWeight: 500,
-                textDecoration: "none",
-              }}
-            >
-              Book a demo
-            </a>
-            <span style={{ fontFamily: "var(--font-mono-stack)", fontSize: 11, color: "#999", marginLeft: "auto" }}>
-              site-shell.tsx:67 (dead code)
             </span>
           </div>
         </section>
@@ -675,46 +448,18 @@ export default function StyleguidePage() {
             <span className="sg-num">04</span>
             <h2>Eyebrows, chips & labels</h2>
             <p>
-              Eleven patterns for the same conceptual element (mono kicker line).
-              At least 4 different letter-spacing values in active use.
+              Comparison-page now uses <code>.hero-eyebrow</code> /{" "}
+              <code>.sec-label</code> (no more 0.24em tracking variants).
             </p>
           </div>
 
           <div className="sg-row">
-            <span className="sg-row-label">v10 eyebrow & section labels</span>
+            <span className="sg-row-label">Canonical eyebrows & section labels</span>
             <span className="hero-eyebrow">Hero eyebrow</span>
             <span className="sec-label">SECTION LABEL</span>
             <span className="f-tag ft1">.f-tag ft1</span>
             <span className="f-tag ft2">.f-tag ft2</span>
             <span className="f-tag ft3">.f-tag ft3</span>
-          </div>
-
-          <div className="sg-row">
-            <span className="sg-row-label">Comparison-page inline eyebrow (9+ duplicates in one file)</span>
-            <span
-              style={{
-                fontFamily: "var(--font-mono-stack)",
-                fontSize: "0.72rem",
-                letterSpacing: "0.24em",
-                textTransform: "uppercase",
-                color: "var(--color-signal-ink)",
-                fontWeight: 500,
-              }}
-            >
-              Bold vs Kajabi
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--font-mono-stack)",
-                fontSize: "0.72rem",
-                letterSpacing: "0.24em",
-                textTransform: "uppercase",
-                color: "var(--color-muted)",
-                fontWeight: 500,
-              }}
-            >
-              At a glance
-            </span>
           </div>
         </section>
 
@@ -724,8 +469,8 @@ export default function StyleguidePage() {
             <span className="sg-num">05</span>
             <h2>Cards & surfaces</h2>
             <p>
-              17 distinct card styles in the codebase, with radii spanning
-              8/10/12/14/16/24/28.8/32/40px. Selection of the most-used variants below.
+              Radii now standardised on 16/24px. Comparison-page no longer uses
+              the 25.6/32/36/40px ad-hoc scale.
             </p>
           </div>
 
@@ -738,7 +483,7 @@ export default function StyleguidePage() {
               >
                 <h4 style={{ margin: "0 0 6px" }}>Showcase card</h4>
                 <p style={{ margin: 0, fontSize: 14, color: "var(--text-mid)" }}>
-                  Used on home, blog, migrate.
+                  Used on home, blog, migrate, comparison.
                 </p>
               </div>
             </div>
@@ -763,54 +508,18 @@ export default function StyleguidePage() {
             </div>
 
             <div className="sg-card-demo">
-              <span className="sg-card-label">comparison &quot;Our take&quot; · radius 36px (inline)</span>
+              <span className="sg-card-label">comparison card · rounded-2xl (16px)</span>
               <div
                 style={{
-                  borderRadius: "2.25rem",
+                  borderRadius: 16,
                   border: "1px solid var(--color-line)",
-                  background: "rgba(255,255,255,0.76)",
-                  boxShadow: "var(--shadow-panel)",
-                  padding: "1.5rem",
-                  minHeight: 120,
-                }}
-              >
-                <p style={{ margin: 0, fontSize: 14, color: "var(--color-copy)" }}>
-                  Inline-coded card on comparison-page.tsx:103.
-                </p>
-              </div>
-            </div>
-
-            <div className="sg-card-demo">
-              <span className="sg-card-label">comparison &quot;Why switch&quot; · radius 25.6px (inline)</span>
-              <div
-                style={{
-                  borderRadius: "1.6rem",
-                  border: "1px solid var(--color-line)",
-                  background: "rgba(255,255,255,0.76)",
+                  background: "white",
                   padding: "1.25rem",
                   minHeight: 120,
                 }}
               >
                 <p style={{ margin: 0, fontSize: 14, color: "var(--color-copy)" }}>
-                  Inline-coded card on comparison-page.tsx:158.
-                </p>
-              </div>
-            </div>
-
-            <div className="sg-card-demo">
-              <span className="sg-card-label">404 card · radius 40px (inline)</span>
-              <div
-                style={{
-                  borderRadius: "2.5rem",
-                  border: "1px solid var(--color-line)",
-                  background: "rgba(255,255,255,0.76)",
-                  boxShadow: "var(--shadow-panel)",
-                  padding: "1.5rem",
-                  minHeight: 120,
-                }}
-              >
-                <p style={{ margin: 0, fontSize: 14, color: "var(--color-copy)" }}>
-                  not-found.tsx:17.
+                  Now matches .sc-card. No shadow.
                 </p>
               </div>
             </div>
@@ -818,9 +527,10 @@ export default function StyleguidePage() {
 
           <div className="sg-note">
             <strong>Pattern recommendation:</strong> a single{" "}
-            <code>&lt;Card surface=&quot;white|muted|ink&quot; radius=&quot;md|lg&quot; shadow?&gt;</code>{" "}
-            component would replace all 17 variants. Standardise on radius 16 (md)
-            and 24 (lg) — the v10 unification block already enforces those.
+            <code>&lt;Card surface=&quot;white|muted|ink&quot; radius=&quot;md|lg&quot;&gt;</code>{" "}
+            component would replace all bespoke variants. Standardise on radius
+            16 (md) and 24 (lg) — the v10 unification block already enforces
+            those.
           </div>
         </section>
 
@@ -830,64 +540,23 @@ export default function StyleguidePage() {
             <span className="sg-num">06</span>
             <h2>Mint highlight (mark)</h2>
             <p>
-              The same conceptual highlight ships at 4 different alpha values.
-              Recent commits prefer 0.18 (blog).
+              Canonical alpha is <strong>0.18</strong> (blog/hero text
+              highlights). The 0.12 alpha is reserved for{" "}
+              <code>--mint-fill</code> on chips/pills (different visual role).
             </p>
           </div>
 
           <div className="sg-mark-row">
-            <span className="a">α 0.12</span>
-            <span>
-              The video brain that{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(transparent 60%, rgba(65,198,166,0.12) 60%)",
-                  padding: "0 0.1em",
-                }}
-              >
-                works while you sleep
-              </span>
-              .
-            </span>
-          </div>
-          <div className="sg-mark-row">
-            <span className="a">α 0.18 (blog)</span>
+            <span className="a">α 0.18 — text mark</span>
             <span>
               The video brain that{" "}
               <mark>works while you sleep</mark>.
             </span>
           </div>
           <div className="sg-mark-row">
-            <span className="a">α 0.18 (hero em)</span>
-            <span>
-              The video brain that{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(transparent 60%, rgba(65,198,166,0.18) 60%)",
-                  padding: "0 0.1em",
-                }}
-              >
-                works while you sleep
-              </span>
-              .
-            </span>
-          </div>
-          <div className="sg-mark-row">
-            <span className="a">α 0.22 (product)</span>
-            <span>
-              The video brain that{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(transparent 60%, rgba(65,198,166,0.22) 60%)",
-                  padding: "0 0.1em",
-                }}
-              >
-                works while you sleep
-              </span>
-              .
+            <span className="a">α 0.12 — pill fill</span>
+            <span style={{ fontSize: 14 }}>
+              <span className="ctag">--mint-fill on .ctag</span>
             </span>
           </div>
         </section>
@@ -944,16 +613,6 @@ export default function StyleguidePage() {
             >
               cta-glow · WebGL fragment shader
             </div>
-          </div>
-          <div className="sg-note">
-            <strong>Not a CSS gradient.</strong> Animated WebGL shader (
-            <code>cta-glow.tsx</code>) — mint + coral + peach + teal +
-            lavender blobs warped over time, with film grain. Respects{" "}
-            <code>prefers-reduced-motion</code> (skips animation), uses
-            IntersectionObserver to pause when off-screen, low-power GPU hint
-            on mobile. Defaults positioned by{" "}
-            <code>.landing-v10 .cta canvas {`{}`}</code>; pass a{" "}
-            <code>className</code> prop to use it elsewhere.
           </div>
 
           <h3 className="sg-h3">Glow blob (5 inconsistent implementations)</h3>
@@ -1106,7 +765,7 @@ export default function StyleguidePage() {
             </a>
           </div>
 
-          <h3 className="sg-h3">Logo wordmark (3 variants in codebase)</h3>
+          <h3 className="sg-h3">Logo wordmark</h3>
           <div className="sg-row">
             <span className="sg-row-label">v10 nav (mint)</span>
             <svg width="94" height="26" viewBox="0 0 2446 670" fill="none">
@@ -1125,44 +784,8 @@ export default function StyleguidePage() {
               <path d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z" fill="white" />
             </svg>
           </div>
-          <div className="sg-row">
-            <span className="sg-row-label">site-shell SiteLogo (orphan — &quot;B&quot; mark + uppercase)</span>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 12 }}>
-              <span
-                style={{
-                  display: "inline-flex",
-                  width: 36,
-                  height: 36,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 16,
-                  background: "var(--color-signal)",
-                  color: "var(--color-forest)",
-                }}
-              >
-                <svg width="16" height="16" viewBox="0 0 512 512" fill="none">
-                  <path
-                    clipRule="evenodd"
-                    d="m27 512v-512h260.196c112.402 0 160.451 58.6113 160.451 129.54 0 70.927-17.805 98.746-54.914 126.354 62.421 16.777 92.881 75.175 92.881 143.768 0 68.592-8.58 80.696-36.251 112.338z"
-                    fill="currentColor"
-                    fillRule="evenodd"
-                  />
-                </svg>
-              </span>
-              <span
-                style={{
-                  fontSize: 14,
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.28em",
-                }}
-              >
-                Bold
-              </span>
-            </span>
-          </div>
 
-          <h3 className="sg-h3">Footer columns (real footer renders below page)</h3>
+          <h3 className="sg-h3">Footer</h3>
           <p
             style={{
               fontSize: 13,
@@ -1170,9 +793,9 @@ export default function StyleguidePage() {
               margin: 0,
             }}
           >
-            <code>SiteNavFooter</code> from <code>components/site-nav.tsx:54</code>{" "}
-            renders at the bottom of every page, including this one. Scroll to the
-            end to see it.
+            <code>SiteNavFooter</code> from{" "}
+            <code>components/site-nav.tsx</code> renders at the bottom of every
+            page, including this one. Scroll to the end to see it.
           </p>
         </section>
       </div>
@@ -1184,7 +807,6 @@ export default function StyleguidePage() {
 }
 
 function FooterPreview() {
-  // Inline render of the footer inside landing-v10 so the descendant selectors apply
   return (
     <footer style={{ marginTop: "4rem" }}>
       <div className="container">
