@@ -78,9 +78,9 @@
    * The two "eyebrow" tokens are positive tracking for uppercase mono
    * labels (the canonical 0.1em + a wider 0.16em accent variant).
    */
-  --tr-display: -0.03em;   /* h1 + display headlines */
-  --tr-heading: -0.025em;  /* h2 / section-title / main headings */
-  --tr-tight:   -0.015em;  /* h3 / h4 / card titles, prose h3 */
+  --tr-display: -0.04em;     /* h1 + display headlines */
+  --tr-heading: -0.035em;    /* h2 / section-title / main headings */
+  --tr-tight:   -0.025em;    /* h3 / h4 / card titles, prose h3 */
   --tr-eyebrow:  0.1em;    /* canonical mono uppercase eyebrow */
   --tr-wide:     0.16em;   /* accent eyebrow inside product mocks */
 }

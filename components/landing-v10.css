@@ -578,6 +578,7 @@
 .landing-v10 .sc-info h4 {
   font-size: var(--fs-body);
   font-weight: 700;
+  letter-spacing: var(--tr-tight);
   margin: 0 0 2px;
   color: var(--text);
 }

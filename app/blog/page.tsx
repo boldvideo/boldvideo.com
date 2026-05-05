@@ -123,6 +123,22 @@ export default function BlogPage() {
                 )}
               </div>
               <div className="sc-info">
+                <div
+                  style={{
+                    alignItems: "center",
+                    color: "var(--text-dim)",
+                    display: "flex",
+                    fontFamily: "var(--font-mono-stack)",
+                    fontSize: "var(--fs-micro)",
+                    justifyContent: "space-between",
+                    letterSpacing: "var(--tr-eyebrow)",
+                    marginBottom: "0.75rem",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  <span>{post.author}</span>
+                  <time dateTime={post.date}>{formatDate(post.date)}</time>
+                </div>
                 <h4 style={{ fontSize: "var(--fs-lead)", marginBottom: "4px" }}>{post.title}</h4>
                 <p
                   style={{
@@ -134,22 +150,6 @@ export default function BlogPage() {
                 >
                   {post.excerpt}
                 </p>
-                <div
-                  style={{
-                    alignItems: "center",
-                    color: "var(--text-dim)",
-                    display: "flex",
-                    fontFamily: "var(--font-mono-stack)",
-                    fontSize: "var(--fs-micro)",
-                    justifyContent: "space-between",
-                    letterSpacing: "var(--tr-eyebrow)",
-                    marginTop: "1rem",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  <span>{post.author}</span>
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                </div>
               </div>
             </Link>
           ))}
