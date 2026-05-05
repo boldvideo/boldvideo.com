@@ -29,32 +29,7 @@
   --font: "Plus Jakarta Sans", system-ui, sans-serif;
   --mono: "DM Mono", monospace;
 
-  /*
-   * Type scale — 4 body tiers, no half-steps. 12px is the floor for
-   * page-level UI. Source of truth; documented in /styleguide.
-   */
-  --fs-mono-ui: 10px;     /* compact mono labels INSIDE product UI demos
-                             (chat timestamps, citation pills, file rows
-                             in feature mocks). Not for page-level chrome. */
-  --fs-micro: 12px;       /* mono labels, eyebrows, chips, page-level tags */
-  --fs-body: 15px;        /* default body, buttons, card meta */
-  --fs-lead: 17px;        /* hero sub, lede paragraphs */
-  --fs-prose: 19px;       /* blog prose body */
-
-  /* Heading scale — fluid clamps for h1/h2/h3, fixed for h4 */
-  --fs-h4: 18px;
-  --fs-h3: clamp(1.1rem, 1.5vw, 1.35rem);
-  --fs-h2: clamp(1.4rem, 2.5vw, 1.8rem);
-  --fs-h1: clamp(1.8rem, 3.2vw, 2.5rem);
-  --fs-display: clamp(2.4rem, 4.2vw, 3.4rem);
-
-  /* Line heights — paired with the sizes above. */
-  --lh-display: 1.1;     /* hero h1 */
-  --lh-heading: 1.15;    /* section h1/h2 */
-  --lh-h3: 1.25;         /* card titles */
-  --lh-body: 1.6;        /* default body, mid-size copy */
-  --lh-card: 1.7;        /* card meta description */
-  --lh-prose: 1.65;      /* blog prose */
+  /* Type scale + line heights live at :root in globals.css. */
 
   background: var(--bg);
   color: var(--text);

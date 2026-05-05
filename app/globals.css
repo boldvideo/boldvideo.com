@@ -44,6 +44,32 @@
 
   /* Focus ring — mint, not blue. Single ring across the whole site. */
   --color-ring: rgba(65, 198, 166, 0.5);
+
+  /*
+   * Type scale — promoted to :root so it reaches every surface
+   * (.landing-v10, .mobile-dock, .prose, comparison pages). 12px is
+   * the floor for page-level UI; --fs-mono-ui is the only sub-12 size
+   * and is reserved for compact mono labels INSIDE product UI demos.
+   * Documented on /styleguide.
+   */
+  --fs-mono-ui: 10px;     /* compact mono labels inside product UI demos */
+  --fs-micro: 12px;       /* mono labels, eyebrows, chips, page-level tags */
+  --fs-body: 15px;        /* default body, buttons, card meta */
+  --fs-lead: 17px;        /* hero sub, lede paragraphs */
+  --fs-prose: 19px;       /* blog prose body */
+
+  --fs-h4: 18px;
+  --fs-h3: clamp(1.1rem, 1.5vw, 1.35rem);
+  --fs-h2: clamp(1.4rem, 2.5vw, 1.8rem);
+  --fs-h1: clamp(1.8rem, 3.2vw, 2.5rem);
+  --fs-display: clamp(2.4rem, 4.2vw, 3.4rem);
+
+  --lh-display: 1.1;     /* hero h1 */
+  --lh-heading: 1.15;    /* section h1/h2 */
+  --lh-h3: 1.25;         /* card titles */
+  --lh-body: 1.6;        /* default body, mid-size copy */
+  --lh-card: 1.7;        /* card meta description */
+  --lh-prose: 1.65;      /* blog prose */
 }
 
 @theme inline {
@@ -60,6 +86,28 @@
   --color-forest: var(--color-forest);
   --font-sans: var(--font-sans-stack);
   --font-mono: var(--font-mono-stack);
+
+  /*
+   * Type scale — registered here so Tailwind v4 emits the :root
+   * declarations into the served CSS (without this, custom properties
+   * outside known utility namespaces get pruned).
+   */
+  --fs-mono-ui: var(--fs-mono-ui);
+  --fs-micro: var(--fs-micro);
+  --fs-body: var(--fs-body);
+  --fs-lead: var(--fs-lead);
+  --fs-prose: var(--fs-prose);
+  --fs-h4: var(--fs-h4);
+  --fs-h3: var(--fs-h3);
+  --fs-h2: var(--fs-h2);
+  --fs-h1: var(--fs-h1);
+  --fs-display: var(--fs-display);
+  --lh-display: var(--lh-display);
+  --lh-heading: var(--lh-heading);
+  --lh-h3: var(--lh-h3);
+  --lh-body: var(--lh-body);
+  --lh-card: var(--lh-card);
+  --lh-prose: var(--lh-prose);
 }
 
 html,
