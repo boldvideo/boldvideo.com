@@ -345,6 +345,27 @@ export default function StyleguidePage() {
             ]}
           />
 
+          <h3 className="sg-h3">Letter-spacing (tracking)</h3>
+          <div className="sg-note">
+            <strong>5 tokens, no half-steps.</strong> Body text is{" "}
+            <code>0</code> (default) — micro-tightenings under{" "}
+            <code>-0.01em</code> on body sizes are below perception threshold
+            and were dropped. Headings get tighter as they get bigger;
+            uppercase mono labels get one of two tracking levels — the
+            canonical <code>--tr-eyebrow</code> for page chrome, the wider{" "}
+            <code>--tr-wide</code> as an accent inside product UI mocks.
+          </div>
+
+          <ScaleLadder
+            rows={[
+              { token: "--tr-display", value: "-0.03em", weight: 800, lh: "1.1", role: "h1, display headlines", sample: "Turn every video into a coach", sampleStyle: { fontSize: "var(--fs-display)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "var(--tr-display)" } },
+              { token: "--tr-heading", value: "-0.025em", weight: 700, lh: "1.15", role: "h2, section-title, main headings", sample: "Built for the way coaches teach", sampleStyle: { fontSize: "var(--fs-h1)", fontWeight: 800, lineHeight: 1.15, letterSpacing: "var(--tr-heading)" } },
+              { token: "--tr-tight", value: "-0.015em", weight: 600, lh: "1.25", role: "h3, h4, card titles, prose h3", sample: "Built for the way coaches teach", sampleStyle: { fontSize: "var(--fs-h3)", fontWeight: 600, lineHeight: 1.25, letterSpacing: "var(--tr-tight)" } },
+              { token: "--tr-eyebrow", value: "0.1em", weight: 500, lh: "1", role: "Canonical mono uppercase eyebrow (.hero-eyebrow, .sec-label, .f-tag)", sample: "VIDEO INTELLIGENCE PLATFORM", sampleStyle: { fontSize: "var(--fs-micro)", fontFamily: "var(--font-mono-stack)", letterSpacing: "var(--tr-eyebrow)", textTransform: "uppercase", color: "var(--text-mid)" } },
+              { token: "--tr-wide", value: "0.16em", weight: 500, lh: "1", role: "Accent eyebrow inside product mocks (.prod-scene-tag, .illo-ai-sender)", sample: "VIDEO INTELLIGENCE PLATFORM", sampleStyle: { fontSize: "var(--fs-micro)", fontFamily: "var(--font-mono-stack)", letterSpacing: "var(--tr-wide)", textTransform: "uppercase", color: "var(--text-mid)" } },
+            ]}
+          />
+
           <h3 className="sg-h3">In-context examples</h3>
           <h3 className="sg-h3" style={{ fontSize: 11, marginTop: "1rem", borderBottom: 0, color: "#888" }}>Display / hero</h3>
 
