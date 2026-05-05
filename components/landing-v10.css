@@ -90,7 +90,7 @@
 .landing-v10 .announce {
   background: var(--bg-dark);
   color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
+  font-size: var(--fs-body);
   min-height: var(--announcement-height);
   padding: 12px 2rem;
   display: flex;
@@ -160,7 +160,7 @@
   gap: 2rem;
 }
 .landing-v10 .nav-right a {
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   transition: color 0.2s;
 }
@@ -168,7 +168,7 @@
   color: var(--text);
 }
 .landing-v10 .nav-cta {
-  font-size: 14px !important;
+  font-size: var(--fs-body) !important;
   padding: 8px 18px;
   background: var(--text);
   color: white !important;
@@ -216,7 +216,7 @@
   -webkit-box-decoration-break: clone;
 }
 .landing-v10 .hero-sub {
-  font-size: 17px;
+  font-size: var(--fs-lead);
   color: var(--text-mid);
   max-width: 440px;
   line-height: 1.75;
@@ -236,7 +236,7 @@
   background: var(--mint);
   color: white;
   font-weight: 600;
-  font-size: 15px;
+  font-size: var(--fs-body);
   border: none;
   cursor: pointer;
   transition: all 0.15s;
@@ -264,7 +264,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
-  font-size: 15px;
+  font-size: var(--fs-body);
   cursor: pointer;
   transition: border-color 0.18s ease, color 0.18s ease;
 }
@@ -284,7 +284,7 @@
   align-items: center;
   gap: 6px;
   padding: 13px 22px;
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   border: 1px solid var(--border-strong);
   cursor: pointer;
@@ -340,7 +340,7 @@
 }
 .landing-v10 .chat-ht {
   font-weight: 700;
-  font-size: 13px;
+  font-size: var(--fs-body);
   color: var(--text);
 }
 .landing-v10 .chat-st {
@@ -364,7 +364,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  font-size: 13px;
+  font-size: var(--fs-body);
   line-height: 1.65;
 }
 .landing-v10 .cm {
@@ -601,7 +601,7 @@
   padding: 14px 16px;
 }
 .landing-v10 .sc-info h4 {
-  font-size: 14px;
+  font-size: var(--fs-body);
   font-weight: 700;
   margin: 0 0 2px;
   color: var(--text);
@@ -631,7 +631,7 @@
   margin: 0;
 }
 .landing-v10 .sec-sub {
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   max-width: 480px;
   line-height: 1.7;
@@ -689,7 +689,7 @@
   margin-bottom: 0.75rem;
 }
 .landing-v10 .stat-p {
-  font-size: 13px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.65;
 }
@@ -978,7 +978,7 @@
   color: var(--text);
 }
 .landing-v10 .f-text p {
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.75;
   margin: 0;
@@ -1037,7 +1037,7 @@
   letter-spacing: -0.015em;
 }
 .landing-v10 .cs-text p {
-  font-size: 14px;
+  font-size: var(--fs-body);
   line-height: 1.75;
   margin: 0 0 1.5rem;
   color: rgba(255, 255, 255, 0.5);
@@ -1048,7 +1048,7 @@
   flex-wrap: wrap;
   gap: 0;
   margin-bottom: 1.5rem;
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.45);
 }
 .landing-v10 .cs-proof strong {
@@ -1064,7 +1064,7 @@
   flex-shrink: 0;
 }
 .landing-v10 .cs-roi {
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.7;
   margin: 0 0 1.5rem;
@@ -1081,7 +1081,7 @@
   background: var(--hrtu-gold);
   color: var(--hrtu-brown);
   font-weight: 600;
-  font-size: 14px;
+  font-size: var(--fs-body);
   border: none;
   cursor: pointer;
   transition: opacity 0.15s;
@@ -1141,13 +1141,13 @@
   background: var(--bg-muted);
 }
 .landing-v10 .f-card h3 {
-  font-size: 18px;
+  font-size: var(--fs-h4);
   font-weight: 600;
   margin: 0.75rem 0 0.5rem;
   color: var(--text);
 }
 .landing-v10 .f-card p {
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.7;
   margin: 0;
@@ -1213,7 +1213,7 @@
   line-height: 1.15;
 }
 .landing-v10 .nf-desc {
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.7;
   max-width: 500px;
@@ -1229,7 +1229,7 @@
   gap: 12px;
   padding: 14px 18px;
   border: 1px solid var(--border);
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.5;
   background: white;
@@ -1243,7 +1243,7 @@
   color: var(--mint-text);
 }
 .landing-v10 .nf-floor {
-  font-size: 13.5px;
+  font-size: var(--fs-body);
   color: var(--text-dim);
   margin-top: 1.5rem;
   font-style: italic;
@@ -1300,14 +1300,14 @@
   letter-spacing: -0.01em;
 }
 .landing-v10 .timeline-step p {
-  font-size: 14px;
+  font-size: var(--fs-body);
   line-height: 1.65;
   color: var(--text-mid);
   margin: 0;
   max-width: 280px;
 }
 .landing-v10 .timeline-kicker {
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 600;
   color: var(--text);
   padding-top: 2rem;
@@ -1360,7 +1360,7 @@
   font-weight: 800;
 }
 .landing-v10 .cta p {
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.65);
   max-width: 420px;
   margin: 0 auto 2rem;
@@ -1374,7 +1374,7 @@
   background: white;
   color: var(--text);
   font-weight: 600;
-  font-size: 15px;
+  font-size: var(--fs-body);
   border: none;
   cursor: pointer;
   transition: all 0.15s;
@@ -1407,7 +1407,7 @@
   height: auto;
 }
 .landing-v10 .footer-tl {
-  font-size: 13px;
+  font-size: var(--fs-body);
   line-height: 1.6;
   max-width: 250px;
 }
@@ -1421,7 +1421,7 @@
 }
 .landing-v10 .footer-col a {
   display: block;
-  font-size: 13px;
+  font-size: var(--fs-body);
   margin-bottom: 0.5rem;
   transition: color 0.15s;
 }
@@ -1496,7 +1496,7 @@
 .landing-v10 .legal-card p {
   margin: 1rem 0 0;
   color: var(--text-mid);
-  font-size: 15px;
+  font-size: var(--fs-body);
   line-height: 1.85;
 }
 .landing-v10 .legal-card h2 {
@@ -1523,7 +1523,7 @@
 .landing-v10 .legal-card li {
   margin: 0.55rem 0;
   padding-left: 0.2rem;
-  font-size: 15px;
+  font-size: var(--fs-body);
   line-height: 1.8;
 }
 .landing-v10 .legal-card strong {
@@ -1769,7 +1769,6 @@
   }
   .landing-v10 .nav-cta {
     padding: 8px 12px;
-    font-size: 13px !important;
     white-space: nowrap;
   }
   .landing-v10 .cited-chat {
@@ -1866,7 +1865,7 @@
   border-left: 1px solid var(--border-strong);
 }
 .landing-v10 .gap-cell {
-  font-size: 15px;
+  font-size: var(--fs-body);
   line-height: 1.7;
   padding: 1.25rem 0;
   border-top: 1px solid var(--border);
@@ -1920,7 +1919,7 @@
   color: var(--text);
 }
 .landing-v10 .cap-main p {
-  font-size: 14.5px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.75;
   margin: 0;
@@ -1935,7 +1934,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 13.5px;
+  font-size: var(--fs-body);
   color: var(--text);
   line-height: 1.55;
 }
@@ -2124,7 +2123,7 @@
 .landing-v10.migration-v11 .migration-flow-foot {
   padding: 12px 16px;
   border-top: 1px solid var(--border);
-  font-size: 13px;
+  font-size: var(--fs-body);
   line-height: 1.7;
   color: var(--text-mid);
   background: var(--bg-muted);
@@ -2189,7 +2188,7 @@
 }
 .landing-v10.migration-v11 .migration-handled p {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--fs-body);
   line-height: 1.7;
 }
 .landing-v10.migration-v11 .migration-proof-copy p {
@@ -2219,7 +2218,7 @@
   justify-content: space-between;
   gap: 20px;
   padding: 16px;
-  font-size: 14px;
+  font-size: var(--fs-body);
   font-weight: 600;
   color: var(--text);
 }
@@ -2228,7 +2227,7 @@
 }
 .landing-v10.migration-v11 .faq-plus {
   font-family: var(--mono);
-  font-size: 16px;
+  font-size: var(--fs-lead);
   color: var(--text-dim);
   transition: transform 0.2s;
 }
@@ -2238,7 +2237,7 @@
 .landing-v10.migration-v11 .faq-row p {
   margin: 0;
   padding: 0 16px 16px;
-  font-size: 13px;
+  font-size: var(--fs-body);
   line-height: 1.75;
   color: var(--text-mid);
 }
