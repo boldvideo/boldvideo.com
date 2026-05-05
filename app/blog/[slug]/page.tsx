@@ -82,22 +82,6 @@ export default async function BlogPostPage({ params }: Props) {
         </Link>
 
         <header style={{ marginTop: "2rem" }}>
-          <div
-            style={{
-              alignItems: "center",
-              color: "var(--text-dim)",
-              display: "flex",
-              fontFamily: "var(--font-mono-stack)",
-              fontSize: "var(--fs-micro)",
-              gap: "8px",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
-          >
-            <span>{post.author}</span>
-            <span style={{ color: "var(--border-strong)" }}>&middot;</span>
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
-          </div>
           <h1
             style={{
               fontSize: "clamp(2rem, 3.5vw, 2.6rem)",
@@ -105,7 +89,7 @@ export default async function BlogPostPage({ params }: Props) {
               letterSpacing: "-0.03em",
               lineHeight: 1.15,
               color: "var(--text)",
-              margin: "0.75rem 0 0",
+              margin: 0,
             }}
           >
             {post.title}
@@ -130,6 +114,25 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         <BlogBody content={post.content} />
+
+        <footer
+          style={{
+            alignItems: "center",
+            borderTop: "1px solid var(--border)",
+            color: "var(--text-dim)",
+            display: "flex",
+            fontFamily: "var(--font-mono-stack)",
+            fontSize: "var(--fs-micro)",
+            justifyContent: "space-between",
+            letterSpacing: "0.1em",
+            marginTop: "3rem",
+            paddingTop: "1.5rem",
+            textTransform: "uppercase",
+          }}
+        >
+          <span>{post.author}</span>
+          <time dateTime={post.date}>{formatDate(post.date)}</time>
+        </footer>
       </article>
 
       <SiteNavFooter />
