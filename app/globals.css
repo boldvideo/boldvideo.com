@@ -8,12 +8,19 @@
  * value here mirrors a v10 token. There is no second palette.
  */
 :root {
+  /*
+   * Next.js sets --font-plus-jakarta-sans / --font-dm-mono on <body>, not
+   * :root. So the var() inside these stacks would resolve to empty when
+   * defined here. The fallback strings (after the comma) keep the stack
+   * working everywhere — once Next loads the font, the var resolves and
+   * preempts the fallbacks.
+   */
   --font-sans-stack:
-    var(--font-plus-jakarta-sans), "Avenir Next", "Avenir", "Helvetica Neue",
-    "Segoe UI", sans-serif;
+    var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), "Avenir Next",
+    "Avenir", "Helvetica Neue", "Segoe UI", sans-serif;
   --font-mono-stack:
-    var(--font-dm-mono), "SF Mono", "Roboto Mono", "IBM Plex Mono", "Menlo",
-    monospace;
+    var(--font-dm-mono, "DM Mono"), "SF Mono", "Roboto Mono", "IBM Plex Mono",
+    "Menlo", monospace;
 
   /* Surfaces — mirror --bg / --bg-dark / white */
   --color-cream: #fdfcfa;
