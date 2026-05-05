@@ -362,6 +362,30 @@ export default function StyleguidePage() {
 
           <div className="sg-type">
             <div className="sg-type-spec">
+              <strong>Card meta description</strong>
+              14px · color --text-mid
+              <br />
+              line 1.7
+              <br />
+              .f-card p · .f-text p · .sc-info p
+            </div>
+            <div className="sg-type-sample">
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: 14,
+                  lineHeight: 1.7,
+                  color: "var(--text-mid)",
+                }}
+              >
+                2,500 videos. Students find the exact explanation instead of
+                rewatching entire modules.
+              </p>
+            </div>
+          </div>
+
+          <div className="sg-type">
+            <div className="sg-type-spec">
               <strong>Blog prose body</strong>
               19px · color --color-copy (= --text-mid)
               <br />
