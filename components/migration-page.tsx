@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { announcementMessages } from "@/lib/site-content";
 import { ArrowIcon } from "./arrow-icon";
+import { CtaSection } from "./cta-section";
 import { SiteNav, SiteNavFooter } from "./site-nav";
 import "./landing-v10.css";
 
@@ -206,23 +207,11 @@ export function MigrationPage() {
         </div>
       </section>
 
-      <section className="cta">
-        <div className="container">
-          <h2>Ready to stop dreading the switch?</h2>
-          <p>
-            Tell us what you have. We will show you how simple the move can be.
-          </p>
-          <a
-            className="btn-cta"
-            href="https://savvycal.com/marcel-from-bold/7838d613"
-            rel="noreferrer"
-            target="_blank"
-          >
-            Book the switch call
-            <ArrowIcon />
-          </a>
-        </div>
-      </section>
+      <CtaSection
+        heading="Ready to stop dreading the switch?"
+        description="Tell us what you have. We will show you how simple the move can be."
+        buttonText="Book the switch call"
+      />
 
       <SiteNavFooter />
     </main>
