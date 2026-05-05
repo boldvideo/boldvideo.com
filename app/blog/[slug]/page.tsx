@@ -84,11 +84,14 @@ export default async function BlogPostPage({ params }: Props) {
         <header style={{ marginTop: "2rem" }}>
           <div
             style={{
-              display: "flex",
               alignItems: "center",
-              gap: "6px",
-              fontSize: "14px",
               color: "var(--text-dim)",
+              display: "flex",
+              fontFamily: "var(--font-mono-stack)",
+              fontSize: "var(--fs-micro)",
+              gap: "8px",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
             }}
           >
             <span>{post.author}</span>
