@@ -30,10 +30,13 @@
   --mono: "DM Mono", monospace;
 
   /*
-   * Type scale — 4 body tiers, no half-steps. Floor is 12px (no 10/11
-   * micro text). Source of truth; documented in /styleguide.
+   * Type scale — 4 body tiers, no half-steps. 12px is the floor for
+   * page-level UI. Source of truth; documented in /styleguide.
    */
-  --fs-micro: 12px;       /* mono labels, eyebrows, chips, tags */
+  --fs-mono-ui: 10px;     /* compact mono labels INSIDE product UI demos
+                             (chat timestamps, citation pills, file rows
+                             in feature mocks). Not for page-level chrome. */
+  --fs-micro: 12px;       /* mono labels, eyebrows, chips, page-level tags */
   --fs-body: 15px;        /* default body, buttons, card meta */
   --fs-lead: 17px;        /* hero sub, lede paragraphs */
   --fs-prose: 19px;       /* blog prose body */
@@ -320,7 +323,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: var(--fs-micro);
   font-weight: 700;
   line-height: 1;
   overflow: hidden;
@@ -342,7 +345,7 @@
 }
 .landing-v10 .chat-st {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--text-dim);
   display: flex;
   align-items: center;
@@ -381,7 +384,7 @@
 }
 .landing-v10 .cm .lb {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--mint-text);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -408,7 +411,7 @@
   padding: 6px 10px;
   border: 1px solid var(--border);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--text-mid);
   cursor: default;
   opacity: 0;
@@ -457,7 +460,7 @@
 .landing-v10 .chat-input input {
   flex: 1;
   font-family: var(--font);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   color: var(--text-dim);
   background: none;
   border: none;
@@ -503,7 +506,7 @@
   padding: 2px 7px;
   background: var(--mint-fill);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--mint-text);
   margin-bottom: 5px;
   position: relative;
@@ -517,7 +520,7 @@
   background: var(--text);
   color: rgba(255, 255, 255, 0.9);
   font-family: var(--font);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   text-transform: none;
   letter-spacing: 0;
   line-height: 1.4;
@@ -585,7 +588,7 @@
   bottom: 12px;
   left: 12px;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-mono-ui);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 3px 8px;
@@ -679,7 +682,7 @@
 }
 .landing-v10 .stat-tag {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -744,7 +747,7 @@
   box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.04),
     0 8px 24px rgba(0, 0, 0, 0.06);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   line-height: 1.6;
 }
 .landing-v10 .fmc-window-wide {
@@ -795,7 +798,7 @@
   background: var(--bg-muted);
   padding: 9px 12px;
   color: var(--text);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   margin-bottom: 10px;
 }
 .landing-v10 .fmc-a {
@@ -803,7 +806,7 @@
 }
 .landing-v10 .fmc-label {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-mono-ui);
   color: var(--mint-text);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -812,7 +815,7 @@
 }
 .landing-v10 .fmc-text {
   color: var(--text-mid);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   display: block;
   line-height: 1.7;
 }
@@ -834,7 +837,7 @@
   background: var(--bg-muted);
   border: 1px solid var(--border);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--text-mid);
   transition: border-color 0.2s;
 }
@@ -864,7 +867,7 @@
   background: var(--bg-muted);
   padding: 9px 12px;
   color: var(--text);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   margin-bottom: 10px;
   text-align: center;
 }
@@ -884,7 +887,7 @@
 }
 .landing-v10 .fmc-split-tag {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-mono-ui);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 3px 7px;
@@ -902,7 +905,7 @@
   color: var(--blue);
 }
 .landing-v10 .fmc-split-text {
-  font-size: 11px;
+  font-size: var(--fs-micro);
   color: var(--text-mid);
   line-height: 1.65;
 }
@@ -930,13 +933,13 @@
 }
 .landing-v10 .fmc-upload-name {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-mono-ui);
   color: var(--text);
   font-weight: 500;
 }
 .landing-v10 .fmc-upload-size {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-mono-ui);
   color: var(--text-dim);
 }
 .landing-v10 .f-text {
@@ -1115,7 +1118,7 @@
   bottom: 16px;
   right: 16px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   color: rgba(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
@@ -1468,7 +1471,7 @@
 .landing-v10 .legal-updated {
   margin: 1rem 0 0;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-dim);
@@ -1507,7 +1510,7 @@
 .landing-v10 .legal-card h3 {
   margin: 1.75rem 0 0;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-dim);
@@ -1727,7 +1730,7 @@
     display: none;
   }
   .landing-v10 .announce {
-    font-size: 12px;
+    font-size: var(--fs-micro);
     padding: 0 1.5rem;
     height: var(--announcement-height);
     min-height: auto;
@@ -1847,7 +1850,7 @@
 }
 .landing-v10 .gap-head {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding-bottom: 1.25rem;
@@ -2027,7 +2030,7 @@
 }
 .landing-v10.migration-v11 .migration-flow-label {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-dim);
@@ -2072,14 +2075,14 @@
 }
 .landing-v10.migration-v11 .migration-from-type {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-dim);
   margin-bottom: 0.75rem;
 }
 .landing-v10.migration-v11 .migration-from-card p {
-  font-size: 12px;
+  font-size: var(--fs-micro);
   line-height: 1.7;
   color: var(--text-mid);
   margin: 0;
@@ -2107,13 +2110,13 @@
   padding: 8px 10px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   line-height: 1.55;
 }
 .landing-v10.migration-v11 .migration-to-note {
   margin-top: 1rem;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--mint);
@@ -2178,7 +2181,7 @@
 .landing-v10.migration-v11 .migration-handled-label {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--mint);
   text-transform: uppercase;
   letter-spacing: 0.08em;
