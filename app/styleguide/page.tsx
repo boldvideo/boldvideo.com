@@ -313,11 +313,22 @@ export default function StyleguidePage() {
 
           <h3 className="sg-h3">Type scale (the ladder)</h3>
           <div className="sg-note">
-            New copy must pick a tier from this ladder. If something feels
-            "in between" two tiers, pick the larger one — half-step sizes
-            (10.5/11.5/13.5px) are the source of most drift.
+            <strong>4 body tiers.</strong> Floor is 12px — there is no 10/11px
+            micro text any more. If something feels "in between" two tiers,
+            pick the larger one. Headings live on a separate fluid clamp
+            scale below.
           </div>
 
+          <ScaleLadder
+            rows={[
+              { token: "--fs-prose", value: "19px", weight: 400, lh: "--lh-prose 1.65", role: "Blog prose body (.prose p)", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-prose)", lineHeight: 1.65, color: "var(--text-mid)" } },
+              { token: "--fs-lead", value: "17px", weight: 400, lh: "1.75", role: "Hero sub (.hero-sub), lede paragraphs", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-lead)", lineHeight: 1.75, color: "var(--text-mid)" } },
+              { token: "--fs-body", value: "15px", weight: 400, lh: "--lh-body 1.6", role: "Default body, buttons, card meta description", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-body)", lineHeight: 1.6, color: "var(--text-mid)" } },
+              { token: "--fs-micro", value: "12px", weight: 500, lh: "1", role: "Mono labels, eyebrows, chips, tags (.sec-label, .hero-eyebrow, .f-tag, .migration-step-number)", sample: "SECTION", sampleStyle: { fontSize: "var(--fs-micro)", fontFamily: "var(--font-mono-stack)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-dim)" } },
+            ]}
+          />
+
+          <h3 className="sg-h3">Heading scale (fluid)</h3>
           <ScaleLadder
             rows={[
               { token: "--fs-display", value: "clamp(2.4–3.4rem)", weight: 800, lh: "--lh-display 1.1", role: "Hero h1", sample: "Turn every video into a coach", sampleStyle: { fontSize: "var(--fs-display)", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.03em" } },
@@ -325,14 +336,6 @@ export default function StyleguidePage() {
               { token: "--fs-h2", value: "clamp(1.4–1.8rem)", weight: 700, lh: "--lh-heading 1.15", role: "Sub-section title", sample: "Built for the way coaches teach.", sampleStyle: { fontSize: "var(--fs-h2)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.02em" } },
               { token: "--fs-h3", value: "clamp(1.1–1.35rem)", weight: 600, lh: "--lh-h3 1.25", role: "Card section title", sample: "Built for the way coaches teach.", sampleStyle: { fontSize: "var(--fs-h3)", fontWeight: 600, lineHeight: 1.25, letterSpacing: "-0.015em" } },
               { token: "--fs-h4", value: "18px", weight: 600, lh: "--lh-h3 1.25", role: "Small card title", sample: "Built for the way coaches teach.", sampleStyle: { fontSize: "var(--fs-h4)", fontWeight: 600, lineHeight: 1.25 } },
-              { token: "--fs-prose", value: "19px", weight: 400, lh: "--lh-prose 1.65", role: "Blog prose body (.prose p)", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-prose)", lineHeight: 1.65, color: "var(--text-mid)" } },
-              { token: "--fs-lead", value: "17px", weight: 400, lh: "1.75", role: "Hero sub (.hero-sub)", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-lead)", lineHeight: 1.75, color: "var(--text-mid)" } },
-              { token: "--fs-body", value: "16px", weight: 400, lh: "--lh-body 1.6", role: "Default body", sample: "Every lesson, searchable by concept.", sampleStyle: { fontSize: "var(--fs-body)", lineHeight: 1.6, color: "var(--text-mid)" } },
-              { token: "--fs-base", value: "15px", weight: 600, lh: "1", role: "Button text (.btn-mint, .btn-cta)", sample: "Book a demo", sampleStyle: { fontSize: "var(--fs-base)", fontWeight: 600 } },
-              { token: "--fs-md", value: "14px", weight: 400, lh: "--lh-card 1.7", role: "Card meta description (.sc-info p, .f-card p, .migration-step-card p)", sample: "2,500 videos. Students find the exact explanation.", sampleStyle: { fontSize: "var(--fs-md)", lineHeight: 1.7, color: "var(--text-mid)" } },
-              { token: "--fs-sm", value: "13px", weight: 400, lh: "1.7", role: "Dense UI body, footer links", sample: "2,500 videos. Students find the exact explanation.", sampleStyle: { fontSize: "var(--fs-sm)", lineHeight: 1.7, color: "var(--text-mid)" } },
-              { token: "--fs-xs", value: "12px", weight: 500, lh: "1", role: ".hero-eyebrow, small chips", sample: "VIDEO INTELLIGENCE PLATFORM", sampleStyle: { fontSize: "var(--fs-xs)", fontFamily: "var(--font-mono-stack)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-mid)" } },
-              { token: "--fs-micro", value: "11px", weight: 500, lh: "1", role: "Mono labels (.sec-label, .f-tag, .migration-step-number)", sample: "SECTION", sampleStyle: { fontSize: "var(--fs-micro)", fontFamily: "var(--font-mono-stack)", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-dim)" } },
             ]}
           />
 

@@ -30,17 +30,12 @@
   --mono: "DM Mono", monospace;
 
   /*
-   * Type scale — px-based to match Plus Jakarta Sans optical sizing.
-   * No half-step values (10.5/11.5/13.5 etc.) — pick the nearest tier
-   * instead. Source of truth; documented in /styleguide.
+   * Type scale — 4 body tiers, no half-steps. Floor is 12px (no 10/11
+   * micro text). Source of truth; documented in /styleguide.
    */
-  --fs-micro: 11px;       /* mono labels, .sec-label, .f-tag */
-  --fs-xs: 12px;          /* .hero-eyebrow, small chips */
-  --fs-sm: 13px;          /* dense UI body, footer links */
-  --fs-md: 14px;          /* card meta description (canonical) */
-  --fs-base: 15px;        /* button text */
-  --fs-body: 16px;        /* default body */
-  --fs-lead: 17px;        /* hero sub */
+  --fs-micro: 12px;       /* mono labels, eyebrows, chips, tags */
+  --fs-body: 15px;        /* default body, buttons, card meta */
+  --fs-lead: 17px;        /* hero sub, lede paragraphs */
   --fs-prose: 19px;       /* blog prose body */
 
   /* Heading scale — fluid clamps for h1/h2/h3, fixed for h4 */
@@ -194,7 +189,7 @@
 }
 .landing-v10 .hero-eyebrow {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   color: var(--text-mid);
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -609,7 +604,7 @@
   color: var(--text);
 }
 .landing-v10 .sc-info p {
-  font-size: var(--fs-md);
+  font-size: var(--fs-body);
   line-height: var(--lh-card);
   color: var(--text-mid);
   margin: 0;
@@ -618,7 +613,7 @@
 /* Section shared */
 .landing-v10 .sec-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   color: var(--text-dim);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -952,7 +947,7 @@
 }
 .landing-v10 .f-tag {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.6rem;
@@ -2155,7 +2150,7 @@
 }
 .landing-v10.migration-v11 .migration-step-number {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-micro);
   color: var(--mint-text);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2170,7 +2165,7 @@
 }
 .landing-v10.migration-v11 .migration-step-card p {
   margin: 0;
-  font-size: var(--fs-md);
+  font-size: var(--fs-body);
   line-height: var(--lh-card);
   color: var(--text-mid);
 }
