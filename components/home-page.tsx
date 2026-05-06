@@ -410,24 +410,6 @@ export function HomePage() {
 
   return (
     <main className="landing-v10" id="main-content">
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: customerScenarios.map((scenario) => ({
-              "@type": "Question",
-              name: scenario.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: scenario.answerText,
-              },
-            })),
-          }),
-        }}
-      />
       <div className="announce">
         <strong ref={announcementRef}>Growing out of Kajabi?</strong>
         <div className="sep" />
@@ -618,61 +600,6 @@ export function HomePage() {
             </button>
           </div>
         </div>
-      </section>
-
-      {/* 3.5 Static examples — crawlable Q&A blocks */}
-      <section className="static-examples container">
-        <div className="static-examples-head">
-          <div className="sec-label">Real questions, real answers</div>
-          <h2 className="section-title">
-            Three answers Bold pulled from a customer library
-          </h2>
-          <p className="sec-sub">
-            The kind of question a coach would normally field at midnight, in
-            their inbox, by hand. Each answer cites the exact lessons it came
-            from.
-          </p>
-        </div>
-        <ol className="static-examples-list">
-          {customerScenarios.map((scenario) => (
-            <li className="static-example" key={scenario.id}>
-              <div className="static-example-tag">
-                <span className="static-example-tag-name">
-                  {scenario.customer.title}
-                </span>
-                <span className="static-example-tag-sep" aria-hidden="true">
-                  &middot;
-                </span>
-                <span className="static-example-tag-count">
-                  {scenario.customer.count}
-                </span>
-              </div>
-              <p className="static-example-q">
-                <span className="static-example-q-label">Member asks</span>
-                {scenario.question}
-              </p>
-              <p className="static-example-context">{scenario.context}</p>
-              <div
-                className="static-example-a"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: scenario.answerHtml }}
-              />
-              <ul className="static-example-cites" aria-label="Cited lessons">
-                {scenario.citations.map((citation) => (
-                  <li
-                    className="static-example-cite"
-                    key={`${scenario.id}-${citation.timestamp}`}
-                  >
-                    <span className="static-example-cite-ts">
-                      {citation.timestamp}
-                    </span>
-                    {citation.title}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ol>
       </section>
 
       {/* 4. Case Study (HRTU) */}
