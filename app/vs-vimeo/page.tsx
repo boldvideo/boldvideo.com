@@ -143,6 +143,28 @@ export default function VsVimeoPage() {
         "They want to reduce repeated support questions without hiring a coaching team around the clock.",
         "They need better signal about what the audience is trying to learn and where the curriculum is breaking down.",
       ]}
+      faqs={[
+        {
+          question: "Can I use Vimeo as my video host with Bold?",
+          answer:
+            "Yes. Bold can ingest videos from Vimeo, Google Drive, OneDrive, or Zoom. Some teams keep Vimeo for premium playback and use Bold as the intelligence layer on top of it.",
+        },
+        {
+          question: "Does Bold replace Vimeo's player?",
+          answer:
+            "Bold ships with its own branded player, but you can also embed Bold's chat and citations alongside an existing Vimeo player using our SDK or REST API. The intelligence is decoupled from the playback layer.",
+        },
+        {
+          question: "Why isn't Vimeo's AI search enough?",
+          answer:
+            "Vimeo's AI is keyword-based — it searches transcripts. Bold understands what each lesson teaches conceptually, so members find the right moment even when they don't know what you called it. That's the difference between transcript matching and video intelligence.",
+        },
+        {
+          question: "Is Bold cheaper than Vimeo Premium?",
+          answer:
+            "Vimeo charges per-seat or by storage and bandwidth. Bold prices around the value of an indexed library and AI assistant. We're not the right tool if you only need clean hosting; we're the right tool if your video library is supposed to be teaching members, not just streaming to them.",
+        },
+      ]}
     />
   );
 }

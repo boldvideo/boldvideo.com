@@ -9,6 +9,8 @@ export type BlogPost = {
   title: string;
   author: string;
   date: string;
+  /** Optional ISO date for the most recent meaningful update; falls back to date when omitted. */
+  updated?: string;
   excerpt: string;
   image: string;
   draft?: boolean;
@@ -27,6 +29,7 @@ export function getAllPosts(): BlogPost[] {
         title: data.title as string,
         author: data.author as string,
         date: data.date as string,
+        updated: (data.updated as string) || undefined,
         excerpt: data.excerpt as string,
         image: data.image as string,
         draft: (data.draft as boolean) || false,

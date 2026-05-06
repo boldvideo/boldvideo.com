@@ -212,6 +212,28 @@ export default function VsKajabiPage() {
         "Renewals are softening, and the platform's roadmap is pointed at acquisition, not retention.",
         "They want their coaches answering harder questions, not the same five every cohort.",
       ]}
+      faqs={[
+        {
+          question: "Do I have to choose between Kajabi and Bold?",
+          answer:
+            "No. Many teams keep Kajabi for marketing, signups, and checkout, then layer Bold on top of the video library so members can actually find and use the content. Kajabi handles the funnel; Bold handles the implementation moment.",
+        },
+        {
+          question: "Can Bold replace Kajabi entirely?",
+          answer:
+            "Bold replaces Kajabi's video library and AI search, but not its checkout, email, or landing page builder. Most teams who fully leave Kajabi pair Bold with Outseta or Stripe for billing and Clerk or Auth0 for authentication.",
+        },
+        {
+          question: "Why would I switch from Kajabi's built-in AI to Bold?",
+          answer:
+            "Kajabi's AI roadmap is built for creators — auto-clipping, sales pages, subject line tools. Bold is built for paying members getting stuck mid-curriculum. Same underlying tech, different center of gravity: creator productivity vs. learner support.",
+        },
+        {
+          question: "How does Bold migrate content from Kajabi?",
+          answer:
+            "We do it for you. Send us your Kajabi access; we move videos, members, and structure personally. Most migrations are live within two weeks, and you work directly with the founders — no support queue, no onboarding specialist reading from a script.",
+        },
+      ]}
     />
   );
 }

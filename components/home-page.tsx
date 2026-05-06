@@ -1,103 +1,34 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { customerScenarios } from "@/lib/customer-scenarios";
 import { announcementMessages } from "@/lib/site-content";
 import { ArrowIcon } from "./arrow-icon";
 import { CtaSection } from "./cta-section";
 import { SiteNav, SiteNavFooter } from "./site-nav";
 import "./landing-v10.css";
 
-const CUSTOMER_SCENARIOS = [
-  {
-    customer: {
-      icon: "/images/chaticon-founderwell.png",
-      title: "Ask FounderWell",
-      count: "1,400 videos",
-    },
-    steps: [
-      {
-        t: "u",
-        x: "I just crossed $40k MRR but my net revenue churn is 8%. Is that a pricing problem or a retention problem?",
-      },
-      {
-        t: "c",
-        x: "SaaS founder · $40k MRR · growth stage",
-      },
-      {
-        t: "a",
-        x: "<strong>At your MRR, 8% net churn almost always traces back to pricing architecture.</strong> Two diagnostics: are you charging on a value metric that grows with the customer? And do you have expansion paths built in? If the average account stays flat after signup, you've got a pricing ceiling, not a retention problem. <strong>Fix the metric before you fix the funnel.</strong>",
-      },
-      {
-        t: "s",
-        items: [
-          { n: "Value Metric Design", ts: "14:23" },
-          { n: "Churn Diagnosis", ts: "08:47" },
-          { n: "Expansion Revenue", ts: "22:15" },
-        ],
-      },
-    ],
-  },
-  {
-    customer: {
-      icon: "/images/chaticon-hrtupearl.png",
-      title: "Ask Pearl",
-      count: "300 videos",
-    },
-    steps: [
-      {
-        t: "u",
-        x: "Patient is 52, post-menopausal, elevated liver enzymes. She's requesting oral estradiol — what's the prescribing pathway?",
-      },
-      {
-        t: "c",
-        x: "HRT practitioner · prescribing · intermediate",
-      },
-      {
-        t: "a",
-        x: "<strong>Elevated liver enzymes change the prescribing pathway.</strong> Oral estradiol undergoes first-pass hepatic metabolism, which is the concern here. The decision tree in Module 8 covers the specific ALT/AST thresholds that trigger the switch to transdermal. <strong>Start there before the prescribing decision.</strong>",
-      },
-      {
-        t: "s",
-        items: [
-          { n: "Liver Panels", ts: "18:42" },
-          { n: "Transdermal Protocols", ts: "11:15" },
-          { n: "Prescribing Pathways", ts: "25:08" },
-        ],
-      },
-    ],
-  },
-  {
-    customer: {
-      icon: "/images/chaticon-viva.png",
-      title: "Ask Viva Tuition",
-      count: "2,500 videos",
-    },
-    steps: [
-      {
-        t: "u",
-        x: "Working on a consolidation where the parent acquired 80% mid-year. How do I split pre- and post-acquisition profits?",
-      },
-      {
-        t: "c",
-        x: "ACCA trainee · consolidation · advanced",
-      },
-      {
-        t: "a",
-        x: "<strong>Split the subsidiary's profit at the acquisition date.</strong> Pre-acquisition profits feed into retained earnings and the goodwill calc. Only post-acquisition profits get consolidated into the group P&L — use time apportionment. <strong>Most common exam error is consolidating the full year.</strong>",
-      },
-      {
-        t: "s",
-        items: [
-          { n: "Mid-Year Acquisitions", ts: "22:15" },
-          { n: "Goodwill Calculation", ts: "14:30" },
-          { n: "Group P&L", ts: "38:42" },
-        ],
-      },
-    ],
-  },
-] as const;
+type ChatStep =
+  | { t: "u"; x: string }
+  | { t: "c"; x: string }
+  | { t: "a"; x: string }
+  | { t: "s"; items: { n: string; ts: string }[] };
 
-type ChatStep = (typeof CUSTOMER_SCENARIOS)[number]["steps"][number];
+const CUSTOMER_SCENARIOS = customerScenarios.map((scenario) => ({
+  customer: scenario.customer,
+  steps: [
+    { t: "u" as const, x: scenario.question },
+    { t: "c" as const, x: scenario.context },
+    { t: "a" as const, x: scenario.answerHtml },
+    {
+      t: "s" as const,
+      items: scenario.citations.map((c) => ({
+        n: c.title,
+        ts: c.timestamp,
+      })),
+    },
+  ] satisfies ChatStep[],
+}));
 
 function renderPartialHtml(html: string, chars: number) {
   let result = "";
@@ -479,6 +410,24 @@ export function HomePage() {
 
   return (
     <main className="landing-v10" id="main-content">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: customerScenarios.map((scenario) => ({
+              "@type": "Question",
+              name: scenario.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: scenario.answerText,
+              },
+            })),
+          }),
+        }}
+      />
       <div className="announce">
         <strong ref={announcementRef}>Growing out of Kajabi?</strong>
         <div className="sep" />
@@ -497,9 +446,10 @@ export function HomePage() {
             <em>that works while you sleep.</em>
           </h1>
           <p className="hero-sub">
-            Bold reads every video in your library, understands what you
-            taught, and answers your members in your teaching style, no matter
-            how they phrase the question.
+            <strong>Bold is the video intelligence platform for coaching
+            programs.</strong> It reads every video in your library, understands
+            what you taught, and answers your members in your teaching
+            style&nbsp;&mdash; no matter how they phrase the question.
           </p>
           <div className="hero-actions">
             <a
@@ -589,6 +539,14 @@ export function HomePage() {
             You built a great program. The content is all there. But
             something&apos;s broken.
           </h2>
+          <p className="gap-stat">
+            <strong>
+              Active discussion lifts course completion from 42.6% to 65.5%
+            </strong>{" "}
+            (Ruzuku, 32,000+ courses). Bold is what brings that level of help to
+            a member working alone at 11pm.{" "}
+            <a href="/blog/implementation-gap">Read the deep dive</a>.
+          </p>
           <div className="gap-grid">
             <div className="gap-head gap-head-dim">Without Bold</div>
             <div className="gap-head gap-head-mint">With Bold</div>
@@ -660,6 +618,61 @@ export function HomePage() {
             </button>
           </div>
         </div>
+      </section>
+
+      {/* 3.5 Static examples — crawlable Q&A blocks */}
+      <section className="static-examples container">
+        <div className="static-examples-head">
+          <div className="sec-label">Real questions, real answers</div>
+          <h2 className="section-title">
+            Three answers Bold pulled from a customer library
+          </h2>
+          <p className="sec-sub">
+            The kind of question a coach would normally field at midnight, in
+            their inbox, by hand. Each answer cites the exact lessons it came
+            from.
+          </p>
+        </div>
+        <ol className="static-examples-list">
+          {customerScenarios.map((scenario) => (
+            <li className="static-example" key={scenario.id}>
+              <div className="static-example-tag">
+                <span className="static-example-tag-name">
+                  {scenario.customer.title}
+                </span>
+                <span className="static-example-tag-sep" aria-hidden="true">
+                  &middot;
+                </span>
+                <span className="static-example-tag-count">
+                  {scenario.customer.count}
+                </span>
+              </div>
+              <p className="static-example-q">
+                <span className="static-example-q-label">Member asks</span>
+                {scenario.question}
+              </p>
+              <p className="static-example-context">{scenario.context}</p>
+              <div
+                className="static-example-a"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: scenario.answerHtml }}
+              />
+              <ul className="static-example-cites" aria-label="Cited lessons">
+                {scenario.citations.map((citation) => (
+                  <li
+                    className="static-example-cite"
+                    key={`${scenario.id}-${citation.timestamp}`}
+                  >
+                    <span className="static-example-cite-ts">
+                      {citation.timestamp}
+                    </span>
+                    {citation.title}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
       </section>
 
       {/* 4. Case Study (HRTU) */}

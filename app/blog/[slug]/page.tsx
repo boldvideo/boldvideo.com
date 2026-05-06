@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { getAuthor } from "@/lib/authors";
 import { ArrowIcon } from "@/components/arrow-icon";
 import { SiteNav, SiteNavFooter } from "@/components/site-nav";
 import { BlogBody } from "@/components/blog-body";
@@ -55,6 +56,10 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post || post.draft) notFound();
 
+  const author = getAuthor(post.author);
+  const dateModified = post.updated ?? post.date;
+  const wasUpdated = Boolean(post.updated && post.updated !== post.date);
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -62,11 +67,18 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     image: `https://www.boldvideo.com${post.image}`,
     datePublished: post.date,
-    dateModified: post.date,
-    author: {
-      "@type": "Person",
-      name: post.author,
-    },
+    dateModified,
+    author: author
+      ? {
+          "@type": "Person",
+          name: author.name,
+          jobTitle: author.role,
+          url: `https://www.boldvideo.com${author.aboutAnchor}`,
+          sameAs: [author.links.linkedin, author.links.twitter].filter(
+            Boolean,
+          ) as string[],
+        }
+      : { "@type": "Person", name: post.author },
     publisher: {
       "@type": "Organization",
       name: "Bold Video",
@@ -118,6 +130,7 @@ export default async function BlogPostPage({ params }: Props) {
               alignItems: "center",
               color: "var(--text-dim)",
               display: "flex",
+              flexWrap: "wrap",
               fontFamily: "var(--font-mono-stack)",
               fontSize: "var(--fs-micro)",
               gap: "8px",
@@ -125,9 +138,29 @@ export default async function BlogPostPage({ params }: Props) {
               textTransform: "uppercase",
             }}
           >
-            <span>{post.author}</span>
+            {author ? (
+              <Link
+                href={author.aboutAnchor}
+                style={{ color: "var(--text-dim)" }}
+              >
+                {post.author}
+              </Link>
+            ) : (
+              <span>{post.author}</span>
+            )}
             <span style={{ color: "var(--border-strong)" }}>&middot;</span>
             <time dateTime={post.date}>{formatDate(post.date)}</time>
+            {wasUpdated ? (
+              <>
+                <span style={{ color: "var(--border-strong)" }}>&middot;</span>
+                <span>
+                  Updated{" "}
+                  <time dateTime={dateModified}>
+                    {formatDate(dateModified)}
+                  </time>
+                </span>
+              </>
+            ) : null}
           </div>
           <h1
             style={{
@@ -161,6 +194,80 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         <BlogBody content={post.content} />
+
+        {author ? (
+          <aside
+            aria-label="About the author"
+            style={{
+              alignItems: "flex-start",
+              borderTop: "1px solid var(--border)",
+              display: "flex",
+              gap: "1rem",
+              marginTop: "3rem",
+              paddingTop: "2rem",
+            }}
+          >
+            <Image
+              alt={author.name}
+              height={64}
+              src={author.image}
+              style={{
+                borderRadius: "999px",
+                flexShrink: 0,
+                objectFit: "cover",
+              }}
+              width={64}
+            />
+            <div>
+              <p
+                style={{
+                  fontFamily: "var(--font-mono-stack)",
+                  fontSize: "var(--fs-micro)",
+                  letterSpacing: "var(--tr-eyebrow)",
+                  margin: 0,
+                  textTransform: "uppercase",
+                  color: "var(--text-dim)",
+                }}
+              >
+                Written by
+              </p>
+              <p
+                style={{
+                  color: "var(--text)",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  margin: "4px 0 0",
+                }}
+              >
+                <Link
+                  href={author.aboutAnchor}
+                  style={{ color: "var(--text)" }}
+                >
+                  {author.name}
+                </Link>
+                <span
+                  style={{
+                    color: "var(--text-dim)",
+                    fontWeight: 400,
+                    marginLeft: "0.5rem",
+                  }}
+                >
+                  · {author.role}
+                </span>
+              </p>
+              <p
+                style={{
+                  color: "var(--text-mid)",
+                  fontSize: "14px",
+                  lineHeight: 1.65,
+                  margin: "8px 0 0",
+                }}
+              >
+                {author.bio}
+              </p>
+            </div>
+          </aside>
+        ) : null}
       </article>
 
       <SiteNavFooter />

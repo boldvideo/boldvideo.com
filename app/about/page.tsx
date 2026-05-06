@@ -76,9 +76,16 @@ const TEAM: Person[] = [
   },
 ];
 
+function slugify(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 function PersonCard({ person }: { person: Person }) {
   return (
-    <div className="founder-card">
+    <div className="founder-card" id={slugify(person.name)}>
       <div className="founder-photo">
         <Image src={person.image} alt={person.name} width={400} height={400} />
       </div>

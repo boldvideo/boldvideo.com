@@ -91,6 +91,22 @@ const FAQ_SCHEMA = {
   })),
 };
 
+const HOWTO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to migrate to Bold from Kajabi, Vimeo, Circle, or Teachable",
+  description:
+    "A three-step process where Bold's team handles the platform switch personally, from auditing the existing stack to going live with members.",
+  totalTime: "P14D",
+  step: MIGRATION_STEPS.map((step, index) => ({
+    "@type": "HowToStep",
+    position: index + 1,
+    name: step.title,
+    text: step.description,
+    url: `https://www.boldvideo.com/migrate#step-${step.number}`,
+  })),
+};
+
 export function MigrationPage() {
   const announcementRef = useRef<HTMLElement | null>(null);
 
@@ -119,6 +135,11 @@ export function MigrationPage() {
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(HOWTO_SCHEMA) }}
       />
       <div className="announce">
         <strong ref={announcementRef}>Growing out of Kajabi?</strong>
@@ -166,7 +187,11 @@ export function MigrationPage() {
 
         <div className="migration-steps-grid">
           {MIGRATION_STEPS.map((step) => (
-            <article className="migration-step-card" key={step.number}>
+            <article
+              className="migration-step-card"
+              id={`step-${step.number}`}
+              key={step.number}
+            >
               <div className="migration-step-number">{step.number}</div>
               <h3>{step.title}</h3>
               <p>{step.description}</p>

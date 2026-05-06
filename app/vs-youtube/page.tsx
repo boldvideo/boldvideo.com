@@ -142,6 +142,28 @@ export default function VsYouTubePage() {
         "They are tired of students getting lost in playlists and asking support to find one lesson.",
         "They want product insight from what members ask, not just view counts and retention graphs.",
       ]}
+      faqs={[
+        {
+          question: "Should I move my YouTube content to Bold?",
+          answer:
+            "No — keep YouTube for distribution. Bold is for paying members. Many teams use both: YouTube for top-of-funnel and audience growth, Bold for the private library where retention happens.",
+        },
+        {
+          question: "Can YouTube videos be added to a Bold library?",
+          answer:
+            "Yes. Bold can ingest YouTube videos, including unlisted ones, and add them to your indexed library so members get cited answers across both your YouTube content and any private uploads. Useful when paid programs reference public videos as supplementary material.",
+        },
+        {
+          question: "Why pay for Bold if YouTube is free?",
+          answer:
+            "YouTube is free because it monetizes attention. For paying members, attention is the product — distractions, ads, and competitor recommendations work against retention. Bold gives you a private, ad-free environment built around member outcomes.",
+        },
+        {
+          question: "Does Bold work for YouTube creators who don't sell courses?",
+          answer:
+            "Bold is built for programs with paying members and 50+ hours of content where discoverability matters. If you're a creator monetizing through ads or sponsorships, YouTube is the right home. We'd love to talk when you launch a paid program around the content.",
+        },
+      ]}
     />
   );
 }

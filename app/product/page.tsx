@@ -46,9 +46,51 @@ export const metadata: Metadata = {
   alternates: { canonical: "/product" },
 };
 
+const SOFTWARE_APPLICATION_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Bold",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Video intelligence platform",
+  operatingSystem: "Web",
+  url: "https://www.boldvideo.com/product",
+  description:
+    "Bold is the AI teaching assistant for coaching programs and training academies. It reads every video in a library, understands what was taught, and answers member questions with cited timestamps from the actual lessons.",
+  brand: {
+    "@type": "Brand",
+    name: "Bold Video",
+  },
+  featureList: [
+    "Concept-aware search across the full video library",
+    "Cited answers with clickable timestamps to the source moment",
+    "Per-lesson chat scoped to a single video",
+    "Submitted-work review against your own teaching frameworks",
+    "Branded portal on Next.js + Sanity",
+    "REST API, JavaScript SDK, webhooks, and MCP server",
+    "Built-in integrations for Zoom, Google Drive, OneDrive, and Outseta",
+  ],
+  audience: {
+    "@type": "Audience",
+    audienceType:
+      "Coaching programs, training academies, and clinical or professional education programs with 50+ hours of video content",
+  },
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    url: "https://savvycal.com/marcel-from-bold/7838d613",
+  },
+};
+
 export default function ProductPage() {
   return (
     <div className="landing-v10">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(SOFTWARE_APPLICATION_SCHEMA),
+        }}
+      />
       <div className="announce">
         <strong>Growing out of Kajabi?</strong>
         <div className="sep" />
@@ -63,14 +105,16 @@ export default function ProductPage() {
           <div className="prod-hero-bloom" aria-hidden="true" />
           <div className="container prod-hero-grid">
             <div className="prod-hero-copy">
-              <div className="hero-eyebrow">Product</div>
+              <div className="hero-eyebrow">
+                AI teaching assistant for video libraries
+              </div>
               <h1>
                 Your video library, <em>finally answering questions.</em>
               </h1>
               <p className="hero-sub">
-                <strong>You don&apos;t build anything.</strong> We turn your
-                library into an AI teaching assistant that cites the exact clip
-                every time&nbsp;&mdash; live in weeks.
+                <strong>Bold turns your video library into an AI teaching
+                assistant that cites the exact clip every time.</strong> You
+                don&apos;t build anything&nbsp;&mdash; we make it live in weeks.
               </p>
               <div className="hero-actions">
                 <a
@@ -104,6 +148,13 @@ export default function ProductPage() {
               <p className="prod-fit">
                 For coaching programs and training academies with{" "}
                 <strong>50+ hours of video</strong>.
+              </p>
+              <p className="prod-research">
+                Programs with active discussion see{" "}
+                <strong>65.5% course completion</strong> vs 42.6% without
+                (Ruzuku, 32,000+ courses). Bold scales that level of help
+                across every member, every hour.{" "}
+                <Link href="/blog/implementation-gap">Read more</Link>
               </p>
             </div>
             <div className="prod-hero-visual">

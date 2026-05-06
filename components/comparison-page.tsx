@@ -29,6 +29,8 @@ type AiOrbits = {
   bold: AiOrbit;
 };
 
+export type ComparisonFaq = { question: string; answer: string };
+
 type ComparisonPageProps = {
   eyebrow: string;
   title: string;
@@ -39,6 +41,7 @@ type ComparisonPageProps = {
   competitorSlug?: string;
   quickCompare?: QuickCompareRow[];
   aiOrbits?: AiOrbits;
+  faqs?: ComparisonFaq[];
 };
 
 export function ComparisonPage({
@@ -51,13 +54,36 @@ export function ComparisonPage({
   competitorSlug,
   quickCompare,
   aiOrbits,
+  faqs,
 }: ComparisonPageProps) {
   const competitor = competitorSlug ? getPlatform(competitorSlug) : undefined;
   const competitorName = competitor?.name;
   const stripPlatforms = migrationPlatforms.filter((p) => p.logoReady);
 
+  const faqSchema = faqs && faqs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <main className="landing-v10" id="main-content">
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
       <div className="announce">
         <strong>
           {competitorName ? `Switching from ${competitorName}?` : "Switching platforms?"}
@@ -221,6 +247,36 @@ export function ComparisonPage({
             </div>
           </div>
         </section>
+
+        {faqs && faqs.length > 0 ? (
+          <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+            <div className="grid gap-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
+              <div>
+                <span className="sec-label">Common questions</span>
+                <h2 className="mt-3 max-w-[16ch] text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
+                  {competitorName
+                    ? `What buyers ask about ${competitorName} vs Bold`
+                    : "What buyers ask"}
+                </h2>
+              </div>
+              <dl className="grid gap-3">
+                {faqs.map((faq) => (
+                  <div
+                    className="rounded-2xl border border-[var(--color-line)] bg-white px-6 py-5"
+                    key={faq.question}
+                  >
+                    <dt className="text-base font-semibold leading-7 text-[var(--color-ink)]">
+                      {faq.question}
+                    </dt>
+                    <dd className="mt-2 text-[15px] leading-[1.7] text-[var(--color-copy)]">
+                      {faq.answer}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        ) : null}
 
         <section className="px-4 pb-16 sm:px-6 md:pb-24 lg:px-8">
           <div className="relative mx-auto max-w-[1120px] overflow-hidden rounded-3xl bg-[var(--color-forest)] px-6 py-14 text-center text-white sm:px-8 md:px-12">
