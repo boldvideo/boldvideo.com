@@ -37,9 +37,9 @@ export default function BlogPage() {
         <p
           style={{
             fontFamily: "var(--mono)",
-            fontSize: "12px",
+            fontSize: "var(--fs-micro)",
             textTransform: "uppercase",
-            letterSpacing: "0.1em",
+            letterSpacing: "var(--tr-eyebrow)",
             color: "var(--text-mid)",
             marginBottom: "0.75rem",
           }}
@@ -50,7 +50,7 @@ export default function BlogPage() {
           style={{
             fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
             fontWeight: 800,
-            letterSpacing: "-0.03em",
+            letterSpacing: "var(--tr-display)",
             lineHeight: 1.1,
             color: "var(--text)",
             margin: "0 0 0.75rem",
@@ -60,7 +60,7 @@ export default function BlogPage() {
         </h1>
         <p
           style={{
-            fontSize: "17px",
+            fontSize: "var(--fs-lead)",
             color: "var(--text-mid)",
             maxWidth: "480px",
             lineHeight: 1.75,
@@ -111,9 +111,9 @@ export default function BlogPage() {
                     <span
                       style={{
                         fontFamily: "var(--mono)",
-                        fontSize: "11px",
+                        fontSize: "var(--fs-micro)",
                         textTransform: "uppercase",
-                        letterSpacing: "0.15em",
+                        letterSpacing: "var(--tr-wide)",
                         color: "rgba(255,255,255,0.45)",
                       }}
                     >
@@ -125,24 +125,23 @@ export default function BlogPage() {
               <div className="sc-info">
                 <div
                   style={{
-                    display: "flex",
                     alignItems: "center",
-                    gap: "6px",
-                    fontSize: "12px",
                     color: "var(--text-dim)",
-                    marginBottom: "6px",
+                    display: "flex",
+                    fontFamily: "var(--font-mono-stack)",
+                    fontSize: "var(--fs-micro)",
+                    justifyContent: "space-between",
+                    letterSpacing: "var(--tr-eyebrow)",
+                    marginBottom: "0.75rem",
+                    textTransform: "uppercase",
                   }}
                 >
                   <span>{post.author}</span>
-                  <span style={{ color: "var(--border-strong)" }}>&middot;</span>
                   <time dateTime={post.date}>{formatDate(post.date)}</time>
                 </div>
-                <h4 style={{ fontSize: "1rem", marginBottom: "4px" }}>{post.title}</h4>
+                <h4 style={{ fontSize: "var(--fs-lead)", marginBottom: "4px" }}>{post.title}</h4>
                 <p
                   style={{
-                    fontSize: "13px",
-                    lineHeight: 1.65,
-                    color: "var(--text-mid)",
                     display: "-webkit-box",
                     WebkitLineClamp: 3,
                     WebkitBoxOrient: "vertical",

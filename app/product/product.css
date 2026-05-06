@@ -38,7 +38,7 @@
   max-width: 500px;
 }
 .landing-v10 .prod-diff {
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: var(--text);
   font-weight: 500;
   line-height: 1.55;
@@ -48,11 +48,10 @@
   border-left: 2px solid var(--mint);
 }
 .landing-v10 .prod-fit {
-  font-size: 13px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   margin: 1.25rem 0 0;
   max-width: 460px;
-  letter-spacing: 0.01em;
 }
 .landing-v10 .prod-fit strong {
   color: var(--text);
@@ -63,7 +62,7 @@
   align-items: center;
   gap: 6px;
   color: var(--text-mid);
-  font-size: 14px;
+  font-size: var(--fs-body);
   font-weight: 500;
   text-decoration: none;
   padding: 0 4px;
@@ -153,8 +152,8 @@
   gap: 8px;
   color: rgba(255, 255, 255, 0.95);
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-size: var(--fs-mono-ui);
+  letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   z-index: 2;
@@ -181,7 +180,7 @@
 }
 .landing-v10 .hero-tline {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-mono-ui);
   color: rgba(255, 255, 255, 0.9);
   white-space: nowrap;
 }
@@ -211,9 +210,9 @@
   border: none;
   border-radius: 6px;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: var(--fs-micro);
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--tr-eyebrow);
   text-transform: uppercase;
   white-space: nowrap;
   align-self: flex-start;
@@ -263,13 +262,13 @@
   place-items: center;
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 12px;
+  font-size: var(--fs-micro);
   flex-shrink: 0;
 }
 .landing-v10 .hero-chat-chrome-title {
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: -0.01em;
+  font-size: var(--fs-body);
+  letter-spacing: var(--tr-tight);
   color: #14171a;
   white-space: nowrap;
   overflow: hidden;
@@ -280,8 +279,8 @@
 .landing-v10 .hero-chat-chrome-live {
   margin-left: auto;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
+  font-size: var(--fs-mono-ui);
+  letter-spacing: var(--tr-wide);
   color: var(--mint-dark);
   display: flex;
   align-items: center;
@@ -314,9 +313,8 @@
   padding: 11px 14px;
   border-radius: 10px;
   border-top-right-radius: 2px;
-  font-size: 14px;
+  font-size: var(--fs-body);
   line-height: 1.5;
-  letter-spacing: -0.005em;
   animation: heroOverlayIn 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.55s both;
 }
 .landing-v10 .hero-ai-msg {
@@ -327,8 +325,8 @@
 }
 .landing-v10 .hero-ai-label {
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-size: var(--fs-mono-ui);
+  letter-spacing: var(--tr-wide);
   text-transform: uppercase;
   color: var(--mint-dark);
   display: flex;
@@ -345,10 +343,9 @@
   animation: heroLiveDot 2s ease-in-out infinite;
 }
 .landing-v10 .hero-ai-text {
-  font-size: 14.5px;
+  font-size: var(--fs-body);
   line-height: 1.6;
   color: #14171a;
-  letter-spacing: -0.005em;
 }
 .landing-v10 .hero-ai-text strong {
   font-weight: 700;
@@ -427,7 +424,6 @@
   .landing-v10 .hero-video-label {
     top: 12px;
     left: 14px;
-    font-size: 10px;
   }
   .landing-v10 .hero-video-bottom {
     padding: 0 14px 12px;
@@ -438,9 +434,6 @@
   .landing-v10 .hero-chat-body {
     padding: 18px 16px 16px;
     gap: 14px;
-  }
-  .landing-v10 .hero-ai-text {
-    font-size: 14px;
   }
 }
 
@@ -462,7 +455,7 @@
 
 /* ---------- Shared sub-copy ---------- */
 .landing-v10 .prod-sub {
-  font-size: 16px;
+  font-size: var(--fs-lead);
   color: var(--text-mid);
   line-height: 1.7;
   max-width: 560px;
@@ -470,61 +463,7 @@
 }
 
 /* ---------- Buttons (hero + ghost) ---------- */
-.landing-v10 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: var(--mint);
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
-  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-}
-.landing-v10 .btn-primary:hover {
-  transform: translateY(-1px);
-  background: var(--mint-dark);
-  box-shadow: 0 4px 20px rgba(65, 198, 166, 0.3);
-}
-.landing-v10 .btn-primary:active {
-  transform: scale(0.97);
-}
-.landing-v10 .btn-primary .btn-arrow {
-  transition: transform 0.18s ease;
-}
-.landing-v10 .btn-primary:hover .btn-arrow {
-  transform: translateX(3px);
-}
-.landing-v10 .btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  border: 1px solid var(--border-strong);
-  color: var(--text-mid);
-  font-weight: 600;
-  font-size: 15px;
-  transition: border-color 0.18s ease, color 0.18s ease;
-}
-.landing-v10 .btn-ghost:hover {
-  border-color: var(--text);
-  color: var(--text);
-}
-.landing-v10 .btn-ghost .btn-arrow {
-  transition: transform 0.18s ease;
-}
-.landing-v10 .btn-ghost:hover .btn-arrow {
-  transform: translateX(3px);
-}
-.landing-v10 .btn-ghost-dark {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.85);
-  padding: 12px 22px;
-}
-.landing-v10 .btn-ghost-dark:hover {
-  border-color: var(--mint);
-  color: var(--mint);
-}
+/* .btn-primary, .btn-ghost, .btn-ghost-dark all defined in landing-v10.css */
 
 /* ---------- Scenarios: alternating splits ---------- */
 .landing-v10 .prod-scenarios-wrap {
@@ -539,7 +478,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   align-items: center;
-  padding: 2.5rem 2rem;
+  padding: 3.5rem 2rem;
 }
 .landing-v10 .prod-scene-row-rev .prod-scene-copy {
   order: 2;
@@ -575,10 +514,10 @@
 }
 .landing-v10 .prod-scene-tag {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: var(--mint-text);
 }
 .landing-v10 .prod-scene-row:hover .prod-scene-num {
@@ -591,13 +530,13 @@
 .landing-v10 .prod-scene-copy h3 {
   font-size: clamp(1.5rem, 2.4vw, 1.85rem);
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   line-height: 1.15;
   margin: 0 0 1.25rem;
   max-width: 460px;
 }
 .landing-v10 .prod-scene-copy p {
-  font-size: 15.5px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.75;
   margin: 0;
@@ -657,18 +596,18 @@
   place-items: center;
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 12px;
+  font-size: var(--fs-micro);
 }
 .landing-v10 .illo-chrome-title {
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: -0.01em;
+  font-size: var(--fs-body);
+  letter-spacing: var(--tr-tight);
   color: var(--illo-ink);
 }
 .landing-v10 .illo-chrome-meta {
   margin-left: auto;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-mono-ui);
   color: var(--illo-ink-3);
   display: flex;
   align-items: center;
@@ -703,9 +642,8 @@
   padding: 12px 14px;
   border-radius: 8px;
   border-top-right-radius: 2px;
-  font-size: 14px;
+  font-size: var(--fs-body);
   line-height: 1.5;
-  letter-spacing: -0.005em;
 }
 .landing-v10 .illo-user-stack {
   margin-top: 8px;
@@ -717,8 +655,8 @@
 }
 .landing-v10 .illo-ai-sender {
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-size: var(--fs-mono-ui);
+  letter-spacing: var(--tr-wide);
   text-transform: uppercase;
   color: var(--mint-dark);
   display: flex;
@@ -735,10 +673,9 @@
   outline: 1px solid var(--mint);
 }
 .landing-v10 .illo-ai-text {
-  font-size: 14.5px;
+  font-size: var(--fs-body);
   line-height: 1.6;
   color: var(--illo-ink);
-  letter-spacing: -0.005em;
 }
 .landing-v10 .illo-ai-text strong {
   color: var(--illo-ink);
@@ -762,7 +699,7 @@
 }
 .landing-v10 .illo-chip {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-mono-ui);
   color: var(--illo-ink-2);
   padding: 3px 8px;
   border-radius: 6px;
@@ -807,7 +744,7 @@
   left: 8px;
   bottom: 8px;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: var(--fs-mono-ui);
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 2px 6px;
@@ -840,12 +777,11 @@
 .landing-v10 .illo-cite-ttl {
   color: var(--illo-ink);
   font-weight: 500;
-  letter-spacing: -0.005em;
-  font-size: 13px;
+  font-size: var(--fs-micro);
 }
 .landing-v10 .illo-cite-sub {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: var(--fs-mono-ui);
   color: var(--illo-ink-3);
   white-space: nowrap;
   overflow: hidden;
@@ -864,7 +800,7 @@
 .landing-v10 .illo-input-field {
   flex: 1;
   color: var(--illo-ink-3);
-  font-size: 13.5px;
+  font-size: var(--fs-micro);
 }
 .landing-v10 .illo-input-cur {
   display: inline-block;
@@ -946,7 +882,7 @@
 .landing-v10 .illo-player-time {
   flex: 1;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-mono-ui);
   color: rgba(255, 255, 255, 0.85);
 }
 .landing-v10 .illo-player-cc {
@@ -958,7 +894,7 @@
   backdrop-filter: blur(6px);
   padding: 8px 12px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: var(--fs-micro);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.08);
   max-width: 78%;
@@ -986,7 +922,7 @@
   background: var(--illo-card);
   border: 1px solid var(--illo-hair);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-mono-ui);
   color: var(--mint-dark);
   display: flex;
   align-items: flex-end;
@@ -1014,13 +950,13 @@
   gap: 2px;
 }
 .landing-v10 .illo-attach-name {
-  font-size: 13px;
+  font-size: var(--fs-micro);
   font-weight: 500;
   color: var(--illo-ink);
 }
 .landing-v10 .illo-attach-size {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-mono-ui);
   color: var(--illo-ink-3);
 }
 .landing-v10 .illo-attach-findings {
@@ -1042,7 +978,7 @@
 }
 .landing-v10 .illo-search-q {
   flex: 1;
-  font-size: 15px;
+  font-size: var(--fs-body);
   color: var(--illo-ink);
 }
 .landing-v10 .illo-search-match {
@@ -1053,7 +989,7 @@
 }
 .landing-v10 .illo-search-kbd {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-mono-ui);
   color: var(--illo-ink-3);
   border: 1px solid var(--illo-hair);
   padding: 2px 6px;
@@ -1090,7 +1026,7 @@
   bottom: 4px;
   right: 4px;
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: var(--fs-mono-ui);
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 1px 4px;
@@ -1098,13 +1034,12 @@
 }
 .landing-v10 .illo-result h5 {
   margin: 0 0 4px;
-  font-size: 14px;
+  font-size: var(--fs-body);
   font-weight: 600;
   color: var(--illo-ink);
-  letter-spacing: -0.005em;
 }
 .landing-v10 .illo-result-snip {
-  font-size: 12.5px;
+  font-size: var(--fs-micro);
   color: var(--illo-ink-2);
   line-height: 1.45;
 }
@@ -1117,7 +1052,7 @@
 }
 .landing-v10 .illo-result-score {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: var(--fs-mono-ui);
   color: var(--illo-ink-3);
 }
 
@@ -1333,10 +1268,10 @@
 }
 .landing-v10 .prod-why-tag {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: var(--mint-text);
 }
 .landing-v10 .prod-why-item:hover .prod-why-num {
@@ -1352,13 +1287,13 @@
 .landing-v10 .prod-why-body h3 {
   font-size: clamp(1.5rem, 2.4vw, 1.85rem);
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--tr-heading);
   line-height: 1.15;
   margin: 0 0 1rem;
   max-width: 540px;
 }
 .landing-v10 .prod-why-body p {
-  font-size: 16px;
+  font-size: var(--fs-lead);
   color: var(--text-mid);
   line-height: 1.75;
   margin: 0;
@@ -1390,7 +1325,7 @@
 .landing-v10 .prod-ambient-quote {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tr-display);
   line-height: 1.1;
   margin: 1rem 0 1rem;
   max-width: 760px;
@@ -1408,7 +1343,7 @@
   -webkit-box-decoration-break: clone;
 }
 .landing-v10 .prod-ambient-sub {
-  font-size: 17px;
+  font-size: var(--fs-lead);
   color: var(--text-mid);
   line-height: 1.65;
   max-width: 620px;
@@ -1445,13 +1380,13 @@
   color: var(--mint);
 }
 .landing-v10 .prod-surface h3 {
-  font-size: 14.5px;
+  font-size: var(--fs-body);
   font-weight: 700;
   margin: 0 0 0.4rem;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
 }
 .landing-v10 .prod-surface p {
-  font-size: 13.5px;
+  font-size: var(--fs-body);
   line-height: 1.65;
   color: var(--text-mid);
   margin: 0;
@@ -1464,24 +1399,24 @@
   gap: 3rem;
   align-items: center;
   padding: 3rem;
-  background: #0b0b0b;
+  background: var(--bg-dark);
   color: white;
 }
 .landing-v10 .prod-dev-label {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tr-wide);
   color: rgba(255, 255, 255, 0.45);
   margin-bottom: 0.75rem;
 }
 .landing-v10 .prod-ambient-code .dev-code {
-  background: #151515;
+  background: var(--bg-dark);
   border: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: var(--fs-mono-ui);
   line-height: 1.7;
 }
 .landing-v10 .dev-code-bar {
@@ -1500,7 +1435,7 @@
 }
 .landing-v10 .dev-code-file {
   margin-left: auto;
-  font-size: 11px;
+  font-size: var(--fs-mono-ui);
   color: rgba(255, 255, 255, 0.25);
 }
 .landing-v10 .dev-code pre {
@@ -1523,15 +1458,15 @@
 }
 .landing-v10 .prod-tech-line {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--fs-micro);
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.7;
   margin: 0 0 1rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tr-eyebrow);
 }
 .landing-v10 .prod-tech-integrations {
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin: 0 0 1.5rem;
@@ -1627,14 +1562,14 @@
   transform: rotate(-4deg) scale(1.05);
 }
 .landing-v10 .prod-int-name {
-  font-size: 15px;
+  font-size: var(--fs-body);
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--tr-tight);
   color: var(--text);
   margin-bottom: 0.4rem;
 }
 .landing-v10 .prod-int-card p {
-  font-size: 13.5px;
+  font-size: var(--fs-body);
   line-height: 1.65;
   color: var(--text-mid);
   margin: 0;
@@ -1642,7 +1577,7 @@
 
 .landing-v10 .prod-int-foot {
   margin-top: 2.5rem;
-  font-size: 14px;
+  font-size: var(--fs-body);
   color: var(--text-mid);
   line-height: 1.7;
 }
@@ -1710,7 +1645,6 @@
     max-width: 100%;
   }
   .landing-v10 .dev-code pre {
-    font-size: 11.5px;
     padding: 16px;
   }
   .landing-v10 .prod-tech-line {
@@ -1728,7 +1662,7 @@
     flex-direction: column;
     align-items: stretch;
   }
-  .landing-v10 .btn-primary,
+  .landing-v10 .btn-mint,
   .landing-v10 .btn-ghost {
     justify-content: center;
   }
@@ -1742,8 +1676,8 @@
   .landing-v10 .prod-surface:hover,
   .landing-v10 .prod-int-card:hover,
   .landing-v10 .prod-int-card:hover .prod-int-logo,
-  .landing-v10 .btn-primary:hover,
-  .landing-v10 .btn-primary:hover .btn-arrow,
+  .landing-v10 .btn-mint:hover,
+  .landing-v10 .btn-mint:hover .btn-arrow,
   .landing-v10 .btn-ghost:hover .btn-arrow {
     transform: none;
   }
@@ -1788,10 +1722,10 @@
 }
 .landing-v10 .prod-clients-label {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: var(--fs-micro);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tr-wide);
   color: var(--text-mid);
   text-align: center;
   margin-bottom: 2rem;
@@ -1916,17 +1850,14 @@
 .landing-v10 .prod-inline-cta p {
   font-size: clamp(1.1rem, 1.5vw, 1.35rem);
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--tr-tight);
   color: var(--text);
   margin: 0;
 }
 
 /* Radius unification — product page */
 
-/* Primary + secondary CTAs → pills */
-.landing-v10 .btn-primary,
-.landing-v10 .btn-ghost,
-.landing-v10 .btn-ghost-dark,
+/* Pills handled in landing-v10.css; .hero-soft-cta is product-only */
 .landing-v10 .hero-soft-cta {
   border-radius: 9999px;
 }

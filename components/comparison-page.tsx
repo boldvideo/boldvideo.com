@@ -75,7 +75,7 @@ export function ComparisonPage({
 
       <SiteNav />
       <div className="flex-1">
-        <section className="mx-auto max-w-[1200px] px-4 pb-16 pt-[9.75rem] sm:px-6 md:pb-24 md:pt-[12rem] lg:px-8">
+        <section className="mx-auto max-w-[1120px] px-4 pb-16 pt-[9.75rem] sm:px-6 md:pb-24 md:pt-[12rem] lg:px-8">
           {competitor ? (
             <div className="mb-10 flex items-center gap-5 text-[var(--color-ink)]">
               <img
@@ -87,7 +87,7 @@ export function ComparisonPage({
               />
               <span
                 aria-hidden
-                className="font-mono text-[0.75rem] uppercase tracking-[0.24em] text-[var(--color-muted)]"
+                className="font-mono text-[12px] uppercase tracking-[0.1em] text-[var(--color-muted)]"
               >
                 vs
               </span>
@@ -103,22 +103,20 @@ export function ComparisonPage({
 
           <div className="grid gap-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
             <div className="space-y-6">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.24em] text-[var(--color-signal-ink)]">
-                {eyebrow}
-              </p>
-              <h1 className="max-w-[11ch] text-balance text-[clamp(3rem,6vw,5.6rem)] font-semibold leading-[0.9] tracking-[-0.06em] text-[var(--color-ink)]">
+              <span className="hero-eyebrow">{eyebrow}</span>
+              <h1 className="max-w-[16ch] text-balance text-[clamp(2.4rem,4.2vw,3.4rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-[var(--color-ink)]">
                 {title}
               </h1>
-              <p className="max-w-[34rem] text-lg leading-8 text-[var(--color-copy)]">
+              <p className="max-w-[34rem] text-[17px] leading-[1.75] text-[var(--color-copy)]">
                 {description}
               </p>
             </div>
 
-            <div className="rounded-[2.25rem] border border-[var(--color-line)] bg-white/76 p-8 shadow-[var(--shadow-panel)]">
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.2em] text-[var(--color-muted)]">
+            <div className="rounded-2xl border border-[var(--color-line)] bg-white p-8">
+              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-muted)]">
                 Our take
               </p>
-              <div className="mt-4 space-y-5 text-base leading-8 text-[var(--color-copy)]">
+              <div className="mt-4 space-y-5 text-base leading-[1.75] text-[var(--color-copy)]">
                 {perspective}
               </div>
             </div>
@@ -126,15 +124,13 @@ export function ComparisonPage({
         </section>
 
         {aiOrbits ? (
-          <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+          <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
             <div className="mb-12 max-w-[40rem]">
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Where the AI is pointed
-              </p>
-              <h2 className="mt-4 text-balance text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-ink)]">
+              <span className="sec-label">Where the AI is pointed</span>
+              <h2 className="mt-3 text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
                 Same tech. Different center of gravity.
               </h2>
-              <p className="mt-5 max-w-[34rem] text-base leading-8 text-[var(--color-copy)]">
+              <p className="mt-5 max-w-[34rem] text-base leading-[1.75] text-[var(--color-copy)]">
                 Both platforms ship AI features. The question is who they were
                 built to help.
               </p>
@@ -157,25 +153,23 @@ export function ComparisonPage({
         ) : null}
 
         {quickCompare && quickCompare.length > 0 ? (
-          <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+          <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
             <div className="mb-8">
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                At a glance
-              </p>
-              <h2 className="mt-4 max-w-[18ch] text-balance text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-ink)]">
+              <span className="sec-label">At a glance</span>
+              <h2 className="mt-3 max-w-[18ch] text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
                 The quick read
               </h2>
             </div>
 
-            <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-line)] shadow-[var(--shadow-panel)]">
+            <div className="overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)]">
               <div className="grid grid-cols-[1.4fr_0.7fr_0.7fr] gap-px bg-[var(--color-line)]">
-                <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-muted)]">
                   Feature
                 </div>
-                <div className="bg-[var(--color-surface)] px-5 py-4 text-center font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                <div className="bg-[var(--color-surface)] px-5 py-4 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-muted)]">
                   {competitorName ?? "Competitor"}
                 </div>
-                <div className="bg-[var(--color-surface)] px-5 py-4 text-center font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+                <div className="bg-[var(--color-surface)] px-5 py-4 text-center font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-muted)]">
                   Bold
                 </div>
 
@@ -187,20 +181,18 @@ export function ComparisonPage({
           </section>
         ) : null}
 
-        <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+        <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="grid gap-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
             <div>
-              <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-                Why teams switch
-              </p>
-              <h2 className="mt-4 max-w-[12ch] text-balance text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-ink)]">
+              <span className="sec-label">Why teams switch</span>
+              <h2 className="mt-3 max-w-[16ch] text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
                 Better for a learning product, not just video storage
               </h2>
             </div>
             <div className="grid gap-3">
               {whyTeamsSwitch.map((reason) => (
                 <div
-                  className="rounded-[1.6rem] border border-[var(--color-line)] bg-white/76 px-5 py-4 text-sm leading-7 text-[var(--color-copy)] shadow-[var(--shadow-soft)]"
+                  className="rounded-2xl border border-[var(--color-line)] bg-white px-5 py-4 text-sm leading-7 text-[var(--color-copy)]"
                   key={reason}
                 >
                   {reason}
@@ -210,25 +202,23 @@ export function ComparisonPage({
           </div>
         </section>
 
-        <section className="mx-auto max-w-[1200px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+        <section className="mx-auto max-w-[1120px] border-t border-[var(--color-line)] px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="mb-8">
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
-              Side-by-side
-            </p>
-            <h2 className="mt-4 max-w-[12ch] text-balance text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-ink)]">
+            <span className="sec-label">Side-by-side</span>
+            <h2 className="mt-3 max-w-[20ch] text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
               What actually changes when Bold is the system of record
             </h2>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-[var(--color-line)] bg-[var(--color-line)] shadow-[var(--shadow-panel)]">
+          <div className="overflow-hidden rounded-2xl border border-[var(--color-line)] bg-[var(--color-line)]">
             <div className="grid grid-cols-[0.72fr_1fr_1fr] gap-px bg-[var(--color-line)]">
-              <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+              <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-muted)]">
                 Category
               </div>
-              <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+              <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-muted)]">
                 {competitorName ?? "Competitor"}
               </div>
-              <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[0.68rem] uppercase tracking-[0.24em] text-[var(--color-muted)]">
+              <div className="bg-[var(--color-surface)] px-5 py-4 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--color-muted)]">
                 Bold
               </div>
 
@@ -240,7 +230,7 @@ export function ComparisonPage({
         </section>
 
         <section className="px-4 pb-16 sm:px-6 md:pb-24 lg:px-8">
-          <div className="relative mx-auto max-w-[1200px] overflow-hidden rounded-[2.5rem] border border-[var(--color-line)] bg-[var(--color-ink)] px-6 py-14 text-center text-[var(--color-cream)] shadow-[0_32px_100px_-60px_rgba(19,15,11,0.8)] sm:px-8 md:px-12">
+          <div className="relative mx-auto max-w-[1120px] overflow-hidden rounded-3xl bg-[var(--color-forest)] px-6 py-14 text-center text-white sm:px-8 md:px-12">
             <CtaGlow className="pointer-events-none absolute inset-0 h-full w-full" />
             <div className="relative z-10">
             <div className="mb-6 flex justify-center">
@@ -257,7 +247,7 @@ export function ComparisonPage({
                   >
                     <img
                       alt={person.alt}
-                      className="h-11 w-11 rounded-full border-[2.5px] border-[var(--color-ink)] object-cover"
+                      className="h-11 w-11 rounded-full border-[2.5px] border-[var(--color-forest)] object-cover"
                       height={44}
                       src={person.src}
                       width={44}
@@ -266,22 +256,22 @@ export function ComparisonPage({
                 ))}
               </ul>
             </div>
-            <p className="font-mono text-[0.72rem] uppercase tracking-[0.24em] text-white/60">
+            <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/60">
               We handle the move
             </p>
-            <h2 className="mt-4 text-balance text-[clamp(2rem,4vw,3.75rem)] font-semibold leading-[0.94] tracking-[-0.05em]">
+            <h2 className="mt-3 text-balance text-[clamp(1.8rem,3.2vw,2.6rem)] font-extrabold leading-[1.15] tracking-[-0.025em]">
               {competitorName
                 ? `Migrating from ${competitorName}? We'll do it with you.`
                 : "Switching platforms? We'll do it with you."}
             </h2>
-            <p className="mx-auto mt-4 max-w-[36rem] text-base leading-8 text-white/66">
+            <p className="mx-auto mt-4 max-w-[36rem] text-base leading-[1.75] text-white/70">
               We move your videos, your members, and your structure personally —
               start to finish. You land somewhere built for the work, not just
               for hosting it.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
               <Link
-                className="inline-flex items-center justify-center rounded-full bg-[var(--color-signal)] px-6 py-3.5 text-sm font-semibold text-[var(--color-forest)] transition-transform duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-ink)]"
+                className="btn-mint"
                 href="/migrate"
               >
                 {competitorName
@@ -289,7 +279,7 @@ export function ComparisonPage({
                   : "See how we handle the move"}
               </Link>
               <Link
-                className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/6 px-6 py-3.5 text-sm font-medium text-[var(--color-cream)] transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-ink)]"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/10"
                 href="mailto:support@boldvideo.com?subject=Bold%20comparison"
               >
                 Talk to the team
@@ -297,7 +287,7 @@ export function ComparisonPage({
             </div>
 
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-mono text-[0.68rem] uppercase tracking-[0.24em] text-white/50">
+              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/50">
                 Bold migrates from
               </p>
               <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
@@ -360,11 +350,9 @@ function OrbitDiagram({
 
   const ringColor = isSignal
     ? "var(--color-signal-strong)"
-    : "rgba(19,15,11,0.18)";
-  const centerBg = isSignal ? "var(--color-signal)" : "var(--color-ink)";
-  const centerColor = isSignal
-    ? "var(--color-forest)"
-    : "var(--color-cream)";
+    : "var(--color-line-strong)";
+  const centerBg = isSignal ? "var(--color-signal)" : "var(--color-forest)";
+  const centerColor = isSignal ? "#ffffff" : "#ffffff";
   const chipBorder = isSignal
     ? "var(--color-signal-strong)"
     : "var(--color-line-strong)";
@@ -410,7 +398,7 @@ function OrbitDiagram({
       >
         <span
           className="font-mono text-[0.6rem] uppercase opacity-70"
-          style={{ letterSpacing: "0.24em" }}
+          style={{ letterSpacing: "var(--tr-wide)" }}
         >
           {sublabel}
         </span>
@@ -433,7 +421,7 @@ function OrbitDiagram({
             border: `1px solid ${chipBorder}`,
             background: chipBg,
             color: chipColor,
-            letterSpacing: "0.12em",
+            letterSpacing: "var(--tr-eyebrow)",
             whiteSpace: "nowrap",
           }}
         >

@@ -1,3 +1,4 @@
+import { ArrowIcon } from "./arrow-icon";
 import { CtaGlow } from "./cta-glow";
 
 const BOOKING_URL = "https://savvycal.com/marcel-from-bold/7838d613";
@@ -28,15 +29,7 @@ export function CtaSection({
           target="_blank"
         >
           {buttonText}
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path
-              d="M5 2l5 5-5 5"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="1.5"
-            />
-          </svg>
+          <ArrowIcon />
         </a>
       </div>
     </section>

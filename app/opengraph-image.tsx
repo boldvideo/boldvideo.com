@@ -14,8 +14,8 @@ export default function OpenGraphImage() {
     <div
       style={{
         background:
-          "radial-gradient(circle at top left, rgba(67,198,166,0.24), transparent 32%), radial-gradient(circle at 80% 10%, rgba(20,92,255,0.18), transparent 28%), linear-gradient(180deg, #fdfaf3 0%, #f8f1e8 100%)",
-        color: "#151515",
+          "radial-gradient(circle at top left, rgba(65,198,166,0.18), transparent 36%), #fdfcfa",
+        color: "#111",
         display: "flex",
         flexDirection: "column",
         height: "100%",
@@ -28,7 +28,7 @@ export default function OpenGraphImage() {
         viewBox="0 0 2446 670"
         width="200"
         height="55"
-        fill="#43c6a6"
+        fill="#41c6a6"
       >
         <path d="M0,670 L0,21.1947287 L326.398821,21.1947287 C467.343767,21.1947287 527.748744,95.376279 527.748744,185.453876 C527.748744,256.456217 505.494279,310.502775 458.865876,345.474077 C537.286372,366.668806 575.436883,440.850356 575.436883,527.748744 C575.436883,578.439587 564.798901,630.120011 529.896194,670 L0,670 Z" />
         <path d="M1139.30733,670 L679.041861,670 C614.793443,602.542428 577.585794,499.840245 577.585794,366.668806 C577.585794,143.064418 719.590476,0 911.40277,0 C1106.39427,0 1240.9808,143.064418 1240.9808,366.668806 C1240.9808,499.840245 1203.1872,602.542428 1139.30733,670 Z" />
@@ -46,9 +46,9 @@ export default function OpenGraphImage() {
       >
         <div
           style={{
-            color: "#187963",
-            fontSize: 24,
-            letterSpacing: "0.24em",
+            color: "#555",
+            fontSize: 22,
+            letterSpacing: "0.1em",
             textTransform: "uppercase",
           }}
         >
@@ -56,19 +56,19 @@ export default function OpenGraphImage() {
         </div>
         <div
           style={{
-            fontSize: 76,
-            fontWeight: 700,
-            letterSpacing: "-0.06em",
-            lineHeight: 0.94,
+            fontSize: 88,
+            fontWeight: 800,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
           }}
         >
           Your video library, finally searchable
         </div>
         <div
           style={{
-            color: "#5f564d",
+            color: "#555",
             fontSize: 30,
-            lineHeight: 1.4,
+            lineHeight: 1.5,
             maxWidth: "840px",
           }}
         >
@@ -92,13 +92,13 @@ export default function OpenGraphImage() {
           <div
             key={item}
             style={{
-              background: "rgba(255,255,255,0.72)",
-              border: "1px solid rgba(19,15,11,0.08)",
+              background: "#ffffff",
+              border: "1px solid rgba(0,0,0,0.07)",
               borderRadius: "999px",
-              color: "#5f564d",
+              color: "#555",
               fontSize: 18,
-              letterSpacing: "0.14em",
-              padding: "16px 24px",
+              letterSpacing: "0.1em",
+              padding: "14px 22px",
               textTransform: "uppercase",
             }}
           >

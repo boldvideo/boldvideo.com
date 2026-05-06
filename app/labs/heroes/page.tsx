@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { ArrowIcon } from "@/components/arrow-icon";
 import "@/components/landing-v10.css";
 
 export const metadata: Metadata = {
@@ -189,15 +190,7 @@ export default function HeroVariantsLab() {
                   target="_blank"
                 >
                   Book a demo
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path
-                      d="M5 2l5 5-5 5"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
+                  <ArrowIcon />
                 </a>
               </div>
             </div>

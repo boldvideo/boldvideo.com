@@ -1,15 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { announcementMessages } from "@/lib/site-content";
+import { ArrowIcon } from "./arrow-icon";
 import { CtaSection } from "./cta-section";
 import { SiteNav, SiteNavFooter } from "./site-nav";
 import "./landing-v10.css";
-
-const ANNOUNCEMENT_MESSAGES = [
-  "Growing out of Kajabi?",
-  "Outgrowing Circle?",
-  "Scaling past Teachable?",
-];
 
 const CUSTOMER_SCENARIOS = [
   {
@@ -176,10 +172,10 @@ export function HomePage() {
       let announcementIndex = 0;
       const announcementInterval = window.setInterval(() => {
         announcementIndex =
-          (announcementIndex + 1) % ANNOUNCEMENT_MESSAGES.length;
+          (announcementIndex + 1) % announcementMessages.length;
         announcement.style.opacity = "0";
         window.setTimeout(() => {
-          announcement.textContent = ANNOUNCEMENT_MESSAGES[announcementIndex];
+          announcement.textContent = announcementMessages[announcementIndex];
           announcement.style.opacity = "1";
         }, 300);
       }, 4000);
@@ -246,6 +242,8 @@ export function HomePage() {
 
           const tag = document.createElement("div");
           tag.className = "ctag";
+          tag.dataset.tooltip =
+            "A beginner asking this same question gets a simpler, step-by-step answer";
           tag.innerHTML =
             '<svg width="8" height="8" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/></svg> ' +
             step.x;
@@ -375,6 +373,8 @@ export function HomePage() {
 
           const tag = document.createElement("div");
           tag.className = "ctag";
+          tag.dataset.tooltip =
+            "A beginner asking this same question gets a simpler, step-by-step answer";
           tag.innerHTML =
             '<svg width="8" height="8" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1"/><circle cx="5" cy="5" r="1.5" fill="currentColor"/></svg> visitor · exploring Bold';
 
@@ -509,15 +509,7 @@ export function HomePage() {
               target="_blank"
             >
               Book a demo
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path
-                  d="M5 2l5 5-5 5"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                />
-              </svg>
+              <ArrowIcon />
             </a>
           </div>
         </div>
@@ -664,15 +656,7 @@ export function HomePage() {
               aria-label="Ask a question"
             />
             <button type="button" aria-label="Send message">
-              <svg viewBox="0 0 14 14" fill="none">
-                <path
-                  d="M2 7h10M8 3l4 4-4 4"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                />
-              </svg>
+              <ArrowIcon variant="long" />
             </button>
           </div>
         </div>
@@ -728,15 +712,7 @@ export function HomePage() {
                 target="_blank"
               >
                 Book a demo
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path
-                    d="M5 2l5 5-5 5"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                  />
-                </svg>
+                <ArrowIcon />
               </a>
             </div>
             <div className="cs-photo">
