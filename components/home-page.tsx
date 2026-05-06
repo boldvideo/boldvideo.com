@@ -873,7 +873,23 @@ export function HomePage() {
       </section>
 
       {/* 7. Final CTA */}
-      <CtaSection />
+      <CtaSection
+        avatars={[
+          { src: "/images/marcel.jpg", alt: "Marcel" },
+          { src: "/images/monika.jpg", alt: "Monika" },
+          { src: "/images/rob.jpg", alt: "Rob" },
+        ]}
+        eyebrow="We handle the move"
+        buttonText="See how we handle the move"
+        buttonHref="/migrate"
+        buttonExternal={false}
+        secondaryButton={{
+          text: "Book a demo",
+          href: "https://savvycal.com/marcel-from-bold/7838d613",
+          external: true,
+        }}
+        migrationStrip
+      />
 
       {/* Footer */}
       <SiteNavFooter />

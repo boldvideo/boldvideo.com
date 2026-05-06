@@ -2,12 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CtaGlow } from "./cta-glow";
 import { SiteNav, SiteNavFooter } from "./site-nav";
-import {
-  boldLogo,
-  getPlatform,
-  migrationPlatforms,
-  tileToLength,
-} from "@/lib/platforms";
+import { boldLogo, getPlatform, migrationPlatforms } from "@/lib/platforms";
 import "./landing-v10.css";
 
 type ComparisonCell = { title: string; detail?: string };
@@ -58,10 +53,7 @@ export function ComparisonPage({
 }: ComparisonPageProps) {
   const competitor = competitorSlug ? getPlatform(competitorSlug) : undefined;
   const competitorName = competitor?.name;
-  const stripPlatforms = tileToLength(
-    migrationPlatforms.filter((p) => p.logoReady),
-    6,
-  );
+  const stripPlatforms = migrationPlatforms.filter((p) => p.logoReady);
 
   return (
     <main className="landing-v10" id="main-content">
@@ -157,7 +149,7 @@ export function ComparisonPage({
             <div className="mb-8">
               <span className="sec-label">At a glance</span>
               <h2 className="mt-3 max-w-[18ch] text-balance text-[clamp(1.8rem,3.2vw,2.5rem)] font-extrabold leading-[1.15] tracking-[-0.025em] text-[var(--color-ink)]">
-                The quick read
+                The quick read vs {competitorName ?? "the competitor"}
               </h2>
             </div>
 
@@ -256,7 +248,7 @@ export function ComparisonPage({
                 ))}
               </ul>
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/60">
+            <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-white/60">
               We handle the move
             </p>
             <h2 className="mt-3 text-balance text-[clamp(1.8rem,3.2vw,2.6rem)] font-extrabold leading-[1.15] tracking-[-0.025em]">
@@ -278,16 +270,18 @@ export function ComparisonPage({
                   ? `See how we migrate from ${competitorName}`
                   : "See how we handle the move"}
               </Link>
-              <Link
+              <a
                 className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-white/10"
-                href="mailto:support@boldvideo.com?subject=Bold%20comparison"
+                href="https://savvycal.com/marcel-from-bold/7838d613"
+                rel="noreferrer"
+                target="_blank"
               >
-                Talk to the team
-              </Link>
+                Book a demo
+              </a>
             </div>
 
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-white/50">
+              <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-white/50">
                 Bold migrates from
               </p>
               <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
@@ -295,14 +289,15 @@ export function ComparisonPage({
                   <li key={`${platform.slug}-${i}`}>
                     <img
                       alt={`${platform.name} logo`}
-                      className="h-6 w-auto opacity-70"
+                      className="w-auto opacity-70"
                       height={28}
                       src={platform.flatLogoSrc ?? platform.logoSrc}
-                      style={
-                        platform.flatMaxWidth
+                      style={{
+                        height: `calc(24px * var(--logo-scale-${platform.opticalSize ?? "md"}, 1))`,
+                        ...(platform.flatMaxWidth
                           ? { maxWidth: platform.flatMaxWidth }
-                          : undefined
-                      }
+                          : {}),
+                      }}
                       width={120}
                     />
                   </li>

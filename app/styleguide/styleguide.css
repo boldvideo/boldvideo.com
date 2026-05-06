@@ -9,8 +9,10 @@
 
 /* Top sticky toc */
 .sg-toc {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
@@ -41,11 +43,45 @@
   color: #111;
 }
 
+/* Scheme switcher in the sticky toc */
+.sg-scheme-switch {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.sg-scheme-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #555;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: var(--fs-micro);
+  line-height: 1;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+.sg-scheme-btn:hover { color: #111; }
+.sg-scheme-btn[data-active] {
+  background: #111;
+  color: #fff;
+}
+.sg-scheme-btn:focus-visible {
+  outline: 2px solid var(--mint, #41c6a6);
+  outline-offset: 2px;
+}
+
 /* Page container */
 .sg-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 4rem 32px 0;
+  padding: 6rem 32px 0;
 }
 
 /* Section block */
@@ -472,10 +508,286 @@
 
 .sg-spacer { height: 12px; }
 
+/* PLATFORM LOGOS */
+.sg-logo-block { margin: 28px 0 56px; }
+.sg-logo-block > .sg-h3 { margin-bottom: 16px; }
+
+.sg-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sg-logo-tile {
+  position: relative;
+  margin: 0;
+  padding: 80px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.sg-logo-tile.sg-bg-white { background: #ffffff; color: #111; }
+.sg-logo-tile.sg-bg-black { background: #000000; color: #fff; }
+.sg-logo-tile.sg-bg-migrate { color: #fff; }
+
+.sg-logo-bounds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  outline: 1px dashed rgba(127, 127, 127, 0.55);
+  outline-offset: 0;
+}
+.sg-bg-white .sg-logo-bounds { outline-color: rgba(0, 0, 0, 0.28); }
+.sg-bg-black .sg-logo-bounds { outline-color: rgba(255, 255, 255, 0.32); }
+.sg-bg-migrate .sg-logo-bounds { outline: none; }
+
+/* Wordmarks (standard + flat) → fill width, auto height */
+.sg-variant-default .sg-logo-bounds,
+.sg-variant-flat .sg-logo-bounds {
+  width: 100%;
+}
+.sg-variant-default .sg-logo-bounds img,
+.sg-variant-flat .sg-logo-bounds img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+/* Marks → normalize on height, auto width */
+.sg-variant-mark .sg-logo-bounds {
+  display: inline-flex;
+}
+.sg-variant-mark .sg-logo-bounds img {
+  display: block;
+  height: 100px;
+  width: auto;
+}
+
+.sg-logo-empty {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.45;
+}
+
+.sg-logo-tile figcaption {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+.sg-logo-cap-name {
+  text-transform: lowercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.sg-logo-cap-bg { text-transform: uppercase; letter-spacing: 0.1em; }
+
+.sg-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: currentColor;
+  opacity: 0.45;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.15s, color 0.15s, background-color 0.15s;
+}
+.sg-copy-btn:hover { opacity: 0.85; }
+.sg-copy-btn:focus-visible { outline: 1px solid currentColor; outline-offset: 1px; opacity: 0.85; }
+.sg-copy-btn[data-copied] {
+  opacity: 1;
+  color: var(--mint, #41c6a6);
+}
+
+/* Cloud + strip logos sit at 80% by default, lift to 100% on hover. Scoped to
+   strip/cloud only — variants tiles keep full fidelity for asset reference. */
+.sg-logo-cloud .sg-logo-bounds,
+.sg-logo-strip .sg-logo-bounds {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.sg-logo-cloud .sg-logo-bounds:hover,
+.sg-logo-strip .sg-logo-bounds:hover {
+  opacity: 1;
+}
+
+/* Logo cloud — all flats wrapping at generous spacing */
+.sg-logo-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 80px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.sg-logo-cloud + .sg-logo-cloud { margin-bottom: 0; }
+.sg-logo-cloud.sg-bg-white { background: #ffffff; }
+.sg-logo-cloud.sg-bg-black { background: #000000; }
+.sg-logo-cloud.sg-bg-migrate { background: var(--sg-migrate-bg, #0b0b0b); background-image: var(--sg-migrate-glow); }
+
+.sg-cloud-bounds { flex: 0 0 auto; }
+.sg-cloud-bounds img {
+  display: block;
+  height: 56px;
+  width: auto;
+  max-width: 180px;
+}
+
+/* Logo strip — every logo on a single line, shrinks to fit */
+.sg-logo-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 64px 56px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.sg-logo-strip + .sg-logo-strip { margin-bottom: 0; }
+.sg-logo-strip.sg-bg-white { background: #ffffff; }
+.sg-logo-strip.sg-bg-black { background: #000000; }
+.sg-logo-strip.sg-bg-migrate { background: var(--sg-migrate-bg, #0b0b0b); background-image: var(--sg-migrate-glow); }
+
+.sg-strip-bounds {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sg-strip-bounds img {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Optical scale tokens — three buckets keep the per-logo decision discrete */
+.styleguide {
+  --logo-scale-sm: 0.85;
+  --logo-scale-md: 1;
+  --logo-scale-lg: 1.15;
+
+  /* Static approximation of the WebGL migration band glow (CtaGlow) */
+  --sg-migrate-bg: #0b0b0b;
+  --sg-migrate-glow:
+    radial-gradient(ellipse 60% 70% at 25% 60%, rgba(65, 198, 166, 0.55), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 75% 30%, rgba(255, 122, 97, 0.45), transparent 60%),
+    radial-gradient(ellipse 45% 55% at 55% 95%, rgba(255, 178, 115, 0.35), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 12% 18%, rgba(140, 102, 217, 0.30), transparent 65%),
+    radial-gradient(ellipse 40% 50% at 88% 82%, rgba(20, 140, 165, 0.40), transparent 60%);
+}
+
+.sg-bg-migrate { background-color: var(--sg-migrate-bg); background-image: var(--sg-migrate-glow); }
+
+/* Optical slot — every logo gets the same horizontal slot, centered both axes */
+.sg-optical-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sg-optical-slot img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Same-width — fixed-width slot per cell, image centered & contained */
+.sg-cloud-same-width .sg-optical-slot {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 72px;
+}
+.sg-strip-same-width .sg-optical-slot {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 56px;
+}
+
+/* Optical — same-height baseline with subtle per-logo scaling via --optical-scale */
+.sg-cloud-optical .sg-cloud-bounds img {
+  height: calc(56px * var(--optical-scale, 1));
+}
+.sg-strip-optical .sg-strip-bounds img {
+  /* Smaller than same-height (36px) so the row fits at flex: 0 0 auto without
+     overflowing — space-between then distributes uniform gaps. */
+  height: calc(30px * var(--optical-scale, 1));
+}
+
+/* Optical strip — cells size to the logo's rendered width so that
+   justify-content: space-between distributes uniform gaps between every pair. */
+.sg-strip-optical .sg-strip-bounds {
+  flex: 0 0 auto;
+}
+
+/* Inline note explaining the optical pass — design system documentation */
+.sg-logo-note {
+  margin: 8px 0 20px;
+  padding: 16px 18px;
+  border-left: 2px solid var(--mint, #41c6a6);
+  background: rgba(65, 198, 166, 0.06);
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-mid, #555);
+  max-width: 760px;
+}
+.sg-logo-note-title {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text, #111);
+}
+.sg-logo-note p { margin: 0 0 8px; }
+.sg-logo-note p:last-child { margin-bottom: 0; }
+.sg-logo-note code {
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.sg-logo-note ul { margin: 4px 0 8px; padding-left: 18px; }
+.sg-logo-note li { margin-bottom: 2px; }
+
 @media (max-width: 720px) {
   .sg-section-head { flex-wrap: wrap; }
   .sg-section-head p { margin-left: 0; text-align: left; }
   .sg-pair { grid-template-columns: 1fr; }
   .sg-type { grid-template-columns: 1fr; }
   .sg-punch { grid-template-columns: 1fr; }
+  .sg-logo-grid { grid-template-columns: 1fr; }
+  .sg-logo-tile { padding: 56px; min-height: 200px; }
+  .sg-logo-bounds img { max-width: 220px; max-height: 80px; }
 }

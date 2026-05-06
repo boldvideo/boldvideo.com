@@ -31,6 +31,48 @@ export default function VsVimeoPage() {
           </p>
         </>
       }
+      quickCompare={[
+        {
+          feature: "Hosted video and playback",
+          competitor: true,
+          bold: true,
+        },
+        {
+          feature: "Polished, professional player",
+          competitor: true,
+          bold: true,
+        },
+        {
+          feature: "Concept-aware search across your library",
+          competitor: false,
+          bold: true,
+        },
+        {
+          feature: "Cited answers grounded in your own content",
+          competitor: false,
+          bold: true,
+        },
+        {
+          feature: "Question-based insight into what members are asking",
+          competitor: false,
+          bold: true,
+        },
+        {
+          feature: "Built around member retention, not just delivery",
+          competitor: false,
+          bold: true,
+        },
+        {
+          feature: "Per-seat / file-based pricing tiers",
+          competitor: true,
+          bold: false,
+        },
+        {
+          feature: "Personal migration handled by the team",
+          competitor: false,
+          bold: true,
+        },
+      ]}
       rows={[
         {
           category: "Primary job",
