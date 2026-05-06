@@ -165,6 +165,7 @@ export default function StyleguidePage() {
           <a href="#mark">Mark</a>
           <a href="#patterns">Patterns</a>
           <a href="#chrome">Chrome</a>
+          <a href="/styleguide/logos">Logo guide ↗</a>
         </div>
       </div>
 
@@ -978,6 +979,7 @@ export default function StyleguidePage() {
             page, including this one. Scroll to the end to see it.
           </p>
         </section>
+
       </div>
 
       {/* Render the actual footer once at the end */}

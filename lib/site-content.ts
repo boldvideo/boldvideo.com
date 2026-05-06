@@ -25,10 +25,11 @@ export const footerColumns = [
     ],
   },
   {
-    title: "Legal",
+    title: "Docs",
     links: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms", href: "/terms" },
+      { label: "Guides", href: "https://docs.boldvideo.com/guides" },
+      { label: "API", href: "https://docs.boldvideo.com/api" },
+      { label: "SDK", href: "https://docs.boldvideo.com/sdk" },
     ],
   },
   {
@@ -40,6 +41,14 @@ export const footerColumns = [
       },
       { label: "Twitter", href: "https://twitter.com/boldvid" },
       { label: "Email", href: "mailto:support@boldvideo.com" },
+    ],
+  },
+  {
+    title: "Compare",
+    links: [
+      { label: "Bold vs Kajabi", href: "/vs-kajabi" },
+      { label: "Bold vs Vimeo", href: "/vs-vimeo" },
+      { label: "Bold vs YouTube", href: "/vs-youtube" },
     ],
   },
 ];

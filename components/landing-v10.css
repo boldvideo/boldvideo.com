@@ -29,6 +29,11 @@
   --font: "Plus Jakarta Sans", system-ui, sans-serif;
   --mono: "DM Mono", monospace;
 
+  /* Logo optical-scale buckets — applied to migration strip + logo guide. */
+  --logo-scale-sm: 0.85;
+  --logo-scale-md: 1;
+  --logo-scale-lg: 1.15;
+
   /* Type scale + line heights live at :root in globals.css. */
 
   background: var(--bg);
@@ -1308,7 +1313,7 @@
 
 /* CTA */
 .landing-v10 .cta {
-  padding: 6rem 0;
+  padding: 3.5rem 0;
   text-align: center;
   color: white;
   overflow: hidden;
@@ -1329,18 +1334,19 @@
 .landing-v10 .cta h2 {
   color: white;
   margin: 0 auto 1rem;
-  max-width: 550px;
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  max-width: 680px;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   line-height: 1.15;
-  letter-spacing: var(--tr-heading);
+  letter-spacing: -0.025em;
   font-weight: 800;
+  text-wrap: balance;
 }
 .landing-v10 .cta p {
-  font-size: var(--fs-body);
-  color: rgba(255, 255, 255, 0.65);
-  max-width: 420px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 36rem;
   margin: 0 auto 2rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 .landing-v10 .btn-cta {
   display: inline-flex;
@@ -1360,6 +1366,137 @@
   box-shadow: 0 8px 30px rgba(255, 255, 255, 0.2);
 }
 
+/* Rich migration-block content inside the CTA — avatars, eyebrow, secondary
+   button, and the logo strip. Kept full-bleed; the migration block on /vs-*
+   pages uses a contained card. */
+.landing-v10 .cta-avatars {
+  list-style: none;
+  margin: 0 auto 1.5rem;
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+}
+.landing-v10 .cta-avatars li {
+  position: relative;
+  margin-left: -0.75rem;
+}
+.landing-v10 .cta-avatars li:first-child {
+  margin-left: 0;
+}
+.landing-v10 .cta-avatars img {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2.5px solid var(--bg-dark);
+  object-fit: cover;
+}
+/* Bumped to p.cta-eyebrow specificity so the .cta p font-size doesn't override. */
+.landing-v10 .cta p.cta-eyebrow {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 auto 0.75rem;
+  line-height: 1.4;
+  max-width: none;
+}
+.landing-v10 .cta-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.landing-v10 .btn-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-weight: 500;
+  font-size: var(--fs-body);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.landing-v10 .btn-cta-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.landing-v10 .cta-strip {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.landing-v10 .cta p.cta-strip-label {
+  font-family: var(--mono);
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto 1.25rem;
+  line-height: 1.4;
+  max-width: none;
+}
+/* Logo marquee — used by the homepage CTA strip and the /vs-* migration band.
+   Items scroll right-to-left, edges fade into the section background, and the
+   list is doubled in JSX so the loop is seamless. */
+.landing-v10 .logo-marquee {
+  overflow: hidden;
+  margin: 0 auto;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+.landing-v10 .logo-marquee-track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: max-content;
+  gap: 2.5rem;
+  animation: logo-marquee-scroll var(--logo-marquee-duration, 40s) linear
+    infinite;
+}
+.landing-v10 .logo-marquee-track li {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.landing-v10 .logo-marquee-track img {
+  width: auto;
+  opacity: 0.7;
+}
+@keyframes logo-marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-v10 .logo-marquee-track {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
+}
+
 /* Footer */
 .landing-v10 footer {
   background: var(--bg-dark);
@@ -1375,7 +1512,12 @@
   margin-bottom: 3rem;
 }
 .landing-v10 .footer-brand {
+  display: inline-block;
   margin-bottom: 1rem;
+  transition: opacity 0.15s;
+}
+.landing-v10 .footer-brand:hover {
+  opacity: 0.8;
 }
 .landing-v10 .footer-brand svg {
   display: block;
@@ -1574,7 +1716,8 @@
 .landing-v10 .btn-ghost,
 .landing-v10 .btn-ghost-dark,
 .landing-v10 .btn-gold,
-.landing-v10 .btn-cta {
+.landing-v10 .btn-cta,
+.landing-v10 .btn-cta-ghost {
   border-radius: 9999px;
 }
 
