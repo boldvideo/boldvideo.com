@@ -1,5 +1,6 @@
 import { ArrowIcon } from "./arrow-icon";
 import { CtaGlow } from "./cta-glow";
+import { LogoMarquee } from "./logo-marquee";
 import { migrationPlatforms } from "@/lib/platforms";
 
 const BOOKING_URL = "https://savvycal.com/marcel-from-bold/7838d613";
@@ -88,24 +89,7 @@ export function CtaSection({
         {migrationStrip && stripPlatforms.length > 0 ? (
           <div className="cta-strip">
             <p className="cta-strip-label">Bold migrates from</p>
-            <ul>
-              {stripPlatforms.map((platform) => (
-                <li key={platform.slug}>
-                  <img
-                    alt={`${platform.name} logo`}
-                    height={28}
-                    src={platform.flatLogoSrc ?? platform.logoSrc}
-                    style={{
-                      height: `calc(24px * var(--logo-scale-${platform.opticalSize ?? "md"}, 1))`,
-                      ...(platform.flatMaxWidth
-                        ? { maxWidth: platform.flatMaxWidth }
-                        : {}),
-                    }}
-                    width={120}
-                  />
-                </li>
-              ))}
-            </ul>
+            <LogoMarquee maxWidth="60%" platforms={stripPlatforms} />
           </div>
         ) : null}
       </div>

@@ -880,6 +880,7 @@ export function HomePage() {
           { src: "/images/rob.jpg", alt: "Rob" },
         ]}
         eyebrow="We handle the move"
+        description="See how Bold turns your video library into your hardest-working team member. Always on. Always accurate."
         buttonText="See how we handle the move"
         buttonHref="/migrate"
         buttonExternal={false}

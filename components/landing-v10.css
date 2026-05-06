@@ -1334,7 +1334,7 @@
 .landing-v10 .cta h2 {
   color: white;
   margin: 0 auto 1rem;
-  max-width: none;
+  max-width: 680px;
   font-size: clamp(1.8rem, 3.2vw, 2.6rem);
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -1441,23 +1441,60 @@
   line-height: 1.4;
   max-width: none;
 }
-.landing-v10 .cta-strip ul {
+/* Logo marquee — used by the homepage CTA strip and the /vs-* migration band.
+   Items scroll right-to-left, edges fade into the section background, and the
+   list is doubled in JSX so the loop is seamless. */
+.landing-v10 .logo-marquee {
+  overflow: hidden;
+  margin: 0 auto;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+.landing-v10 .logo-marquee-track {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
-  gap: 1.25rem 2.5rem;
+  width: max-content;
+  gap: 2.5rem;
+  animation: logo-marquee-scroll var(--logo-marquee-duration, 40s) linear
+    infinite;
 }
-.landing-v10 .cta-strip li {
+.landing-v10 .logo-marquee-track li {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
-.landing-v10 .cta-strip img {
+.landing-v10 .logo-marquee-track img {
   width: auto;
   opacity: 0.7;
+}
+@keyframes logo-marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-v10 .logo-marquee-track {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
 }
 
 /* Footer */
@@ -1475,7 +1512,12 @@
   margin-bottom: 3rem;
 }
 .landing-v10 .footer-brand {
+  display: inline-block;
   margin-bottom: 1rem;
+  transition: opacity 0.15s;
+}
+.landing-v10 .footer-brand:hover {
+  opacity: 0.8;
 }
 .landing-v10 .footer-brand svg {
   display: block;

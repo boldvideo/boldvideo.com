@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { CtaGlow } from "./cta-glow";
+import { LogoMarquee } from "./logo-marquee";
 import { SiteNav, SiteNavFooter } from "./site-nav";
 import { boldLogo, getPlatform, migrationPlatforms } from "@/lib/platforms";
 import "./landing-v10.css";
@@ -284,25 +285,9 @@ export function ComparisonPage({
               <p className="font-mono text-[12px] uppercase tracking-[0.1em] text-white/50">
                 Bold migrates from
               </p>
-              <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
-                {stripPlatforms.map((platform, i) => (
-                  <li key={`${platform.slug}-${i}`}>
-                    <img
-                      alt={`${platform.name} logo`}
-                      className="w-auto opacity-70"
-                      height={28}
-                      src={platform.flatLogoSrc ?? platform.logoSrc}
-                      style={{
-                        height: `calc(24px * var(--logo-scale-${platform.opticalSize ?? "md"}, 1))`,
-                        ...(platform.flatMaxWidth
-                          ? { maxWidth: platform.flatMaxWidth }
-                          : {}),
-                      }}
-                      width={120}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-5">
+                <LogoMarquee maxWidth="60%" platforms={stripPlatforms} />
+              </div>
             </div>
             </div>
           </div>

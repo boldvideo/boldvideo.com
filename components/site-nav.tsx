@@ -59,7 +59,11 @@ export function SiteNavFooter() {
       <div className="container">
         <div className="footer-top">
           <div>
-            <div className="footer-brand">
+            <Link
+              aria-label="Bold — Home"
+              className="footer-brand"
+              href="/"
+            >
               <svg width="100" height="28" viewBox="0 0 2446 670" fill="none">
                 <path
                   d="M1852.5076,670 L1852.5076,669.887695 C1852.5076,527.853176 1852.5076,314.801396 1852.5076,30.7323566 C1852.5076,30.7323566 1977.5565,14.8363101 2114.2625,14.8363101 C2390.85371,14.8363101 2445.96,207.708341 2445.96,379.385643 C2445.96,483.357525 2414.91214,594.306455 2343.80949,670 L1852.5076,670 Z"
@@ -78,7 +82,7 @@ export function SiteNavFooter() {
                   fill="white"
                 />
               </svg>
-            </div>
+            </Link>
             <p className="footer-tl">
               Video intelligence for coaching programs. Turn your library into
               an AI coach that cites the moment that matters.
@@ -96,7 +100,10 @@ export function SiteNavFooter() {
           ))}
         </div>
         <div className="footer-bot">
-          <span>&copy; {currentYear} Bold Video</span>
+          <span>
+            &copy; {currentYear}{" "}
+            <SiteLink href="/">Bold Video</SiteLink>
+          </span>
           <div>
             {footerMetaLinks.map((link) => (
               <SiteLink href={link.href} key={link.href}>
