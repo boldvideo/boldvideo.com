@@ -78,6 +78,19 @@ const FAQ_ITEMS = [
   },
 ];
 
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+
 export function MigrationPage() {
   const announcementRef = useRef<HTMLElement | null>(null);
 
@@ -102,6 +115,11 @@ export function MigrationPage() {
 
   return (
     <main className="landing-v10 migration-v11" id="main-content">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
       <div className="announce">
         <strong ref={announcementRef}>Growing out of Kajabi?</strong>
         <div className="sep" />
@@ -183,7 +201,7 @@ export function MigrationPage() {
                 <div className="sc-label">{story.category}</div>
               </div>
               <div className="sc-info migration-proof-copy">
-                <h4>{story.label}</h4>
+                <h3>{story.label}</h3>
                 <p>{story.detail}</p>
               </div>
             </a>

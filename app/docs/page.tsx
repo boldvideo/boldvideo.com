@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Docs",
   description:
     "Documentation for Bold Video — setup guides, API reference, and integration walkthroughs.",
+  alternates: { canonical: "/docs" },
 };
 
 export default function DocsPage() {

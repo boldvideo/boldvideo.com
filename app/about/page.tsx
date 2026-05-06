@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Bold turns video libraries into AI teaching assistants that know the curriculum, cite the source, and scale without hiring. Built by Marcel Fahle and Rob Hope.",
+  alternates: { canonical: "/about" },
 };
 
 const FOUNDERS = [

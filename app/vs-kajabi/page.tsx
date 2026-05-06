@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { ComparisonPage } from "@/components/comparison-page";
 
 export const metadata: Metadata = {
-  title: "Kajabi vs Bold",
+  title: { absolute: "Kajabi vs Bold — course platform vs. coaching layer" },
   description:
     "Kajabi built the all-in-one creator economy. Bold is built for coaching programs where revenue depends on whether students actually apply what they learn.",
+  alternates: { canonical: "/vs-kajabi" },
 };
 
 export default function VsKajabiPage() {

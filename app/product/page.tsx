@@ -38,9 +38,12 @@ function Cite({
 }
 
 export const metadata: Metadata = {
-  title: "Product",
+  title: {
+    absolute: "Bold Product — AI teaching assistant for video libraries",
+  },
   description:
     "Bold is a video intelligence layer. Upload your library and it turns into an AI teaching assistant members can talk to, with cited timestamps from your actual content.",
+  alternates: { canonical: "/product" },
 };
 
 export default function ProductPage() {
@@ -106,10 +109,14 @@ export default function ProductPage() {
             <div className="prod-hero-visual">
               <div className="hero-surface">
                 <div className="hero-video">
-                  <img
+                  <Image
                     className="hero-video-still"
                     src="/images/product-mocks/hero.jpg"
                     alt=""
+                    width={1376}
+                    height={768}
+                    priority
+                    sizes="(max-width: 900px) 100vw, 600px"
                   />
                   <div className="hero-scan" aria-hidden="true" />
                   <div className="hero-video-label">

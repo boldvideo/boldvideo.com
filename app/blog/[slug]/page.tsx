@@ -55,8 +55,39 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(slug);
   if (!post || post.draft) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: `https://www.boldvideo.com${post.image}`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Bold Video",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.boldvideo.com/images/logos/platforms/bold-flat-000.svg",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.boldvideo.com/blog/${post.slug}`,
+    },
+  };
+
   return (
     <main className="landing-v10" id="main-content">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="announce">
         <strong>Bold Blog</strong>
         <div className="sep" />
@@ -120,7 +151,7 @@ export default async function BlogPostPage({ params }: Props) {
           }}
         >
           <Image
-            alt=""
+            alt={post.title}
             height={1258}
             priority
             src={post.image}

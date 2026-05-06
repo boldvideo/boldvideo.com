@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { ComparisonPage } from "@/components/comparison-page";
 
 export const metadata: Metadata = {
-  title: "YouTube vs Bold",
+  title: { absolute: "YouTube vs Bold — which fits your coaching program" },
   description:
     "Compare YouTube and Bold. YouTube is great for reach, but Bold gives paying members instant, cited support from your video library.",
+  alternates: { canonical: "/vs-youtube" },
 };
 
 export default function VsYouTubePage() {

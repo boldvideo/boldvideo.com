@@ -536,7 +536,7 @@ export function HomePage() {
               <div className="sc-label">Healthcare</div>
             </div>
             <div className="sc-info">
-              <h4>HRT University</h4>
+              <h3>HRT University</h3>
               <p>97+ clinical lessons powered by Bold AI</p>
             </div>
           </a>
@@ -555,7 +555,7 @@ export function HomePage() {
               <div className="sc-label">SaaS coaching</div>
             </div>
             <div className="sc-info">
-              <h4>FounderWell</h4>
+              <h3>FounderWell</h3>
               <p>SaaS growth coaching program</p>
             </div>
           </a>
@@ -574,7 +574,7 @@ export function HomePage() {
               <div className="sc-label">Financial education</div>
             </div>
             <div className="sc-info">
-              <h4>Viva Tuition</h4>
+              <h3>Viva Tuition</h3>
               <p>ACCA training academy</p>
             </div>
           </a>

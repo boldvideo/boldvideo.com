@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "Insights on video intelligence, coaching programs, and building better learning experiences.",
+  alternates: { canonical: "/blog" },
 };
 
 function formatDate(dateStr: string) {

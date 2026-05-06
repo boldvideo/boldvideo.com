@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { ComparisonPage } from "@/components/comparison-page";
 
 export const metadata: Metadata = {
-  title: "Vimeo vs Bold",
+  title: { absolute: "Vimeo vs Bold — hosting vs. video intelligence" },
   description:
     "Compare Vimeo and Bold. Vimeo is polished video infrastructure, but Bold is built for coaching businesses that need discoverability and support at scale.",
+  alternates: { canonical: "/vs-vimeo" },
 };
 
 export default function VsVimeoPage() {

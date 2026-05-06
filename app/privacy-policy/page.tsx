@@ -8,6 +8,7 @@ export function generateMetadata(): Metadata {
   return {
     title: document.title,
     description: document.description,
+    alternates: { canonical: "/privacy-policy" },
   };
 }
 

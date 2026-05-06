@@ -580,7 +580,7 @@
 .landing-v10 .sc-info {
   padding: 14px 16px;
 }
-.landing-v10 .sc-info h4 {
+.landing-v10 .sc-info h3 {
   font-size: var(--fs-body);
   font-weight: 700;
   letter-spacing: var(--tr-tight);
